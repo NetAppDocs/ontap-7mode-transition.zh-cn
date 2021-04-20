@@ -1,0 +1,115 @@
+---
+permalink: san-host/task_mounting_solaris_host_luns_with_sun_volume_manager_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, mount, solaris, host, lun, volume, manager 
+summary: 使用 Solaris 卷管理器将 Solaris 主机 LUN 从 7- 模式 ONTAP 过渡到集群模式 ONTAP 后，必须挂载 LUN 。 
+---
+= 过渡后使用 Solaris Volume Manager 挂载 Solaris 主机 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 Solaris 卷管理器将 Solaris 主机 LUN 从 7- 模式 ONTAP 过渡到集群模式 ONTAP 后，必须挂载 LUN 。
+
+对于基于副本的过渡，请在 7- 模式过渡工具（ 7MTT ）中完成存储转换操作后执行以下步骤。
+
+对于无副本过渡，请在 7MTT 中的导入数据和配置操作完成后执行以下步骤。
+
+.步骤
+. 重新扫描主机以发现新的集群模式 ONTAP LUN 。
++
+.. 确定 FC 主机端口（类型为 fc-fabric ）： + ` * #cfgadm _ – l_*`
+.. 取消配置第一个 fc-fabric 端口： + ` * #cfgadm – c unconfigure _c1_*`
+.. 取消配置第二个 fc-fabric 端口： + ` * #cfgadm – c unconfigure _c2_*`
+.. 对其他光纤通道端口重复上述步骤。
+.. 验证主机端口及其连接的设备： + ` * # cfgadm _ – al_*`
+.. 重新加载驱动程序： + ` * # devfsadm – CV*`
++
+` * # devfsadm – i iSCSI*`
+
+
+
+. 验证是否已发现集群模式 ONTAP LUN ：
++
+` * sanlun lun show*`
+
++
+** 过渡前，集群模式 ONTAP LUN 的 `lun-pathname` 值应与 7- 模式 LUN 的 `lun-pathname` 值相同。
+** `mode` 列应显示 "`C` " ，而不是 "`7` " 。
+
+
++
+[listing]
+----
+# sanlun lun show
+controller(7mode)/                    device                                            host                  lun
+vserver(Cmode)       lun-pathname     filename                                          adapter    protocol   size    mode
+--------------------------------------------------------------------------------------------------------------------------
+vs_sru17_5           /vol/zfs/zfs2    /dev/rdsk/c5t600A0980383030444D2B466542485935d0s2 scsi_vhci0 FCP        6g      C
+vs_sru17_5           /vol/zfs/zfs1    /dev/rdsk/c5t600A0980383030444D2B466542485934d0s2 scsi_vhci0 FCP        6g      C
+vs_sru17_5           /vol/ufs/ufs2    /dev/rdsk/c5t600A0980383030444D2B466542485937d0s2 scsi_vhci0 FCP        5g      C
+vs_sru17_5           /vol/ufs/ufs1    /dev/rdsk/c5t600A0980383030444D2B466542485936d0s2 scsi_vhci0 FCP        5g      C
+----
+. 使用相同的磁盘集名称将磁盘集导入到现有 Solaris Volume Manager 配置中：
++
+` * metaimport -s _set-name_*`
+
++
+[listing]
+----
+# metaimport -s svm
+Drives in regular diskset including disk c0t60A98000383035356C2447384D39654Ad0:
+  c0t60A98000383035356C2447384D39654Ad0
+  c0t60A98000383035356C2447384D396548d0
+More info:
+  metaimport -r -v c0t60A98000383035356C2447384D39654Ad0
+
+# metastat -s svm
+svm/d2: Concat/Stripe
+    Size: 10452992 blocks (5.0 GB)
+    Stripe 0:
+        Device                                             Start Block  Dbase   Reloc
+        /dev/dsk/c0t60A98000383035356C2447384D396548d0s0          0     No      Yes
+
+svm/d1: Concat/Stripe
+    Size: 10452992 blocks (5.0 GB)
+    Stripe 0:
+        Device                                             Start Block  Dbase   Reloc
+        /dev/dsk/c0t60A98000383035356C2447384D39654Ad0s0          0     No      Yes
+
+Device Relocation Information:
+Device                                           Reloc  Device ID
+/dev/dsk/c0t60A98000383035356C2447384D396548d0   Yes    id1,sd@n60a98000383035356c2447384d396548
+/dev/dsk/c0t60A98000383035356C2447384D39654Ad0   Yes    id1,sd@n60a98000383035356c2447384d39654a
+----
+. 运行文件系统检查：
++
+` * fsck -F UFS /dev/mD/svm/rdsk/d1*`
+
++
+[listing]
+----
+# fsck -F ufs /dev/md/svm/rdsk/d1
+** /dev/md/svm/rdsk/d1
+** Last Mounted on /d1
+** Phase 1 - Check Blocks and Sizes
+** Phase 2 - Check Pathnames
+** Phase 3a - Check Connectivity
+** Phase 3b - Verify Shadows/ACLs
+** Phase 4 - Check Reference Counts
+** Phase 5 - Check Cylinder Groups
+3 files, 1573649 used, 3568109 free (13 frags, 446012 blocks, 0.0% fragmentation)
+----
+. 使用 `mount` 命令手动挂载每个设备。
++
+[listing]
+----
+# /sbin/mount -F ufs -o largefiles /dev/md/svm/dsk/d1  /d1
+  # /sbin/mount -F ufs -o largefiles /dev/md/svm/dsk/d2  /d2
+----
+. 验证挂载点：
++
+` * df -ah*`
+
+

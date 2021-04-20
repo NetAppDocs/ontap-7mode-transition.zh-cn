@@ -1,0 +1,69 @@
+---
+permalink: copy-free/task_expanding_an_aggregate_to_64_bit_format_without_adding_storage.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, expanding, aggregate, 64, bit 
+summary: 如果您的系统包含 32 位聚合，则在过渡到 Data ONTAP 8.3 或更高版本之前，必须在 7- 模式系统上将其扩展到 64 位格式，因为这些版本的 Data ONTAP 不支持 32 位格式。 
+---
+= 将聚合扩展为 64 位格式
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您的系统包含 32 位聚合，则必须在过渡到 Data ONTAP 8.3 或更高版本之前的 7- 模式系统上将其扩展到 64 位格式，因为这些版本的 Data ONTAP 不支持 32 位格式。
+
+* 如果聚合包含与 32 位源卷建立的 SnapMirror 关系的目标卷，则必须先扩展包含源卷的聚合，然后再扩展包含目标卷的聚合。
+
+
+对于 SnapMirror 关系中的卷，目标卷会在镜像完好无损的情况下继承源卷的格式。如果要扩展的聚合包含源卷为 32 位卷的目标卷，并且在扩展聚合之前中断了镜像，则目标卷将扩展为 64 位格式。但是，如果重新建立镜像，并且源卷仍为 32 位，则目标卷将恢复为 32 位格式。因此，如果要将聚合中的所有 32 位卷扩展为 64 位格式，则必须先扩展包含源卷的聚合，然后再重新建立 SnapMirror 关系。
+
+.步骤
+. 进入高级权限模式：
++
+` * priv set advanced*`
+
+. 启动扩展：
++
+` * aggr 64bit-upgrade start _aggr_name_*`
+
+. 执行相应的操作：
++
+|===
+| 如果命令 ... | 那么 ... 
+
+
+ a| 
+已成功启动
+ a| 
+继续执行下一步。
+
+
+
+ a| 
+表示一个或多个卷无法扩展 因为他们没有足够的空间
+ a| 
+添加 `grow-all` 选项后重试此命令。
+
+
+
+ a| 
+表示部分扩展无法完成 其他原因
+ a| 
+根据错误消息中所述的问题描述执行相应的操作。
+
+|===
+. 显示扩展的状态：
++
+` * aggr 64bit-upgrade status _aggr_name_*`
+
++
+此时将显示扩展的当前状态。如果此消息指示没有正在进行的升级，则表示扩展已完成。
+
+. 确认聚合中的所有卷均为 64 位格式：
++
+` * aggr 64bit-upgrade status _aggr_name_ -all*`
+
+. 返回到管理权限模式： ` *priv set admin*`
+
+
+聚合扩展为 64 位格式。但是，即使所有卷均已扩展，也可能会保留一些 32 位 Snapshot 副本。如果源卷中存在 32 位 Snapshot 副本，则无法升级或过渡到 Data ONTAP 8.3 或更高版本。

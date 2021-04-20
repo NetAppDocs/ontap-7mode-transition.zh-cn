@@ -1,0 +1,96 @@
+---
+permalink: copy-free/task_preparing_cluster_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, cluster, prepare 
+summary: 过渡之前，您必须准备好集群以与 7- 模式过渡工具通信，并准备要过渡的 SVM 。您可以过渡到具有数据聚合的目标 HA 对。 
+---
+= 准备集群以进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡之前，您必须准备好集群以与 7- 模式过渡工具通信，并准备要过渡的 SVM 。您可以过渡到具有数据聚合的目标 HA 对。
+
+* 必须已设置集群，并且目标集群节点必须加入集群。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["软件设置"]
+
+* 必须创建 SVM 并将其分配给 IP 空间。
+* 您可以将 7- 模式磁盘架过渡到具有已有数据聚合和卷的目标 HA 对。
++
+对于双节点集群，您必须拥有一个数据聚合来托管目标 SVM 的根卷。对于具有四个或更多节点的集群， SVM 的根卷可以托管在过渡的目标节点上，也可以托管在集群中的其他节点上。
+
+
+
+过渡期间，不应将集群升级到其他 ONTAP 版本。
+
+
+NOTE: 如果需要，您可以将集群升级到相同 ONTAP 版本的修补程序版本。
+
+. 从管理主机中，使用集群管理 LIF 验证集群是否可访问：
++
+` * ssh _username@cluster_mgmt_IP_*`
+
+. 在集群上启用 SSLv3 或 FIPS ：
++
+|===
+| 如果要启用 ... | 输入 ... 
+
+
+ a| 
+SSLv3
+ a| 
+` * 系统服务 Web 修改 -sslv3-enabled true*`
+
+
+
+ a| 
+FIPS 140-2 合规性
+ a| 
+` * 系统服务 Web 修改 -ssl-fips-enabled true*`
+
+|===
++
+启用 FIPS 140-2 合规性后， SSLv3 将被禁用。启用 FIPS 140-2 合规性后， ONTAP 会阻止您启用 SSLv3 。如果启用 FIPS 140-2 后又将其禁用， SSLv3 将保持禁用状态。
+
++
+
+IMPORTANT: 最佳做法是，由于 SSLv3 中存在安全漏洞，启用 FIPS 。
+
+. 验证集群管理 LIF 是否允许使用 HTTPS ：
++
+.. 查看集群管理 LIF 的防火墙策略： + ` * network interface show -vserver _svm_name_ -lif _cluster_mgmt_lif_ -fields firewall-policy*`
++
+[listing]
+----
+cluster1::> network interface show -vserver cluster1 -lif cluster_mgmt -fields firewall-policy
+vserver lif          firewall-policy
+------- ------------ ---------------
+cluster1  cluster_mgmt mgmt
+----
+.. 验证与集群管理 LIF 关联的防火墙策略是否允许 HTTPS 访问： + ` * 系统服务防火墙策略 show -policy mgmt*`
++
+[listing]
+----
+cluster1::> system services firewall policy show -policy mgmt
+Policy           Service    Action IP-List
+---------------- ---------- ------ --------------------
+mgmt
+                 dns        allow  0.0.0.0/0, ::/0
+                 http       allow  0.0.0.0/0, ::/0
+                 https      allow  0.0.0.0/0, ::/0
+                 ndmp       allow  0.0.0.0/0, ::/0
+                 ntp        allow  0.0.0.0/0, ::/0
+                 rsh        deny   0.0.0.0/0, ::/0
+                 snmp       allow  0.0.0.0/0, ::/0
+                 ssh        allow  0.0.0.0/0, ::/0
+                 telnet     deny   0.0.0.0/0, ::/0
+9 entries were displayed.
+----
+
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
+
+

@@ -1,0 +1,37 @@
+---
+permalink: copy-based/task_pausing_and_resuming_a_subproject.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, pause, resume, project 
+summary: 您可以暂停和恢复已启动数据复制的项目。 
+---
+= 暂停和恢复项目
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以暂停和恢复已启动数据复制的项目。
+
+暂停主项目时，只会暂停从 7- 模式主卷到相应集群模式 Data ONTAP 主卷的复制操作。从 7- 模式主卷到 ONTAP 二级卷的数据复制将继续按计划运行。这样可以确保主卷持续获得数据保护。
+
+. 从信息板中，选择要暂停的项目。
+. 单击 * 暂停 * 。
++
+项目中所有卷的数据复制操作将停止。
+
++
+如果卷的基线传输正在进行中，并且没有为 SnapMirror 关系创建 Snapshot 副本检查点，则会忽略该卷的暂停操作。等待创建 Snapshot 副本检查点，然后再次运行暂停操作。
+
+. 单击 * 恢复 * 。
++
+复制操作将从暂停的位置恢复。
+
++
+
+NOTE: 此时将根据可用的活动计划恢复数据复制操作。
+
+
+
+* 相关信息 *
+
+xref:task_starting_baseline_data_copy.adoc[正在启动基线数据复制]

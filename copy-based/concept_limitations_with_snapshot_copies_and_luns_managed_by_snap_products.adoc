@@ -1,0 +1,59 @@
+---
+permalink: copy-based/concept_limitations_with_snapshot_copies_and_luns_managed_by_snap_products.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, limitations, snapshot, lun, snapdrive, snapmanager 
+summary: 过渡到集群模式 Data ONTAP 8.3 时，过渡后的 7- 模式 Snapshot 副本上的 SnapDrive 和 SnapManager 备份验证和还原操作将失败。过渡到集群模式 Data ONTAP 8.3.1 时，对过渡后的 7- 模式 Snapshot 副本执行 SnapManager for Microsoft Exchange Server \ （ SME ）备份验证和 SnapManager for Hyper-V \ （ SMHV\ ）文件还原操作失败。 
+---
+= 由 SnapDrive 管理的 LUN 的 7- 模式 Snapshot 副本的限制 和 SnapManager
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡到集群模式 Data ONTAP 8.3 时，过渡后的 7- 模式 Snapshot 副本上的 SnapDrive 和 SnapManager 备份验证和还原操作将失败。过渡到集群模式 Data ONTAP 8.3.1 时，对过渡后的 7- 模式 Snapshot 副本执行 SnapManager for Microsoft Exchange Server （ SME ）备份验证和 SnapManager for Hyper-V （ SMHV ）还原操作会失败。
+
+根据连接到 7- 模式系统的主机上使用的 SnapDrive 或 SnapManager 以及集群上运行的 Data ONTAP 版本， 7- 模式过渡工具会在预检期间显示有关此限制的警告消息。
+
+
+NOTE: 集群模式 Data ONTAP 中新创建的任何 Snapshot 副本均支持所有 SnapDrive 和 SnapManager 备份验证和还原操作。
+
+
+
+== 临时解决策，用于使用 SnapDrive 和 SnapManager 执行备份和还原操作 在集群模式 Data ONTAP 8.3 中
+
+执行以下操作之一：
+
+* 保留 7- 模式系统，直到 7- 模式 Snapshot 副本过期。
++
+您可以使用 7- 模式系统从 7- 模式 Snapshot 副本中的 LUN 还原文件，然后根据需要将其迁移到集群模式 Data ONTAP 。
+
+* 在 ONTAP 中使用单个文件 SnapRestore 将 LUN 从 7- 模式 Snapshot 副本还原到活动文件系统，然后挂载还原的 LUN 以进行单个文件还原。
+
+
+
+
+== 使用 SME 和 SMHV 执行备份和还原操作的临时解决策 在 ONTAP 8.3.1 及更高版本支持的版本中
+
+执行以下操作之一：
+
+* 在对 ONTAP 执行存储转换之前，请验证在 7- 模式下创建的 SnapManager 备份是否有效。
+* 从过渡后的 7- 模式 Snapshot 副本在 ONTAP 中创建卷的克隆，然后将 LUN 挂载到克隆的卷上以执行备份验证和还原操作。
+
+
+最佳做法是，在 7- 模式 Snapshot 副本过期之前保留 7- 模式系统。
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30034["NetApp 文档：适用于 Microsoft Exchange Server 的 SnapManager"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30055["NetApp 文档： SnapManager for Hyper-V"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30037["NetApp 文档： SnapManager for SAP"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30040["NetApp 文档： SnapManager for Oracle"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30050["NetApp 文档： SnapDrive for UNIX"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30049["NetApp 文档： SnapDrive for Windows （当前版本）"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30041["NetApp 文档：适用于 Microsoft SQL Server 的 SnapManager"]
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30036["NetApp 文档：适用于 Microsoft SharePoint 的 SnapManager"]

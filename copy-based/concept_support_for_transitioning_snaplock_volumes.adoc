@@ -1,0 +1,15 @@
+---
+permalink: copy-based/concept_support_for_transitioning_snaplock_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, support, snaplock, volumes 
+summary: 7- 模式过渡工具支持将 SnapLock 卷过渡到运行除 9.6 以外的任何 ONTAP 9.0 版本的目标集群。 
+---
+= 支持过渡 SnapLock 卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7- 模式过渡工具支持将 SnapLock 卷过渡到运行除 9.6 以外的任何 ONTAP 9.0 版本的目标集群。
+
+支持将 SnapLock 企业卷和 SnapLock 合规卷过渡到运行除 9.6 以外的任何 ONTAP 版本的目标集群。但是，不支持将 SnapLock Compliance 卷过渡到 MetroCluster 配置中的目标集群。

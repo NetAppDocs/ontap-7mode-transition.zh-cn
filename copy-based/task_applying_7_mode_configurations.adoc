@@ -1,0 +1,125 @@
+---
+permalink: copy-based/task_applying_7_mode_configurations.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, apply, 7, mode, configuration 
+summary: 基线数据复制完成后，您可以将 7- 模式系统中的所有配置（包括协议和服务配置）复制并应用到 ONTAP 卷。如果目标集群运行的是 ONTAP 8.3.2 及更高版本支持的任何版本，则此阶段将过渡 SAN 配置。 
+---
+= 应用 7- 模式配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+基线数据复制完成后，您可以将 7- 模式系统中的所有配置（包括协议和服务配置）复制并应用到 ONTAP 卷。如果目标集群运行的是 ONTAP 8.3.2 及更高版本支持的任何版本，则此阶段将过渡 SAN 配置。
+
+如果要过渡 SAN 卷，则必须为集群中的每个节点至少创建一个使用适当协议（ iSCSI 或 FC ）的数据 LIF 。
+
+* 这些配置将应用于应用配置（预转换）阶段，该阶段有两种模式：预转换只读模式和预转换读 / 写模式。
+
+
+如果项目包含以下内容，则不支持预转换读 / 写模式：
+
+* SAN 卷和目标集群运行的是 Data ONTAP 8.3.1 或更早版本。在这种情况下，以下配置不会在预转换阶段应用，而是会在转换阶段应用：
++
+** SAN 配置
+** Snapshot 计划配置
+
+
+* SnapLock 合规性卷。
++
+如果项目包含 SnapLock Compliance 卷，则不会在预转换阶段应用 Snapshot 计划配置，而是会在转换阶段应用这些配置。
+
++
+请参见 xref:concept_considerations_for_transitioning_of_snaplock_compliance_volumes.adoc[过渡 SnapLock Compliance 卷的注意事项]。
+
+
+
+.步骤
+. 从信息板中，选择项目。
+. 应用配置：
++
+|===
+| 要应用所有配置的位置 | 那么 ... 
+
+
+ a| 
+只读模式
+ a| 
+单击 * 应用配置 * 。
+
+
+
+ a| 
+读 / 写模式
+ a| 
+.. 选中 * 测试模式 * 复选框。
+.. 单击 * 应用配置 * 。
++
+ONTAP 卷将变为读 / 写卷，您可以测试配置和数据访问操作。
+
+.. 在应用配置（预转换）对话框中选择 * 在测试模式下应用配置 * 。
+
+
+|===
+. 选中 * 自定义此操作的并发 SnapMirror 传输数和限制 * 复选框以指定 SnapMirror 数据复制操作数和限制：
++
+.. 输入要在过渡期间运行的并发 SnapMirror 传输的最大数量。
+.. 输入可用于 SnapMirror 传输的可用流的百分比。
++
+默认情况下，该工具会使用 50% 的可用卷 SnapMirror 传输。
+
+.. 输入限制或选择 * 最大 * 以使用最大带宽。
++
+默认情况下，该工具会对配置过渡使用最大限制。
+
+
+
+. 选中 * 过渡 Kerberos 配置 * 复选框可为过渡提供基于 UNIX 或基于 Microsoft AD 的 Kerberos 服务器配置详细信息。
++
+
+NOTE: 只有在源 7- 模式存储系统上配置了 Kerberos 时，才会启用此选项。
+
++
+.. 输入 Kerberos 服务器详细信息，例如主机名， IP 地址，用户名和密码。
++
+
+NOTE: 要过渡 Kerberos 配置，必须在项目中至少过渡一个 LIF ，并且 LIF 必须可解析为主机名。
+
+
+
+. 单击 * 继续 * 。
++
+此时将显示操作进度对话框，并启动复制配置操作。
+
+. 如果在读 / 写模式下执行配置过渡，请在测试和验证配置完成后单击 * 完成测试 * 。
++
+此模式只能用于测试目的。在测试模式下，写入集群中要迁移的卷上的所有数据都将丢失。
+
++
+该工具将重新建立 SnapMirror 关系并重新同步（根据该项目当时的活动计划） ONTAP 卷。写入 7- 模式的所有数据都会与 ONTAP 卷重新同步。
+
++
+
+NOTE: 要成功重新同步， 7- 模式卷和集群模式 Data ONTAP 卷之间必须存在一个通用 Snapshot 副本。您不应手动删除通用 Snapshot 副本；否则，重新同步将失败。
+
+
+
+7- 模式 IP 地址保持正常运行。可以通过以下方式在 Storage Virtual Machine （ SVM ）上配置 LIF ：
+
+* 在管理关闭状态下创建现有的 7- 模式 IP 地址。
++
+在存储转换期间，这些 IP 地址将从 7- 模式系统中删除，相应的 Storage Virtual Machine （ SVM ） LIF 将置于管理启动状态。如果选择预转换读 / 写模式，则必须使用其他 LIF 来访问要迁移到集群的卷。
+
+* 在管理启动状态下创建新的 IP 地址。
++
+如果选择预转换读 / 写模式，则可以使用这些 LIF 测试对集群中迁移的卷的访问。
+
+
+
+* 相关信息 *
+
+xref:task_managing_logical_interfaces.adoc[管理逻辑接口]
+
+xref:concept_considerations_for_quotas.adoc[配额注意事项]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_v2.0%2F%2FTransitioned_Data_ONTAP_features["7MTT v2.0/Transitioned Data ONTAP 功能"]

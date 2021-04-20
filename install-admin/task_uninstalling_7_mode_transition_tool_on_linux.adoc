@@ -1,0 +1,49 @@
+---
+permalink: install-admin/task_uninstalling_7_mode_transition_tool_on_linux.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, uninstall, transition, tool, linux 
+summary: 您可以使用命令行界面在 Linux 上卸载 7- 模式过渡工具。 
+---
+= 在 Linux 上卸载 7- 模式过渡工具
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用命令行界面在 Linux 上卸载 7- 模式过渡工具。
+
+* 您必须已完成所有进行中的过渡。
++
+
+IMPORTANT: 安装较新版本的工具或重新安装相同版本的工具不允许访问由已卸载实例启动的过渡操作。
+
+* 如果 7- 模式过渡工具正在运行，则必须将其停止。
+
+
+在卸载过程中，不会删除 JRE 。
+
+.步骤
+. 从提取 7- 模式过渡工具的位置运行以下命令，以卸载 7- 模式过渡工具：
++
+` * 。 / 取消配置 *`
+
+. 删除 7- 模式过渡工具目录：
++
+.. ` * cd .*`
+.. ` * rm -RF NetApp_7ModeTransitionTool*`
+
+
+
+
+
+
+== 示例
+
+[listing]
+----
+
+bash-4.2# cd /root/Downloads/extracted_folder/NetApp_7ModeTransitionTool
+bash-4.2# ./unconfigure
+bash-4.2# cd ..
+bash-4.2# rm -rf NetApp_7ModeTransitionTool
+----

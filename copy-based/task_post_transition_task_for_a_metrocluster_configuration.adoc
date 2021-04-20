@@ -1,0 +1,23 @@
+---
+permalink: copy-based/task_post_transition_task_for_a_metrocluster_configuration.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, cron, job, schedules, metrocluster, remote, configuration 
+summary: 过渡期间创建的 cron 作业计划不会复制到远程站点，因此过渡后协商切换将失败。过渡后，您必须在远程站点上手动创建 cron 作业计划。 
+---
+= 过渡后在远程站点上配置 cron 作业计划 MetroCluster 配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡期间创建的 cron 作业计划不会复制到远程站点，因此过渡后协商切换将失败。过渡后，您必须在远程站点上手动创建 cron 作业计划。
+
+必须已成功完成 7- 模式活动站点的存储转换。
+
+.步骤
+. 记录存储转换时生成的 cron 作业消息，以确定必须复制到远程站点的作业计划。
++
+image::../media/mcc_cron_jobs.gif[MCC cron 作业]
+
+. 从远程站点的集群 CLI 中，运行中记录的 `job schedule cron create` 命令 <<STEP_F72D5FA759564336A365328A3414D57A,第 1 步>>。
+

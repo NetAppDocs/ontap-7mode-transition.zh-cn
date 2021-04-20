@@ -1,0 +1,39 @@
+---
+permalink: copy-based/task_performing_post_transition_tasks.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, perform, manual, post, tasks 
+summary: 成功完成存储转换并完成过渡后，您必须先执行一些过渡后任务来配置未过渡的功能，然后再启用客户端对 ONTAP 卷的访问。 
+---
+= 执行手动过渡后任务
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+成功完成存储转换并完成过渡后，您必须先执行一些过渡后任务来配置未过渡的功能，然后再启用客户端对 ONTAP 卷的访问。
+
+.步骤
+. 手动：执行所需步骤以配置未过渡的功能，如预检报告中所示。
++
+例如，过渡后必须手动配置 IPv6 和 FPolicy 。
+
+. 删除或整合已过渡的配置。
++
+7- 模式过渡工具会为从 7- 模式过渡的所有配置创建一个新实例。因此，可能需要手动整合或删除某些配置的多个实例，例如 cron 计划。
+
+. SAN 过渡：手动重新配置主机。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 主机过渡和修复"]
+
+. 通过验证以下内容，确保 SVM 已准备好向客户端提供数据：
++
+** SVM 上的卷处于联机状态并为读 / 写状态。
+** SVM 上的 IP 地址已启动，可从名称服务器访问。
+
+
+. 将客户端访问重定向到 ONTAP 卷。
+
+
+* 相关信息 *
+
+http://docs.netapp.com/ontap-9/index.jsp["NetApp 文档： ONTAP 9"]

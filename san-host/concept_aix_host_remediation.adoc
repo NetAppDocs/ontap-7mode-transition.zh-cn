@@ -1,0 +1,13 @@
+---
+permalink: san-host/concept_aix_host_remediation.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, aix, host, remediation 
+summary: 如果在 SAN 环境中使用 7- 模式过渡工具（ 7MTT\ ）从 7- 模式 Data ONTAP 迁移到集群模式 Data ONTAP ，则必须在过渡前后在 AIX 主机上执行一系列步骤，以避免过渡复杂化。 
+---
+= AIX 主机修复
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在 SAN 环境中使用 7- 模式过渡工具（ 7MTT ）从 7- 模式 Data ONTAP 迁移到集群模式 Data ONTAP ，则必须在过渡前后在 AIX 主机上执行一系列步骤，以避免过渡复杂化。

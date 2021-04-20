@@ -1,0 +1,53 @@
+---
+permalink: snapmirror/task_preparing_7_mode_system_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, prepare, system, snapmirror 
+summary: 开始过渡之前，您必须在 7- 模式系统上完成某些任务，例如添加 SnapMirror 许可证和 7- 模式系统以与目标集群通信。 
+---
+= 准备 7- 模式系统以进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+开始过渡之前，您必须在 7- 模式系统上完成某些任务，例如添加 SnapMirror 许可证和 7- 模式系统以与目标集群通信。
+
+要过渡的所有 7- 模式卷都必须联机。
+
+.步骤
+. 在 7- 模式系统上添加并启用 SnapMirror 许可证：
++
+.. 在 7- 模式系统上添加 SnapMirror 许可证：
++
+` * 许可证添加 _license_code_*`
+
++
+` license_code_cr` 是您购买的许可证代码。
+
+.. 启用 SnapMirror 功能：
++
+` * 选项 snapmirror.enable on*`
+
+
+
+. 通过选择以下选项之一，配置 7- 模式系统和目标集群以彼此通信：
++
+** 将 `snapmirror.access` 选项设置为 all 。
+** 将 `snapmirror.access` 选项的值设置为集群上所有 LIF 的 IP 地址。
+** 如果 `snapmirror.access` 选项为 `legacy` 而 `snapmirror.checkip.enable` 选项为 `off` ，请将 SVM 名称添加到 ` /etc/snapmirror.allow` 文件中。
+** 如果 `snapmirror.access` 选项为 `legacy` 而 `snapmirror.checkip.enable` 选项为 `on` ，请将 LIF 的 IP 地址添加到 ` /etc/snapmirror.allow` 文件中。
+
+
+. 根据 7- 模式系统的 Data ONTAP 版本，执行以下步骤：
++
+.. 允许所有接口上的 SnapMirror 流量：
++
+` * options interface.blocked.snapmirror ""*`
+
+.. 如果您运行的是 Data ONTAP 7.3.7 ， 8.0.3 或 8.1 版，并且使用 e0M 接口的 IP 地址作为管理 IP 地址来与 7- 模式过渡工具进行交互，请允许在 e0M 接口上传输数据流量：
++
+` * options interface.blocked.mgmt_data_traffic off*`
+
+
+
+

@@ -1,0 +1,32 @@
+---
+permalink: copy-free/concept_when_to_revert_and_when_to_call_technical_support_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, roll, back, transition, technical, support 
+summary: 在对测试或实验室集群执行回滚时，您可以在不提供帮助的情况下进行回滚，但是，如果在过渡期间或过渡之后遇到问题，或者您要回滚在生产集群上执行的过渡，则必须联系技术支持。 
+---
+= 何时回滚过渡以及何时调用 技术支持
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在对测试或实验室集群执行回滚时，您可以在不提供帮助的情况下进行回滚，但是，如果在过渡期间或过渡之后遇到问题，或者您要回滚在生产集群上执行的过渡，则必须联系技术支持。
+
+
+IMPORTANT: 如果没有技术支持的协助，您不应尝试在生产环境中回滚过渡。
+
+如果遇到以下任何情况，请立即联系技术支持：
+
+* 过渡过程失败，无法完成，您不确定下一步要执行什么操作。
+* 过渡过程完成，但集群在生产环境中不可用。
+* 过渡过程完成，集群投入生产，但您对其行为不满意。
+* 对于部分数据和配置，过渡过程完成，但并非全部数据和配置完成，您决定回滚过渡。
+* 过渡过程存在问题，无法通过 7- 模式过渡工具， Data ONTAP EMS 事件消息和 NetApp 知识库中的错误响应消息解决此问题。
++
+https://kb.netapp.com/["NetApp 知识库"]
+
+
+
+* 相关信息 *
+
+xref:task_collecting_tool_logs.adoc[下载过渡日志文件]

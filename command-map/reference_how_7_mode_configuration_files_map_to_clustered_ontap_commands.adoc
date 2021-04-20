@@ -1,0 +1,123 @@
+---
+permalink: command-map/reference_how_7_mode_configuration_files_map_to_clustered_ontap_commands.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, configuration, files, clustered, data, ontap 
+summary: 在以 7- 模式运行的 Data ONTAP 中，您通常使用平面文件来配置存储系统。在集群模式 Data ONTAP 中，您可以使用配置命令。您需要了解 7- 模式配置文件如何映射到集群模式 Data ONTAP 配置命令。 
+---
+= 7- 模式配置文件如何映射到集群模式 Data ONTAP 命令
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在以 7- 模式运行的 Data ONTAP 中，您通常使用平面文件来配置存储系统。在集群模式 Data ONTAP 中，您可以使用配置命令。您需要了解 7- 模式配置文件如何映射到集群模式 Data ONTAP 配置命令。
+
+|===
+| 7- 模式配置文件 | 集群模式 Data ONTAP 配置命令 
+
+
+ a| 
+` /etc/cifs_homedir.cfg`
+ a| 
+`vserver cifs home-directory search-path`
+
+
+
+ a| 
+` /etc/exports`
+ a| 
+`vserver export-policy`
+
+
+
+ a| 
+` /etc/hosts`
+ a| 
+`Vserver services dns hosts`
+
+
+
+ a| 
+` /etc/hosts.equiv`
+ a| 
+不适用。
+
+`ssecurity login` 命令可创建用户访问配置文件。
+
+
+
+ a| 
+` /etc/messages`
+ a| 
+`事件日志显示`
+
+
+
+ a| 
+` /etc/motd`
+ a| 
+`ssecurity login motd modify`
+
+
+
+ a| 
+` /etc/nsswitch.conf`
+ a| 
+`vserver modify`
+
+
+
+ a| 
+` /etc/rc`
+ a| 
+在集群模式 Data ONTAP 中，在启动时处理的节点配置信息保留将传输到保留配置信息的其他内部文件。
+
+在以 7- 模式运行的 Data ONTAP 中，在内存中配置的功能也会保留在 ` /etc/rc` 文件中，以便在启动时重放并重新配置。
+
+
+
+ a| 
+` /etc/quotas`
+ a| 
+`卷配额`
+
+
+
+ a| 
+` /etc/resolv.conf`
+ a| 
+`Vserver services dns modify`
+
+
+
+ a| 
+` /etc/snapmirror.allow`
+ a| 
+两个集群之间存在集群间关系。
+
+同一集群上的两个节点之间存在集群内关系。远程集群在创建集群对等关系期间进行身份验证。
+
+集群内 `snapmirror create` 命令只能由集群管理员执行，以强制实施每个 Storage Virtual Machine （ SVM ）的安全性。
+
+
+
+ a| 
+` /etc/snapmirror.conf`
+ a| 
+`snapmirror create`
+
+
+
+ a| 
+` /etc/symlink.translations`
+ a| 
+`Vserver cifs symlink`
+
+
+
+ a| 
+` /etc/usermap.cfg`
+ a| 
+`vserver name-mapping create`
+
+|===

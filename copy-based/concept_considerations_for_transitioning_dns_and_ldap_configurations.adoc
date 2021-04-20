@@ -1,0 +1,48 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_dns_and_ldap_configurations.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, dns, nis, loap, configurations 
+summary: 您应了解如何过渡在 7- 模式下运行的 Data ONTAP 中的 DNS ， NIS 和 LDAP 配置并将其应用到 ONTAP 中。 
+---
+= 过渡 DNS ， NIS 和 LDAP 配置的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您应了解如何过渡在 7- 模式下运行的 Data ONTAP 中的 DNS ， NIS 和 LDAP 配置并将其应用到 ONTAP 中。
+
+
+
+== DNS 过渡注意事项
+
+对于 DNS 配置， ONTAP 最多支持每个 SVM 使用 6 个域名和 3 个名称服务器。如果 7- 模式系统和目标 SVM 之间的唯一域名或名称服务器数量超过支持的限制，则 7- 模式过渡工具会报告阻止错误。要继续过渡，您应忽略该工具中的 DNS 配置过渡。
+
+
+NOTE: 如果忽略了 DNS 配置的过渡，则必须在目标 SVM 上手动配置 DNS 。
+
+
+
+== NIS 过渡注意事项
+
+* 7- 模式系统上的 NIS 域名长度不得超过 64 个字符。
+* 要过渡到运行 ONTAP 9.1 或更早版本的目标集群版本， 7- 模式系统上的 `nis.servers` 选项必须仅配置 IP 地址，而不是完全限定域名（ FQDN ）。
++
+如果要过渡到运行 ONTAP 9.1 或更早版本的集群，则过渡前必须使用 IP 地址在 7- 模式系统上配置 `nis.servers` 选项。如果在配置了 FQDN 的 7- 模式系统上使用 `nis.servers` 选项，并且要过渡到运行 9.2 到 9.5 之间的任何 ONTAP 版本的集群，则支持过渡。
+
+
+
+
+
+== LDAP 过渡注意事项
+
+* 如果为 ldap.base ， `ldap.base.passwd` ， `ldap.base.group` 或 `ldap.base.netgroup` 选项设置了多个基本值和范围值，并且要过渡到集群模式 Data ONTAP 8.2 或 8.2.1 ，则每个选项只过渡一个值。
++
+过渡后，这些选项可能会出现查找问题。过渡后，必须手动添加基本值和范围值。
+
+* 如果为 `ldap.base` ， `ldap.base.passwd` ， `ldap.base.group` 或 `ldap.base.netgroup` 选项设置了多个范围值，并且要过渡到集群模式 Data ONTAP 8.2.2 ，则每个选项只过渡一个值。
+* 如果为 7- 模式系统中的用户映射（`ldap.usermap.base` ）和用户密码（`ldap.base.passwd` ）查找指定了单独的基本值和范围值，则仅过渡用户密码的基本值和范围值。
++
+基本值和范围值用于 ONTAP 中的用户映射和用户密码查找，这可能会导致发生原因安全问题。过渡后，如果需要，必须手动将用于用户映射的基本值和范围值添加到 ONTAP 中的用户可分辨名称（ User Distinguished Name ， DN ）选项中。
+
+

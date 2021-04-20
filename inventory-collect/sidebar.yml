@@ -1,0 +1,28 @@
+---
+section: inventory-collect
+title: "《主机和存储信息收集指南》"
+url: "/inventory-collect/index.html"
+entries:
+- title: 收集存储和主机清单信息
+  url: "/inventory-collect/concept_collecting_host_and_storage_inventory_information_for_transition_assessment.html"
+  entries:
+  - title: 7- 模式过渡工具支持的 ONTAP 目标版本
+    url: "/inventory-collect/concept_ontap_target_releases_supported_by_7mtt.html"
+  - title: 运行清单收集工具的系统要求
+    url: "/inventory-collect/concept_system_requirements_for_running_ict.html"
+  - title: 收集清单时的存储，主机和 FC 交换机版本要求
+    url: "/inventory-collect/concept_storage_and_host_version_requirements.html"
+  - title: 准备 7- 模式系统和主机以进行清单收集
+    url: "/inventory-collect/task_preparing_7_mode_systems_for_inventory_collection.html"
+  - title: 支持用于生成 FC 分区计划的配置
+    url: "/inventory-collect/concept_supported_configurations_for_generating_an_fc_zone_plan.html"
+  - title: 语法和选项
+    url: "/inventory-collect/reference_syntax_and_options.html"
+  - title: 收集清单并生成清单报告
+    url: "/inventory-collect/task_collecting_inventory_and_generating_inventory_report.html"
+  - title: 正在生成 FC 分区计划
+    url: "/inventory-collect/task_generating_fc_zone_plan.html"
+  - title: 收集和评估命令
+    url: "/inventory-collect/reference_collection_and_assessment_commands.html"
+  - title: 从何处查找有关过渡评估的信息
+    url: "/inventory-collect/concept_where_to_find_information_about_transition_assessment.html"

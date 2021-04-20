@@ -1,0 +1,61 @@
+---
+permalink: copy-based/task_completing_a_transition_project.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, complete, project 
+summary: 您可以通过完成各个项目来完成过渡。由于此操作会造成中断，因此您应评估何时运行它。过渡 SnapMirror 关系中的卷时，必须先完成二级项目，然后再完成主项目的过渡。 
+---
+= 完成过渡项目
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过完成各个项目来完成过渡。由于此操作会造成中断，因此您应评估何时运行它。过渡 SnapMirror 关系中的卷时，必须先完成二级项目，然后再完成主项目的过渡。
+
+存储转换只需几分钟即可完成。客户端重新挂载数据所需的时间因情况而异。存储转换或中断窗口的时间取决于以下因素：
+
+* 最后更新
++
+数据的最终更新取决于自上次更新以来源数据的更改量。增量传输可最大限度地减少转换期间必须传输的数据量。
+
+* 重新连接客户端
++
+如果需要更新每个客户端才能连接到集群，则必须更新的客户端数量将决定转换时间。
+
+
+
+中断仅适用于正在迁移的卷。您无需关闭整个源 7- 模式存储系统。源系统上未迁移的卷可以保持联机并可访问。
+
+. 从迁移信息板中，选择要完成的项目。
+. 手动断开客户端访问。
+. 单击 * 完成过渡 * 。
++
+.. 如果要在过渡后使 7- 模式源卷保持联机，请清除 * 过渡后使源卷脱机 * 复选框。
++
+默认情况下，此选项处于选中状态，并且源卷将脱机。
+
+.. 如果您已选择 SnapLock 卷进行监管链验证，请选中 * 我了解在监管链验证期间不能使 7- 模式 SnapLock 卷脱机 * 复选框，以便在过渡后使 SnapLock 卷保持联机。
+.. 如果您已选择在运行 ONTAP 9.3 或更高版本支持的集群之间过渡 SnapMirror 关系，请选中 * 我了解必须手动将 SnapMirror 关系类型从 data_protection 转换为 extended_data_protection* 复选框。
+.. 选中 * 自定义此操作的并发 SnapMirror 传输数和限制 * 复选框以指定 SnapMirror 数据复制操作数和限制。
+.. 单击 * 继续 * 。
+
+
++
+此时将显示转换操作的结果。
+
+
+
+从 7- 模式存储系统中取消配置为过渡选择的 7- 模式 IP 地址，并在转换进入管理启动状态之前创建关联的 LIF 。7- 模式卷已脱机。
+
+在集群中，运行 vserver check lif-multitenancy run 命令，以验证是否可使用过渡后的 LIF 访问名称服务器。
+
+
+NOTE: 如果您创建了新的 LIF ，则必须在完成所有项目后使用新的 IP 地址和端口将过渡后的卷的用户和应用程序重新映射到驱动器。
+
+如果您已完成在运行 ONTAP 9.3 或更高版本支持的集群之间过渡 SnapMirror 关系，则必须将 SnapMirror 关系从类型 DP 转换为类型 XDP 。
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["数据保护"]
+
+* 相关信息 *
+
+xref:concept_guidelines_for_deciding_when_to_cutover.adoc[确定何时执行转换的准则]

@@ -1,0 +1,23 @@
+---
+permalink: copy-based/reference_cannot_select_a_secondary_volume_from_volume_selection_pane.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, select, secondary, volume, pan, selection 
+summary: 如果二级卷未联机或 SnapMirror 关系已中断，则无法从卷选择窗格中选择二级卷并将其作为卷 SnapMirror 关系进行过渡。 
+---
+= 无法从卷选择窗格中选择二级卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果二级卷未联机或 SnapMirror 关系已中断，则无法从卷选择窗格中选择二级卷并将其作为卷 SnapMirror 关系进行过渡。
+
+
+
+== 临时解决策
+
+使用 ONTAP 命令行执行以下任一解决方法：
+
+* 如果二级卷处于脱机状态，请将其置于联机状态。
+* 如果 SnapMirror 关系已断开，请予以修复。
+

@@ -1,0 +1,79 @@
+---
+permalink: snapmirror/task_preparing_cluster_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, prepare, transition, cluster, requirements 
+summary: 过渡 7- 模式系统之前，您必须设置集群，并确保集群满足设置 LIF 和验证过渡所需的网络连接等要求。 
+---
+= 准备集群以进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡 7- 模式系统之前，您必须设置集群，并确保集群满足设置 LIF 和验证过渡所需的网络连接等要求。
+
+* 必须已设置集群和 SVM 。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["软件设置"]
+
++
+目标 SVM 不能处于 SVM 灾难恢复关系中。
+
+* 集群必须可使用集群管理 LIF 进行访问。
+* 集群必须运行状况良好，并且所有节点都不能处于接管模式。
+* 要包含过渡后的卷的目标聚合必须具有 SFO 策略。
+* 聚合必须位于尚未达到卷上限的节点上。
+* 要在过渡卷 SnapMirror 关系时建立 SVM 对等关系，必须满足以下条件：
++
+** 二级集群不应具有与主 SVM 同名的 SVM 。
+** 主集群的 SVM 不应与二级 SVM 同名。
+** 源 7- 模式系统的名称不应与任何已建立对等关系的本地 SVM 或 SVM 冲突。
+
+
+
+
+您可以在集群的每个节点上设置默认 IP 空间或集群间 LIF 中的本地 LIF ，以便在集群和 7- 模式系统之间进行通信。如果已设置本地 LIF ，则不必设置集群间 LIF 。如果同时设置了集群间 LIF 和本地 LIF ，则首选本地 LIF 。
+
+. 在集群的每个节点上创建一个集群间 LIF ，以便在集群和 7- 模式系统之间进行通信：
++
+.. 创建集群间 LIF ：
++
+` * 网络接口 create -vserver _svm_name_ -lif _intercluster_lif_ -role intercluster -home-node _home_node_-home-port _home_port_ -address _ip_address_ -netmask _netmask_*`
+
++
+[listing]
+----
+cluster1::> network interface create -vserver cluster1-01 -lif intercluster_lif -role intercluster -home-node cluster1-01 -home-port e0c -address 192.0.2.130 -netmask 255.255.255.0
+----
+.. 为集群间 LIF 创建静态路由：
++
+` * 网络路由创建 -vserver _svm_name_ -destination _ip_address/mask_ -gateway _ip_address_*`
+
++
+[listing]
+----
+cluster1::> network route create -vserver vs0 -destination 0.0.0.0/0 -gateway 10.61.208.1
+----
+.. 验证是否可以使用集群间 LIF 对 7- 模式系统执行 ping 操作：
++
+` * network ping -lif _intercluster_lif_ -vserver _svm_name_ -destination _remote_inetaddress_*`
+
++
+[listing]
+----
+cluster1::> network ping -lif intercluster_lif -vserver cluster1 -destination system7mode
+system7mode is alive
+----
+
+
+
+
+对于多路径，每个节点上必须有两个集群间 LIF 。
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]
+
+* 相关信息 *
+
+xref:task_creating_a_transition_peering_relationship.adoc[创建过渡对等关系]
+
+https://mysupport.netapp.com/site/docs-and-kb["NetApp 文档：产品库 A-Z"]

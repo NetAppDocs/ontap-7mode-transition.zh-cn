@@ -1,0 +1,37 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_unix_users_and_groups.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, netgroups, unix, user, groups 
+summary: 只有当 7- 模式 /etc/netgroup 文件小于 5 MB 时，才会过渡网络组配置。只有当 SVM 上的 UNIX 用户和组总数不超过 ONTAP 中用户和组的限制时，才会过渡 UNIX 用户和组。 
+---
+= 过渡网络组以及 UNIX 用户和组的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+只有当 7- 模式 ` /etc/netgroup` 文件小于 5 MB 时，才会过渡网络组配置。只有当 SVM 上的 UNIX 用户和组总数不超过 ONTAP 中用户和组的限制时，才会过渡 UNIX 用户和组。
+
+
+
+== 网络组注意事项
+
+如果 7- 模式上的 ` /etc/netgroup` 文件大于 5 MB ，则不会过渡网络组配置。要继续过渡，必须执行以下操作之一：
+
+* 排除网络组的过渡。
+* 过渡前，将网络组配置移动到 NIS 或 LDAP 服务器。
+
+
+
+
+== UNIX 用户和组的注意事项
+
+如果过渡的 UNIX 用户和组总数超过 ONTAP 中 UNIX 用户和组的限制， 7- 模式过渡工具将阻止过渡。要继续过渡，必须执行以下操作之一：
+
+* 排除 UNIX 用户和组的过渡。
+* 过渡前，将 UNIX 用户和组移动到 NIS 或 LDAP 服务器。
+
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]

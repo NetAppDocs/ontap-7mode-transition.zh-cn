@@ -1,0 +1,47 @@
+---
+permalink: copy-based/task_aborting_a_subproject.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, abort, project 
+summary: 例如，当控制器或集群的性能受到影响时，您可能需要中止正在运行的项目。您可以从信息板中止正在运行的项目。 
+---
+= 中止项目
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+例如，当控制器或集群的性能受到影响时，您可能需要中止正在运行的项目。您可以从信息板中止正在运行的项目。
+
+在中止过渡具有 SnapMirror 关系的卷的项目之前，必须考虑以下事项：
+
+* 如果两个项目均已启动，中止一个项目将中止关联的项目。
++
+例如，如果中止主项目，则二级项目也会中止。
+
+* 如果当前项目的中止操作失败，则不会中止关联的项目。
+* 如果仅中止一个活动项目，则对关联项目的启动操作将失败。
+* 中止主项目时，从 7- 模式主卷到 ONTAP 二级卷的复制操作不会中止。
++
+仅中止从 7- 模式主卷到相应 ONTAP 主卷的复制操作。
+
+
+
+
+NOTE: 如果中止了 7- 模式项目，则唯一的选择是删除该项目。中止项目后，无法恢复或重新启动该项目。
+
+.步骤
+. 从信息板中，选择要中止的项目。
+. 单击 * 中止 * 。
+. 从集群中，删除在过渡过程中创建的 ONTAP 卷。
+. 在 7- 模式系统中，将 SnapMirror 关系释放到 ONTAP 卷。
+. 如果中止卷 SnapMirror 关系，则必须执行以下操作：
++
+.. 中断并删除 7- 模式主卷与 ONTAP 二级卷之间的 SnapMirror 关系。
+.. 在主 7- 模式系统中，将 SnapMirror 关系释放到 ONTAP 二级卷。
+
+
+
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 命令"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1511537["Data ONTAP 8.2 命令：《 7- 模式手册页参考》，卷 1"]

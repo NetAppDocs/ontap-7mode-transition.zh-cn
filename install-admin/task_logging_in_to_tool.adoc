@@ -1,0 +1,65 @@
+---
+permalink: install-admin/task_logging_in_to_tool.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, login, transition, tool 
+summary: 您可以使用安装了 7- 模式过渡工具的 Windows 系统的凭据登录到此工具（ Web 界面）。要登录的操作步骤因用户凭据类型而异。 
+---
+= 登录到 7- 模式过渡工具
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用安装了 7- 模式过渡工具的 Windows 系统的凭据登录到此工具（ Web 界面）。要登录的操作步骤因用户凭据类型而异。
+
+不允许来宾用户登录到此工具。
+
+.步骤
+. 导航到登录页面：
++
+|===
+| 如果您是 ... | 那么 ... 
+
+
+ a| 
+是管理员组和成员的用户 如果要访问此工具（ Web 界面） 从安装了该软件的服务器
+ a| 
+双击桌面上的 7- 模式过渡工具图标。
+
+
+
+ a| 
+是管理员组和成员的用户 如果尚未安装此工具
+ a| 
+使用支持的浏览器导航到以下 URL 之一：
+
+** `https://_IP_address:port_/transition`
+** `http://_IP_address:port_/transition` ` ip_address_` 是服务器的 IP 地址， ` port_` 可以是 8443 （默认），即为 ` tool.https.port_` 指定的值，或 8088 ，即为 ` transition-tool.conf` 文件中的 ` tool.http.port_` 参数指定的值。
+
+
+
+
+ a| 
+是管理员组和成员的用户 如果要访问此工具（ Web 界面） 从另一台计算机
+ a| 
+使用支持的浏览器导航到以下 URL 之一：
+
+** `https://_IP_address:port_/transition`
+** `http://_IP_address:port_/transition` ` ip_address_` 是服务器的 IP 地址，端口可以是 8443 （默认），即为 ` tool.https.port_` 指定的值，或 8088 ，即为 ` transition-tool.conf` 文件中的 ` tool.http.port_` 参数指定的值。
+
+
+
+
+ a| 
+不是管理员组成员的用户 如果要访问此工具（ Web 界面） 从安装了它的服务器或 从另一台计算机
+ a| 
+使用支持的浏览器导航到以下 URL 之一：
+
+** `https://_IP_address:port_/transition`
+** `http://_IP_address:port_/transition` ` ip_address_` 是服务器的 IP 地址，端口可以是 8443 （默认），即为 ` tool.https.port_` 指定的值，或 8088 ，即为 ` transition-tool.conf` 文件中的 ` tool.http.port_` 参数指定的值。
+
+
+|===
+. 如果浏览器显示有关自签名 SSL 证书的消息，请接受自签名证书以继续。
+. 使用安装了该工具的 Windows 系统的凭据登录到 Web 界面。
+

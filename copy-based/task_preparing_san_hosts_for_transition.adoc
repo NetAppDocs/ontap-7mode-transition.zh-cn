@@ -1,0 +1,28 @@
+---
+permalink: copy-based/task_preparing_san_hosts_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, san, host 
+summary: 过渡 SAN 环境之前，您必须执行一些手动步骤来准备要过渡的 SAN 主机。 
+---
+= 准备 SAN 主机以进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡 SAN 环境之前，您必须执行一些手动步骤来准备要过渡的 SAN 主机。
+
+您必须已使用清单收集工具为 SAN 主机生成清单工作簿。
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-ict-icg/home.html["主机和存储过渡信息收集"]
+
+.步骤
+. 验证主机是否支持过渡。
++
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
+. 在主机上执行过渡前步骤。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 主机过渡和修复"]
+
+

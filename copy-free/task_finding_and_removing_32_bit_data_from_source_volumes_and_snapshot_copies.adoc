@@ -1,0 +1,83 @@
+---
+permalink: copy-free/task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, find, remove, volumes, snapshot, copy 
+summary: 即使您已将所有聚合扩展为 64 位格式，也可以保留某些 32 位或混合格式的 FlexVol 卷或 Snapshot 副本。必须先删除这些卷和 Snapshot 副本，然后运行 Data ONTAP 8.3 或更高版本的集群才能访问您的数据。 
+---
+= 查找和删除 32 位卷和 Snapshot 副本
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+即使您已将所有聚合扩展为 64 位格式，也可以保留某些 32 位或混合格式的 FlexVol 卷或 Snapshot 副本。必须先删除这些卷和 Snapshot 副本，然后运行 Data ONTAP 8.3 或更高版本的集群才能访问您的数据。
+
+* 您必须已将系统上的所有 32 位聚合扩展到 64 位格式。
+
+
+您必须对包含 32 位卷和 Snapshot 副本的每个聚合重复此任务中的步骤。
+
+.步骤
+. 进入高级模式：
++
+` * priv set advanced*`
+
+. 显示聚合中所有卷的格式：
++
+` * aggr 64bit-upgrade status _aggr_name_ -all*`
+
++
+聚合中的每个卷都会按其格式显示。
+
+. 对于每个 32 位或混合格式的卷，确定卷未扩展到 64 位格式的原因，然后采取相应的措施。
++
+如果无法确定卷未扩展的原因，请重试聚合扩展。
+
++
+|===
+| 如果卷 ... | 那么 ... 
+
+
+ a| 
+是 SnapMirror 关系的目标
+ a| 
+将包含源卷的聚合扩展为 64 位格式。
+
+
+
+ a| 
+是只读卷（但不是 SnapMirror 目标）
+ a| 
+使卷可写并重试扩展，或者销毁此卷。
+
+
+
+ a| 
+未扩展，因为中的可用空间不足 卷或聚合
+ a| 
+增加卷或聚合中的可用空间，然后重试扩展。
+
+|===
++
+聚合中的所有 32 位和混合格式卷现在都是 64 位卷。您可以通过重复上一步来确认此操作。
+
+. 显示系统上所有 Snapshot 副本的格式：
++
+` * snap list -fs-block-format*`
+
+. 使用 snap delete 命令删除 32 位 Snapshot 副本。
++
+
+IMPORTANT: 此操作将删除 Snapshot 副本中的数据。在删除 Snapshot 副本之前，必须确保不需要保留这些副本。或者，您也可以等待 32 位 Snapshot 副本过期。所需时间取决于 Snapshot 副本计划。
+
++
+如果 Snapshot 副本是 FlexClone 卷的基本 Snapshot 副本，则必须先将 FlexClone 卷从其父卷拆分，然后才能删除 Snapshot 副本。
+
++
+删除所有 32 位 Snapshot 副本。您可以通过重复上一步来确认此操作。
+
+. 返回到管理权限级别：
++
+` * priv set admin*`
+
+

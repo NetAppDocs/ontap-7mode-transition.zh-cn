@@ -1,0 +1,34 @@
+---
+permalink: copy-based/task_completing_chain_of_custody_verification.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, complete, chain, custody, verification 
+summary: 如果为监管链验证选择了一个或多个 SnapLock 卷，则必须执行监管链操作以生成监管链报告。 
+---
+= 完成监管链验证
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果为监管链验证选择了一个或多个 SnapLock 卷，则必须执行监管链操作以生成监管链报告。
+
+您必须已完成项目过渡。
+
+对于文件名仅包含 ASCII 字符的卷，支持 SnapLock 监管链操作。
+
+. 在迁移信息板中，单击 * 启动监管链 * 。
++
+如果要在监管链验证后使 7- 模式 SnapLock 卷保持联机，则应清除 * 在监管链验证操作完成后使为监管链验证选择的 7- 模式 SnapLock 卷脱机 * 复选框。
+
+. 单击 * 继续 * 。
++
+此时将启动监管链验证操作。根据 SnapLock 卷上的文件数量，此操作可能需要大量时间。您可以单击 * 在后台运行 * 在后台执行此操作。
+
++
+您可以通过单击迁移信息板窗口中的 SnapLock 链选项卡来跟踪监管链验证操作的进度。此选项卡会显示监管链操作的每个卷进度。
+
+. 监管链操作完成后，单击 SnapLock 监管链选项卡中的 * 下载报告 * 以下载监管链验证报告。
++
+监管链验证报告包含有关 SnapLock 监管链验证是否成功的详细信息。此报告显示为监管链操作选择的每个 7- 模式 SnapLock 卷中的总文件数和非 WORM 文件数。您还可以验证指纹匹配和不匹配的文件数。此报告还会显示监管链验证失败的 WORM 文件数量以及失败原因。
+
+

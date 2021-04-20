@@ -1,0 +1,51 @@
+---
+permalink: copy-based/task_configuring_zones_by_using_fc_zone_plan.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, configure, zone, fc, zone, plan 
+summary: 过渡 SAN FC 环境之前，您必须使用 FC 分区规划器对启动程序主机和目标进行分组来配置分区。 
+---
+= 使用 FC 分区计划配置分区
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡 SAN FC 环境之前，您必须使用 FC 分区规划器对启动程序主机和目标进行分组来配置分区。
+
+* 集群和启动程序主机必须连接到交换机。
+* FC 分区脚本文件必须可访问。
+
+
+.步骤
+. 如果 7- 模式系统上的 igroup 配置发生任何更改，请修改并重新生成 FC 分区计划。
++
+xref:task_generating_an_assessment_report_by_adding_systems_to_7mtt.adoc[通过向 7- 模式添加系统来生成评估报告 过渡工具]
+
+. 登录到交换机的命令行界面。
+. 一次复制并执行一个所需的分区命令。
++
+以下示例将在交换机上运行 zone 命令：
+
++
+[listing]
+----
+switch1:admin>config terminal
+# Enable NPIV feature
+feature npiv
+zone name auto_transition_igroup_d31_194bf3 vsan 10
+member pwwn 21:00:00:c0:dd:19:4b:f3
+member pwwn 20:07:00:a0:98:32:99:07
+member pwwn 20:09:00:a0:98:32:99:07
+.......
+.......
+.......
+copy running-config startup-config
+----
+. 使用测试启动程序主机验证从集群进行的数据访问。
+. 验证完成后，请执行以下步骤：
++
+.. 断开测试启动程序主机的连接。
+.. 删除分区配置。
+
+
+

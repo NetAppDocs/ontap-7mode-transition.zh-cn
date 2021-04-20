@@ -1,0 +1,27 @@
+---
+permalink: san-host/task_rolling_back_clustered_ontap_luns_back_to_7_mode_on_windows_hosts.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, windows, hosts 
+summary: 如果从 7- 模式 Data ONTAP 过渡后 ONTAP LUN 的性能未达到预期，则可以在 Windows 主机上从 ONTAP 回滚到 7- 模式 LUN 。 
+---
+= 将 ONTAP LUN 回滚到 Windows 主机上的 7- 模式 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果从 7- 模式 Data ONTAP 过渡后 ONTAP LUN 的性能未达到预期，则可以在 Windows 主机上从 ONTAP 回滚到 7- 模式 LUN 。
+
+必须将 7- 模式 LUN 重新映射到主机。
+
+.步骤
+. 使用 Hyper-V Manager 关闭 LUN 上运行的所有虚拟机（ VM ）。
+. 使用 Windows 磁盘管理器使 LUN 脱机。
+. 使用集群磁盘管理器使集群磁盘脱机。
+. 关闭主机。
+. 还原到在 7- 模式下运行的 Data ONTAP 。
+. 启动主机。
+. 使用 Windows 磁盘管理器使 7- 模式 LUN 联机。
+. 使用集群磁盘管理器使集群磁盘联机。
+. 使用 Hyper-V Manager 使虚拟机联机。
+

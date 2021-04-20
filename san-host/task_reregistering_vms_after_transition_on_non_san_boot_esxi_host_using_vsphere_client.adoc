@@ -1,0 +1,35 @@
+---
+permalink: san-host/task_reregistering_vms_after_transition_on_non_san_boot_esxi_host_using_vsphere_client.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, vm, esxi, vsphere, client 
+summary: 过渡非 SAN 启动的主机后，必须重新注册虚拟机（ VM\ ）。 
+---
+= 过渡后使用在非 SAN 启动 ESXi 主机上重新注册 VM vSphere 客户端
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡非 SAN 启动的主机后，必须重新注册虚拟机（ VM ）。
+
+主机必须处于联机状态，并且必须发现 LUN 。
+
+* 对于基于副本的过渡，请在 7- 模式过渡工具中启动存储转换操作之前执行以下步骤。
+* 对于无副本过渡，请在 7MTT 中启动导出并暂停 7- 模式系统操作之前执行以下步骤。
+
+
+.步骤
+. 打开清单收集工具（ ICT ）生成的清单评估工作簿。
+. 导航到主机 VM 选项卡，然后记录虚拟机的 * 虚拟机配置文件 * 路径和 * 位置 / 数据存储库名称 * 。
+. 使用 vSphere Client 登录到 ESXi 主机或管理 ESXi 主机的 vCenter Server 。
+. 在 * 主机和集群 * 下，选择 ESXi 主机。
+. 导航到 * 配置 * > * 硬件 * > * 存储 * 。
+. 选择具有先前记下的数据存储库名称的数据存储库。
+. 右键单击并选择 * 浏览数据存储库 * 。
++
+此时将打开数据存储库浏览器窗口。
+
+. 导航到先前记下的 * 虚拟机配置文件 * 路径。
+. 右键单击 ` .vmx `文件，然后选择 * 添加到清单 * 。
+. 对 ICT 生成的清单评估工作簿 _ 中的 * 主机 VM* 选项卡中列出的每个 VM 重复上述步骤。
+

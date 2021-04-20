@@ -1,0 +1,50 @@
+---
+permalink: san-host/task_mounting_aix_host_luns_with_file_systems_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, mount, aix, host, lun, file, system 
+summary: 将具有文件系统的 AIX 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，必须挂载 LUN 。 
+---
+= 过渡后挂载具有文件系统的 AIX 主机数据 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将具有文件系统的 AIX 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，必须挂载 LUN 。
+
+过渡 LUN 后，逻辑卷管理器（ LVM ）属性（例如逻辑卷名称和卷组名称）不会发生更改。您可以继续使用过渡前逻辑卷名称和卷组名称进行过渡后配置。
+
+对于基于副本的过渡，请在 7- 模式过渡工具中完成存储转换操作后执行以下步骤。AIX 主机不支持无副本过渡。
+
+.步骤
+. 发现新的集群模式 Data ONTAP LUN ：
++
+` * cfgmgr*`
+
+. 验证是否已发现集群模式 Data ONTAP LUN ：
++
+` * sanlun lun show*`
+
++
+应列出集群模式 Data ONTAP LUN ，并且 mode 列中的输出应从 7 更改为 C
+
+. 导入卷组：
++
+` * importvg -y _vg_name pv_name_*`
+
++
+您可以使用卷组中的任何物理卷名称。
+
+. 验证是否已导入卷组：
++
+` * lsvg _vg_name_*`
+
+. 挂载每个设备：
++
+` * 挂载 -o log=/dev/loglv00 _file_system mount_point_*`
+
+. 验证挂载点：
++
+` * df*`
+
+

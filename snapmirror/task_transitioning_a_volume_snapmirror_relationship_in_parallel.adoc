@@ -1,0 +1,59 @@
+---
+permalink: snapmirror/task_transitioning_a_volume_snapmirror_relationship_in_parallel.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, snapmirror, volume, relationship, parallel 
+summary: 您可以在同一转换窗口中并行过渡 7- 模式 SnapMirror 关系中的主卷和二级卷。过渡后，必须在 ONTAP 集群中手动设置卷 SnapMirror 关系。您必须使用此方法过渡 SnapLock Compliance 卷。 
+---
+= 并行过渡卷 SnapMirror 关系
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在同一转换窗口中并行过渡 7- 模式 SnapMirror 关系中的主卷和二级卷。过渡后，必须在 ONTAP 集群中手动设置卷 SnapMirror 关系。您必须使用此方法过渡 SnapLock Compliance 卷。
+
+* 您必须已设置主集群和二级集群以及 SVM 。
+* 要在过渡卷 SnapMirror 关系时建立 SVM 对等关系，必须满足以下条件：
++
+** 二级集群不应具有与主 SVM 同名的 SVM 。
+** 主集群的 SVM 不应与二级 SVM 同名。
+** 您必须已查看有关过渡准备的信息。
++
+xref:task_preparing_for_transition.adoc[为过渡做准备]
+
+
+
+
+
+SnapLock Compliance 卷之间的 7- 模式 SnapMirror 关系必须并行过渡，因为不支持将过渡数据保护（ TDP ）关系重新同步到 SnapLock Compliance 卷。因此，您不能在 7- 模式主卷与具有 SnapLock Compliance 卷的 ONTAP 二级卷之间建立 SnapMirror 灾难恢复（ DR ）关系。
+
+. 按照过渡独立卷的步骤过渡 SnapMirror 关系中的二级卷和主卷。
++
+过渡 7- 模式二级卷之前，无需手动干预 7- 模式 SnapMirror 关系。这样可以确保 7- 模式二级卷作为只读卷过渡到 ONTAP 。
+
++
+xref:task_transitioning_a_stand_alone_volume.adoc[过渡独立卷]
+
+. 在包含过渡后的主卷和二级卷的 SVM 之间创建集群间 SVM 对等关系。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
+
+. 在过渡后的主卷和二级卷之间创建卷 SnapMirror 关系。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-cg/home.html["卷灾难恢复快速准备"]
+
+. 在目标卷上，重新同步 SnapMirror 关系的源卷和目标卷。
++
+
+IMPORTANT: 源卷和目标卷之间必须至少存在一个通用 Snapshot 副本。
+
+. 监控 SnapMirror 数据传输的状态。
++
+
+IMPORTANT: 重新同步成功完成之前，不得对源卷和目标卷执行任何操作，例如卷移动或 SnapMirror 中断。您必须确保重新同步未中止且成功完成；否则，卷可能会更改为不一致状态。
+
+
+
+* 相关信息 *
+
+xref:concept_guidelines_for_transitioning_snaplock_volumes.adoc[过渡 SnapLock 卷的准则]

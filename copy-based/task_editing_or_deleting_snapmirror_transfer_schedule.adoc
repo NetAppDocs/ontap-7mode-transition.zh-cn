@@ -1,0 +1,110 @@
+---
+permalink: copy-based/task_editing_or_deleting_snapmirror_transfer_schedule.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, edit, delete, data, copy, snapmirror, transfer 
+summary: 如果您配置或修改了其他灾难恢复计划，而这些计划要求修改过渡数据复制计划，则可以编辑或删除用于 SnapMirror 基线复制，更新和重新同步操作的数据复制计划。 
+---
+= 编辑或删除 SnapMirror 传输的数据复制计划
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您配置或修改了其他灾难恢复计划，而这些计划要求修改过渡数据复制计划，则可以编辑或删除用于 SnapMirror 基线复制，更新和重新同步操作的数据复制计划。
+
+项目必须处于准备，数据复制或应用配置（预转换）阶段。
+
+* 编辑计划后，该计划需要长达 5 分钟才能生效。
+* 如果存在活动传输时计划中的限制发生更改，则新的限制不适用于当前正在运行的 SnapMirror 传输。
++
+在特定 SnapMirror 关系的当前传输完成后，该 SnapMirror 关系的后续操作会考虑新的限制。
+
+* 如果希望限制对当前 SnapMirror 传输立即生效，则必须暂停并恢复项目。
+
+
+.步骤
+. 从信息板中，选择一个项目，然后单击配置计划。
++
+此时将显示项目的所有现有计划。
+
++
+您也可以从配置计划选项编辑或删除计划。
+
+. 编辑或删除计划：
++
+|===
+| 如果您要 ... | 那么 ... 
+
+
+ a| 
+编辑现有计划
+ a| 
+.. 单击 image:../media/edit_schedule.gif[""]。
++
+此时将显示修改计划对话框。
+
++
+
+NOTE: 您可以编辑数据复制操作的计划和 SnapMirror 参数。
+
+.. 进行所需的更改，然后单击 * 保存 * 。
+
+
+
+
+ a| 
+删除计划
+ a| 
+.. 单击 image:../media/delete_schedule.gif[""]。
++
+此计划将从窗格中删除。
+
++
+
+NOTE: 数据传输至少需要一个计划。因此，您不应删除所有计划。
+
+
+
+|===
+
+
+
+
+== 示例
+
+以下示例说明了在项目中存在活动的 SnapMirror 传输时如何应用限制。
+
+|===
+| 计划 | 卷数和数据复制状态 | 并发 SnapMirror 传输的最大数量 | 限制 | 每个传输使用的限制 
+
+
+ a| 
+修改前
+ a| 
+五个卷正在等待基线
+ a| 
+五个
+ a| 
+500 Mbps
+ a| 
+100 Mbps
+
+
+
+ a| 
+修改后
+ a| 
+* 对于两个卷，正在使用 100 Mbps 限制进行基线传输
+* 对于三个卷，基线已完成，正在等待更新
+
+ a| 
+五个
+ a| 
+250 Mbps
+ a| 
+* 处于基线状态的两个卷将继续使用 100 Mbps 限制
+* 已完成基线的三个卷使用 已为更新修改 50 MBps 限制
+
+
+|===
+两个卷的基线复制完成后，在计划下次数据复制操作时，这些卷 SnapMirror 关系将使用新的限制 50 MBps 。

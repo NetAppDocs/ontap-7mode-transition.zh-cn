@@ -1,0 +1,15 @@
+---
+permalink: copy-free/task_planning_a_copy_free_transition_project.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, plan, project 
+summary: 规划无副本过渡项目包括选择源 7- 模式控制器和目标集群节点，将 7- 模式卷映射到 Storage Virtual Machine \ （ SVM\ ），选择要过渡的 LIF 以及运行预检。 
+---
+= 规划无副本过渡项目
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+规划无副本过渡项目包括选择源 7- 模式控制器和目标集群节点，将 7- 模式卷映射到 Storage Virtual Machine （ SVM ），选择要过渡的 LIF 以及运行预检。
+
+您可以使用相同的目标集群 HA 对节点创建多个项目。然后，您可以运行预检并对所有这些项目应用 SVM 配置。但是，在给定时间， " 关键 " 部分窗口中只能有一个项目。如果项目处于从导出到提交的任何阶段，或者已为此项目启动回滚操作，则该项目将位于 " 严重 " 部分窗口中。只有在 " 严重 " 部分窗口中的项目完成提交或回滚操作后，才能继续对另一个项目执行导出并暂停操作。

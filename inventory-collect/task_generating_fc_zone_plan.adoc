@@ -1,0 +1,47 @@
+---
+permalink: inventory-collect/task_generating_fc_zone_plan.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, generate, fc, zone, plan, transition 
+summary: 收集有关 Data ONTAP 系统，主机和 FC 交换机的信息后，您可以生成 FC 分区计划，用于在迁移后配置集群中的交换机。 
+---
+= 正在生成 FC 分区计划
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+收集有关 Data ONTAP 系统，主机和 FC 交换机的信息后，您可以生成 FC 分区计划，用于在迁移后配置集群中的交换机。
+
+* 7- 模式系统，主机和集群必须连接到交换机。
+* 必须收集有关集群， SVM ， FCP LIF 和交换机的信息。
++
+集群可以连接到与 7- 模式系统相同的交换机，也可以连接到同一网络结构中的新交换机。
+
++
+xref:concept_supported_configurations_for_generating_an_fc_zone_plan.adoc[支持用于生成 FC 分区计划的配置]
+
+
+
+.步骤
+. 在 CLI 中，导航到 ICT 目录。
+. 从 CLI 生成 FC 分区计划：
++
+` * ict -cmd generate-fc-zones -source-filers _7-mode-ip17mode-ip2_ -dest-svm _cluster-name ： vserver-name_ -fc-switches _switch-name ： vsan -id1 ， vsan -id2_ 7mode_cdot_switch_inventory.xml*`
+
++
+您必须输入 Cisco 交换机的 VSAN ID 。
+
++
+[listing]
+----
+...bin\ict>ict --cmd generate-fc-zones --source-filers system1,system2 --dest-svm vs1:fc_zone1
+ --fc-switches brocade-1,brocade-2 7mode_cdot_switch_inventory.xml
+----
++
+FC 分区计划包含在 7- 模式系统上根据 igroup 配置创建的分区。每个分区都包含一个启动程序 WWPN 和多个 SVM 目标 WWPN 。
+
+
+
+在基于副本的过渡中，您可以在预转换读 / 写模式期间使用 FC 分区计划配置分区，以便使用测试主机验证集群配置，或者在转换阶段之后使用 FC 分区计划提供对集群启动程序主机的数据访问。
+
+在无副本过渡中，您必须使用 FC 分区计划配置分区，以便对启动程序主机和目标进行分组，以便在应用配置阶段从集群提供数据访问。

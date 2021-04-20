@@ -1,0 +1,29 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_of_7_mode_snaplock_options.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snaplock, options, 7, mode 
+summary: 7- 模式过渡工具支持过渡一些与 SnapLock 卷相关的 7- 模式选项。 
+---
+= 过渡 7- 模式 SnapLock 选项的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7- 模式过渡工具支持过渡一些与 SnapLock 卷相关的 7- 模式选项。
+
+在 7- 模式下运行的 Data ONTAP 具有以下与 SnapLock 卷相关的选项：
+
+* `snaplock.autocommit_period`
++
+此选项在 ONTAP 中处于卷级别，并在过渡期间过渡到 ONTAP 。
+
+* `snaplock.compliance.write_verify`
++
+此选项不适用于 ONTAP 。
+
+* `snaplock.log.default_retention`
+* `snaplock.log.max_size`
+
+
+虽然 ONTAP 支持 `snaplock.log.default_retention` 和 `snaplock.log.max_size` 选项，但 7- 模式过渡工具不会过渡这些选项中配置的设置。过渡完成后，您必须手动为审核卷设置这些选项。

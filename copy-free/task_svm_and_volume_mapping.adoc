@@ -1,0 +1,77 @@
+---
+permalink: copy-free/task_svm_and_volume_mapping.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, map, svm, volumes 
+summary: 您应将 HA 对中的每个 7- 模式控制器映射到目标 SVM 。如果您有 vFiler 单元，则应为每个 vFiler 单元选择一个目标 SVM 。7- 模式控制器或 vFiler 单元中的卷将过渡到映射的 SVM 。 
+---
+= 映射 SVM 和卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您应将 HA 对中的每个 7- 模式控制器映射到目标 SVM 。如果您有 vFiler 单元，则应为每个 vFiler 单元选择一个目标 SVM 。7- 模式控制器或 vFiler 单元中的卷将过渡到映射的 SVM 。
+
+您必须已在目标集群上创建 SVM 。
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["使用 System Manager 进行集群管理"]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
+
+一个 vFiler 单元只能映射到一个 SVM 。不能将任何其他 7- 模式控制器或 vFiler 单元中的卷过渡到映射的 SVM 。
+
+.步骤
+. 在 SVM 和卷映射选项卡中，选择要将卷从每个 7- 模式控制器或 vFiler 单元过渡到的目标 SVM 。
++
+目标 SVM 可以位于默认 IP 空间或非默认 IP 空间。
+
+. 根据您是要对所有 SVM 中的卷应用相同的接合路径策略，还是对每个 SVM 中的卷应用不同的接合路径策略，选择以下操作之一：
++
+|===
+| 如果您要 ... | 那么 ... 
+
+
+ a| 
+将相同的接合路径策略应用于所有 SVM
+ a| 
+.. 单击 * 应用 * 。
+.. 为接合路径策略选择一个选项。
+.. 单击 * 确定 * 。
+
+
+
+
+ a| 
+为每个 SVM 指定接合路径策略
+ a| 
+从下拉列表中为每个目标 SVM 选择接合路径策略。
+
+|===
++
+接合路径策略用于指定目标集群模式 Data ONTAP 卷必须挂载到的路径，以供客户端访问。您可以为接合路径策略添加以下值之一：
+
++
+** * 保留 7- 模式挂载路径 *
++
+保留与源 7- 模式卷上使用的接合路径相同的接合路径，并且在过渡后，这些卷使用接合路径的格式为 ` /vol/_source_volume_name_` 进行挂载。
+
+** * 使用集群模式 Data ONTAP 卷名称 *
++
+过渡后，所有目标集群模式 Data ONTAP 卷都会使用具有集群模式 Data ONTAP 卷名称的接合路径挂载，其格式为 ` _/target_volume_name_` 。
+
+** * 使用 7- 模式卷名称 *
++
+过渡后，所有目标集群模式 Data ONTAP 卷都会使用具有 7- 模式卷名称的接合路径挂载，其格式为 ` _/source_volume_name_` 。
+
+
+
+. 单击 image:../media/delete_me_edit_schedule.gif["编辑图标"] 修改目标集群模式 Data ONTAP 卷的名称。
++
+默认情况下，目标集群模式 Data ONTAP 卷与 7- 模式卷具有相同的名称。如果 SVM 上已存在与 7- 模式卷同名的卷，则系统会自动为目标卷分配一个新名称。
+
+. 对于每个映射的 SVM ，单击 * 保存映射 * 。
+. 单击 * 下一步 * 。
++
+此时将显示 Networking 屏幕。
+
+

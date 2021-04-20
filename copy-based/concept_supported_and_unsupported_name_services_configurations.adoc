@@ -1,0 +1,66 @@
+---
+permalink: copy-based/concept_supported_and_unsupported_name_services_configurations.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, name, services, required, manual, steps, supported, unsupported 
+summary: 您必须了解 7- 模式过渡工具过渡的名称服务配置。某些名称服务配置不会过渡到 ONTAP ，因为这些配置在 ONTAP 中不受支持，或者必须手动过渡。 
+---
+= 名称服务过渡：支持和不支持的配置以及所需的手动步骤
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须了解 7- 模式过渡工具过渡的名称服务配置。某些名称服务配置不会过渡到 ONTAP ，因为这些配置在 ONTAP 中不受支持，或者必须手动过渡。
+
+您应验证所有预检错误和警告消息，以评估此类配置对过渡的影响。
+
+
+
+== 已过渡的配置
+
+概括地说，以下名称服务配置由 7- 模式过渡工具过渡：
+
+* DNS 配置（` /etc/resolv.conf` ）
+* LDAP 配置
+* NIS 配置
+* 名称服务交换机配置（` /etc/nsswitch.conf` 和 ` /etc/resolv.conf` ）
+* 主机配置（` /etc/hosts` ）
+* UNIX 用户和组（` /etc/passwd` 和 ` /etc/group` ）
+* 网络组配置（` /etc/netgroup` ）
+
+
+有关这些名称服务配置的详细信息，请参见预检结果。
+
+
+
+== ONTAP 中不支持的配置
+
+* NIS 从属服务器
+* NIS 广播
+* NIS 组缓存
+* 动态 DNS
+* DNS 缓存
+* 影子数据库
+* 文件或 DNS 以外的主机数据库源
++
+ONTAP 仅支持使用文件和 DNS 进行主机查找；不支持其他数据库源。过渡期间会忽略 ` /etc/nsswitch.conf` 中的主机查找顺序。
+
+
+
+
+
+== 必须手动配置的配置
+
+您必须在 SVM 上手动配置以下 LDAP 选项：
+
+* `ldap.usermap.attribute.unixaccount`
+* `ldap.password`
+* `ldap.usermap.base`
+* `ldap.ssl.enable`
+
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]

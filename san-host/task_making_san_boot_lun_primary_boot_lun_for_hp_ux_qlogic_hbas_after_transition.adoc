@@ -1,0 +1,115 @@
+---
+permalink: san-host/task_making_san_boot_lun_primary_boot_lun_for_hp_ux_qlogic_hbas_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, boot, lun, primary, hp, ux, logic, hbas 
+summary: 如果在 7- 模式下运行的 Data ONTAP HP-UX 主机是通过 SAN 启动的，则在过渡到集群模式 Data ONTAP 后，必须将 SAN 启动 LUN 设置为主启动 LUN 。 
+---
+= 使 SAN 启动 LUN 成为的主启动 LUN 过渡后的 HP-UX QLogic HBA
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在 7- 模式下运行的 Data ONTAP HP-UX 主机是通过 SAN 启动的，则在过渡到集群模式 Data ONTAP 后，必须将 SAN 启动 LUN 设置为主启动 LUN 。
+
+* 您的数据迁移必须已完成。
+* 您的启动 LUN 必须从集群模式 Data ONTAP 节点映射到主机。
+
+
+在使用 BCH 菜单的 HP 9000 系统和使用 HP-UX Loader （ EFI ）的 HP Integrity 服务器上， HP-UX 11.3x 支持 SAN 启动。
+
+对于基于副本的过渡，请在 7- 模式过渡工具中完成存储转换操作后执行以下步骤。HP-UX 主机不支持无副本过渡。
+
+.步骤
+. 打开 Shell 提示符：
++
+` * Ctrl B*`
+
+. 启动到 EFI shell 。
++
+EFI shell 仅适用于 HP Integrity 系统。
+
+. 使用串行控制台登录到服务处理器（ MP ）。
+. 访问控制台列表： `CO`
++
+此时将打开 EFI 启动管理器菜单。
+
+. 从 EFI 启动管理器菜单中，选择 EFI shell 菜单选项以访问 EFI shell 环境。
+. 确定 QLogic 驱动程序编号：
++
+` * 驱动程序 *`
+
++
+驱动程序编号位于 DRV 列中。
+
+. 确定每个驱动程序对应的控制器编号：
++
+` * drvcfg _driver_number_*`
+
++
+在以下示例中， `27` 是驱动程序的对应控制器编号 `23` ， `26` 是驱动程序 `24` 的对应控制器编号：
+
++
+[listing]
+----
+Shell> drvcfg 23
+Configurable Components
+		Drv[23]		Ctrl[27]			Lang[eng]
+
+Shell> drvcfg 24
+Configurable Components
+		Drv[24]		Ctrl[26]			Lang[eng]
+----
+. 打开驱动程序 BIOS ：
++
+` * drvcfg _drv_number ctrl_number_ -s *`
+
+. 输入 ` * 4 *` 选择 * 。编辑启动设置 * 。
+. 在编辑启动设置中，输入 `6` 以选择 * 。EFI 变量 EFIFCScanLevel* 。
+. 输入 ` * 1*` 将 EFI 变量 EFIFCScanLevel 的值从 0 更改为 1 。
+. 输入 ` * 7*` 选择 * 。启用全球登录 * 。
+. 输入 ` * y*` 启用全局登录。
+. 输入 ` * 0*` 转到上一个菜单。
+. 在主菜单中，输入 ` * 11*` 以保存所做的更改。
+. 输入 ` *12*` 退出。
+. 在 Shell 提示符中，重新扫描设备：
++
+` * 重新连接 -r*`
+
+. 显示 LUN 以获取要从中启动的 LUN 的路径：
++
+` * 映射 -r*`
+
++
+LUN 路径列在设备列下。可启动 SAN 磁盘将显示在映射表列下，并在输出字符串中包含 "`WWN` " 和 "`第 1 部分` " 。
+
+. 输入 SAN 启动 LUN 的 LUN 路径。
++
+例如， fs0 就是一个 LUN 路径。
+
+. 退出 EFI shell ：
++
+` * CD efi*`
+
+. 输入 HPUX 目录：
++
+` * CD HPUX*`
+
+. 使新的集群模式 Data ONTAP SAN 启动 LUN 成为主启动 LUN ：
++
+` * bcfg boot add 1 hpux.efi "HP-UX-Primary Boot"*`
+
+. 通过在 EFI 中为 SAN 启动 LUN 创建一个条目来手动更新 HBA BIOS 。
+. 创建备用启动路径：
++
+` * bcfg boot add 2 hpux.efi "HPUX alternate boot"*`
+
+. 创建第三个启动路径：
++
+` * bcfg boot add 2 hpux.efi "HPUX third boot"*`
+
+. 创建第四个启动路径：
++
+` * bcfg boot add 2 hpux.efi "HPUX fourth boot"*`
+
+

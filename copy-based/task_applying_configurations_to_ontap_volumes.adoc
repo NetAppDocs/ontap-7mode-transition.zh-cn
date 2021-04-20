@@ -1,0 +1,64 @@
+---
+permalink: copy-based/task_applying_configurations_to_ontap_volumes.html 
+sidebar: sidebar 
+keywords: apply, configuration, ontap, copy, based, transition 
+summary: 基线数据复制完成后，您可以将 7- 模式系统中的所有 NAS 配置（包括协议和服务配置）复制并应用到 ONTAP 卷。如果目标集群运行的是 Data ONTAP 8.3.2 或更高版本，则此阶段将过渡 SAN 配置。 
+---
+= 将配置应用于 ONTAP 卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+基线数据复制完成后，您可以将 7- 模式系统中的所有 NAS 配置（包括协议和服务配置）复制并应用到 ONTAP 卷。如果目标集群运行的是 Data ONTAP 8.3.2 或更高版本，则此阶段将过渡 SAN 配置。
+
+* 这些配置将在预转换阶段应用，该阶段有两种模式：预转换只读模式和预转换读 / 写模式。
+* 如果项目包含以下内容，则不支持预转换读 / 写模式：
++
+** SAN 卷和目标集群运行的是 Data ONTAP 8.3.1 或更早版本。在这种情况下，以下配置不会在预转换阶段应用，而是会在转换阶段应用：
++
+*** SAN 配置
+*** Snapshot 计划配置
+
+
+** SnapLock 合规性卷。
++
+如果项目包含 SnapLock Compliance 卷，则不会在预转换阶段应用 Snapshot 计划配置，而是会在转换阶段应用这些配置。
+
++
+请参见 xref:concept_considerations_for_transitioning_of_snaplock_compliance_volumes.adoc[过渡 SnapLock Compliance 卷的注意事项]。
+
+
+
+* 如果目标集群运行的是 Data ONTAP 8.3.1 或更早版本，则在预转换期间，如果项目中的任何卷包含 LUN ，则不支持读 / 写模式。
+* 如果目标集群运行的是 Data ONTAP 8.3.1 或更早版本，并且某个项目同时包含 SAN 和 NAS 卷，则在预转换阶段仅过渡 NAS 配置，并且只能在只读模式下测试这些 NAS 配置。
++
+SAN 配置仅在存储转换阶段过渡。
+
++
+
+NOTE: 未配置 SAN LIF 。
+
+* 如果目标集群运行的是 Data ONTAP 8.3.1 或更早版本，并且项目包含 SAN 卷，则在应用配置（预转换）阶段不会应用 Snapshot 计划配置。
++
+这些配置将在转换阶段应用。
+
+* 如果目标集群运行的是 Data ONTAP 8.3.1 或更早版本，并且项目包含 SAN 卷，则在应用配置（预转换）阶段不会应用 Snapshot 计划配置。
++
+这些配置将在转换阶段应用。
+
+
+
+.步骤
+* 以只读模式运行过渡操作：
++
+` * 过渡 CBT 预转换 -p _project_name_ -m ro_test -c _max_cap_concurrent_transfers_ -b _snapmirror_throttle_*`
+
+* 在读 / 写模式下运行过渡操作：
++
+.. 将配置应用于 ONTAP ： + ` * 过渡 CBT 预转换 -p _project_name_ -m rw_test -c _max_cap_concurrent_transfers_ -b _snapmirror_throttle_*`
+.. 在 ONTAP 中手动测试和验证配置。
+.. 启动重新同步操作： + ` * 过渡 CBT resync -p _project_name_*`
+
+
+

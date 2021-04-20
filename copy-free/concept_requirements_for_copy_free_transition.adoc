@@ -1,0 +1,82 @@
+---
+permalink: copy-free/concept_requirements_for_copy_free_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, requirements 
+summary: 您应了解无副本过渡对 7- 模式系统，集群， ONTAP 版本和磁盘架的要求。 
+---
+= 无副本过渡的要求
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您应了解无副本过渡对 7- 模式系统，集群， ONTAP 版本和磁盘架的要求。
+
+请务必查阅当前的 7- 模式过渡工具 _Release Notes_ ，了解有关受支持的目标版本和已知问题的最新信息。
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["《 7- 模式过渡工具发行说明》"]
+
+* * 平台型号 *
++
+只有中端和高端 FAS 系统以及 IBM N 系列系统才支持无副本过渡。。 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"] 提供了有关 7- 模式系统和目标集群节点支持的平台的最新信息。
+
+* * 7- 模式源系统中的 Data ONTAP *
++
+有关 7- 模式过渡工具支持迁移的 7- 模式版本列表，请参见 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
+* * ONTAP 目标系统 *
++
+7- 模式过渡工具 3.3.1 版支持使用无副本方法过渡到以下 ONTAP 版本：
+
++
+** ONTAP 9.4 及更早版本的 ONTAP 9
+** 集群模式 Data ONTAP 8.3.2 及更高版本 8.x * 注意： * 不能使用 7- 模式过渡工具使用无副本方法过渡到 ONTAP 9.5 或更高版本。为此，您必须先使用 7- 模式过渡工具 3.3.1 过渡到 ONTAP 9.4 ，然后再将集群升级到 ONTAP 9.5 或更高版本。7- 模式过渡工具 3.3.2 不支持无副本过渡。
+
+
+* * 高可用性配置 *
++
+7- 模式控制器和目标集群节点必须采用 HA 配置。HA 对必须运行状况良好，并且任何节点都不能处于接管模式。无副本过渡不支持独立控制器。
+
+* * 磁盘架型号 *
++
+支持以下磁盘架型号：
+
++
+** DS4486
+** DS4246
+** DS4243
++
+
+NOTE: ONTAP 9.2 和 ONTAP 9.4 不支持磁盘架型号 DS4243 。从 ONTAP 9.2P1 和 ONTAP 9.3 开始的所有 ONTAP 9.2 修补程序版本均支持此模式。7- 模式过渡工具 3.3.1 支持使用磁盘架型号 DS4243 进行过渡，以便通过 ONTAP 9.3 无副本过渡到 ONTAP 9.2P1 。
+
+** DS2246
+** DS14mk4 FC （ ONTAP 9.0 及更高版本不支持）
+** DS14mk2 AT （在 ONTAP 9.0 及更高版本中不受支持）
+
+
+
+
+
+NOTE: 不支持磁盘架型号 DS14mk2 FC 。
+
+* * 磁盘固件 *
++
+您必须在 7- 模式系统和目标集群节点上下载并安装最新的磁盘认证包，磁盘固件以及磁盘架和 ACP 固件。
+
++
+https://mysupport.netapp.com/NOW/download/tools/diskqual/["NetApp 下载：磁盘认证包"]
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"]
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"]
+
+* * 用于验证布线的工具 *
++
+在过渡期间将 7- 模式磁盘架连接到目标集群节点后，必须使用 Config Advisor 验证布线。
+
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+

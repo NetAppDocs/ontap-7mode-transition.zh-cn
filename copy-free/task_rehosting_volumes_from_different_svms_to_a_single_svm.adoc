@@ -1,0 +1,143 @@
+---
+permalink: copy-free/task_rehosting_volumes_from_different_svms_to_a_single_svm.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, rehost, volumes, svm 
+summary: 通过卷重新托管，您可以将过渡后的卷从一个 SVM 迁移到另一个 SVM ，而无需复制数据。通过重新托管操作，您可以将具有 FC LUN 的所有卷整合到一个 SVM 中，从而保留 7- 模式单系统映像（ SSI ）语义。您还可以重新托管过渡后的 NAS 卷。 
+---
+= 将过渡后的卷重新托管到其他 SVM
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过卷重新托管，您可以将过渡后的卷从一个 SVM 迁移到另一个 SVM ，而无需复制数据。通过重新托管操作，您可以将具有 FC LUN 的所有卷整合到一个 SVM 中，从而保留 7- 模式单系统映像（ SSI ）语义。您还可以重新托管过渡后的 NAS 卷。
+
+* 要重新托管的卷必须处于联机状态。
+* 卷移动或 LUN 移动等卷管理操作不得运行。
+* 必须停止对要重新托管的卷的数据访问。
++
+重新托管会造成系统中断。
+
+
+
+源卷会丢失以下卷策略，策略规则和配置，必须在重新托管操作后在重新托管的卷上手动重新配置这些策略，策略规则和配置：
+
+* 卷和 qtree 导出策略
+* 防病毒策略
+* 卷效率策略
+* 服务质量（ QoS ）策略
+* Snapshot 策略
+* 配额规则
+* CIFS 共享
+* 与端口集关联的 igroup
+
+
+.步骤
+* * 重新托管 FC 和 iSCSI 卷 *
++
+.. 切换到高级权限级别： + ` * 设置 -privilege advanced*`
+.. 在目标 SVM 上重新托管卷：
++
+|===
+| 如果您要 ... | 运行以下命令 ... 
+
+
+ a| 
+重新托管后取消映射 LUN
+ a| 
+` * volume rehost -vserver _source_svm_ -volume _vol_name_ -destination-vserver _destination_svm_ -force – unmap-luns true*`
+
+
+
+ a| 
+重新托管后，将 LUN 重新映射到相同的 igroup
+ a| 
+` * volume rehost -vserver _source_svm_ -volume _vol_name_ -destination-vserver _destination_svm_ -auto-remap-luns true*`
+
+|===
+
+
+* * 重新托管 NFS 卷 *
++
+.. 记录有关 NFS 导出策略的信息。
+.. 从父卷卸载此卷： + ` * volume unmount *`
+.. 切换到高级权限级别： ` * 设置 -privilege advanced*`
+.. 在目标 SVM 上重新托管卷： + ` * volume rehost -vserver _source_svm_ -volume _vol_name_ -destination-vserver _destination_svm_*`
++
+目标 SVM 的默认导出策略将应用于重新托管的卷。
+
+.. 创建导出策略： + ` * vserver export-policy cre*`
+.. 将重新托管的卷的导出策略更新为用户定义的导出策略： + ` * volume modify*`
+.. 将卷挂载到目标 SVM 的相应接合路径下： + ` * volume mount*`
+.. 验证 NFS 服务是否正在目标 SVM 上运行： + ` * vserver nfs status*`
+.. 恢复对重新托管的卷的 NFS 访问。
++
+由于卷访问路径（ LIF 和接合路径）已发生更改，因此您必须更新 NFS 客户端凭据和 LIF 配置以反映目标 SVM LIF 。
+
+
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]
+
+* * 重新托管 CIFS 卷 *
++
+.. 记录有关 CIFS 共享的信息。
+.. 从父卷卸载此卷： + ` * volume unmount *`
+.. 切换到高级权限级别： + ` * 设置 -privilege advanced*`
+.. 在目标 SVM 上重新托管卷： + ` * volume rehost -vserver _source_svm_ -volume _vol_name_ -destination-vserver _destination_svm_*`
+.. 将卷挂载到目标 SVM 的相应接合路径下： + ` * volume mount*`
+.. 为重新托管的卷创建 CIFS 共享： + ` * vserver cifs share cre*`
+.. 如果源 SVM 和目标 SVM 的 DNS 域不同，请创建新的用户和组。
+.. 使用重新托管的卷的新目标 SVM LIF 和接合路径更新 CIFS 客户端。
+
+
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-cifs/home.html["SMB/CIFS 管理"]
+
+* * 重新托管 SnapMirror 关系中的卷 *
++
+.. 记录 SnapMirror 关系类型： + ` * snapmirror show*`
+.. 从目标集群中，删除 SnapMirror 关系： + ` * snapmirror delete*`
++
+
+IMPORTANT: 您不得中断 SnapMirror 关系；否则，目标卷的数据保护功能将丢失，并且在重新托管操作后无法重新建立此关系。
+
+.. 在源集群中，释放 SnapMirror 关系信息： + ` * SnapMirror release*`
++
+您可以将 -relationship-info-only 参数设置为 true ，以便不会删除 Snapshot 副本，只删除源关系信息。
+
+.. 切换到高级权限级别： + ` * 设置 -privilege advanced*`
+.. 在目标 SVM 上重新托管卷： + ` * volume rehost -vserver _source_svm_ -volume _vol_name_ -destination-vserver _destination_svm_*`
+.. 在源和目标 SVM 之间创建 SVM 对等关系： + ` * vserver peer creation*`
+.. 在源卷和目标卷之间创建 SnapMirror 关系： + ` * snapmirror cre*`
++
+重新托管的卷可以是 SnapMirror 关系的源或目标。
+
+.. 重新同步数据保护关系： + ` * SnapMirror resynchron*`
+
+
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["数据保护"]
+
+
+
+您必须通过执行以下步骤为重新托管的卷手动创建自动卷工作负载：
+
+. 为 SVM 创建用户定义的策略组：
++
+` * qos policy-group create -vserver _destination-vserver_ -policy-group _policy-group-name_*`
+
+. 将 QoS 策略组分配给重新托管的卷：
++
+` * volume modify -vserver _destination-vserver_-volume _rehosted-volume_ -qos-policy-_group policy-group-name_*`
+
+
+
+您必须手动重新配置重新托管的卷上的策略和关联规则。
+
+
+NOTE: 如果重新托管操作失败，您可能需要在源卷上重新配置卷策略和关联规则。
+
+* 相关信息 *
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 命令"]

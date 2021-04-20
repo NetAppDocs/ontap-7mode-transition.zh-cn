@@ -1,0 +1,66 @@
+---
+permalink: copy-free/task_transitioning_primary_and_secondary_systems_of_a_snapmirror_relationship_in_parallel.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, primary, secondary, system, snapmirror, relationship, parallel 
+summary: 您可以并行过渡包含 7- 模式 SnapMirror 关系中的卷的主 HA 对和二级 HA 对。过渡后，必须在集群模式 Data ONTAP 中手动设置卷 SnapMirror 关系。过渡后， SnapMirror 关系会保留下来，而无需重新建立基线。 
+---
+= 过渡中 SnapMirror 关系中的主系统和二级系统 并行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以并行过渡包含 7- 模式 SnapMirror 关系中的卷的主 HA 对和二级 HA 对。过渡后，必须在集群模式 Data ONTAP 中手动设置卷 SnapMirror 关系。过渡后， SnapMirror 关系会保留下来，而无需重新建立基线。
+
+您必须已准备好源和目标集群，以便过渡 SnapMirror 关系。
+
+xref:task_preparing_cluster_for_transitioning_volume_snapmirror_relationships.adoc[准备集群以过渡卷 SnapMirror 关系]
+
+您必须在同一转换窗口中过渡二级和主 HA 对。
+
+.步骤
+. 在 7- 模式过渡工具中，对包含 7- 模式卷 SnapMirror 关系的主卷和二级卷的两个 HA 对执行无副本过渡。
++
+过渡包含二级卷的 7- 模式 HA 对之前，无需手动干预 7- 模式 SnapMirror 关系。这样可以确保 7- 模式二级卷作为只读卷过渡到 ONTAP 。
+
++
+xref:task_performing_copy_free_transition_of_7_mode_aggregates.adoc[使用无副本过渡过渡过渡过渡过渡 7- 模式聚合]
+
+. 在包含过渡后的主卷和二级卷的 SVM 之间创建集群间 SVM 对等关系。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
+
+. 在过渡后的主卷和二级卷之间创建卷 SnapMirror 关系。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-cg/home.html["卷灾难恢复快速准备"]
+
+. 在目标卷上，重新同步 SnapMirror 关系的源卷和目标卷：
++
+` * SnapMirror resynync*`
+
++
+
+IMPORTANT: 源卷和目标卷之间必须至少存在一个通用 Snapshot 副本。
+
++
+* 故障排除： * 如果通用 Snapshot 副本是在 8.1 之前的 Data ONTAP 版本中创建的，则 SnapMirror 重新同步将失败。您可以在高级权限级别将 ` -fs-version` 参数与 `volume snapshot show` 命令结合使用，以查看创建 Snapshot 副本的版本。如果遇到此问题描述，请中断 SnapMirror 关系，然后执行重新同步。
+
+. 监控 SnapMirror 数据传输的状态：
++
+` * SnapMirror show*`
+
++
+
+IMPORTANT: 重新同步成功完成之前，不得对源卷和目标卷执行任何操作，例如卷移动或 SnapMirror 中断。确保重新同步不会中止并成功完成；否则，卷可能会处于不一致状态。
+
+. 提交二级项目的过渡，然后提交主项目。
++
+xref:task_committing_7_mode_aggregates_to_clustered_ontap_format.adoc[提交无副本过渡项目]
+
+
+
+* 相关信息 *
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 命令"]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["使用 System Manager 进行集群管理"]

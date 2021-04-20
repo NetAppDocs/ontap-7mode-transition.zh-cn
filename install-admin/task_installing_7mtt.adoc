@@ -1,0 +1,36 @@
+---
+permalink: install-admin/task_installing_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, transition, tool, windows 
+summary: 您可以使用基于向导的安装程序在 Windows 系统上安装 7- 模式过渡工具。 
+---
+= 在 Windows 系统上安装 7- 模式过渡工具
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用基于向导的安装程序在 Windows 系统上安装 7- 模式过渡工具。
+
+* 您必须已查看 7- 模式过渡工具的系统要求。
++
+xref:concept_system_requirements_for_7mtt_on_windows.adoc[在 Windows 上使用 7- 模式过渡工具的系统要求]
+
+* 要安装和启动应用程序，您必须具有必要的管理员权限。
+* 必须已通过按 Ctrl+F5 清除浏览器缓存。
++
+每次安装新版本的工具时，都必须清除缓存。
+
+
+
+.步骤
+. 从 NetApp 支持站点下载软件。
++
+http://mysupport.netapp.com/NOW/cgi-bin/software["NetApp 下载：软件"]
+
+. 运行 `NetApp_7ModeTransitionTool_Setup.exe` 文件。
+. 在 7- 模式过渡工具设置欢迎屏幕中，单击 * 下一步 * 。
+. 按照屏幕上的提示继续安装。
+. 选择 * 启动此工具 * 可在安装后立即打开 7- 模式过渡工具。
+. 单击 * 完成 * 完成安装。
+

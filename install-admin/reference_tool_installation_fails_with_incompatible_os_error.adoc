@@ -1,0 +1,22 @@
+---
+permalink: install-admin/reference_tool_installation_fails_with_incompatible_os_error.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, tool, fail, incompatible, os, error 
+summary: 7- 模式过渡工具安装失败，并显示错误消息 7- 模式过渡工具与此版本的 Windows 不兼容。 
+---
+= 工具安装失败，并显示操作系统不兼容错误
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7- 模式过渡工具安装失败，并显示错误消息 `7- 模式过渡工具与此版本的 Windows` 不兼容。
+
+* * 临时解决策 *
++
+.. 右键单击 `NetApp_7ModeTransitionTool_Setup.exe` 文件，然后选择 * 属性 * 。
+.. 在兼容性选项卡中，单击 * 更改所有用户的设置 * 。
+.. 确认未选中 * 在兼容模式下运行此程序： * 复选框，然后单击 * 应用 * 。
+
+
+

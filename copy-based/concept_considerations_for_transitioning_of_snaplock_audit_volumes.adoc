@@ -1,0 +1,21 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_of_snaplock_audit_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snaplock, audit, volumes 
+summary: 7- 模式过渡工具支持过渡 SnapLock 审核卷。过渡 SnapLock 审核卷的工作流与过渡 SnapLock Compliance 卷相同。 
+---
+= 过渡 SnapLock 审核卷的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7- 模式过渡工具支持过渡 SnapLock 审核卷。过渡 SnapLock 审核卷的工作流与过渡 SnapLock Compliance 卷相同。
+
+将审核卷过渡到 ONTAP 后，必须手动将过渡后的审核卷指定为目标 SVM 的 SnapLock 审核卷。
+
+在 ONTAP 中，审核卷在 SVM 级别进行配置。在以 7- 模式运行的 Data ONTAP 中，审核卷用作 vFiler 单元中控制器中所有卷的整合存储库。
+
+SnapLock 审核卷是一种 SnapLock 合规性卷。如果目标集群采用 MetroCluster 配置，则不支持过渡 SnapLock 审核卷。
+
+请参见 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_configure_audit_volume_in_clustered_Data_ONTAP_for_the_transitioned_SnapLock_volumes["如何在集群模式 Data ONTAP 中配置审核卷 过渡后的 SnapLock 卷"]

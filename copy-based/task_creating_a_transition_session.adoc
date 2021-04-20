@@ -1,0 +1,203 @@
+---
+permalink: copy-based/task_creating_a_transition_session.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, create, project 
+summary: 您可以创建过渡项目，以确定要过渡的 7- 模式对象以及这些对象与 ONTAP 对象的映射方式。创建项目时， 7- 模式过渡工具会收集并保存有关过渡对象的信息。您可以使用此项目信息分阶段执行过渡。 
+---
+= 创建过渡项目
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以创建过渡项目，以确定要过渡的 7- 模式对象以及这些对象与 ONTAP 对象的映射方式。创建项目时， 7- 模式过渡工具会收集并保存有关过渡对象的信息。您可以使用此项目信息分阶段执行过渡。
+
+您必须已收集以下信息：
+
+* 项目类型：可能的值为独立，主或二级
+* 7- 模式存储系统或默认 vFiler 单元的 FQDN 或 IP 地址（如果已获得 MultiStore 许可）
+* 7- 模式存储系统的管理用户名和密码
+* 7- 模式卷列表
+* 集群的 FQDN 或集群管理的 IP 地址 LIF
+* SVM 名称
+
+
+.步骤
+. 从 * 开始 * 菜单中，单击 * 所有程序 * > * NetApp 7- 模式过渡工具 * > * NetApp 7- 模式过渡工具（ CLI ） 3.0* 以打开 7- 模式过渡工具命令提示符。
+. 添加过渡项目中系统的用户名和密码：
++
+` * 过渡凭据添加 -h _host_name_ -u _user_name_*`
+
++
+` 主机名 _` 是 7- 模式系统或集群的 FQDN 或 IP 地址。
+
++
+` _user_name_` 是系统的管理用户名。
+
++
+
+NOTE: 必须对要添加到过渡项目的每个存储系统重复此步骤。
+
++
+[listing]
+----
+7-Mode Transition Tool>transition credentials add -h system1.example.com -u root
+Enter password for 'root@system1.example.com':
+----
+. 创建过渡项目：
++
+` * 过渡 CBT create -p _project_name_ -t _project_type_ -n _7-Mode_system_ -c _data-copy-ipaddress_ （ -f _vfiler_name_） （ -h _cluster_ -v _vserver_name_* ）`
+
++
+` _project_name_` 是过渡项目的名称。
+
++
+` _project_type_` 是项目类型。有效值为 standalone ， secondary 或 primary 。
+
++
+` _7-Mode_system_` 是 7- 模式系统的 FQDN 或 IP 地址。
+
++
+` cluster_` 是集群的 FQDN 或集群管理 LIF 的 IP 地址。
+
++
+
+NOTE: 7- 模式系统和集群的主机名必须与创建项目时提供的主机名相同。
+
++
+` _data-copy-ipaddress_` 是复制数据所使用的 IP 地址。
+
++
+` vfiler_name_` 是非默认 vFiler 单元的名称。
+
++
+` _vserver_name_` 是 SVM 的名称。
+
++
+
+NOTE: 对于新的 SVM ，您必须使用 ` -g` 选项提供 SVM 根卷的聚合名称。
+
++
+[listing]
+----
+7-Mode Transition Tool>transition cbt create -p sample_project -t standalone -n system1.example.com -n 10.238.55.33 -h cluster1.example.com -v vs2
+----
++
+过渡项目将移至准备状态。
+
+. 将 7- 模式卷和 ONTAP 卷添加到项目中：
++
+` * 过渡 CBT volumepair add -p _project_name_ -v _7-Mode_volume_-c _vserver_volume_volume_ -g _aggr_name_ -t*`
+
++
+` _7-Mode_volume_` 是 7- 模式卷名称。
+
++
+` _vserver_volume_` 是 SVM 上的 ONTAP 卷。
+
++
+
+NOTE: 您还可以添加已完成基线传输的 ONTAP 卷。在准备阶段添加此类卷时，在数据复制阶段仅执行增量传输。
+
++
+` _aggr_name_` 是在启动操作期间创建 ONTAP 卷 ` vserver_volume_` 的聚合。
+
++
+如果必须将处于 SnapMirror 关系中的卷过渡为独立卷，则使用 ` -t_` 。
+
++
+
+NOTE: 将卷过渡为独立卷时，过渡期间不会保留 SnapMirror 关系。
+
++
+对于处于 SnapMirror 关系中的 SnapLock Compliance 卷， 7- 模式过渡工具不会自动过渡 SnapLock Compliance 卷的 SnapMirror 关系。必须通过在独立，主或二级项目中包含卷来将 SnapMirror 关系中的所有 SnapLock Compliance 卷过渡为独立卷（通过指定标志 -t ）。过渡后，您必须在这些卷之间手动执行 SnapMirror 重新同步操作。
+
++
+请参见 xref:concept_considerations_for_transitioning_of_snaplock_compliance_volumes.adoc[过渡 SnapLock Compliance 卷的注意事项]
+
++
+[listing]
+----
+7-Mode Transition Tool>transition cbt volumepair add -p sample_project -v vol1 -c vol1 -g aggr1
+----
+. 添加要过渡到项目的 IP 地址：
++
+` * 过渡 CBT LIF add -p _project_name_ -i _ip-address_ [-m _netmask_] [-g _default-gateway_] [-p _home_port_] [ -n _home_node_]*`
+
++
+对于过渡项目，您还可以添加存储转换期间未配置或从 7- 模式系统中删除的现有 IP 地址，以及尚未在 7- 模式或 ONTAP 上配置的新 IP 地址。
+
++
+
+NOTE: 7- 模式过渡工具不会过渡 FC 和 iSCSI LIF 。
+
++
+[listing]
+----
+7-Mode Transition Tool>transition cbt lif add -p sample_project -i 192.0.2.250 -m 255.255.255.128 -g 192.40.0.1 -p e0a -n cluster1-01
+----
++
+在应用配置（预转换）操作期间，新 IP 地址会在 ONTAP 系统上以 up 状态进行配置。
+
+. 按照以下步骤向主项目和二级项目添加信息：
++
+|===
+| 如果要添加有关的信息 ... | 输入 ... 
+
+
+ a| 
+主 7- 模式系统到二级项目
+ a| 
+` * 过渡 CBT add-primary-seven-mode-system -p _project_name_ -h _source-host_ -f _management-ipaddress_ -d _data-copy-ipaddress_ [-m _multipathing-ipaddress_]*`
+
+有关详细信息，请参见 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/CBT_%3A_How_to_provide_all_the_required_primary_7-Mode_details_for_a_given_secondary_project["CBT ：如何为给定二级项目提供所有必需的主 7- 模式详细信息"]。
+
+
+
+ a| 
+二级集群或 SVM 连接到主项目
+ a| 
+` * 过渡 CBT add-secondary cluster-mode-system -p _project_name_ -h _c-mode-host-name_ -v _vserver-name_*`
+
+有关详细信息，请参见 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/CBT%3A_How_to_add_the_required_secondary_cluster_details_to_the_primary_project["CBT ：如何将所需的二级集群详细信息添加到主项目中"]
+
+|===
++
+` _project_name_` 是过渡项目的名称。
+
++
+` _source-host_` 是 7- 模式二级系统的 `snapmirror status` 命令输出中显示的主 7- 模式存储系统主机名或 IP 地址。
+
++
+有关提供 7- 模式主系统详细信息的注意事项，请参见手册页。
+
++
+` management-ipaddress_` 是源主机的管理 IP 地址。
+
++
+` _data-copy-ipaddress_` 是复制数据所使用的 IP 地址。
+
++
+` multipathing-ipaddress_` 是用于数据复制的附加 IP 地址。
+
++
+` c-mode-host-name_` 是项目中二级卷已过渡到的集群的 FQDN 或 IP 地址。
+
++
+` _vserver-name_` 是托管二级卷的 SVM 的名称。
+
+. 创建数据复制计划：
++
+` * 过渡 CBT 计划 add -p _project_name_ -n _schedule_name_ -d _days-range_ -b _start-time_ -e _duration _ -u _update-frequency" -t _available-transfers-percentage _ -c _max-cap-concurrent-transfers_ -x _project-snapmirror-throttle_*`
+
++
+以下命令显示如何添加使用 100% 可用并发 SnapMirror 传输的计划。但是，它在任何时间点均不超过 25 个并发 SnapMirror 传输。
+
++
+` * 过渡计划 add -p sample_project -n dr_active -d 1-5 -b 23 ： 30 -e 03 ： 00 -c 25 -x 200 -u 00 ： 30 *`
+
+. 查看有关创建的过渡项目的详细信息：
++
+` * 过渡 CBT show -p _project-name_*`
+
+

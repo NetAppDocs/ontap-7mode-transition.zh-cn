@@ -1,0 +1,43 @@
+---
+permalink: copy-based/task_completing_transition_process.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, complete 
+summary: 由于整个操作会造成中断，因此您应评估何时运行该操作。过渡 SnapMirror 关系中的卷时，必须先完成二级项目，然后再完成主项目的过渡。 
+---
+= 完成过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+由于整个操作会造成中断，因此您应评估何时运行该操作。过渡 SnapMirror 关系中的卷时，必须先完成二级项目，然后再完成主项目的过渡。
+
+.步骤
+. 执行从 7- 模式卷到 ONTAP 卷的数据复制：
++
+` * 过渡 CBT 更新 -p _project_name_ -t _available-transfers-percentage _ -c _snapmirror-thallemax-cap-concurrent-transfers_ -x -r interactive*`
+
++
+这有助于减少存储转换期间的停机时间。
+
+. 手动：断开客户端访问。
+. 完成过渡过程：
++
+` * 过渡 CBT 转换 -p _project_name_ -t _available-transfers-percentage _ -c _max-cap-concurrent-transfers_ -x _snapmirror-throttle_ -r interactive -o [true_false]*`
+
++
+默认情况下， 7- 模式卷处于脱机状态。要使 7- 模式卷保持联机，请将 ` -o` 选项设置为 `false` 。
+
++
+
+NOTE: 如果转换由于某种原因而失败，例如无法访问 7- 模式系统或集群，则必须解决这些问题，然后再次运行 `transition cutover` 命令。
+
++
+有关命令的详细信息，请参见手册页。
+
++
+过渡会话将变为转换状态。如果转换成功，会话将变为已完成状态。
+
+
+
+您必须执行任何过渡后任务，并将客户端重新连接到 ONTAP 卷。

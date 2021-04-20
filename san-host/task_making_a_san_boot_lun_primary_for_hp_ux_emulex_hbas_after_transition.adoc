@@ -1,0 +1,73 @@
+---
+permalink: san-host/task_making_a_san_boot_lun_primary_for_hp_ux_emulex_hbas_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, san, boot, lun, primary, hp, ux, emulex, hba 
+summary: 如果在 7- 模式下运行的 Data ONTAP HP-UX 主机是通过 SAN 启动的，则在过渡到集群模式 Data ONTAP 后，必须将 SAN 启动 LUN 设置为主启动 LUN 。 
+---
+= 使 SAN 启动 LUN 成为的主启动 LUN 过渡后的 HP-UX Emulex HBA
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在 7- 模式下运行的 Data ONTAP HP-UX 主机是通过 SAN 启动的，则在过渡到集群模式 Data ONTAP 后，必须将 SAN 启动 LUN 设置为主启动 LUN 。
+
+数据迁移必须完成，并且必须将启动 LUN 从集群模式 Data ONTAP 节点映射到主机。
+
+对于基于副本的过渡，请在 7- 模式过渡工具中完成存储转换操作后执行以下步骤。HP-UX 主机不支持无副本过渡。
+
+.步骤
+. 在 Shell 提示符处，列出 Emulex HBA ：
++
+` * 驱动程序 *`
+
+. 选择 Emulex HBA ，然后按 Enter 键。
+. 选择 * 设置实用程序 * 。
+. 选择 * 配置启动参数 * 。
+. 选择 * 配置启动设备 * 。
+. 从列表中选择任何设备，然后按 Enter 键。
+. 选择 * 扫描目标 * 。
+. 选择具有所需启动路径的 LUN ，然后按 Enter 键。
+. 选择 * 外围设备 dev* 作为模式，然后按 Enter 键。
+. 选择 * 通过 WWN/启动 此设备 * ，然后按 Enter 键。
++
+此时将显示启动 LUN 。
+
+. 按 * Esc * ，直到返回到 shell 提示符。
+. 显示 LUN 以获取要从中启动的 LUN 的路径：
++
+` * 映射 -r*`
+
++
+LUN 路径列在设备列下。可启动 SAN 磁盘将显示在映射表列下，并在输出字符串中包含 "`WWN` " 和 "`第 1 部分` " 。
+
+. 输入 SAN 启动 LUN 的 LUN 路径。
++
+例如， fs0 就是一个 LUN 路径。
+
+. 退出 EFI shell ：
++
+` * CD efi*`
+
+. 输入 HPUX 目录：
++
+` * CD HPUX*`
+
+. 使新的集群模式 Data ONTAP SAN 启动 LUN 成为主启动 LUN ：
++
+` * bcfg boot add 1 hpux.efi "HP-UX-Primary Boot"*`
+
+. 通过在 EFI 中为 SAN 启动 LUN 创建一个条目来手动更新 HBA BIOS 。
+. 创建备用启动路径：
++
+` * bcfg boot add 2 hpux.efi "HPUX alternate boot"*`
+
+. 创建第三个启动路径：
++
+` * bcfg boot add 2 hpux.efi "HPUX third boot"*`
+
+. 创建第四个启动路径：
++
+` * bcfg boot add 2 hpux.efi "HPUX fourth boot"*`
+
+

@@ -1,0 +1,76 @@
+---
+permalink: copy-based/task_managing_logical_interfaces.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, manage, logical, interfaces 
+summary: 您可以在项目中添加，编辑或删除 7- 模式 IP 地址。 
+---
+= 管理逻辑接口
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在项目中添加，编辑或删除 7- 模式 IP 地址。
+
+在应用配置（预转换）阶段，在 Storage Virtual Machine （ SVM ）上配置 LIF ：
+
+* 现有的 7- 模式 IP 地址会在管理 " `d自有` " 状态下创建。
+* 在管理 "`up` " 状态下创建新的 IP 地址。
+
+
+
+IMPORTANT: 7- 模式过渡工具不会过渡 FC 和 iSCSI LIF 。
+
+.步骤
+. 执行以下操作之一：
++
+|===
+| 如果您要 ... | 那么 ... 
+
+
+ a| 
+编辑现有 LIF
+ a| 
+.. 单击 image:../media/edit_schedule.gif[""] 。
+.. 在修改 LIF 对话框中，进行所需的更改，然后单击 * 保存 * 。
+
+
+
+
+ a| 
+删除现有 LIF
+ a| 
+.. 单击 image:../media/delete_schedule.gif[""] 在表中。
++
+
+NOTE: 只有当项目处于准备，基线数据复制，暂停，预转换或更新状态时，才能删除 LIF 。但是，如果转换操作失败，则无法删除 LIF 。
+
+.. 单击 * 选择 7- 模式 LIF* 。
+.. 选择要过渡的 7- 模式 IP 地址。
+.. 输入目标节点和目标端口详细信息。
+.. 单击 * 保存 * 。
+
+
+
+
+ a| 
+添加 7- 模式 IP 地址
+ a| 
+** 单击 * 选择 7- 模式 LIF* 。
+** 选择要过渡的 7- 模式 IP 地址。
+** 输入目标节点和目标端口详细信息。
+** 单击 * 保存 * 。
+
+
+
+
+ a| 
+添加新的 LIF
+ a| 
+.. 单击表下方的 * 添加新 LIF* 。
+.. 输入所需的值。
+.. 单击 * 保存 * 。
+
+
+|===
+

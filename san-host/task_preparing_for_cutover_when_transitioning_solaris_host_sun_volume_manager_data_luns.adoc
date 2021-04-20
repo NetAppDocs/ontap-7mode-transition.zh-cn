@@ -1,0 +1,52 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_solaris_host_sun_volume_manager_data_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, solaris, host, sun, volume, manager 
+summary: 如果要将使用 Sun 卷管理器的 Solaris 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP ，则必须在进入转换阶段之前执行特定步骤。 
+---
+= 过渡 Solaris 主机 Sun 卷时为转换阶段做准备 管理器数据 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要将使用 Sun 卷管理器的 Solaris 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP ，则必须在进入转换阶段之前执行特定步骤。
+
+如果使用的是 FC 配置，则必须与集群模式 Data ONTAP 节点建立网络结构连接和分区。
+
+如果您使用的是 iSCSI 配置，则必须发现并登录到集群模式 Data ONTAP 节点的 iSCSI 会话。
+
+对于基于副本的过渡，请在 7- 模式过渡工具（ 7MTT ）中启动存储转换操作之前执行以下步骤。
+
+对于无副本过渡，请在 7MTT 中启动导出并暂停 7- 模式操作之前执行以下步骤。
+
+. 停止所有挂载点上的 I/O 。
+. 根据应用程序供应商的建议关闭访问 LUN 的每个应用程序。
+. 卸载所有挂载点：
++
+` * umount _mount_point_*`
+
++
+[listing]
+----
+#umount /d1
+#umount /d2
+----
+. 对元集执行以下操作：
++
+` * metaset – s _set-name_ – a disable*`
+
++
+`metaset – s _set-name_ – r`
+
++
+` * metaset – s _set-name_ – P*`
+
++
+[listing]
+----
+metaset -s n_vg -A disable
+metaset -s n_vg -r
+metaset -s n_vg -P
+----
+

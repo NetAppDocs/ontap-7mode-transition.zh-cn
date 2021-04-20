@@ -1,0 +1,57 @@
+---
+permalink: copy-based/task_transitioning_volumes_by_excluding_a_subset_of_configurations.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, customize, cli 
+summary: 默认情况下，所有 7- 模式配置都会过渡到 ONTAP 。您可以使用 7- 模式过渡工具命令行界面选择从过渡中排除部分或全部卷， NFS ， CIFS ， SAN 和名称服务配置。您还可以选择整合 7- 模式 NFS 导出规则和 Snapshot 计划，并重复使用目标 SVM 上的现有 NFS 导出策略和 Snapshot 策略。 
+---
+= 使用命令行界面自定义 7- 模式配置的过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+默认情况下，所有 7- 模式配置都会过渡到 ONTAP 。您可以使用 7- 模式过渡工具命令行界面选择从过渡中排除部分或全部卷， NFS ， CIFS ， SAN 和名称服务配置。您还可以选择整合 7- 模式 NFS 导出规则和 Snapshot 计划，并重复使用目标 SVM 上的现有 NFS 导出策略和 Snapshot 策略。
+
+您必须在应用配置之前执行此任务，之后，任何修改都将被忽略。
+
+7- 模式过渡工具不会对排除的配置执行预检。
+
+默认情况下，所有 7- 模式配置都会选择进行过渡。
+
+最好先对所有配置运行预检，然后在后续运行预检时排除一个或多个配置。这有助于您了解哪些配置已从过渡中排除，哪些预检随后会跳过。
+
+.步骤
+* 排除并验证配置：
++
+.. 排除配置： + ` * 过渡 CBT property-set -p _project_name_ -n _config_property_name_ -v true*`
++
+` config_property_name_` 是要排除的配置。
+
++
+xref:reference_configurations_that_can_be_excluded.adoc[可从过渡中排除的配置]
+
+.. 验证为排除配置而设置的属性值：
++
+` * 过渡 CBT property-get -p _project_name_ -n _config_property_name_*`
+
+
+
+* 整合要过渡的 NFS 导出规则：
++
+** 将类似的 7- 模式 NFS 导出规则整合到集群模式 Data ONTAP 中的单个导出策略中，然后将该导出策略应用于过渡后的卷或 qtree ： + ` * 过渡 CBT property-set -p _project_name_ -n _nfs-consolidate-similiar-7mode-exports_ -v true*`
++
+如果 `nfs-consolidate-similiar-7mode-exports` 属性设置为 `false` ，则 7- 模式过渡工具会在 ONTAP 中为每个 7- 模式 NFS 导出规则创建一个新的 NFS 导出策略。
+
+** 重复使用 SVM 上与该工具将创建的导出策略匹配的现有 NFS 导出策略，该策略可应用于过渡后的卷或 qtree ： + ` * 过渡 CBT 属性集 -p _project_name_ -n _nfs-reuse-matching-svm-export-policies_ -v true*`
+
+
+* 整合要过渡的 Snapshot 计划：
++
+** 将类似的 7- 模式 Snapshot 计划整合到 ONTAP 中的单个 Snapshot 策略中，然后将该策略应用于过渡后的卷： + ` * 过渡 CBT property-set -p _project_name_ -n _consolidate-similar-7mode-snapshot-policies_ -v true*`
++
+如果 `consolidate-similar-7mode-snapshot-policies` 属性设置为 false ，则 7- 模式过渡工具会在 ONTAP 中为每个 Snapshot 计划创建一个新的 Snapshot 策略。
+
+** 重复使用 SVM 上与该工具将创建的 Snapshot 策略匹配的现有 Snapshot 策略，该策略可应用于过渡后的卷： + ` * 过渡 CBT property-set -p _project_name_ -n _reuse-matching-svm-snapshot-policies_ -v true*`
+
+
+

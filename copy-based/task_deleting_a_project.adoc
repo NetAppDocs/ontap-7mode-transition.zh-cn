@@ -1,0 +1,20 @@
+---
+permalink: copy-based/task_deleting_a_project.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, delete, project 
+summary: 如果您不需要某个项目，可以从信息板中将其删除。 
+---
+= 删除项目
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您不需要某个项目，可以从信息板中将其删除。
+
+. 从 DashboardProp对象 组窗格中，单击项目所属的项目组。
+. 在组摘要窗格中，单击 * 修改 * ，然后单击 * 删除 * 。
++
+如果项目在转换阶段失败，则无法删除该项目。
+
+

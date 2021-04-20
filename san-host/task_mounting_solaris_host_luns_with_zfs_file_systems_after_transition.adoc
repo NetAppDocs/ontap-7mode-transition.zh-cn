@@ -1,0 +1,153 @@
+---
+permalink: san-host/task_mounting_solaris_host_luns_with_zfs_file_systems_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, mount, solaris, host, lun, zfs, file, system 
+summary: 将具有 ZFS 文件系统的 Solaris 主机 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，必须挂载 LUN 。 
+---
+= 过渡后挂载具有 ZFS 文件系统的 Solaris 主机 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将具有 ZFS 文件系统的 Solaris 主机 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，必须挂载 LUN 。
+
+对于基于副本的过渡，请在 7- 模式过渡工具（ 7MTT ）中完成存储转换操作后执行以下步骤。
+
+对于无副本过渡，请在 7MTT 中的导入数据和配置操作完成后执行以下步骤。
+
+. 重新扫描主机以发现新的集群模式 Data ONTAP LUN 。
++
+.. 确定 FC 主机端口（类型为 fc-fabric ）： + ` * #cfgadm – l*`
+.. 取消配置第一个 fc-fabric 端口： + ` * #cfgadm – c 取消配置 c1*`
+.. 取消配置第二个光纤通道端口： + ` * #cfgadm – c 取消配置 C2*`
+.. 对其他光纤通道端口重复上述步骤。
+.. 验证有关主机端口及其连接设备的信息是否正确： + ` * # cfgadm – al*`
+.. 重新加载驱动程序： + ` * # devfsadm – CV*` ` * # devfsadm – i iSCSI*`
+
+
+. 验证是否已发现集群模式 Data ONTAP LUN ：
++
+` * sanlun lun show-*` `` 集群模式 Data ONTAP LUN 的 `lun-pathname` 值应与过渡前 7- 模式 LUN 的 lun-pathname 值相同。`m` 节点`列应显示 "` C`" ，而不是 "` 7 " 。
+
++
+[listing]
+----
+# sanlun lun show
+controller(7mode)/                    device                                            host                  lun
+vserver(Cmode)       lun-pathname     filename                                          adapter    protocol   size    mode
+--------------------------------------------------------------------------------------------------------------------------
+vs_sru17_5           /vol/zfs/zfs2    /dev/rdsk/c5t600A0980383030444D2B466542485935d0s2 scsi_vhci0 FCP        6g      C
+vs_sru17_5           /vol/zfs/zfs1    /dev/rdsk/c5t600A0980383030444D2B466542485934d0s2 scsi_vhci0 FCP        6g      C
+vs_sru17_5           /vol/ufs/ufs2    /dev/rdsk/c5t600A0980383030444D2B466542485937d0s2 scsi_vhci0 FCP        5g      C
+vs_sru17_5           /vol/ufs/ufs1    /dev/rdsk/c5t600A0980383030444D2B466542485936d0s2 scsi_vhci0 FCP        5g      C
+----
+. 检查是否存在可导入的 zpools ：
++
+` * zpool import*`
+
++
+[listing]
+----
+# zpool import
+  pool: n_vg
+    id: 3605589027417030916
+ state: ONLINE
+action: The pool can be imported using its name or numeric identifier.
+config:
+
+        n_vg                                     ONLINE
+          c0t600A098051763644575D445443304134d0  ONLINE
+          c0t600A098051757A46382B445441763532d0  ONLINE
+----
+. 按池名称或使用池 ID 导入用于过渡的 zpool ：
++
+** ` * zpool import _pool-name_*`
+** ` * zpool import _pool-id_*`
+
+
++
+[listing]
+----
+# zpool list
+no pools available
+
+# zpool import
+  pool: n_pool
+    id: 5049703405981005579
+ state: ONLINE
+action: The pool can be imported using its name or numeric identifier.
+config:
+
+        n_pool                                   ONLINE
+          c0t60A98000383035356C2447384D396550d0  ONLINE
+          c0t60A98000383035356C2447384D39654Ed0  ONLINE
+
+# zpool import n_pool
+----
++
++
+
++
+[listing]
+----
+# zpool import 5049703405981005579
+
+[59] 09:55:53 (root@sunx2-shu04) /tmp
+# zpool list
+NAME     SIZE  ALLOC   FREE  CAP  HEALTH  ALTROOT
+n_pool  11.9G  2.67G  9.27G  22%  ONLINE  -
+----
+. 执行以下操作之一，检查 zpool 是否联机：
++
+** ` * zpool status*`
+** ` * zpool list*`
+
+
++
+[listing]
+----
+# zpool status
+  pool: n_pool
+ state: ONLINE
+ scan: none requested
+config:
+
+        NAME                                     STATE     READ WRITE CKSUM
+        n_pool                                   ONLINE       0     0     0
+          c0t60A98000383035356C2447384D396550d0  ONLINE       0     0     0
+          c0t60A98000383035356C2447384D39654Ed0  ONLINE       0     0     0
+
+errors: No known data errors
+----
++
++
+
++
+[listing]
+----
+# zpool list
+NAME     SIZE  ALLOC   FREE  CAP  HEALTH  ALTROOT
+n_pool  11.9G  2.67G  9.27G  22%  ONLINE  -
+----
+. 使用以下命令之一验证挂载点：
++
+** ` * zfs list*`
+** ` * df – ah*`
+
+
++
+[listing]
+----
+# zfs list
+NAME           USED  AVAIL  REFER  MOUNTPOINT
+n_pool        2.67G  9.08G   160K  /n_pool
+n_pool/pool1  1.50G  2.50G  1.50G  /n_pool/pool1
+n_pool/pool2  1.16G  2.84G  1.16G  /n_pool/pool2
+
+#df –ah
+n_pool                  12G   160K   9.1G     1%    /n_pool
+n_pool/pool1           4.0G   1.5G   2.5G    38%    /n_pool/pool1
+n_pool/pool2           4.0G   1.2G   2.8G    30%    /n_pool/pool2
+----
+

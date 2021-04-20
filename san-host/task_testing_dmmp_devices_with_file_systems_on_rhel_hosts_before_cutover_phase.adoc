@@ -1,0 +1,79 @@
+---
+permalink: san-host/task_testing_dmmp_devices_with_file_systems_on_rhel_hosts_before_cutover_phase.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, dmmp, devices, rhel, hosts, cutover, phase 
+summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本对 Red Hat Enterprise Linux \ （ RHEL\ ）主机执行基于副本的过渡， 您可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以挂载 DMMP 设备。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。 
+---
+= 之前在 RHEL 主机上测试具有文件系统的 DMMP 设备 基于副本的过渡的转换阶段
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果使用 7- 模式过渡工具（ 7MTT ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本对 Red Hat Enterprise Linux （ RHEL ）主机执行基于副本的过渡， 您可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以挂载 DMMP 设备。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。
+
+新的集群模式 Data ONTAP LUN 必须映射到测试主机，并且 LUN 必须已做好过渡准备。
+
+您应保持测试主机与源主机之间的硬件奇偶校验。
+
+在测试主机上执行以下步骤。
+
+. 基线数据复制完成后，在 7MTT 用户界面（ UI ）中选择 * 测试模式 * 。
+. 在 7MTT UI 中，单击 * 应用配置 * 。
+. 获取集群模式 Data ONTAP LUN 的新 SCSI 设备名称：
++
+` * sanlun lun show*`
+
++
+在以下示例中， ` /dev/sdl` 是 `lun_dmmp_raw` LUN 的 SCSI 设备名称， ` /dev/sdk` 是 `lun_dmmp_raw_alias` LUN 的 SCSI 设备名称：
+
++
+[listing]
+----
+[root@ibmx3550-229-108 /]# sanlun lun show
+controller(7mode/E-Series)/
+vserver (cDOT/FlashRay) lun-pathname               filename
+-----------------------------------------------------------
+vs_brb  /vol/dmmp_raw_vol/lun_dmmp_raw              /dev/sdl
+vs_brb  /vol/dmmp_raw_alias_vol/lun_dmmp_raw_alias  /dev/sdk
+----
+. 为集群模式 Data ONTAP LUN 配置 DMMP 设备：
++
+` * 多路径 *`
+
+. 获取集群模式 Data ONTAP LUN 的设备句柄 ID ：
++
+` * 多路径 -ll*`
+
++
+以下是设备句柄 ID 的示例： "`3600a09804d532d79565d47617679764d` "
+
+. 确定 DMMP 设备上配置的文件系统：
++
+` * blkid` -I _device_handle_ID_*
+
+. 确定源主机上的 ` /etc/fstab` 文件中是否存在逻辑卷的挂载点条目。
+. 如果源主机上存在逻辑卷的挂载点条目，请手动编辑测试主机上的 ` /etc/fstab` 文件以添加挂载点条目。
+. 挂载 LUN ：
++
+` * 挂载 -A*`
+
+. 验证是否已挂载 DMMP 设备：
++
+` * 挂载 *`
+
+. 根据需要执行测试。
+. 完成测试后，关闭测试主机：
++
+` * shutdown -h -t0 now*`
+
+. 在 7MTT UI 中，单击 * 完成测试 * 。
+
+
+如果要将集群模式 Data ONTAP LUN 重新映射到源主机，则必须为源主机做好转换阶段的准备。如果集群模式 Data ONTAP LUN 仍要映射到测试主机，则无需在测试主机上执行其他步骤。
+
+* 相关信息 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[从清单评估工作簿收集过渡前信息]
+
+xref:task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.adoc[过渡具有挂载的 LUN 时为转换阶段做准备 在 Linux 主机上使用 DMMP 设备名称的点]

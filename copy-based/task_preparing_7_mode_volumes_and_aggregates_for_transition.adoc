@@ -1,0 +1,13 @@
+---
+permalink: copy-based/task_preparing_7_mode_volumes_and_aggregates_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, aggrates, volumes 
+summary: 过渡之前，您必须确保 7- 模式聚合和卷符合过渡条件，并在过渡之前执行一些手动步骤。例如，某些卷类型无法过渡，过渡前必须从 7- 模式系统中删除任何 32 位数据。 
+---
+= 准备 7- 模式聚合和卷以进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡之前，您必须确保 7- 模式聚合和卷符合过渡条件，并在过渡之前执行一些手动步骤。例如，某些卷类型无法过渡，过渡前必须从 7- 模式系统中删除任何 32 位数据。

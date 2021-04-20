@@ -1,0 +1,13 @@
+---
+section: command-map
+title: 适用于 7- 模式管理员的命令映射
+url: "/command-map/index.html"
+entries:
+- title: 7- 模式命令与 ONTAP 命令的映射关系
+  url: "/command-map/reference_how_7_mode_commands_map_to_clustered_ontap_commands.html"
+- title: 7- 模式选项与 ONTAP 命令的映射关系
+  url: "/command-map/reference_how_7_mode_options_map_to_clustered_ontap_commands.html"
+- title: 7- 模式配置文件如何映射到集群模式 Data ONTAP 命令
+  url: "/command-map/reference_how_7_mode_configuration_files_map_to_clustered_ontap_commands.html"
+- title: 如何为 7- 模式管理员解释集群模式 Data ONTAP 命令，选项和配置文件映射
+  url: "/command-map/concept_how_to_interpret_clustered_ontap_command_maps_for_7_mode_administrators.html"

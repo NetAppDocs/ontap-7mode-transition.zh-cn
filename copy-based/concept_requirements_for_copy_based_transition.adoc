@@ -1,0 +1,83 @@
+---
+permalink: copy-based/concept_requirements_for_copy_based_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, requirements 
+summary: 您必须了解基于副本的过渡的 ONTAP 版本要求，许可要求和 7- 模式过渡工具要求。 
+---
+= 基于副本的过渡的要求
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须了解基于副本的过渡的 ONTAP 版本要求，许可要求和 7- 模式过渡工具要求。
+
+* * Data ONTAP 7- 模式源系统 *
++
+有关 7- 模式过渡工具支持迁移的 7- 模式版本列表，请参见 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]。
+
+* * ONTAP 目标系统 *
++
+这些 ONTAP 目标版本支持基于副本的过渡。
+
++
+|===
+| 如果过渡目标正在运行 ... | 您必须使用此 7- 模式过渡工具版本 ... 
+
+
+ a| 
+ONTAP 9.8 或更早版本支持
+ a| 
+3.3.3
+
+
+
+ a| 
+ONTAP 9.7P2 或更高版本 9.7 P 版本
+
+
+NOTE: 不支持 9.7 之前的版本。
+ a| 
+3.3.2
+
+
+
+ a| 
+ONTAP 9.6P7 或更高版本 9.6 P 版本
+
+
+NOTE: 不支持早期 9.6 版。
+ a| 
+3.3.2
+
+
+
+ a| 
+ONTAP 9.5 或更早版本的 ONTAP 9 版本
+ a| 
+3.3.2 或 3.3.1
+
+
+
+ a| 
+集群模式 Data ONTAP 8.1.4P4 或更高版本 8.x
+ a| 
+3.3.2 或 3.3.1
+
+|===
+* * 许可要求 *
++
+SnapMirror 必须在 7- 模式存储系统上获得许可。如果 7- 模式系统没有 SnapMirror 许可证，您可以从销售代表处获取一个临时 SnapMirror 许可证以进行过渡。
+
++
+如果必须执行监管链验证，则必须在目标集群上获得 SnapLock 的许可。
+
+* * 7- 模式过渡工具服务 *
++
+要使数据复制计划生效， 7- 模式过渡工具服务必须始终在安装了该工具的 Windows 或 Linux 系统上启动并运行。但是，它不要求 Web 界面处于活动状态或处于打开状态，计划才能生效。您可以关闭 Web 界面，并在需要时重新登录。
+
+* * 用于过渡评估的存储，主机和 FC 交换机版本要求 *
++
+有关支持由 7- 模式过渡工具评估的 7- 模式版本，主机和 FC 交换机的列表，请参见 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]。
+
+

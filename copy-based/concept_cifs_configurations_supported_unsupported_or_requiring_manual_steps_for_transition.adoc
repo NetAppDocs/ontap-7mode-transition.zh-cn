@@ -1,0 +1,103 @@
+---
+permalink: copy-based/concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, supported, unsupported, cifs, configurations 
+summary: 某些 CIFS 配置不会过渡到 ONTAP ，因为它们在 ONTAP 中不受支持或必须手动过渡。您应验证所有预检错误和警告消息，以评估此类配置对过渡的影响。 
+---
+= 过渡到 ONTAP 时支持和不支持的 CIFS 配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+某些 CIFS 配置不会过渡到 ONTAP ，因为它们在 ONTAP 中不受支持或必须手动过渡。您应验证所有预检错误和警告消息，以评估此类配置对过渡的影响。
+
+
+
+== 支持过渡的配置
+
+从较高层面来看， 7- 模式过渡工具会过渡以下 CIFS 配置：
+
+* CIFS 首选 DC 配置
+* 用户映射配置：
++
+** ` /etc/usermap.cfg`
+** ` WAFL.NT_admin_priv_map_to_root_`
+
+
+* CIFS 本地用户和组
+* 符号链接和 Widelink 配置（` /etc/symlink.translations` ）
+* CIFS 审核配置
+* CIFS 共享
+* CIFS 共享 ACL
+* CIFS 主目录配置
+* CIFS 选项：
++
+** `cifs.GPO.enable`
+** `cifs.smb2.enable`
+** `cifs.smb2.signation.required`
+** `cifs.Wins_servers`
+** `cifs.grant_implicit_exe_perms`
+** `cifs.restrict_anonymous`
+
+
+* SMB2 连接到外部服务器，例如域控制器。以下命令可实现此支持：
++
+** ` * cifs security modify -vserver SVM1 -smb2-enableed-for-dc-connections*`
+
+
+* FPolicy 原生文件阻止配置
+
+
+有关这些 CIFS 配置的详细信息，请参见预检结果。
+
+
+
+== ONTAP 不支持的配置
+
+ONTAP 不支持以下 7- 模式配置。因此，无法过渡这些配置。
+
+* NT4 和密码身份验证类型
+* SMB1 和 SMB2 签名的不同选项
+* 每个客户端的 CIFS 统计信息
+* 
++
+** 对 Windows NT 之前的客户端进行身份验证
+
+
+* 审核本地用户和组的帐户管理事件
+* 包含 IP 地址，主机名，网络名称或以点分表示法指定子网的网络名称的用户映射条目
+* 对计算机帐户具有访问限制的 CIFS 共享
++
+过渡后，计算机帐户可以访问所有共享。
+
+
+
+
+
+== 必须手动过渡的配置
+
+ONTAP 支持某些 CIFS 配置，但 7- 模式过渡工具不会过渡这些配置。
+
+以下 CIFS 配置会在预检中生成警告消息。您必须在 SVM 上手动应用以下配置：
+
+* 防病毒设置
+* FPolicy 配置
++
+7- 模式 FPolicy 和防病毒服务器不支持 ONTAP 。要升级这些服务器，您必须联系服务器供应商。但是，在提交过渡之前，不得停用 7- 模式 FPolicy 和防病毒服务器。如果您决定回滚过渡，则必须执行这些操作。
+
+* BranchCache 配置
+* 字符映射配置（ charmap ）
+* 用于使用创建文件的 CIFS 共享的 Forcegroup 属性 已将 UNIX 组指定为所属组
+* 指定最大数量的 CIFS 共享的 Maxusers 属性 允许同时连接到 7- 模式 CIFS 共享的数量
+* 存储级别访问防护（ SLAG ）配置
+* 具有 UNIX 模式权限的共享级 ACL
+* 为 UNIX 用户和组共享 ACL
+* LAN Manager 身份验证级别
+* NetBIOS 别名
+* CIFS 搜索域
+* 某些 CIFS 选项
++
+有关这些选项的详细信息，请参见预检结果。
+
+

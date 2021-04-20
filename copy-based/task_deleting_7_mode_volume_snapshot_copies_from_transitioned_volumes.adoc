@@ -1,0 +1,24 @@
+---
+permalink: copy-based/task_deleting_7_mode_volume_snapshot_copies_from_transitioned_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, delete, volume, snapshot, copy 
+summary: 由于 7- 模式卷 Snapshot 副本不会自动从过渡后的卷中删除，因此必须在过渡操作完成后手动删除这些 Snapshot 副本。 
+---
+= 从过渡后的卷中删除 7- 模式卷 Snapshot 副本
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+由于 7- 模式卷 Snapshot 副本不会自动从过渡后的卷中删除，因此必须在过渡操作完成后手动删除这些 Snapshot 副本。
+
+由于 7- 模式环境和集群模式 Data ONTAP 之间的 Snapshot 副本命名约定不同，因此，集群模式 Data ONTAP 环境中的 Snapshot 副本无法自动覆盖 7- 模式 Snapshot 副本。
+
+要提高空间利用率，您应删除不需要的 7- 模式 Snapshot 副本，包括从 7- 模式到 7- 模式 SnapMirror 关系以及从 7- 模式到集群模式 Data ONTAP SnapMirror 关系中的副本。
+
+.步骤
+. 存储转换操作完成后，删除不需要的 7- 模式 Snapshot 副本：
++
+` * snap delete -vserver <svm_name> -volume <volume_name> -snapshot <snapshot_name>*`
+
+

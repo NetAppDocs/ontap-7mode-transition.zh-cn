@@ -1,0 +1,21 @@
+---
+permalink: san-host/concept_types_of_san_boot_luns_supported_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, san, boot, lun, supported 
+summary: 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 时，仅支持特定类型的 SAN 启动 LUN 。 
+---
+= 支持过渡的 SAN 启动 LUN 的类型
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 时，仅支持特定类型的 SAN 启动 LUN 。
+
+支持过渡以下 SAN 启动 LUN ：
+
+* FC 或 FCoE SAN 启动 LUN
+* 适用于 Red Hat Enterprise Linux （ RHEL ）的 iSCSI SAN 启动 LUN 6.
+
+
+不支持过渡 RHEL 5.x 中的 iSCSI SAN 启动 LUN 。

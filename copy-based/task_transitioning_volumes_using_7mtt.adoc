@@ -1,0 +1,37 @@
+---
+permalink: copy-based/task_transitioning_volumes_using_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, migrate, data, configuration, volumes 
+summary: 要使用 7- 模式过渡工具迁移卷或卷 SnapMirror 关系，必须先配置项目，启动基线副本并完成项目。 
+---
+= 从 7- 模式卷迁移数据和配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要使用 7- 模式过渡工具迁移卷或卷 SnapMirror 关系，必须先配置项目，启动基线副本并完成项目。
+
+* 要包括在过渡中的 7- 模式控制器和集群必须可从安装了该工具的 Windows 主机访问。
+* 对于要包括在过渡项目中的控制器和集群，您必须拥有所有管理员级别的特权。
+* 7- 模式过渡工具服务必须在安装该服务的计算机上运行。
++
+默认情况下，此服务设置为自动，应在重新启动计算机时启动。
+
+* 您不应同时对控制器执行评估和迁移操作。
+* 修复预检报告的错误和警告后，不应修改 7- 模式控制器和集群上的对象（卷， IP 地址，系统信息等）。
+* 您应避免使用同时写入同一 SVM 的多个 Web 界面会话，以防止出现意外结果。
+* 在过渡过程中，应避免修改控制器和集群密码。
+* 您应避免使用 "* 后退 " 和 "* 前进 " 浏览器按钮，因为该工具不支持 Web 浏览器导航，并且可能发生原因会产生不希望的结果。
+* 过渡期间应避免刷新浏览器，因为可能发生原因会导致意外结果。
+
+
+下图显示了迁移过程：
+
+image::../media/transition_gui_flow.gif[过渡 GUI 流]
+
+* 相关信息 *
+
+xref:concept_how_you_transition_a_stand_alone_volume.adoc[如何过渡独立卷]
+
+xref:concept_how_you_transition_volumes_in_a_snapmirror_relationship.adoc[如何过渡 SnapMirror 关系中的卷]

@@ -1,0 +1,91 @@
+---
+permalink: copy-free/concept_log_files_for_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, log, files, tool 
+summary: 7- 模式过渡工具可创建日志文件，这些文件提供系统上发生的过渡操作的处理详细信息。日志文件位于安装 7- 模式过渡工具的路径的 logs 目录中。 
+---
+= 7- 模式过渡工具的日志文件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7- 模式过渡工具可创建日志文件，这些文件提供系统上发生的过渡操作的处理详细信息。日志文件位于安装 7- 模式过渡工具的路径的 logs 目录中。
+
+您还可以使用与 7- 模式系统和集群中的 SnapMirror 日志相关的 EMS 消息来解决问题。
+
+下表列出了与特定过渡项目相关的日志文件：
+
+|===
+| 日志文件路径 | 包含有关 ... 的信息 
+
+
+ a| 
+` 项目名称 _/transition.log`
+ a| 
+特定于项目的调试消息
+
+
+
+ a| 
+` 项目名称 _/zapi-outout.log`
+ a| 
+执行的所有 Data ONTAP API 的输出 通过特定项目的 7- 模式过渡工具
+
+|===
+下表列出了与任何特定项目无关的日志文件：
+
+|===
+| 日志文件路径 | 包含有关 ... 的信息 
+
+
+ a| 
+`transition-guy.log`
+ a| 
+使用 Web 执行的所有操作的条目 接口
+
+
+
+ a| 
+`default/audit.log`
+ a| 
+* 每次运行 7- 模式过渡工具时，工具都会使用的所有参数，例如 HTTP 或 HTTPS 端口和日志目录路径
+* 使用输出执行的所有过渡命令
+
+
+
+
+ a| 
+`default/default/transition.log`
+ a| 
+非特定于任何项目的调试消息
+
+
+
+ a| 
+`default/stream_management/stream_management.log`
+ a| 
+管理时计划程序记录的调试消息 不属于任何项目的计划
+
+
+
+ a| 
+`default/default/zapi-outout.log`
+ a| 
+执行的所有 Data ONTAP API 的输出 由 7- 模式过渡工具提供，但不属于 任何项目
+
+
+
+ a| 
+`default/stream_management/zapi-outout.log`
+ a| 
+执行的所有 Data ONTAP API 的输出 在管理计划时由 7- 模式过渡工具计划程序执行 并且不属于任何项目
+
+
+
+ a| 
+`server-console 。 log`
+ a| 
+记录使用 7- 模式过渡工具服务器执行的所有数据包交换的条目。此文件有助于对与服务器崩溃相关的问题进行故障排除。
+
+|===

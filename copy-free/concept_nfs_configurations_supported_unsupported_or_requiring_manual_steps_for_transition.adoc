@@ -1,0 +1,110 @@
+---
+permalink: copy-free/concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, nfs, transition, supported, unsupported, required, manual, steps 
+summary: 某些 NFS 配置不会过渡到 ONTAP ，因为它们在 ONTAP 中不受支持，与 7- 模式存在功能差异，或者必须手动过渡。您应验证所有预检错误和警告消息，以评估此类配置对过渡的影响。 
+---
+= NFS 过渡：支持和不支持的配置以及所需的手动步骤
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+某些 NFS 配置不会过渡到 ONTAP ，因为它们在 ONTAP 中不受支持，与 7- 模式存在功能差异，或者必须手动过渡。您应验证所有预检错误和警告消息，以评估此类配置对过渡的影响。
+
+
+
+== 支持过渡的配置
+
+从较高层面来看， 7- 模式过渡工具会过渡以下 NFS 配置：
+
+* NFS 选项：
++
+** `nfs.udp.xfersize`
+** `nfs.v4.id.domain`
+** `nfs.v4.acl.max.aces`
+** `nfs.tcp.xfersize`
+** `nfs.rpcsec.ctx.high`
+** `nfs.rpcsec.ctx.idle`
+** `nfs.response.trigger`
+** `wafl.default_nt_user`
+** `nfs.mount_rootonly`
+** `nfs.tcp.enable`
+** `nfs.udp.enable`
+** `nfs.response.trace`
+** `nfs.v4.read_delegation`
+** `nfs.v4.write_delegation`
+** `nfs.v4.acl.enable`
+** `nfs.vStorage.enable`
+** `nfs.v3.enable`
+** `nfs.v4.enable`
+
+
+* NFS 导出规则：
++
+如果导出规则配置了 -actual 选项，则会忽略导出的路径（别名路径），并使用实际路径配置导出规则。
+
+* 具有 Kerberos 安全 krb5p 的导出规则
+
+
+有关这些 NFS 配置的详细信息，请参见预检结果。
+
+
+
+== ONTAP 中不支持的配置
+
+ONTAP 不支持以下 NFS 配置：
+
+* 除 qtree 级 NFS 导出以外的子卷 NFS 导出
+* WebNFS
+* PC-NFS
+* NFSv2
+* 从一个或多个文件系统隔离 NFS 客户端 路径
+* 一些 NFS 选项
++
+有关不支持的选项的完整列表，请参见预检警告消息。
+
+
+
+
+
+== 必须手动过渡的配置
+
+ONTAP 中支持某些 NFS 配置，但 7- 模式过渡工具不会过渡这些配置。
+
+以下 NFS 配置会在预检操作中生成警告消息，您必须在 SVM 上手动应用这些配置：
+
+* NFS 审核配置
+* NFS 选项：
++
+** `rpc.Nsm.tcp.port`
+** `rpc.Nsm.udp.port`
+** `rpc.mount.tcp.port`
+** `rpc.mount.udp.port`
+** `nfs.export.neg.timeout`
+** `nfs.export.pos.timeout`
+** `nfs.export.harvest.timeout` 使用 `vserver nfs modify` 命令修改启用了 NFS 的 Storage Virtual Machine （ SVM ）的配置。
+
+
+* Kerberos 配置
+
+
+
+
+== 在 ONTAP 中功能不同的配置
+
+以下 NFS 配置在 ONTAP 中的功能有所不同：
+
+* NFS 导出规则
+* NFS 导出访问缓存
+* NFS 诊断命令
+* 支持 `showmount` 命令
+* NFS Kerberos 加密
+* NLM 版本支持
+
+
+* 相关信息 *
+
+xref:task_customizing_configurations_for_transition.adoc[自定义 7- 模式配置的过渡]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]

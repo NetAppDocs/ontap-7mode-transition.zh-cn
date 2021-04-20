@@ -1,0 +1,64 @@
+---
+permalink: san-host/task_mounting_hp_ux_host_luns_with_file_systems_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, mount, hp, ux, host, lun, file, system 
+summary: 将具有文件系统的 HP-UX 主机 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，必须挂载 LUN 。 
+---
+= 过渡后挂载具有文件系统的 HP-UX 主机 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将具有文件系统的 HP-UX 主机 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，必须挂载 LUN 。
+
+对于基于副本的过渡，请在 7- 模式过渡工具（ 7MTT ）中完成存储转换操作后执行以下步骤。HP-UX 主机不支持无副本过渡。
+
+.步骤
+. 发现新的集群模式 Data ONTAP LUN ：
++
+` * ioscan -FNC disk*`
+
+. 验证是否已发现集群模式 Data ONTAP LUN ：
++
+` * sanlun lun show*`
+
+. 在过渡之前，验证集群模式 Data ONTAP LUN 的 `lun-pathname` 是否与 7- 模式 LUN 的 `lun-pathname` 相同。
+. 验证 mode 列中的输出是否已从 `7` 更改为 `C` 。
+. 使用 `mapfile` 文件导入卷组：
++
+` * vgimport -s -v -m /tmp/mapfile.vg01 /dev/vg01"*`
+
+. 激活逻辑卷：
++
+` * vgchange -a y _vg_name_*`
+
+. 将原有设备专用文件名（ DSF ）转换为永久性 DSF ：
++
+` * vgdsf -c /dev/vg01*`
+
+. 验证 VG Status 是否显示为 Available ：
++
+` * vgdisplay*`
+
+. 手动挂载每个设备：
++
+` * 挂载 -F VxFS -o largefiles _device_name mount_point_*`
+
+. 如果系统提示您运行 fsck 命令，请执行此操作。
+. 验证挂载点：
++
+` * bdf*`
+
++
+以下示例显示了挂载点的显示方式：
+
++
+[listing]
+----
+bash-2.05# bdf
+Filesystem          kbytes     used     avail     used   Mounted on
+/dev/vg01/lvol1   23592960   1050952   22189796    5%   /mnt/qa/vg01
+/dev/vg01/lvol2   23592960    588480   22645044    3%   /mnt/qa/vg02
+----
+

@@ -1,0 +1,56 @@
+---
+permalink: copy-based/concept_preparing_for_metrocluster_configuration_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, metrocluster, configuration 
+summary: 过渡到 MetroCluster 配置之前，您必须了解在 ONTAP 中将 7- 模式卷过渡到 MetroCluster 配置的要求和注意事项。 
+---
+= 为 MetroCluster 配置过渡做准备
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡到 MetroCluster 配置之前，您必须了解在 ONTAP 中将 7- 模式卷过渡到 MetroCluster 配置的要求和注意事项。
+
+
+
+== 前提条件
+
+* 必须已在 ONTAP 中设置 MetroCluster 配置。
+* SVM 类型必须为 `sync-source` 。
+* 7- 模式控制器不能处于接管状态或正在等待交还。
+* ONTAP 中 MetroCluster 配置中的节点不能切换或等待切回。
+
+
+
+
+== 注意事项
+
+* 如果目标集群采用 MetroCluster 配置，则不支持过渡 SnapLock Compliance 卷。
+* 您可以将卷作为独立卷从 7- 模式控制器， HA 配置或 MetroCluster 配置过渡到 ONTAP 中的 MetroCluster 配置。
+* 如果 7- 模式 MetroCluster 配置中的卷与另一个 7- 模式控制器中的卷存在卷 SnapMirror 关系，则可以将 SnapMirror 关系作为主关系和二级关系进行过渡。
++
+您应在每个 MetroCluster 站点上安装 7- 模式过渡工具，并从每个站点过渡卷。
+
+* 无法在 ONTAP 的 MetroCluster 配置上配置为 7- 模式光纤 MetroCluster 配置配置的不同子网。
+* 无法在 ONTAP 中为 MetroCluster 配置配置配置在 7- 模式光纤 MetroCluster 配置中配置的首选端口。
+* 如果 7- 模式光纤 MetroCluster 配置使用的是 Brocade 6510 交换机，则可以与 ONTAP 中的新 MetroCluster 配置共享现有交换机网络结构。
++
+最好仅在过渡期间共享交换机网络结构。
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-fabric/home.html["光纤连接的 MetroCluster 安装和配置"]
+
+* 过渡期间创建的 cron 作业计划不会复制到远程站点，因此过渡后协商切换将失败。
++
+过渡后，您必须在远程站点上手动创建 cron 作业计划。
+
+
+
+* 相关信息 *
+
+xref:task_post_transition_task_for_a_metrocluster_configuration.adoc[过渡后在远程站点上配置 cron 作业计划 MetroCluster 配置]
+
+xref:concept_impact_of_takeover_and_giveback_on_transition.adoc[接管和交还对过渡的影响]
+
+xref:task_transitioning_a_metrocluster_configuration_if_a_switchover_or_switchback_event_occurs.adoc[过渡因切换或而失败的 MetroCluster 配置 切回]

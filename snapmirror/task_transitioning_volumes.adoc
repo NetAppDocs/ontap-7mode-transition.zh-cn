@@ -1,0 +1,23 @@
+---
+permalink: snapmirror/task_transitioning_volumes.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, snapmirror, transition, volume, data, protection, relationship, stand, alone 
+summary: 您可以使用 SnapMirror 技术过渡独立卷或处于数据保护关系中的卷（在卷 SnapMirror 关系中）。 
+---
+= 正在过渡卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 SnapMirror 技术过渡独立卷或处于数据保护关系（在卷 SnapMirror 关系中）的卷。
+
+如果正在进行的计划内更新因 NDO 操作（接管或聚合重新定位）而中止，则在 NDO 操作完成后，更新将自动恢复。
+
+如果要过渡独立卷或与 LUN 的卷 SnapMirror 关系，则必须创建 igroup 并映射 LUN 。然后，您必须在主机上执行所需的过渡后任务，然后才能配置对过渡后的集群模式 Data ONTAP 卷的访问。
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 主机过渡和修复"]
+
+* 相关信息 *
+
+xref:task_transitioning_7_mode_volumes_using_snapmirror.adoc[使用 SnapMirror 过渡 7- 模式卷]

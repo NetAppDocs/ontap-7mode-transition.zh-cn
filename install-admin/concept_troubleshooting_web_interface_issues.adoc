@@ -1,0 +1,13 @@
+---
+permalink: install-admin/concept_troubleshooting_web_interface_issues.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, troubleshoot, issues, errors 
+summary: 您需要了解 7- 模式过渡工具的一些常见问题以及解决这些问题的步骤。 
+---
+= 对问题进行故障排除
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您需要了解 7- 模式过渡工具的一些常见问题以及解决这些问题的步骤。

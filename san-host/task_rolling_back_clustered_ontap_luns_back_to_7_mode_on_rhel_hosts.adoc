@@ -1,0 +1,50 @@
+---
+permalink: san-host/task_rolling_back_clustered_ontap_luns_back_to_7_mode_on_rhel_hosts.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, rhel, roll, back 
+summary: 如果从 7- 模式 Data ONTAP 过渡后 ONTAP LUN 的性能未达到预期，则可以在 Red Hat Enterprise Linux\（ RHER\ ） 5 或 RHEL 6 主机上从 ONTAP 回滚到 7- 模式 LUN 。 
+---
+= 将 ONTAP LUN 回滚到 RHEL 主机上的 7- 模式 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果从 7- 模式 Data ONTAP 过渡后 ONTAP LUN 的性能未达到预期，则可以在 Red Hat Enterprise Linux （ RHEL ） 5 或 RHEL 6 主机上从 ONTAP 回滚到 7- 模式 LUN 。
+
+7- 模式 LUN 必须映射回 RHEL 5 或 RHEL 6 主机。
+
+.步骤
+. 发现 7- 模式 LUN ：
++
+` * 重新扫描 -scsi-bus.sh*`
+
+. 为 7- 模式 LUN 配置 DMMP 设备：
++
+` * 多路径 *`
+
+. 验证 7- 模式 LUN ：
++
+` * sanlun lun show*`
+
+. 确定 7- 模式 LUN 设备句柄 ID ：
++
+` * 多路径 -ll _device_handle_name_*`
+
+. 如果主机配置了逻辑卷管理器（ LVM ），请执行以下操作：
++
+.. 导入卷组： + ` * vgimport _vg_name_*`
+.. 验证卷组状态： + ` * vgdisplay*`
+.. 启用逻辑卷： + ` * vgchange -ay _vg_name_*`
+.. 验证逻辑卷状态： + ` * lvdisplay*`
++
+LV Status 应显示为 Available 。
+
+.. 将逻辑卷从 ONTAP LUN 挂载到其相应的挂载点目录： + ` * 挂载 _lv_name mount_point_*`
++
+如果在 `etc/fstab` 文件中定义了挂载点，您也可以使用 `mount -a` 命令挂载逻辑卷。
+
+.. 验证挂载点： + ` * 挂载 *`
+
+
+

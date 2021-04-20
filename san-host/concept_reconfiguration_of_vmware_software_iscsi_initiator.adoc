@@ -1,0 +1,23 @@
+---
+permalink: san-host/concept_reconfiguration_of_vmware_software_iscsi_initiator.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, reconfiguration, vmware, software, iscsi, initiator 
+summary: 如果 ESXi 主机使用 VMware 软件 iSCSI 启动程序访问在 7- 模式系统中运行的 Data ONTAP ，则在从 7- 模式过渡到集群模式 Data ONTAP 之后，必须在 ESXi 主机上重新配置 VMware 软件 iSCSI 启动程序，并使其能够发现新的集群模式 Data ONTAP 目标。 
+---
+= 过渡后重新配置 VMware 软件 iSCSI 启动程序
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果 ESXi 主机使用 VMware 软件 iSCSI 启动程序访问在 7- 模式系统中运行的 Data ONTAP ，则在从 7- 模式过渡到集群模式 Data ONTAP 之后，必须在 ESXi 主机上重新配置 VMware 软件 iSCSI 启动程序，并使其能够发现新的集群模式 Data ONTAP 目标。
+
+对于基于副本的过渡，您必须在 7- 模式过渡工具（ 7MTT ）中启动存储转换操作之前重新配置 VMware 软件 iSCSI 启动程序。对于无副本过渡，您必须在 7MTT 中启动导出并暂停 7- 模式系统操作之前重新配置 VMware 软件 iSCSI 启动程序。
+
+在重新配置期间，您必须检索新的集群模式 Data ONTAP 目标使用的 iSCSI IP 和 IQN 。如果目标 IP 子网已更改，则还需要在主机 iSCSI 启动程序端口上更改相应的 IP 子网。
+
+要对 VMware ESXi 主机上的软件 iSCSI 启动程序进行必要的更改，请参见 _VMware vSphere ESXi5.x 存储指南 _ 。
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]

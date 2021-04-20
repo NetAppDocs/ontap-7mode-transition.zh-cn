@@ -1,0 +1,24 @@
+---
+permalink: copy-based/reference_compression_fails_to_start_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, compression, data, enable, error 
+summary: 如果将运行 Data ONTAP 7.3.x 的系统上的 32 位卷过渡到 64 位聚合中的 ONTAP 卷，则过渡后 ONTAP 卷不会启用数据压缩。在将卷从 32 位升级到 64 位之前，无法启用数据压缩。 
+---
+= 从 Data ONTAP 7.3.x 过渡后未启用数据压缩
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果将运行 Data ONTAP 7.3.x 的系统上的 32 位卷过渡到 64 位聚合中的 ONTAP 卷，则过渡后 ONTAP 卷不会启用数据压缩。在将卷从 32 位升级到 64 位之前，无法启用数据压缩。
+
+
+
+== 临时解决策
+
+. 等待升级完成。
++
+您可以使用 `volume show -fields block-type -volume _vol_name_` 命令验证卷的块类型是否更改为 64 位。
+
+. 使用 `volume efficiency modify` 命令启用数据压缩。
+

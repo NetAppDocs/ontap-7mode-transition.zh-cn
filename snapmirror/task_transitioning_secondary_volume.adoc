@@ -1,0 +1,224 @@
+---
+permalink: snapmirror/task_transitioning_secondary_volume.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, snapmirror, volume, secondary 
+summary: 过渡二级卷涉及创建 SnapMirror 关系，执行基线传输，执行增量更新以及在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间设置 SnapMirror 关系。 
+---
+= 过渡二级卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡二级卷涉及创建 SnapMirror 关系，执行基线传输，执行增量更新以及在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间设置 SnapMirror 关系。
+
+必须已设置二级集群和 Storage Virtual Machine （ SVM ）。
+
+.步骤
+. 将数据从 7- 模式卷复制到集群模式 Data ONTAP 卷：
++
+.. 使用关系类型为 TDP 的 `snapmirror create` 命令在 7- 模式系统和 SVM 之间创建 SnapMirror 关系。
++
+[listing]
+----
+sec_cluster::> snapmirror create -source-path sec_system:dst_7_vol -destination-path dst_vserver:dst_c_vol -type TDP
+Operation succeeded: snapmirror create the relationship with destination dst_vserver:dst_c_vol.
+----
+.. 使用 `snapmirror initialize` 命令启动基线传输。
++
+[listing]
+----
+sec_cluster::> snapmirror initialize -destination-path dst_vserver:dst_c_vol
+Operation is queued: snapmirror initialize of destination dst_vserver:dst_c_vol.
+----
+.. 根据您是要手动更新集群模式 Data ONTAP 卷还是通过设置 SnapMirror 计划来更新此卷，请执行相应的操作：
++
+|===
+| 如果您要 ... | 那么 ... 
+
+
+ a| 
+手动更新传输
+ a| 
+... 使用 `snapmirror update` 命令。
++
+[listing]
+----
+sec_cluster::> snapmirror update -destination-path dst_vserver:dst_c_vol
+----
+... 使用 `snapmirror show` 命令监控数据复制状态。
++
+[listing]
+----
+sec_cluster::> snapmirror show -destination-path dst_vserver:dst_c_vol
+                            Source Path: sec_system:dst_7_vol
+                       Destination Path: dst_vserver:dst_c_vol
+                      Relationship Type: TDP
+                Relationship Group Type: none
+                    SnapMirror Schedule: -
+                 SnapMirror Policy Type: async-mirror
+                      SnapMirror Policy: DPDefault
+                            Tries Limit: -
+                      Throttle (KB/sec): unlimited
+                           Mirror State: Snapmirrored
+ ...
+           Number of Successful Updates: 1
+               Number of Failed Updates: 0
+           Number of Successful Resyncs: 0
+               Number of Failed Resyncs: 0
+            Number of Successful Breaks: 0
+                Number of Failed Breaks: 0
+                   Total Transfer Bytes: 278528
+         Total Transfer Time in Seconds: 11
+----
+... 转至步骤 3 。
+
+
+
+
+ a| 
+执行计划的更新传输
+ a| 
+... 使用 `job schedule cron create` 命令为更新传输创建计划。
++
+[listing]
+----
+sec_cluster::> job schedule cron create -name 15_minute_sched -minute 15
+----
+... 使用 `snapmirror modify` 命令将计划应用于 SnapMirror 关系。
++
+[listing]
+----
+sec_cluster::> snapmirror modify -destination-path dst_vserver:dst_c_vol -schedule 15_minute_sched
+----
+... 使用 `snapmirror show` 命令监控数据复制状态。
++
+[listing]
+----
+sec_cluster::> snapmirror show -destination-path dst_vserver:dst_c_vol
+                            Source Path: sec_system:dst_7_vol
+                       Destination Path: dst_vserver:dst_c_vol
+                      Relationship Type: TDP
+                Relationship Group Type: none
+                    SnapMirror Schedule: 15_minute_sched
+                 SnapMirror Policy Type: async-mirror
+                      SnapMirror Policy: DPDefault
+                            Tries Limit: -
+                      Throttle (KB/sec): unlimited
+                           Mirror State: Snapmirrored
+ ...
+           Number of Successful Updates: 1
+               Number of Failed Updates: 0
+           Number of Successful Resyncs: 0
+               Number of Failed Resyncs: 0
+            Number of Successful Breaks: 0
+                Number of Failed Breaks: 0
+                   Total Transfer Bytes: 278528
+         Total Transfer Time in Seconds: 11
+----
+
+
+|===
+
+
+. 如果您有增量传输计划，请在准备好执行转换时执行以下步骤：
++
+.. 使用 `snapmirror quiesce` 命令禁用所有未来的更新传输。
++
+[listing]
+----
+sec_cluster::> snapmirror quiesce -destination-path dst_vserver:dst_vol
+----
+.. 使用 `snapmirror modify` 命令删除 SnapMirror 计划。
++
+[listing]
+----
+sec_cluster::> snapmirror modify -destination-path dst_vserver:dst_vol -schedule ""
+----
+.. 如果您先前暂停了 SnapMirror 传输，请使用 `snapmirror resume` 命令启用 SnapMirror 传输。
++
+[listing]
+----
+sec_cluster::> snapmirror resume -destination-path dst_vserver:dst_vol
+----
+
+
+. 等待 7- 模式卷和集群模式 Data ONTAP 卷之间正在进行的任何传输完成，然后断开 7- 模式卷的客户端访问以启动转换。
+. 使用 `snapmirror update` 命令对集群模式 Data ONTAP 卷执行最终数据更新。
++
+[listing]
+----
+sec_cluster::> snapmirror update -destination-path dst_vserver:dst_vol
+Operation is queued: snapmirror update of destination dst_vserver:dst_vol.
+----
+. 使用 `snapmirror show` 命令验证上次传输是否成功。
+. 使用 `snapmirror break` 命令中断 7- 模式二级卷与集群模式 Data ONTAP 二级卷之间的 SnapMirror 关系。
++
+[listing]
+----
+sec_cluster::> snapmirror break -destination-path dst_vserver:dst_vol
+[Job 60] Job succeeded: SnapMirror Break Succeeded
+----
+. 如果您的卷配置了 LUN ，请在高级权限级别使用 `lun transition 7-mode show` 命令验证 LUN 是否已过渡。
++
+您也可以在集群模式 Data ONTAP 卷上使用 `lun show` 命令查看已成功过渡的所有 LUN 。
+
+. 使用 `snapmirror delete` 命令删除 7- 模式二级卷与集群模式 Data ONTAP 二级卷之间的 SnapMirror 关系。
++
+[listing]
+----
+sec_cluster::> snapmirror delete -destination-path dst_vserver:dst_vol
+----
+. 使用 `snapmirror release` 命令从 7- 模式系统中删除 SnapMirror 关系信息。
++
+[listing]
+----
+system7mode> snapmirror release dataVol20 vs1:dst_vol
+----
+. 在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间建立灾难恢复关系：
++
+.. 使用 `vserver peer transition create` 命令在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间创建 SVM 对等关系。
++
+[listing]
+----
+sec_cluster::> vserver peer transition create -local-vserver dst_vserver -src-filer-name src_system
+Transition peering created
+----
+.. 使用 `job schedule cron create` 命令创建与为 7- 模式 SnapMirror 关系配置的计划匹配的作业计划。
++
+[listing]
+----
+sec_cluster::> job schedule cron create -name 15_minute_sched -minute 15
+----
+.. 使用 `snapmirror create` 命令在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间创建 SnapMirror 关系。
++
+[listing]
+----
+sec_cluster::> snapmirror create -source-path src_system:src_7_vol -destination-path dst_vserver:dst_c_vol -type TDP -schedule 15_minute_sched
+Operation succeeded: snapmirror create the relationship with destination dst_vserver:dst_c_vol.
+----
+.. 使用 `snapmirror resync` 命令重新同步集群模式 Data ONTAP 二级卷。
++
+要成功重新同步， 7- 模式主卷和集群模式 Data ONTAP 二级卷之间必须存在一个通用的 7- 模式 Snapshot 副本。
+
++
+[listing]
+----
+sec_cluster::> snapmirror  resync -destination-path dst_vserver:dst_c_vol
+----
++
+*** 如果目标集群运行的是 Data ONTAP 8.3.2 或更高版本，则必须创建所需的 igroup 并手动映射 LUN 。
+*** 如果目标集群运行的是 Data ONTAP 8.3.1 或更早版本，则必须在完成主卷的存储转换后手动映射二级 LUN 。
+*** 将 7- 模式系统中所有必需卷过渡到 SVM 后，必须删除二级 7- 模式系统与二级 SVM 之间的 SVM 对等关系。
+*** 您必须删除 7- 模式主系统与 7- 模式二级系统之间的 SnapMirror 关系。
+
+
+
+
+
+
+* 相关信息 *
+
+xref:task_recovering_from_a_failed_lun_transition.adoc[从失败的 LUN 过渡中恢复]
+
+xref:task_configuring_a_tcp_window_size_for_snapmirror_relationships.adoc[为 SnapMirror 关系配置 TCP 窗口大小]

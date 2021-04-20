@@ -1,0 +1,25 @@
+---
+permalink: copy-free/concept_collecting_and_assessing_inventory_information.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, collecting, assessing, inventory, information 
+summary: 您可以从控制器，主机和 FC 交换机收集清单信息。然后，您可以评估这些系统的特性和功能，并确定这些特性和功能在选择进行过渡的 ONTAP 版本中的工作方式。 
+---
+= 收集和评估清单信息
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以从控制器，主机和 FC 交换机收集清单信息。然后，您可以评估这些系统的特性和功能，并确定这些特性和功能在选择进行过渡的 ONTAP 版本中的工作方式。
+
+您可以通过两种方式收集清单信息：
+
+* 如果您的环境安全性允许，您可以安装 7- 模式过渡工具，然后使用它收集清单信息。
+* 您可以导入清单收集工具生成的清单 XML 报告，然后执行评估。
+
+
+在这两种情况下，您都必须使用清单收集工具 3.3 收集清单。
+
+要评估无副本过渡的清单信息，您必须选择源 7- 模式 HA 对的两个节点。尽管评估是按节点进行的，但如果单个节点不符合过渡条件，则无法过渡整个 HA 对。
+
+image::../media/delete_me_cbt_assessment_workflow.gif[删除 ME CBT 评估工作流]

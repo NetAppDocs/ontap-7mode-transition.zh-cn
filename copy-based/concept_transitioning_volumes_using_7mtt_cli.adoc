@@ -1,0 +1,15 @@
+---
+permalink: copy-based/concept_transitioning_volumes_using_7mtt_cli.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, cli, tool, columes 
+summary: 7- 模式过渡工具提供了用于过渡 7- 模式卷的命令。如果在 Linux 系统上安装了 7- 模式过渡工具，则必须使用命令行界面执行过渡。 
+---
+= 使用 7- 模式过渡工具命令行界面过渡卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7- 模式过渡工具提供了用于过渡 7- 模式卷的命令。如果在 Linux 系统上安装了 7- 模式过渡工具，则必须使用命令行界面执行过渡。
+
+该工具可收集 7- 模式存储系统的卷和 IP 地址信息，验证 7- 模式配置，并与集群进行交互，以便在 SVM 上应用此配置。

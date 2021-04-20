@@ -1,0 +1,37 @@
+---
+permalink: san-host/task_reattaching_rdm_luns_to_vms.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rdm, lun, vm 
+summary: 要使连接到原始设备映射 \ （ RDM\ ） LUN 的 VM 在过渡后正常运行，必须从 VM 中删除托管 LUN 的 RDM 磁盘。然后，您必须根据 7- 模式过渡工具提供的 LUN 序列号将 RDM 磁盘重新连接到虚拟机。 
+---
+= 将 RDM LUN 重新连接到 VM
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要使连接到原始设备映射（ Raw Device Mapped ， RDM ） LUN 的 VM 在过渡后正常运行，必须从 VM 中删除托管 LUN 的 RDM 磁盘。然后，您必须根据 7- 模式过渡工具（ 7MTT ）提供的 LUN 序列号将 RDM 磁盘重新连接到 VM 。
+
+* 对于基于副本的过渡，请在 7MTT 中启动存储转换操作之前执行以下步骤。
+* 对于无副本过渡，请在 7MTT 中启动导出并暂停 7- 模式系统操作之前执行以下步骤。
+
+
+.步骤
+. 在清单评估工作簿 _ 中，导航到 * 主机 VM 磁盘详细信息 * 选项卡。
+. 在 * 类型 * 列中使用 PTRDM 或 NPTTRDM 确定 ESXi 主机 VM 。
+. 记下虚拟机名称， * 磁盘 * 列中的磁盘路径详细信息以及 * 设备映射 * 列中的 naa ID 。
+. 验证 naa ID 是否列在过渡后生成的 7MTT 映射文件中。
+. 验证 naa ID 是否在映射文件的 * LUN WWID* 列中具有相应的新 naa ID 。
++
+这是新的集群模式 Data ONTAP LUN naa ID 。
+
+. 使用 * LUN WWID* 列中的集群模式 Data ONTAP LUN naa ID 和磁盘路径详细信息将集群模式 Data ONTAP LUN 重新连接到 VM 。
+
+
+* 相关信息 *
+
+xref:task_removing_stale_rdm_using_vsphere_client.adoc[使用 vSphere Client 删除陈旧的 RDM]
+
+xref:task_reattaching_rdm_to_vms_using_vsphere_client.adoc[使用 vSphere Client 将 RDM 重新连接到 VM]
+
+xref:task_reattaching_rdm_using_esxi_cli_console.adoc[使用 ESXi 的命令行界面 / 控制台重新连接 RDM]

@@ -1,0 +1,13 @@
+---
+permalink: snapmirror/reference_troubleshooting.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, troubleshoot, transition, snapmirror, issues, problems 
+summary: 故障排除信息可帮助您确定并解决使用 SnapMirror 命令过渡 7- 模式数据时出现的问题。 
+---
+= 对使用 SnapMirror 时的过渡问题进行故障排除
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+故障排除信息可帮助您确定并解决使用 SnapMirror 命令过渡 7- 模式数据时出现的问题。

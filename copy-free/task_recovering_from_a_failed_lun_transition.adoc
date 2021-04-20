@@ -1,0 +1,59 @@
+---
+permalink: copy-free/task_recovering_from_a_failed_lun_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, recover, failed, lun 
+summary: 如果具有 LUN 的卷过渡失败，您可以使用 lun transition 7-mode show 命令检查哪些 LUN 未过渡到 ONTAP ，然后确定更正操作。 
+---
+= 从失败的 LUN 过渡中恢复
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果具有 LUN 的卷过渡失败，您可以使用 lun transition 7-mode show 命令检查哪些 LUN 未过渡到 ONTAP ，然后确定更正操作。
+
+.步骤
+. 更改为高级权限级别：
++
+` * 设置 -privilege advanced*`
+
+. 检查哪些 LUN 出现故障：
++
+` * LUN 过渡 7- 模式显示 *`
+
+. 查看 EMS 日志并确定必须采取的更正操作。
+. 执行 EMS 消息中所示的必要步骤以更正故障。
+. 如果任何受支持的 LUN 过渡失败，则要完成过渡：
++
+` * LUN 过渡 start*`
+
+. 查看卷的过渡状态：
++
+` * LUN 过渡显示 *`
+
++
+过渡状态可以是以下值之一：
+
++
+** `active` ：卷处于活动 SnapMirror 过渡关系中，尚未过渡。
+** `Complete` ：此卷的所有受支持 LUN 均已过渡。
+** `Failed` ：卷的 LUN 过渡失败。
+** `none` ：卷不包含要从 7- 模式系统过渡的 LUN 。
+
+
++
+[listing]
+----
+cluster1::*> lun transition show
+Vserver              Volume             Transition Status
+-------------------- ------------------ -----------------
+vs1                  vol0               none
+                     vol1               complete
+                     vol2               failed
+                     vol3               active
+----
+
+
+* 相关信息 *
+
+xref:concept_considerations_for_space_when_transitioning_san_volumes.adoc[过渡 SAN 卷时的空间注意事项]

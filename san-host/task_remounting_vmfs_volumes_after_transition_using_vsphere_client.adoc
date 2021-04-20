@@ -1,0 +1,36 @@
+---
+permalink: san-host/task_remounting_vmfs_volumes_after_transition_using_vsphere_client.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, remount, vmfs, volumes, vshpere, client 
+summary: 过渡后，您必须重新挂载 VMFS 卷，以使数据存储库和虚拟机 \ （ VM\ ）达到过渡前状态。如果您不熟悉 ESXi 命令行界面，或者在您的环境中更方便，则可以使用 vSphere Client 重新挂载卷。 
+---
+= 过渡后使用 vSphere Client 重新挂载 VMFS 卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡后，您必须重新挂载 VMFS 卷，才能将数据存储库和虚拟机（ VM ）置于过渡前状态。如果您不熟悉 ESXi 命令行界面，或者在您的环境中更方便，则可以使用 vSphere Client 重新挂载卷。
+
+这些步骤适用于卷和跨区卷。
+
+.步骤
+. 登录到 ESXi 主机或管理 ESXi 主机的 vCenter Server 。
+. 在 * 主机和集群 * 下，选择 ESXi 主机。
+. 导航到 * 配置 * > * 硬件 * > * 存储 * 。
+. 在右上角，单击 * 添加存储 * 。
+. 选择 * 磁盘 /LUN* 。
+. 单击 * 下一步 * 。
+. 在 LUN 列表中，找到显示数据存储库名称的 * vmfs_label * 列。
+. 选择 LUN 以完成重新挂载操作。
++
+如果要重新挂载跨区 VMFS 卷，则此跨区中的第一个 LUN 将标记为 "`head` " 。要完成重新挂载操作，必须选择 "`head` " LUN 。
+
+. 单击 * 下一步 * 。
+. 在选择 VMFS 挂载选项窗口中，选择 * 保留现有签名 * 。
+. 完成向导。
+. 对 VMFS_label 列中显示数据存储库名称的所有 LUN 重复上述步骤。
++
+重新挂载数据存储库，并且 VM 处于活动状态。
+
+

@@ -1,0 +1,22 @@
+---
+permalink: copy-based/task_transitioning_a_metrocluster_configuration_if_a_switchover_or_switchback_event_occurs.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, metrocluster, configuration, failed, switchover, switchback 
+summary: 过渡操作，例如过渡准备，启动，暂停，恢复或完成， 在 MetroCluster 切换期间或 MetroCluster 切回之后失败。然后，您必须手动重新建立 SnapMirror 关系才能恢复过渡。 
+---
+= 过渡因切换或而失败的 MetroCluster 配置 切回
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡操作，例如过渡准备，启动，暂停，恢复或完成， 在 MetroCluster 切换期间或 MetroCluster 切回之后失败。然后，您必须手动重新建立 SnapMirror 关系才能恢复过渡。
+
+.步骤
+. 等待切回完成。
+. 在集群 CLI 中，使用 `snapmirror create` 命令在过渡期间的 7- 模式卷和集群模式 Data ONTAP 卷之间重新建立 SnapMirror 关系。
+. 在 7- 模式过渡工具中，重新运行过渡操作。
++
+当下一个计划变为活动状态时，数据复制操作将开始。
+
+

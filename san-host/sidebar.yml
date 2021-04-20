@@ -1,0 +1,238 @@
+---
+section: san-host
+title: SAN 主机过渡和修复
+url: "/san-host/index.html"
+entries:
+- title: 7- 模式过渡工具支持的 ONTAP 目标版本
+  url: "/san-host/concept_ontap_target_releases_supported_by_7mtt.html"
+- title: 7- 模式过渡工具过渡阶段
+  url: "/san-host/concept_7mtt_transition_phases.html"
+- title: VMware ESXi 主机修复
+  url: "/san-host/concept_vmware_esxi_host_remediation.html"
+  entries:
+  - title: 使用 7MTT 的 SAN 过渡支持的 ESXi 版本和功能
+    url: "/san-host/concept_esxi_versions_and_features_supported_for_san_transitions_using_7mtt.html"
+  - title: 为过渡 ESXi 主机做准备
+    url: "/san-host/task_preparing_for_transition_of_esxi_hosts.html"
+    entries:
+    - title: 什么是清单收集工具
+      url: "/san-host/concept_what_the_inventory_collect_tool_is.html"
+    - title: 准备 Linux 子操作系统以进行过渡
+      url: "/san-host/task_preparing_linux_guest_operating_systems_for_transition.html"
+    - title: 准备要过渡的 Windows 子操作系统
+      url: "/san-host/concept_preparing_windows_guest_operating_systems_for_transition.html"
+    - title: 如何确定必须先删除的 VM 快照 过渡
+      url: "/san-host/concept_how_to_identify_vm_snapshots_that_must_be_removed_before_transition.html"
+      entries:
+      - title: 使用 vSphere Client 删除 VM Snapshot 副本
+        url: "/san-host/task_deleting_vm_snapshots_using_vsphere_client.html"
+      - title: 使用 ESXi 命令行界面删除 VM 快照
+        url: "/san-host/task_removing_vm_snapshots_using_esxi_cli.html"
+  - title: 在转换之前测试已过渡的 LUN 和 ESXi 主机应用程序 基于副本的过渡阶段
+    url: "/san-host/task_testing_transitioned_luns_and_esxi_host_applications_before_cutover.html"
+  - title: ESXi 主机过渡的应用配置（预转换）阶段停机
+    url: "/san-host/concept_downtime_at_precutover_phase_of_esxi_host_transition.html"
+  - title: ESXi 主机的过渡后修复要求
+    url: "/san-host/concept_post_transition_requirements_for_esxi_hosts.html"
+    entries:
+    - title: 为过渡后 ESXi 主机修复做准备
+      url: "/san-host/task_preparing_for_post_transition_esxi_host_remediation.html"
+    - title: 过渡后使用在非 SAN 启动 ESXi 主机上重新注册 VM vSphere 客户端
+      url: "/san-host/task_reregistering_vms_after_transition_on_non_san_boot_esxi_host_using_vsphere_client.html"
+    - title: 过渡后重新配置 VMware 软件 iSCSI 启动程序
+      url: "/san-host/concept_reconfiguration_of_vmware_software_iscsi_initiator.html"
+    - title: 设置过渡后为 SAN 启动配置的 ESXi 主机
+      url: "/san-host/task_setting_up_esxi_hosts_configured_for_san_boot_after_transition.html"
+    - title: 确定过渡后是否需要重新挂载 VMFS 卷
+      url: "/san-host/task_determining_whether_vmfs_volumes_need_to_be_remounted_after_transition.html"
+      entries:
+      - title: 过渡后使用 vSphere Client 重新挂载 VMFS 卷
+        url: "/san-host/task_remounting_vmfs_volumes_after_transition_using_vsphere_client.html"
+      - title: 过渡后使用 ESXi 命令行界面重新挂载 VMFS 卷
+        url: "/san-host/task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.html"
+    - title: 将 RDM LUN 重新连接到 VM
+      url: "/san-host/task_reattaching_rdm_luns_to_vms.html"
+      entries:
+      - title: 使用 vSphere Client 删除陈旧的 RDM
+        url: "/san-host/task_removing_stale_rdm_using_vsphere_client.html"
+      - title: 使用 vSphere Client 将 RDM 重新连接到 VM
+        url: "/san-host/task_reattaching_rdm_to_vms_using_vsphere_client.html"
+      - title: 使用 ESXi 的命令行界面 / 控制台重新连接 RDM
+        url: "/san-host/task_reattaching_rdm_using_esxi_cli_console.html"
+    - title: Linux 和 Windows 子操作系统的过渡后修复
+      url: "/san-host/concept_post_transition_remediation_for_linux_and_windows_guest_operating_systems.html"
+    - title: 过渡修复后建议的 ESXi 主机设置
+      url: "/san-host/concept_configure_recommended_settings_for_esxi_hosts.html"
+  - title: 使用 ESXi 命令行界面在数据存储库上启用 CAW
+    url: "/san-host/task_enabling_caw_on_a_datastore_using_esxi_cli.html"
+- title: RHEL 主机修复
+  url: "/san-host/concept_linux_host_remediation.html"
+  entries:
+  - title: 从清单评估工作簿收集过渡前信息
+    url: "/san-host/task_gathering_pretransition_information_from_inventory_assessment_workbook.html"
+    entries:
+    - title: 什么是清单收集工具
+      url: "/san-host/concept_what_the_inventory_collect_tool_is.html"
+  - title: 过渡不具有文件系统的 RHEL DMMP 设备
+    url: "/san-host/concept_transitioning_rhel_dmmp_devices_without_file_systems.html"
+    entries:
+    - title: 使用验证 RHEL LUN 是否已做好过渡准备 清单评估工作簿
+      url: "/san-host/task_verifying_that_rhel_luns_are_ready_for_transition_using_inventory_assessment_workbook.html"
+    - title: 使用验证 RHEL 5 LUN 是否已做好过渡准备 命令行界面
+      url: "/san-host/task_verifying_rhel_5_luns_are_ready_for_transition_using_cli.html"
+    - title: 验证 RHEL 6 DDMP 设备是否已做好过渡准备 使用 CLI
+      url: "/san-host/task_verifying_rhel_6_ddmp_devices_are_ready_for_transition_using_cli.html"
+    - title: 之前在 RHEL 主机上测试不具有文件系统的 DMMP 设备 基于副本的过渡的转换阶段
+      url: "/san-host/task_testing_dmmp_devices_on_rhel_before_cutover.html"
+    - title: 过渡 Linux 主机 DMMP 设备时为转换做准备 不使用文件系统
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_linux_host_dmmp_device_without_file_system.html"
+    - title: 过渡后在 Linux 主机上替换 7- 模式 LUN WWID LUN
+      url: "/san-host/task_replacing_7_mode_wwids_on_linux_host_after_transition_of_luns.html"
+  - title: 过渡挂载点使用 DMMP 设备名称的 LUN
+    url: "/san-host/concept_transitioning_luns_with_mount_points_using_dmmp_devices_names.html"
+    entries:
+    - title: 使用 DMMP 设备名称准备挂载点的 RHEL LUN 使用清单评估工作簿进行过渡
+      url: "/san-host/task_preparing_rhel_luns_transition_using_inventory_assessment_workbook.html"
+    - title: 使用 DMMP 别名准备挂载点的 RHEL LUN 用于使用 CLI 进行过渡
+      url: "/san-host/task_preparing_rhel_luns_for_transition_using_the_cli.html"
+    - title: 之前在 RHEL 主机上测试具有文件系统的 DMMP 设备 基于副本的过渡的转换阶段
+      url: "/san-host/task_testing_dmmp_devices_with_file_systems_on_rhel_hosts_before_cutover_phase.html"
+    - title: 过渡具有挂载的 LUN 时为转换阶段做准备 在 Linux 主机上使用 DMMP 设备名称的点
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.html"
+    - title: 过渡后重新挂载 Linux 主机上的 DMMP 设备
+      url: "/san-host/task_remounting_dmmp_devices_on_linux_hosts_after_transition.html"
+  - title: 过渡挂载点使用 DMMP 别名的 LUN
+    url: "/san-host/concept_transitioning_luns_with_mount_points_using_dmmp_alias_names.html"
+    entries:
+    - title: 使用 DMMP 别名准备挂载点的 RHEL LUN 用于使用 CLI 进行过渡
+      url: "/san-host/task_preparing_rhel_luns_for_transition_using_the_cli.html"
+    - title: 测试挂载点使用了 DMMP 别名的 LUN 在基于副本的过渡的转换阶段之前， RHEL 主机
+      url: "/san-host/task_testing_luns_with_mounts_using_dmmp_aliases_on_rhel_hosts_before_cutover.html"
+    - title: 过渡具有挂载的 LUN 时为转换阶段做准备 在 Linux 主机上使用 DMMP 设备名称的点
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.html"
+    - title: 重新挂载挂载点使用了 DMMP 别名的 LUN 过渡后的 Linux 主机
+      url: "/san-host/task_remounting_luns_with_mount_point_using_dmmp_alias_name_on_linux_hosts_after_transition.html"
+  - title: 过渡 LVM 设备上的 Linux 主机文件系统
+    url: "/san-host/concept_transitioning_linux_host_file_systems_on_lvm_devices.html"
+    entries:
+    - title: 在之前测试 LVM 设备上具有文件系统的 LUN 基于副本的过渡的转换阶段
+      url: "/san-host/task_testing_luns_with_file_systems_on_lvm_devices_before_cutover_phase.html"
+    - title: 过渡 Linux 主机文件系统时为转换阶段做准备 在 LVM 设备上
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_linux_host_file_systems_on_lvm_devices.html"
+    - title: 过渡后在 Linux 主机上挂载逻辑卷
+      url: "/san-host/task_mounting_logical_volumes_on_linux_host_after_transition.html"
+  - title: 过渡 SAN 启动 LUN
+    url: "/san-host/concept_transition_of_san_boot_luns.html"
+    entries:
+    - title: 支持过渡的 SAN 启动 LUN 的类型
+      url: "/san-host/concept_types_of_san_boot_luns_supported_for_transition.html"
+    - title: 为过渡 FC 或 FCoE SAN 启动 LUN 做准备 在 RHEL 主机上
+      url: "/san-host/task_preparing_for_transition_of_fc_or_fcoe_san_boot_luns.html"
+    - title: 为过渡 iSCSI SAN 启动 LUN 做准备
+      url: "/san-host/task_preparing_for_transition_of_iscsi_san_boot_luns.html"
+    - title: 在转换之前测试 RHEL 主机上的 SAN 启动 LUN 基于副本的过渡阶段
+      url: "/san-host/task_testing_san_boot_luns_on_rhel_hosts_before_cutover.html"
+    - title: 过渡 SAN 启动 LUN 时为转换阶段做准备
+      url: "/san-host/concept_preparing_for_cutover_when_transitioning_san_boot_luns.html"
+    - title: 过渡后发现 SAN 启动 LUN
+      url: "/san-host/task_discovering_san_boot_luns_after_transition.html"
+- title: Windows 主机修复
+  url: "/san-host/concept_windows_host_remediation.html"
+  entries:
+  - title: 准备 Windows 主机以进行过渡
+    url: "/san-host/task_preparing_windows_hosts_for_transition.html"
+    entries:
+    - title: 什么是清单收集工具
+      url: "/san-host/concept_what_the_inventory_collect_tool_is.html"
+  - title: 在转换阶段之前测试 Windows 主机上已过渡的 LUN
+    url: "/san-host/task_testing_transitioned_luns_on_windows_hosts_before_cutover.html"
+  - title: 过渡 Windows 主机时为转换阶段做准备
+    url: "/san-host/task_preparing_for_cutover_when_transitioning_windows_hosts.html"
+  - title: 过渡后使 Windows 主机联机
+    url: "/san-host/task_bringing_windows_hosts_online_after_transition.html"
+  - title: 将 SAN 主机过渡到 ONTAP 时出现的异常和已知问题
+    url: "/san-host/concept_exceptions_and_known_issues_when_transitioning_san_hosts_to_clustered_ontap.html"
+- title: HP-UX 主机修复
+  url: "/san-host/concept_hp_ux_host_remediation.html"
+  entries:
+  - title: 过渡具有文件系统的 HP-UX 主机 LUN
+    url: "/san-host/concept_transitioning_hp_ux_host_luns_with_file_systems.html"
+    entries:
+    - title: 准备过渡具有文件系统的 HP-UX 主机 LUN
+      url: "/san-host/task_preparing_to_transition_hp_ux_host_luns_with_file_systems.html"
+    - title: 在转换阶段之前测试 HP-UX 主机上的数据 LUN 基于副本的过渡
+      url: "/san-host/task_testing_data_luns_on_hp_ux_hosts_before_cutover.html"
+    - title: 过渡 HP-UX 主机数据 LUN 时为转换阶段做准备 文件系统
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_hp_ux_host_data_luns_with_file_systems.html"
+    - title: 过渡后挂载具有文件系统的 HP-UX 主机 LUN
+      url: "/san-host/task_mounting_hp_ux_host_luns_with_file_systems_after_transition.html"
+  - title: 过渡具有 FC/FCoE 配置的 HP-UX 主机 SAN 启动 LUN
+    url: "/san-host/concept_transitioning_hp_ux_host_san_boot_luns_with_fc_fcoe_configurations.html"
+    entries:
+    - title: 准备过渡 HP-UX 主机上的 SAN 启动 LUN FC 配置
+      url: "/san-host/task_preparing_to_transition_san_boot_luns_on_hp_ux_hosts_with_fc_configurations.html"
+    - title: 在之前测试 HP-UX 主机上已过渡的 SAN 启动 LUN 基于副本的过渡的转换阶段
+      url: "/san-host/task_testing_transitioned_san_boot_luns_on_hp_ux_hosts_before_cutover.html"
+    - title: 过渡 SAN 启动 LUN 时为转换阶段做准备
+      url: "/san-host/concept_preparing_for_cutover_when_transitioning_san_boot_luns.html"
+    - title: 使 SAN 启动 LUN 成为的主启动 LUN 过渡后的 HP-UX Emulex HBA
+      url: "/san-host/task_making_a_san_boot_lun_primary_for_hp_ux_emulex_hbas_after_transition.html"
+    - title: 使 SAN 启动 LUN 成为的主启动 LUN 过渡后的 HP-UX QLogic HBA
+      url: "/san-host/task_making_san_boot_lun_primary_boot_lun_for_hp_ux_qlogic_hbas_after_transition.html"
+- title: AIX 主机修复
+  url: "/san-host/concept_aix_host_remediation.html"
+  entries:
+  - title: 过渡具有 FC/FCoE 的 AIX 主机上的 SAN 启动 LUN 配置
+    url: "/san-host/concept_transition_of_san_boot_luns_on_aix_hosts_with_fc_fcoe_configurations.html"
+    entries:
+    - title: 准备过渡 AIX 主机上的 SAN 启动 LUN FC/FCoE 配置
+      url: "/san-host/task_preparing_to_transition_san_boot_luns_on_aix_hosts_with_fc_fcoe_configurations.html"
+    - title: 在之前测试 AIX 主机上已过渡的 SAN 启动 LUN 基于副本的过渡的转换阶段
+      url: "/san-host/task_testing_transitioned_san_boot_luns_on_aix_hosts_before_cutover.html"
+    - title: 过渡具有 FC/FCoE 配置的 AIX 主机时为转换阶段做准备。
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_aix_hosts_with_fc_fcoe_configurations.html"
+    - title: 使用 FC/FCoE 从 AIX 主机上的 SAN 启动 LUN 启动 过渡后的配置
+      url: "/san-host/task_booting_from_san_boot_lun_on_aix_hosts_with_fc_fcoe_configurations_after_transition.html"
+  - title: 过渡具有文件系统的 AIX 主机数据 LUN
+    url: "/san-host/concept_transitioning_aix_host_data_luns_with_file_systems.html"
+    entries:
+    - title: 准备过渡具有文件系统的 AIX 主机数据 LUN
+      url: "/san-host/task_preparing_to_transition_aix_data_host_luns_with_file_systems.html"
+    - title: 在转换阶段之前测试 AIX 主机上已过渡的 LUN 基于副本的过渡
+      url: "/san-host/task_testing_transitioned_luns_on_aix_hosts_before_cutover.html"
+    - title: 过渡 AIX 主机数据 LUN 时为转换阶段做准备 文件系统
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_aix_data_luns_with_file_systems.html"
+    - title: 过渡后挂载具有文件系统的 AIX 主机数据 LUN
+      url: "/san-host/task_mounting_aix_host_luns_with_file_systems_after_transition.html"
+- title: Solaris 主机修复
+  url: "/san-host/concept_solaris_host_remediation.html"
+  entries:
+  - title: 过渡具有 ZFS 文件系统的 Solaris 主机数据 LUN
+    url: "/san-host/concept_transitioning_solaris_host_data_luns_with_zfs_file_systems.html"
+    entries:
+    - title: 准备过渡具有 ZFS 文件的 Solaris 主机数据 LUN 系统
+      url: "/san-host/task_preparing_to_transition_solaris_host_data_luns_with_zfs_file_system.html"
+    - title: 在使用 ZFS 文件系统的 Solaris 主机上测试数据 LUN 在基于副本的过渡的转换阶段之前
+      url: "/san-host/task_testing_data_luns_on_solaris_hosts_with_zfs_file_system_before_cutover.html"
+    - title: 过渡 Solaris 主机数据 LUN 时为转换阶段做准备 使用 ZFS 文件系统
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_solaris_host_data_luns_with_zfs_file_systems.html"
+    - title: 过渡后挂载具有 ZFS 文件系统的 Solaris 主机 LUN
+      url: "/san-host/task_mounting_solaris_host_luns_with_zfs_file_systems_after_transition.html"
+  - title: 使用 Sun Volume Manager 过渡 Solaris 主机数据 LUN
+    url: "/san-host/concept_transitioning_solaris_host_data_luns_with_sun_volume_manager.html"
+    entries:
+    - title: 准备使用 Sun Volume Manager 过渡 Solaris 主机 LUN
+      url: "/san-host/task_preparing_to_transition_solaris_host_data_luns_with_sun_volume_manager.html"
+    - title: 使用 Sun Volume Manager 测试 Solaris 主机上的数据 LUN 在基于副本的过渡的转换阶段之前
+      url: "/san-host/task_testing_data_luns_on_solaris_hosts_with_sun_volume_manager_svm_before_cutover.html"
+    - title: 过渡 Solaris 主机 Sun 卷时为转换阶段做准备 管理器数据 LUN
+      url: "/san-host/task_preparing_for_cutover_when_transitioning_solaris_host_sun_volume_manager_data_luns.html"
+    - title: 过渡后使用 Solaris Volume Manager 挂载 Solaris 主机 LUN
+      url: "/san-host/task_mounting_solaris_host_luns_with_sun_volume_manager_after_transition.html"
+- title: 过渡后将 LUN 回滚到 7- 模式
+  url: "/san-host/concept_rolling_back_luns_to_7_mode_after_transition.html"
+  entries:
+  - title: 将 ONTAP LUN 回滚到 RHEL 主机上的 7- 模式 LUN
+    url: "/san-host/task_rolling_back_clustered_ontap_luns_back_to_7_mode_on_rhel_hosts.html"
+  - title: 将 ONTAP LUN 回滚到 Windows 主机上的 7- 模式 LUN
+    url: "/san-host/task_rolling_back_clustered_ontap_luns_back_to_7_mode_on_windows_hosts.html"

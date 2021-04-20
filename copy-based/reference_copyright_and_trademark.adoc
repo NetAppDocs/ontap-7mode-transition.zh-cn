@@ -1,0 +1,11 @@
+---
+permalink: copy-based/reference_copyright_and_trademark.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, copyright, trademark 
+summary: 《 7- 模式过渡工具基于副本的过渡指南》的版权和商标信息。 
+---
+= 版权，商标和机器翻译
+:icons: font
+:imagesdir: ../media/
+
+

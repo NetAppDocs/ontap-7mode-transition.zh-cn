@@ -1,0 +1,25 @@
+---
+permalink: copy-based/task_editing_a_subproject.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, edit, project 
+summary: 您可以编辑项目以添加或删除卷以及修改过渡配置。 
+---
+= 编辑项目
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以编辑项目以添加或删除卷以及修改过渡配置。
+
+* 您必须已创建项目。
+* 您必须尚未启动要编辑的项目。
+
+
+您可以编辑项目以更改选择进行过渡的卷。您还可以编辑项目以更改 SVM 映射，卷映射和接口映射以及数据复制计划。编辑项目时，不能更改项目类型或 vFiler 单元。
+
+.步骤
+. 从 * 信息板 * 窗口中，选择要编辑的项目。
+. 单击 * 编辑项目 * ，然后从下拉列表中选择所需步骤。
+. 完成向导以编辑项目。
+

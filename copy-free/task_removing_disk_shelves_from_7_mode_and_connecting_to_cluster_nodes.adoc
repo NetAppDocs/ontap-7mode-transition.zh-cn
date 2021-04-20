@@ -1,0 +1,122 @@
+---
+permalink: copy-free/task_removing_disk_shelves_from_7_mode_and_connecting_to_cluster_nodes.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, disconnect, disk, shelves, connect, cluster, node 
+summary: 使用缆线将 7- 模式磁盘架连接到目标集群节点是一个手动过程。为磁盘架布线后，最佳做法是使用 Config Advisor 验证布线情况。然后，您可以使用 7- 模式过渡工具验证布线。该工具仅执行 Config Advisor 执行的部分检查。 
+---
+= 断开磁盘架与 7- 模式系统的连接并连接到 集群节点
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用缆线将 7- 模式磁盘架连接到目标集群节点是一个手动过程。为磁盘架布线后，最佳做法是使用 Config Advisor 验证布线情况。然后，您可以使用 7- 模式过渡工具验证布线。该工具仅执行 Config Advisor 执行的部分检查。
+
+您必须已记录有关磁盘架与 7- 模式控制器端口的连接的信息。
+
+您必须了解连接 SAS 磁盘架的一些注意事项：
+
+* 您必须遵循 SAS 方形和圆形端口布线规则。
+* IOM6 和 IOM3 磁盘架可以在同一个堆栈中混合使用，但使用不同 IOM 类型的磁盘架之间不应超过一次过渡。
++
+例如，支持 IOM6e （控制器） -IOM6 （磁盘架） -IOM3 （磁盘架） -IOM3 （磁盘架）。但不支持 IOM6e （控制器） -IOM3 （磁盘架） -IOM6 （磁盘架） -IOM3 （磁盘架）配置。
+
+
+
+.步骤
+. 检查 7- 模式 HA 对和目标集群节点中的磁盘架 ID ：
++
+.. 如果磁盘架 ID 重复（如果目标集群节点中的磁盘架使用了 7- 模式磁盘架 ID ），请更改磁盘架 ID 。
++
+*** 对于 SAS 磁盘架，有效磁盘架 ID 为 00 到 99 。
+*** SAS 磁盘架 ID 在 HA 对中必须是唯一的。https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["《适用于 DS4243 ， DS2246 ， DS4486 和 DS4246 的 SAS 磁盘架安装和服务指南》"]
+*** 对于 FC 磁盘架，有效的磁盘架 ID 为 1 到 7 。
+*** 每个 FC 环路中的 FC 磁盘架 ID 必须是唯一的。https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["《 DS14mk2 FC 和 DS14mk4 FC 硬件服务指南》"]
+
+
+.. 重新启动磁盘架，以使新 ID 生效。
+
+
+. 关闭 7- 模式磁盘架。
+. 根据目标集群节点上是否有其他可用端口，选择以下选项之一：
++
+|===
+| 条件 | 那么 ... 
+
+
+ a| 
+可以使用其他端口连接磁盘架
+ a| 
+将新堆栈中的磁盘架连接到多路径配置中的目标集群节点。
+
+
+NOTE: 最佳做法是将磁盘架连接到单独的堆栈。运行预检时， 7- 模式过渡工具会检测目标集群节点上所需数量的端口是否可用。
+
+
+
+ a| 
+端口不可用于连接磁盘架
+ a| 
+执行以下操作之一：
+
+** 添加新的扩展卡，并将新堆栈中的磁盘架连接到多路径配置中的目标集群节点。
++
+您必须已验证目标平台是否支持扩展卡。
+
+** 将磁盘架连接到多路径配置中的现有堆栈。
+
+
+|===
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["《适用于 DS4243 ， DS2246 ， DS4486 和 DS4246 的 SAS 磁盘架安装和服务指南》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280273["《 DiskShelf14mk2 AT 硬件服务指南》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["《 DS14mk2 FC 和 DS14mk4 FC 硬件服务指南》"]
+
+. 打开磁盘架的电源。
++
+
+IMPORTANT: 您必须等待至少 70 秒，然后才能继续操作。
+
+. 使用 Config Advisor 验证连接。
++
+您必须修复 Config Advisor 发现的任何布线问题。
+
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+. 在 7- 模式过渡工具中，单击 * 验证布线 * 。
++
+此时将显示一条消息，列出此操作的重要注意事项。
+
++
+* 故障排除： * 如果聚合中缺少磁盘，则聚合将降级，并且布线验证失败。如果缺少的磁盘数量在允许的限制范围内，则可以通过在 7- 模式过渡工具命令行界面中运行以下命令，在已降级的聚合中继续过渡：
+
++
+` * 过渡 CFT 聚合 degraded-transition -p _project_name_ -n 7-_mode_host_name_ -a _7-mode_aggregate_name_ -I acknowledge *`
+
++
+然后，您可以重新运行布线验证操作并继续过渡。您必须确保目标集群节点中有足够的备用磁盘，以便在过渡聚合后重建这些 RAID 组。
+
+. 单击 * 是 * 继续。
+. 等待操作完成，然后执行以下步骤以保存操作结果并收集工具日志：
++
+.. 单击 * 另存为 CSV* 以将操作结果保存在文件中。
+.. 单击 * 收集工具日志 * 为所有过渡日志文件创建备份。
++
+最好在每次过渡操作后保存日志文件。
+
+.. 单击 * 关闭 * 。
+
+
++
+如果操作需要很长时间才能完成，您可以单击 * 在后台运行 * 退出操作结果窗口。当操作在后台运行时，您不应编辑项目或执行任何其他任务。然后，您可以从操作历史记录选项卡查看操作结果。
+
+
+
+* 相关信息 *
+
+xref:task_gathering_cabling_information_for_transition.adoc[收集用于过渡的布线信息]

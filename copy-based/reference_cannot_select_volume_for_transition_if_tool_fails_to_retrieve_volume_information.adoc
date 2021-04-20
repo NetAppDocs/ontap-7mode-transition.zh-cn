@@ -1,0 +1,19 @@
+---
+permalink: copy-based/reference_cannot_select_volume_for_transition_if_tool_fails_to_retrieve_volume_information.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, tool, fails, volume, information 
+summary: 尝试选择卷时，卷选择窗格会显示 Failed to retr检 索卷信息错误消息。如果控制器繁忙，通常会发生此错误。 
+---
+= 如果工具失败，则无法选择要过渡的卷 以检索卷信息
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+尝试选择卷时，卷选择窗格会显示 `无法检索卷信息` 错误消息。如果控制器繁忙，通常会发生此错误。
+
+
+
+== 临时解决策
+
+等待控制器不繁忙，然后重新选择卷。

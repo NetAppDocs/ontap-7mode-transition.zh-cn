@@ -1,0 +1,91 @@
+---
+permalink: san-host/task_preparing_for_transition_of_fc_or_fcoe_san_boot_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, transition, fc, fcoe, san, boot, lun, rhel 
+summary: 过渡 FC 或 FCoE SAN 启动 LUN 之前，必须在 Red Hat Enterprise Linux \ （ RHEL\ ）主机上执行特定步骤。 
+---
+= 为过渡 FC 或 FCoE SAN 启动 LUN 做准备 在 RHEL 主机上
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡 FC 或 FCoE SAN 启动 LUN 之前，必须在 Red Hat Enterprise Linux （ RHEL ）主机上执行特定步骤。
+
+您必须从清单评估工作簿 _ 中获取以下信息：
+
+* RHEL 5 或 RHEL 6 所在的 7- 模式 LUN 名称 已安装
+* 过渡 LUN 的 SCSI 设备名称
+* 过渡 LUN 的 DMMP 设备名称
+* 挂载目录
+* DMMP 设备上配置的文件系统
+* /boot 分区的 UUID 编号
+* `initrid` 映像的名称
+
+
+这种基于操作步骤适用场景副本的过渡和无副本过渡。
+
+. 验证 DMMP 设备是否位于 /dev/mapper 目录中：
++
+` * ls /dev/mapper/ _DMMP_device_name_*`
+
++
+如果找不到 DMMP 设备，则该设备可能使用别名或用户友好名称。
+
+. 确定安装了 RHEL 5 或 RHEL 6 操作系统 /boot 和根目录（ / ）目录的 DMMP 设备和逻辑卷管理器（ LVM ）名称：
++
+` * df - h*`
+
++
+默认情况下， RHEL 5 和 RHEL 6 安装在逻辑卷的根（ / ）分区上。如果根分区安装在逻辑卷上，则不需要对配置进行过渡前更改。
+
+. 如果 /boot 分区安装在 DMMP 设备上，请确认 /boot 分区是如何引用的，以便在启动时挂载到 ` /etc/fstab` 中。
+. 如果 /boot 分区在 ` /etc/fstab` 中以其 DMMP 设备名称引用，请将 DMMP 设备名称替换为文件系统 UUID 名称。
+. 备份 ` /etc/fstab` 文件：
++
+` * cp /etc/fstab /etc/_fstab_pre_transition_file_name__*`
+
+. 编辑 ` /etc/fstab` 文件，将 DMMP 设备名称替换为其相应的文件系统 UUID 编号。
+. 备份 `initrd` 映像文件：
++
+` * cp /boot/_initrd_image_file_nameinitrd_image_file_name_file_name_.bak*`
+
+. 仅适用于 RHEL 5 ：
++
+.. 在 ` /etc/mutipath.conf` 文件中，确定交换分区设备。
++
+在以下示例中， ` /dev/VolGroup00/LogVol01` 是交换分区设备：
+
++
+` /dev/VolGroup00/LogVol01 交换默认值 0`
+
+.. 创建用于挂载交换分区的标签： + ` * swapoff _swap-partition_device_*`
++
+` * mkswap -L _label-for-swapswap-partition-device_*`
+
++
+` * swapon _swap-partition_device_*`
+
+.. 将 ` /etc/fstab` 文件中的交换分区设备名称替换为交换标签。
++
+` /etc/fstab` 文件中更新的行应如下所示：
+
++
+[listing]
+----
+LABEL=SwapPartition  swap  swap   defaults    0 0
+----
+
+
+. 重新创建 initrd 映像。
++
+** 对于 RHEL5 ： + ` * mkinitrd -f/boot/ initrd-"'uname-r".img 'uname-r' -with multipath*`
+** 对于 RHEL 6 ： + ` * dracut -force -add multipath -verbes*`
+
+
+. 重新启动主机以从新的 `initrd` 映像启动。
+
+
+* 相关信息 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[从清单评估工作簿收集过渡前信息]

@@ -1,0 +1,89 @@
+---
+permalink: inventory-collect/reference_syntax_and_options.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, syntax, option, ict, inventory, collection, tool 
+summary: 清单收集工具 \ （ ICT\ ）命令可从命令行界面 \ （ cli\ ）或包含系统详细信息的文本文件中指定的控制器和主机收集配置和清单信息。可以将语法和选项与 ICT 命令结合使用。 
+---
+= 语法和选项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+清单收集工具（ ICT ）命令可从命令行界面（ CLI ）或包含系统详细信息的文本文件中指定的控制器和主机收集配置和清单信息。可以将语法和选项与 ICT 命令结合使用。
+
+
+
+== 语法
+
+* ` * ict -cmd Collect <-output <inventory.xml>] <uri><<uri>...]*`
+* ` * ict -cmd Collect [-output <inventory.xml>] -input <creditor_file.txt>*`
+* ` * ict -cmd generate-fc-zones -source-filers <filer-ip>[ ， <filer-ip>] -dest-sVM <cluster-name ： svm-name> -fc-switches <switch-ip>[ ： <vsan -id>] ， <switch-ip>[ ： <vsan -id>] …… ] <inventory_xml><<inventory_xml>...]*`
+* ` * ict -cmd generate-fc-zones -source-filers <filer-ip>[<filer-ip>] -dest-sVM <cluster-name ： svm-name> -fc-switches <switch-ip>[ ： <vsan -id>]] ， <switch-ip>[ ： <vsan -id>] …… ] -fc-switchs-target <switch-ip>[ ： <vsan-id>][ ， <switch-ip>[ ： <vsan-id>] …… ] <inventory_xml><<inventory_xml>...]*`
+* ` * ICT -help*`
+* ` * ICT -version*`
+
+
+
+
+== 选项
+
+文本文件必须在单独的行中包含每个系统的系统详细信息：
+
+* uri1.
+* uri2.
+* uri3
+
+
+如果 CLI 或文本文件中的密码为 ` *` 或省略，则系统会提示用户在命令行界面中输入密码。可以使用以下选项来运行 ICT ：
+
+* ` —帮助`
++
+显示帮助消息并退出。
+
+* ` —版本`
++
+打印工具版本并退出。
+
+* ` -cmd [collect|generate-fc-zones]`
++
+收集：从控制器和主机收集配置和清单信息。
+
++
+generate-fc-zones ：针对给定清单生成 FC Zone Planner 文档。
+
+* ` -output <filename[.xml[.gz]>>`
++
+指定生成文件的位置。如果文件名后缀为 "` .gz` " ，则该文件将被压缩。此选项将生成两个文件（报告）：清单报告和清单报告工作簿。
+
+* ` -input <credentials_file.txt>`
++
+指定保存具有系统凭据的文件的位置。此选项不用于 ` -cmd generate-fc-` 分区。
+
++
+
+NOTE: 仅支持 ASCII 编码的文本文件。
+
+* URI 格式（`ontap_windows|vmware_Linux_Cisco_Brocade ）： //[ （ < 用户 >><domain_user> ） ] （：（ < 密码 >|* ） ]@ ）（ < 主机名 >><IP>` ）
++
+指定控制器或主机的系统类型， IP 地址和凭据。如果提供的密码为 ` *` ，或者未提供任何密码，则系统会提示用户在命令行中输入密码。
+
+* ` 源存储器`
++
+指定要用于生成 FC 分区计划的源控制器的 IP 地址，以逗号分隔。
+
+* ` -dest-sVM`
++
+指定要用于生成 FC 分区计划的目标集群模式 Data ONTAP SVM ，其格式为 ` _cluster-name ： SVM-name_` 。
+
+* ` -fc-switches`
++
+列出了必须为其生成 FC 分区计划的 FC 交换机。它是一个以逗号分隔的交换机标识符列表。对于 Cisco ， FC 交换机应格式化为 ` 交换机 -IP ： vsan-id_` ；对于 Brocade ， FC 交换机应格式化为 ` 交换机 -IP_` 。例如， 10.61.187.6 ： 200 ， 10.61.187.7 ： 200 （ Cisco ）或 10.61.187.4 ， 10.61.187.5 （ Brocade ）
+
+* ` -fc-switchs-target`
++
+指定必须为其生成 FC 分区计划的 FC 交换机（已连接到集群）的列表。它是按与原始 FC 交换机（ -fc-switches ）相同的顺序列出的目标交换机标识符的逗号分隔列表。系统将为添加到 fc-switches 参数列表中的每个原始交换机生成 FC 分区脚本。这是一个可选参数。
+
+
+
+对于 FC Zone Planner ，输入清单 XMLs 将作为未命名参数提供。

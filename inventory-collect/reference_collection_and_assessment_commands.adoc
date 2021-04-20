@@ -1,0 +1,250 @@
+---
+permalink: inventory-collect/reference_collection_and_assessment_commands.html 
+sidebar: sidebar 
+keywords: collection, assessment, commands, transition, 7, mode, inventory, collect, tool, ict 
+summary: 清单收集工具（ ICT\ ）通过使用命令列表生成清单 XML 报告，从控制器，主机和 FC 交换机收集清单信息；评估这些系统的特性和功能； 和确定了这些特性和功能在选择进行过渡的集群模式 Data ONTAP 版本中的工作原理。 
+---
+= 收集和评估命令
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+清单收集工具（ ICT ）使用一系列命令从控制器，主机和 FC 交换机收集清单信息，以生成清单 XML 报告；评估这些系统的特性和功能； 和确定了这些特性和功能在选择进行过渡的集群模式 Data ONTAP 版本中的工作原理。
+
+
+
+== ONTAP 7- 模式 API
+
+* `aggr-list-info`
+* `cf-status`
+* `cifs-homedir-paths-get`
+* `cifs-list-config`
+* `cifs-nbalias-name-get`
+* `cifs-share-acl-list-iter-start`
+* `cifs-share-list-iter-start`
+* `cifs-status`
+* `d磁盘列表信息`
+* `fcp-adapter-list-info`
+* `fpolicy-list-info`
+* `igroup-list-info`
+* `iscsi-interface-list-info`
+* `iscsi-node-get-name`
+* `license-list-info`
+* `license-v2-list-info`
+* `lun-get-comment`
+* `lun-list-info`
+* `lun-map-list-info`
+* `net-config-get-active`
+* `nfs-exportfs-list-rules`
+* `nfs-exportfs-list-rules-2`
+* `nfs-exportfs-list-rules-2`
+* `nfs-status`
+* `options-get`
+* `options-list-info`
+* `qtree-list-iter-start`
+* `quota-list-entries-iter-start`
+* `quota-report-iter-start`
+* `regology-list-info-iter-start`
+* `sis-status`
+* `snapmirror-get-status`
+* `snapmirror-list-schedule`
+* `snapmirror-list-sync-schedule`
+* `snapshot-get-schedule`
+* `snapshot-list-info`
+* `snapshot-volume-info`
+* `snapvault-primary-relationship-status-list-iter-start`
+* `snapvault-secondary relationship-status-list-iter-start`
+* `snmp-status`
+* `storage-disk-get-iter`
+* `ssystem-available-reply-transfers`
+* `ssystem-get-info`
+* `ssystem-get-ontapi-version`
+* `ssystem-get-version`
+* `useradmin 组列表`
+* `useradmin role-list`
+* `useradmin 用户列表`
+* `vFiler-get-allowed-protocols`
+* `vFiler-get-status`
+* `vFiler-list-info`
+* `volume-charmap-get`
+* `volume-get-filer-info`
+* `volume-get-language`
+* `volume-list-info-iter-start`
+* `volume-options-list-info`
+
+
+
+
+== ONTAP 7- 模式命令行界面
+
+* `CIFS 共享`
+* `IC 主显示`
+* `ifconfig -a`
+* `ifconfig VIP`
+* `ifgrp status`
+* `ls $volumes_path/metadir/slag/`
+* `printflag wafl_metadata_visible`
+* `rdfile $root_vol/etc/cifsconfig_share.cfg`
+* `rdfile $root_vol/etc/group`
+* `rdfile $root_vol/etc/hosts`
+* `rdfile $root_vol/etc/krb5auto.conf`
+* `rdfile $root_vol/etc/mcrc`
+* `rdfile $root_vol/etc/netgroup`
+* `rdfile $root_vol/etc/nsswitch.conf`
+* `rdfile $root_vol/etc/passwd`
+* `rdfile $root_vol/etc/resolv.conf`
+* `rdfile $root_vol/etc/snapmirror.conf`
+* `rdfile $root_vol/etc/symlink.translations`
+* `rdfile $root_vol/etc/usermap.cfg`
+* `rdfile $vfiler_root/etc/cifsconfig_share.cfg`
+* `rdfile $vfiler_root/etc/group`
+* `rdfile $vfiler_root/etc/hosts`
+* `rdfile $vfiler_root/etc/krb5auto.conf`
+* `rdfile $vfiler_root/etc/MCRC`
+* `rdfile $vfiler_root/etc/netgroup`
+* `rdfile $vfiler_root/etc/nsswitch.conf`
+* `rdfile $vfiler_root/etc/passwd`
+* `rdfile $vfiler_root/etc/resolv.conf`
+* `rdfile $vfiler_root/etc/snapmirror.conf`
+* `rdfile $vfiler_root/etc/symlink.translations`
+* `rdfile $vfiler_root/etc/usermap.cfg`
+* `RLM 状态`
+* `路由状态`
+* `route -SN`
+* `setflag WAFL_metadata_visible 0`
+* `setflag WAFL_metadata_visible 1`
+* SnapVault status -l`
+* `ssysconfig -a`
+* `正常运行时间`
+* `vFiler 状态 -A`
+* `VLAN 统计`
+
+
+
+
+== ONTAP 7- 模式 NetApp 易管理性 SDK
+
+* `cluster-identity-get`
+* `cluster-node-get-iter`
+* `fcp-adapter-get-iter`
+* `fcp-initiator-get-iter`
+* `fcp-interface-get-iter`
+* `lun-get-iter`
+* `lun-map-get-iter`
+* `net-interface-get-iter`
+* `ssystem-get-node-info-iter`
+* `ssystem-get-version`
+* `volume-get-iter`
+* `vserver-get-iter`
+
+
+
+
+== Windows
+
+* `HKEY_LOCAL_MACHINE \\SOFTWARE\\NetApp*
+* `HKEY_LOCAL_MACHINE \\SOFTWARE\\Wow6432Node\\Microsoft \\Windows\CurrentVersion\\卸 载`
+* `s从 MPIO_Registered_DSM 中选择 *`
+* `s选择 * 从以下位置选择： sfluster_cluster`
+* `s选择 * 从 MSCluster_Disk`
+* `s选择 * 从 MSCluster_Node`
+* `s选择 * 从 MSCluster_NodeToActiveResource` 中选择
+* `s选择 * 从 MSCluster_Resource` 中选择
+* `s选择 * 从 MSCluster_ResourceToDisk`
+* `s从 MSFC_FCAdapterHBAAttributes` 中选择 *
+* `s选择 * 来自 MSFC_FibrePortHBAAttributes`
+* `s选择 * 来自 MSiSCSI_HBAInformation`
+* `s选择 * 从 MSiSCSIInitiator_MethodClass`
+* `s从 Win32_ComputerSystem 中选择 *`
+* `s从 Win32_DiskDrive 中选择 *`
+* `s从 Win32_OperatingSystem 中选择 *`
+* `s从 Win32_PnPSignedDriver 中选择 * ，其中 DeviceClass = "SCSIADAPTER"`
+* `s从 Win32_Product 中选择 *`
+
+
+
+
+== Linux 命令行界面
+
+* blkid
+* `cat /boot/grub/device.map`
+* `cat /etc/grub.conf`
+* `cat /etc/iscsi/initiatorname.iscsi`
+* `cman_tool 节点`
+* `cman_tool 状态`
+* `df -h`
+* `dmidecode -t system`
+* `查找 /etc -maxdepth 1 -name * -release -type f -print -exec cat -v ｛ ｝ \ ；`
+* `表示 /sys/block/sd* 中的文件；执行 echo $ ｛ file/\#\/sys ｝ ； scsi_id -p 0x80 -g -x -a -s $ ｛ file/#\/sys ｝ ； Done`
+* `表示 /sys/class/scsi_host/'&'* 中的文件； do echo ； for ent in $ ｛ file ｝ /'&* ； do echo -n "$ent ： " ； if [ -f "$ ｛ ent ｝ " ； then if [ -r "$ ｛ ent ｝ " ] ； then cat -v -s $ ｛ ent ｝ 2>/dev/null ； if " ！ = "0" ；然后是 echo ； fi ； fi ； else echo ； FI ； Done ； Done`
+* `表示 /sys/class/fc_host/'ase* 中的文件； do echo ； for ent in $ ｛ file ｝ /'&* ； do echo -n "$ent ： " ； if （ -f "$ ｛ ent ｝ " ）； then if （ -r "$ ｛ ent ｝ " ）； then cat -v -s $ ｛ ent ｝ 2>/dev/null ； if " ！ = "0" ；然后是 echo ； fi ； fi ； else echo ； FI ； Done ； Done`
+* `iscsiadm -m node`
+* `lsb_release -a`
+* `lvdisplay -m`
+* `m挂载`
+* `rpm -qa -qf "%｛ name ｝ _% ｛ summary ｝ _% ｛ vendor ｝ _% ｛ PROVIDEVERSION ｝ \n"`
+* `sanlun fcp show adapter -v`
+* `sanlun lun show -pv`
+* `sanlun lun show -v`
+* `sanlun 版本`
+* `sA_VERSION`
+* `sfdisk -us -l`
+* `uname -a`
+* `vxclusstadm nidmap`
+* `vxclusstadm -v nodestate`
+
+
+
+
+== VMware 命令行界面
+
+* `esxcfg-info -a -F xml`
+* `esxcfg-mpath -l`
+* `esxcfg-scsidevs -a`
+* `esxcfg-scsidevs -l`
+* `esxcli software vib get`
+* `find /proc/scsi -type f` while read line ； do echo $line ； cat $line ； done
+* `sA_VERSION`
+* `uname -m`
+* `uname -n`
+* ` /usr/lib/vmware/vmkmgmt_keyval/vmkmgmt_keyval -a`
+* ` /usr/lib/vmware/vm-support/bin/dump-vmdk-rdm-info.sh $vmx_paths`
+* `vim-cmd /vmsvc/getallvms`
+* `vim-cmd vmsvc/snapshot.get $VM_IDs`
+* `vmkload_mod -s nmp`
+* `vmware -l`
+* `vmware -v`
+
+
+
+
+== Cisco 命令行界面
+
+* `s如何使用 fcdomain domain-list`
+* `s如何使用 FLOGI 数据库`
+* `s如何切换名称`
+* `s如何使用版本`
+* `s如何使用 vSAN`
+* `s如何使用区域集`
+* `s区域集如何处于活动状态`
+* `uname -m`
+* `nssshow`
+* `sswitchshow`
+* `ve版本`
+* `区域集`
+* `vim-cmd vmsvc/snapshot.get $VM_IDs`
+* `vmkload_mod -s nmp`
+* `vmware -l`
+* `vmware -v`
+
+
+
+
+== Brocade 命令行界面
+
+* `nssshow`
+* `sswitchshow`
+* `ve版本`
+* `区域集`
+

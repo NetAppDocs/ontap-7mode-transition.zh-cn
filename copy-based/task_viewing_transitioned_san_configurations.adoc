@@ -1,0 +1,51 @@
+---
+permalink: copy-based/task_viewing_transitioned_san_configurations.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, view, san, configurations 
+summary: 过渡后， SAN 卷的 LUN 序列号和 LUN ID 会发生变化。要查看过渡后的 SAN 配置，您可以使用 7- 模式过渡工具命令行界面生成旧 LUN 到新过渡后的 LUN 的映射，并将 LUN 映射信息导出到 .csv 文件。 
+---
+= 查看过渡后的 SAN 配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡后， SAN 卷的 LUN 序列号和 LUN ID 会发生变化。要查看过渡后的 SAN 配置，您可以使用 7- 模式过渡工具命令行界面生成旧 LUN 到新过渡后的 LUN 的映射，并将 LUN 映射信息导出到 ` .csv` 文件。
+
+存储转换必须已成功完成。
+
+.步骤
+. 要生成 LUN 映射信息，请从命令行界面运行以下命令：
++
+` * 过渡 CBT 导出 lunmap -p _project_name_ -o _file_path_*`
+
++
+[listing]
+----
+C:\Program Files\NetApp\7-Mode Transition Tool>transition cbt export lunmap -s SanWorkLoad -o c:/Libraires/Documents/7-to-C-LUN-MAPPING.csv
+Successfully exported 7 to C LUN mapping for 'SanWorkLoad'
+----
++
+以下示例显示了一个示例 LUN 映射文件：
+
++
+[listing]
+----
+7-Mode Storage System,192.168.43.49,
+vfiler,finance,
+
+cDOT Storage System,192.168.32.97,
+SVM,finance,
+
+LUN#,Source LUN Path,7-Mode Serial Number,Source Igroups,Source mapping LUN ID,Destination LUN Path,Serial Number,Destination Igroup,Destination mapping LUN ID
+LUN#1,/vol/vol_SANdataset_sm_0/lun-inventory,dtY5B4tFAaAF,WinGrp,0,/vol/vol_SANdataset_sm_0/lun-inventory,7SQ8p$DQ12rX,WinGrp,0
+LUN#1,/vol/vol_SANdataset_sm_0/lun-inventory,dtY5B4tFAaAF,WinGrp2,3,/vol/vol_SANdataset_sm_0/lun-inventory,7SQ8p$DQ12rX,WinGrp2,3
+LUN#1,/vol/vol_SANdataset_sm_0/lun-inventory,dtY5B4tFAaAF,WinGrp3,4,/vol/vol_SANdataset_sm_0/lun-inventory,7SQ8p$DQ12rX,WinGrp3,4
+LUN#2,/vol/vol_SANdataset_sm_0/lun-payroll,dtY5B4tFAaAC,LnxGrp1,2,/vol/vol_SANdataset_sm_0/lun-payroll,7SQ8p$DQ12rT,LnxGrp1,4
+LUN#2,/vol/vol_SANdataset_sm_0/lun-payroll,dtY5B4tFAaAC,LnxGrp2,2,/vol/vol_SANdataset_sm_0/lun-payroll,7SQ8p$DQ12rT,LnxGrp2,4
+----
+
+
+在还原对过渡后的 ONTAP 卷的访问之前，您必须在主机上执行所需的过渡后任务。
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 主机过渡和修复"]

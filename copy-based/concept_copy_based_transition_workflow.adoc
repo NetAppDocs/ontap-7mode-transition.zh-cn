@@ -1,0 +1,15 @@
+---
+permalink: copy-based/concept_copy_based_transition_workflow.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, workflow 
+summary: 基于副本的过渡工作流包括准备迁移，迁移数据和配置以及执行过渡后配置。 
+---
+= 基于副本的过渡工作流
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+基于副本的过渡工作流包括准备迁移，迁移数据和配置以及执行过渡后配置。
+
+image::../media/cbt_workflow.gif[CBT 工作流]

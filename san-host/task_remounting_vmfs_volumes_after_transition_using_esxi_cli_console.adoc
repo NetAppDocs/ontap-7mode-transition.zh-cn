@@ -1,0 +1,48 @@
+---
+permalink: san-host/task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, esxi, cli, vmfs, volumes 
+summary: 过渡后，您可以使用 ESXi 命令行界面重新挂载卷，并将数据存储库和 VM 置于过渡前状态。 
+---
+= 过渡后使用 ESXi 命令行界面重新挂载 VMFS 卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡后，您可以使用 ESXi 命令行界面重新挂载卷，并将数据存储库和 VM 置于过渡前状态。
+
+原始 7- 模式 LUN 必须已取消映射或脱机。
+
+这些步骤适用于卷和跨区卷。
+
+.步骤
+. 使用 SSH 登录到 ESXi 控制台。
+. 列出新添加的具有现有 VMFS 签名和 VMFS 标签的 LUN ：
++
+` * # esxcfg-volume -l*`
+
++
+以下是列出的具有 VMFS 签名和 VMFS 标签的 LUN 的示例。
+
++
+[listing]
+----
+# esxcfg-volume -l
+VMFS UUID/label: 53578567-5b5c363e-21bb-001ec9d631cb/datastore1
+Can mount: Yes
+Can resignature: Yes
+Extent name: naa.600a098054314c6c445d446f79716475:1 range: 0 - 409599
+(MB)
+----
+. 重新挂载具有相同签名的 VMFS 卷：
++
+** 对于常规卷： + ` * esxcfg-volume -M|-persistent-mount _VMFS UUID_label-*`
+** 对于跨区卷： + ` * # esxcfg-volume -M vmfs-span-ds*`
+
+
+
+
+* 相关信息 *
+
+http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1011387["VMware 知识库： vSphere 处理检测为快照 LUN 的 LUN"]

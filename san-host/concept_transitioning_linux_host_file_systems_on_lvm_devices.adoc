@@ -1,0 +1,19 @@
+---
+permalink: san-host/concept_transitioning_linux_host_file_systems_on_lvm_devices.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, linux, host, file, systems, lvm, devices 
+summary: 在逻辑卷管理器（ LVM ）上过渡 Linux 主机文件系统时，必须执行特定步骤为转换阶段做准备，并且必须在过渡后挂载逻辑卷。 
+---
+= 过渡 LVM 设备上的 Linux 主机文件系统
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在逻辑卷管理器（ LVM ）上过渡 Linux 主机文件系统时，必须执行特定步骤为转换阶段做准备，并且必须在过渡后挂载逻辑卷。
+
+* 相关信息 *
+
+xref:task_preparing_for_cutover_when_transitioning_linux_host_file_systems_on_lvm_devices.adoc[过渡 Linux 主机文件系统时为转换阶段做准备 在 LVM 设备上]
+
+xref:task_mounting_logical_volumes_on_linux_host_after_transition.adoc[过渡后在 Linux 主机上挂载逻辑卷]

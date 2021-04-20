@@ -1,0 +1,38 @@
+---
+permalink: san-host/task_preparing_windows_hosts_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, windows, host 
+summary: 在将 Windows 主机从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 之前，必须执行一些步骤。 
+---
+= 准备 Windows 主机以进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在将 Windows 主机从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 之前，必须执行一些步骤。
+
+这种基于操作步骤适用场景副本的过渡和无副本过渡。
+
+
+NOTE: 如果您使用的是 Windows 2003 ，则必须升级到 Windows 2008 。Windows 2003 不支持主机修复工具（ HRT ），需要 Windows 2008 或更高版本才能正常运行。
+
+.步骤
+. 确定要过渡的 LUN 的 LUN 序列号， LUN ID 以及相应的 Windows 物理磁盘编号。
++
+** 如果您的系统运行的是 Data ONTAP DSM ，请使用 Data ONTAP DSM 管理扩展管理单元（可通过服务器管理器或 `Get-SanDisk` Windows PowerShell cmdlet 访问）。
+** 如果系统运行的是 MSDSM ，请使用清单收集工具（ ICT ）。
+
+
+. 准备在过渡完成后使 LUN 对主机可见。
++
+** 如果要过渡的 LUN 是 FC 或 FCoE LUN ，请创建或修改网络结构分区。
+** 如果要过渡的 LUN 是 iSCSI LUN ，请创建连接到集群模式 Data ONTAP 控制器的 iSCSI 会话。
+
+
+. 使用 ICT 生成清单评估工作簿。
+
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanconf/home.html["SAN 配置"]

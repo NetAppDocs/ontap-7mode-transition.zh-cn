@@ -1,0 +1,33 @@
+---
+permalink: snapmirror/concept_guidelines_for_transitioning_snaplock_volumes.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, guidelines, snaplock, volumes, requirements 
+summary: 您可以将 7- 模式 SnapLock 卷过渡到在 ONTAP 9.5 或更早版本中创建的 SnapLock 卷。您必须了解过渡 SnapLock 卷的要求和准则。 
+---
+= 过渡 SnapLock 卷的准则
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将 7- 模式 SnapLock 卷过渡到在 ONTAP 9.5 或更早版本中创建的 SnapLock 卷。您必须了解过渡 SnapLock 卷的要求和准则。
+
+* 如果 7- 模式 SnapLock 卷包含 LUN ，则不支持过渡 SnapLock 卷。
+* 在 ONTAP 9.5 或更早版本中，只能将 7- 模式 SnapLock 企业卷过渡到 SnapLock 企业卷。
+* 在 ONTAP 9.5 或更早版本中，只能将 7- 模式 SnapLock 合规性卷过渡到 SnapLock 合规性卷。
+* 过渡 7- 模式卷 SnapMirror 关系时，只能对 SnapLock 企业卷使用交错过渡（先过渡二级卷，然后再过渡主卷）。
++
+只有 SnapLock 企业卷支持 7- 模式主卷和 ONTAP 二级卷之间的 SnapMirror 灾难恢复（ DR ）关系，但 SnapLock 合规性卷不支持这种关系。
+
++
+xref:task_transitioning_a_data_protection_relationship.adoc[在交错配置中过渡卷 SnapMirror 关系]
+
+* 您必须通过并行过渡主卷和二级卷来过渡 SnapLock Compliance 卷之间的 7- 模式卷 SnapMirror 关系。
++
+xref:task_transitioning_a_volume_snapmirror_relationship_in_parallel.adoc[并行过渡卷 SnapMirror 关系]
+
+
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-arch-con/home.html["使用 SnapLock 技术实现归档和合规性"]

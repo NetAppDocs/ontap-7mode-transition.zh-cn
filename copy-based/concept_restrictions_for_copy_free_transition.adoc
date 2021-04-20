@@ -1,0 +1,64 @@
+---
+permalink: copy-based/concept_restrictions_for_copy_free_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, restrictions, 7, mode, volumes 
+summary: 您必须了解过渡 7- 模式卷的某些限制。某些限制是由于 ONTAP 不支持的功能造成的。对于某些限制，您可以执行更正操作以继续过渡。 
+---
+= 过渡 7- 模式卷的限制
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须了解过渡 7- 模式卷的某些限制。某些限制是由于 ONTAP 不支持的功能造成的。对于某些限制，您可以执行更正操作以继续过渡。
+
+
+
+== 卷类型
+
+不支持过渡以下类型的卷：
+
+* 传统卷
++
+您可以使用基于主机的过渡方法过渡传统卷。
+
++
+http://www.netapp.com/us/media/tr-4052.pdf["NetApp 技术报告 4052 ：《成功过渡到集群模式 Data ONTAP 》（ Data ONTAP 8.2.x 和 8.3 ）"]
+
+* SnapLock 卷
++
+支持将 SnapLock 卷过渡到 ONTAP 9.0 至 9.5 版。
+
+* FlexCache 卷
+
+
+
+
+== 卷状态
+
+如果为过渡选择的任何 7- 模式卷处于以下状态之一，则过渡将被阻止：
+
+* 脱机
+* 受限
+* 不一致（`WAFL inconsistent` ）
+
+
+
+
+== 包含属于其他 vFiler 单元的 qtree 的卷
+
+您不能过渡具有 qtree 的卷，其中 qtree 的所有权与卷的 vFiler 单元不同。过渡之前，必须执行以下操作之一，确保每个卷及其所有 qtree 都属于同一个 vFiler 单元：
+
+* 将 qtree 移动到拥有卷的 vFiler 单元。
+* 删除 qtree 。
+
+
+
+
+== 索引节点到父路径名的转换设置
+
+必须在每个卷上启用索引节点到父路径名的转换。您可以通过关闭 `no_i2p` 选项来启用父级到路径名的转换：
+
+` * vol options _vol_name_ no_i2p off*`
+
+您无需等待 I2P 扫描完成，即可继续过渡准备工作。

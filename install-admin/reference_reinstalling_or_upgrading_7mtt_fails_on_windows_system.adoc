@@ -1,0 +1,35 @@
+---
+permalink: install-admin/reference_reinstalling_or_upgrading_7mtt_fails_on_windows_system.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, reinstall, upgrade, transition, tool, fail, window 
+summary: 本节提供了有关在 Windows 系统上重新安装或升级 7- 模式过渡工具时出现的错误的信息。此外，它还提供了错误的原因以及解决错误的步骤。 
+---
+= 在 Windows 上重新安装或升级 7- 模式过渡工具失败 系统
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+本节提供了有关在 Windows 系统上重新安装或升级 7- 模式过渡工具时出现的错误的信息。此外，它还提供了错误的原因以及解决错误的步骤。
+
+* * 消息 *
++
+`正在运行另一个 NetApp 7- 模式过渡工具安装或卸载实例。一次只能运行一个实例` 。
+
+* * 发生原因 *
++
+7- 模式过渡工具安装文件夹中的某些文件已打开。
+
+* * 更正操作 *
++
+.. 关闭所有 7- 模式过渡工具安装文件。
+.. 打开 7- 模式过渡工具的注册表条目：
++
+... 检查 * 安装状态 * 字段。
+... 如果值为 ` * installer_is_running_*` ，请将其更改为 ` * 已安装 *` 。
+
+
+.. 重新尝试重新安装或升级此工具。
+
+
+

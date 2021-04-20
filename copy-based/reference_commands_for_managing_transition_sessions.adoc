@@ -1,0 +1,403 @@
+---
+permalink: copy-based/reference_commands_for_managing_transition_sessions.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, cbt, command, manage 
+summary: 您可以使用 transition CBT 命令管理功能，例如创建，修改，删除和显示过渡项目。 
+---
+= 用于管理过渡的命令
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 `transition CBT` 命令管理功能，例如创建，修改，删除和显示过渡项目。
+
+以下选项可用于所有命令：
+
+` -r no` ：禁用命令的交互性质。默认情况下，此选项处于启用状态。
+
+您也可以使用 ` -v` 选项，通过 `transition version` 和 `transition CBT menu` 命令启用详细模式。
+
+
+
+== 用于管理过渡操作的命令
+
+|===
+| 如果您要 ... | 使用此命令 ... 
+
+
+ a| 
+创建过渡项目
+ a| 
+`过渡 CBT create`
+
+
+
+ a| 
+将集群信息添加到给定项目
+ a| 
+`transition CBT add-cluster-info`
+
+
+
+ a| 
+修改过渡项目
+ a| 
+`transition CBT modify`
+
+
+
+ a| 
+完成向 ONTAP 存储系统的过渡
+ a| 
+`过渡 CBT 转换`
+
+
+
+ a| 
+对项目运行预检
+ a| 
+`Transition CBT precheck`
+
+
+
+ a| 
+将配置应用于 ONTAP 存储系统
+ a| 
+`过渡 CBT 预转换`
+
+
+
+ a| 
+在 7- 模式卷和 ONTAP 之间触发 SnapMirror 重新同步 卷
+ a| 
+`过渡 CBT 重新同步`
+
+
+
+ a| 
+触发 ONTAP 卷的 SnapMirror 更新操作
+ a| 
+`过渡 CBT 更新`
+
+
+
+ a| 
+显示 7- 模式过渡工具的版本
+ a| 
+`过渡 CBT 版本`
+
+
+
+ a| 
+启动从 7- 模式卷到 ONTAP 的基线数据复制 项目中的卷
+ a| 
+`Transition CBT start`
+
+
+
+ a| 
+暂停从 7- 模式卷到 ONTAP 卷的数据复制 在项目中
+ a| 
+`过渡 CBT 暂停`
+
+
+
+ a| 
+恢复从 7- 模式卷到 ONTAP 的数据复制传输 已暂停项目的卷
+ a| 
+`过渡 CBT 恢复`
+
+
+
+ a| 
+中止过渡项目
+ a| 
+`过渡 CBT 中止`
+
+
+
+ a| 
+删除过渡项目
+ a| 
+`过渡 CBT 删除`
+
+
+
+ a| 
+显示过渡项目列表或显示有关的信息 一个项目
+ a| 
+`过渡 CBT 显示`
+
+|===
+
+
+== 用于管理卷 SnapMirror 关系的命令
+
+|===
+| 如果您要 ... | 使用此命令 ... 
+
+
+ a| 
+将有关 7- 模式主系统的信息添加到二级系统 项目
+ a| 
+`transition CBT add-primary-seven-mode-system ``
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/CBT_%3A_How_to_provide_all_the_required_primary_7-Mode_details_for_a_given_secondary_project["CBT ：如何为给定二级项目提供所有必需的主 7- 模式详细信息"]
+
+
+
+ a| 
+将有关 ONTAP 二级系统的信息添加到主系统 项目
+ a| 
+`transition CBT add-secondary cluster-mode-system`
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/CBT%3A_How_to_add_the_required_secondary_cluster_details_to_the_primary_project["CBT ：如何将所需的二级集群详细信息添加到主项目中"]
+
+
+
+ a| 
+从二级系统中删除有关 7- 模式主系统的信息 项目
+ a| 
+`transition CBT remove-primary-seven-mode-system`
+
+
+
+ a| 
+从主系统中删除有关 ONTAP 二级系统的信息 项目
+ a| 
+`transition CBT remove-secondary cluster-mode-system`
+
+
+
+ a| 
+列出添加到二级项目的 7- 模式主系统
+ a| 
+`transition CBT show-primary-seven-mode-systems`
+
+
+
+ a| 
+列出添加到主项目的 ONTAP 二级系统
+ a| 
+`transition CBT show-secondary cluster-mode-systems` …
+
+|===
+
+
+== 用于管理 Data ONTAP 系统凭据的命令
+
+|===
+| 如果您要 ... | 使用此命令 ... 
+
+
+ a| 
+保存凭据（用户名和密码） 过渡服务器中的主机
+ a| 
+`过渡凭据添加`
+
+
+
+ a| 
+检索主机的用户名
+ a| 
+`过渡凭据获取`
+
+
+
+ a| 
+修改主机的用户名或密码
+ a| 
+`过渡凭据修改`
+
+
+
+ a| 
+从过渡服务器中删除主机的凭据
+ a| 
+`过渡凭据删除`
+
+|===
+
+
+== 用于管理项目中的卷对的命令
+
+|===
+| 如果您要 ... | 使用此命令 ... 
+
+
+ a| 
+添加 7- 模式卷和 ONTAP 卷（卷对） 到项目
+ a| 
+`transition CBT volumepair add`
+
+
+
+ a| 
+修改项目的 ONTAP 卷
+ a| 
+`transition CBT volumepair modify`
+
+
+
+ a| 
+从项目中删除卷对
+ a| 
+`transition CBT volumepair remove`
+
+
+
+ a| 
+列出项目中的卷对
+ a| 
+`Transition CBT volumepair show`
+
+|===
+
+
+== 用于管理 LIF 详细信息的命令
+
+
+NOTE: 7- 模式过渡工具不会过渡 FC 和 iSCSI LIF 。
+
+|===
+| 如果您要 ... | 使用此命令 ... 
+
+
+ a| 
+将 SVM 数据 LIF 添加到项目中
+ a| 
+`transition CBT lif add`
+
+
+
+ a| 
+修改项目的 anSVM 数据 LIF
+ a| 
+`transition CBT lif modify`
+
+
+
+ a| 
+从项目中删除 LIF
+ a| 
+`过渡 CBT LIF 移除`
+
+
+
+ a| 
+列出添加到项目的所有 LIF
+ a| 
+`transition CBT lif show`
+
+|===
+
+
+== 用于管理项目属性的命令
+
+|===
+| 如果您要 ... | 使用此命令 ... 
+
+
+ a| 
+为特定项目属性设置值
+ a| 
+`transition CBT property-set`
+
+
+
+ a| 
+清除特定项目属性的值
+ a| 
+`transition CBT property-reset`
+
+
+
+ a| 
+获取特定项目属性的值
+ a| 
+`transition CBT property-get`
+
+|===
+
+
+== 用于管理过渡作业的命令
+
+|===
+| 如果您要 ... | 使用此命令 ... 
+
+
+ a| 
+列出在给定上运行或正在运行的作业 项目和运营
+ a| 
+`过渡作业`
+
+
+
+ a| 
+查看作业的状态
+ a| 
+`过渡作业状态`
+
+
+
+ a| 
+查看作业结果
+ a| 
+`过渡作业结果`
+
+|===
+
+
+== 用于管理过渡计划的命令
+
+|===
+| 如果您要 ... | 使用此命令 ... 
+
+
+ a| 
+添加一个计划，用于管理 SnapMirror 传输以及带宽
+ a| 
+`过渡 CBT 计划添加`
+
+
+
+ a| 
+修改项目的 SnapMirror 计划
+ a| 
+`transition CBT schedule modify`
+
+
+
+ a| 
+从项目中删除 SnapMirror 计划
+ a| 
+`过渡 CBT 计划删除`
+
+
+
+ a| 
+列出项目中的所有 SnapMirror 计划
+ a| 
+`过渡 CBT 计划显示`
+
+|===
+
+
+== 用于收集工具日志的命令
+
+|===
+| 如果您要 ... | 使用此命令 ... 
+
+
+ a| 
+收集 7- 模式过渡工具日志的日志文件将保存在 7- 模式过渡工具安装路径的 `asup` 目录中的服务器上。
+ a| 
+`transition bundle-tool-logs`
+
+|===
+有关这些命令的详细信息，请参见 7- 模式过渡工具 CLI 的手册页。
+
+* 相关信息 *
+
+xref:task_transitioning_volumes_using_7mtt.adoc[从 7- 模式卷迁移数据和配置]

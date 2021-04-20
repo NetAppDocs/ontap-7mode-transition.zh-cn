@@ -1,0 +1,34 @@
+---
+permalink: san-host/task_verifying_rhel_5_luns_are_ready_for_transition_using_cli.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rhel, 5, lun, cli 
+summary: 如果 Red Hat Enterprise Linux \ （ RHEL\ ） 5 LUN 配置了设备映射程序多路径 \ （ DMMP\ ），则在将 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 之前，应验证是否未配置文件系统。 
+---
+= 使用验证 RHEL 5 LUN 是否已做好过渡准备 命令行界面
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果 Red Hat Enterprise Linux （ RHEL ） 5 LUN 配置了设备映射程序多路径（ DMMP ），则在将 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 之前，应验证是否未配置文件系统。
+
+.步骤
+. 找到要过渡的 LUN 的 SCSI 设备名称：
++
+` * sanlun lunshow*`
+
+. 确定 LUN 的 DMMP 设备名称：
++
+` * 多路径 -11 *`
+
++
+DMMP 设备名称可以是设备句柄 ID （ WWID ），例如 `360a980003753456258244538554b4b53` ，也可以是别名，例如 `dMMP_RAW_LUN` 。
+
+. 验证 LUN 是否没有文件系统：
++
+` * dumpe2fs/dev/mapper/_DMMP device name__*`
+
++
+如果 LUN 没有文件系统，则输出中会显示 Couldn't find valid filesystem superblock 。
+
+

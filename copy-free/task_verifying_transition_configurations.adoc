@@ -1,0 +1,18 @@
+---
+permalink: copy-free/task_verifying_transition_configurations.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, verify, configurations 
+summary: 成功导入 7- 模式卷和配置后，您必须手动验证过渡后的聚合，卷， LUN 和配置。 
+---
+= 验证过渡后的配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+成功导入 7- 模式卷和配置后，您必须手动验证过渡后的聚合，卷， LUN 和配置。
+
+.步骤
+. 验证 7- 模式聚合，卷和 LUN 以及 CIFS 共享， NFS 导出和 LUN 映射是否已过渡。
+. 验证所有 7- 模式配置是否均已保留。
+

@@ -1,0 +1,44 @@
+---
+permalink: snapmirror/reference_7_mode_ontap_version_requirements_for_transitioning_volumes_using_snapmirror.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, version, transition, requirements, data, clustered 
+summary: 您应了解支持过渡到集群模式 Data ONTAP 8.3 或更高版本的 7- 模式 Data ONTAP 版本。 
+---
+= 过渡时的 7- 模式版本要求
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您应了解支持过渡到集群模式 Data ONTAP 8.3 或更高版本的 7- 模式 Data ONTAP 版本。
+
+如果 7- 模式系统只有 64 位聚合和卷，则可以将卷从运行以下 7- 模式版本的系统过渡到集群模式 Data ONTAP 8.3 或更高版本：
+
+* Data ONTAP 8.0
+* Data ONTAP 8.0.1
+* Data ONTAP 8.0.2
+* Data ONTAP 8.0.3
+* Data ONTAP 8.0.4
+* Data ONTAP 8.0.5
+* Data ONTAP 8.1
+* Data ONTAP 8.1.2
+* Data ONTAP 8.1.3
+* Data ONTAP 8.1.4
+* Data ONTAP 8.2
+* Data ONTAP 8.2.1
+* Data ONTAP 8.2.2
+* Data ONTAP 8.2.3
+* Data ONTAP 8.2.4
+* Data ONTAP 8.2.5
+
+
+如果 7- 模式系统运行的是 Data ONTAP 8.0.x ， 8.1.x 或 8.2 ，并且具有 32 位聚合或具有 32 位 Snapshot 副本的卷，则必须升级到 8.1.4 P4 或 8.2.1 。升级后，必须将 32 位聚合扩展到 64 位，然后查找并删除任何 32 位数据。
+
+在过渡到集群模式 Data ONTAP 8.3 或更高版本之前，必须将以下 7- 模式版本升级到 Data ONTAP 8.1.4 P4 ：
+
+* Data ONTAP 7.3.3
+* Data ONTAP 7.3.4
+* Data ONTAP 7.3.5
+* Data ONTAP 7.3.6
+* Data ONTAP 7.3.7
+

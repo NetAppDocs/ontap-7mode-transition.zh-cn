@@ -1,0 +1,36 @@
+---
+permalink: san-host/task_setting_up_esxi_hosts_configured_for_san_boot_after_transition.html 
+sidebar: sidebar 
+keywords: esxi, configured, boot, ontap, san, host, transition 
+summary: 如果在从 7- 模式 Data ONTAP 过渡之前为 ESXi 主机配置了 SAN 启动，则在过渡之后使用该主机之前，必须执行几个步骤。 
+---
+= 设置过渡后为 SAN 启动配置的 ESXi 主机
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在从 7- 模式 Data ONTAP 过渡之前为 ESXi 主机配置了 SAN 启动，则在过渡之后使用该主机之前，必须执行几个步骤。
+
+* 对于基于副本的过渡，请在 7MTT 中启动存储转换操作之前执行以下步骤。
+* 对于无副本过渡，请在 7MTT 中启动导出并暂停 7- 模式系统操作之前执行以下步骤。
+
+
+.步骤
+. 重新配置 FC 和 FCoE HBA BIOS ，以便从集群模式 Data ONTAP 系统的 SAN 启动 LUN 启动。
+. 启动 ESXi 主机。
+. 将主机配置重置为过渡前设置。
+. 对于 iSCSI 主机，请参见如何重新配置 VMware iSCSI 启动程序。
++
+xref:concept_reconfiguration_of_vmware_software_iscsi_initiator.adoc[重新配置 VMware iSCSI 启动程序]
+
+. 重新挂载在默认安装中从启动 LUN 创建的 VMFS 数据存储库。
+
+
+* 相关信息 *
+
+xref:task_remounting_vmfs_volumes_after_transition_using_vsphere_client.adoc[过渡后使用 vSphere Client 重新挂载 VMFS 卷]
+
+xref:task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.adoc[过渡后使用 ESXi 命令行界面重新挂载 VMFS 卷]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 管理"]

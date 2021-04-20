@@ -1,0 +1,24 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_aix_hosts_with_fc_fcoe_configurations.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, aix, host, fc, fcoe, configurations 
+summary: 在进入具有 FC 或 FCoE 配置的 AIX 主机的转换阶段之前，必须执行特定步骤。 
+---
+= 过渡具有 FC/FCoE 配置的 AIX 主机时为转换阶段做准备。
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在进入具有 FC 或 FCoE 配置的 AIX 主机的转换阶段之前，必须执行特定步骤。
+
+必须与集群模式 Data ONTAP 节点建立网络结构连接和分区。
+
+对于基于副本的过渡，请在 7- 模式过渡工具中完成存储转换操作后执行以下步骤。AIX 主机不支持无副本过渡。
+
+.步骤
+. 关闭主机：
++
+` * shutdown -h*`
+
+

@@ -1,0 +1,15 @@
+---
+permalink: san-host/concept_how_to_identify_vm_snapshots_that_must_be_removed_before_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, vm, snapshots, removed, identify 
+summary: 连接了虚拟 RDM 的 Snapshot 虚拟机无法从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 。过渡前，必须删除这些快照。仅包含 VMFS vDisk 和物理 RDM （ PTRDM\ ）的 VM 的快照在过渡后仍然有效，无需删除。 
+---
+= 如何确定必须先删除的 VM 快照 过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+连接了虚拟 RDM 的 Snapshot 虚拟机（ VM ）无法从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 。过渡前，必须删除这些快照。只有 VMFS vDisk 和物理 RDM （ PTRDM ）的 VM 的快照在过渡后仍可正常运行，无需删除。
+
+您可以使用清单收集工具生成的清单评估工作簿 _ 来确定连接了虚拟 RDM 的所有 VM 。VM Snapshots 列和 NPTDM 列中的 _Inventory Assessment Workbook _ 中列出的 Snapshot 值大于 0 是指已使用 VM 快照连接虚拟 RDM 的 VM 。

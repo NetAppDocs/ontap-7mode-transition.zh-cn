@@ -1,0 +1,21 @@
+---
+permalink: san-host/concept_configure_recommended_settings_for_esxi_hosts.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, recommended, settings, esxi, hosts 
+summary: 在完成 ESXi 主机的过渡后修复步骤后，您应在主机上为集群模式 Data ONTAP 应用建议的 ESXi 主机设置。 
+---
+= 过渡修复后建议的 ESXi 主机设置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在完成 ESXi 主机的过渡后修复步骤后，您应在主机上为集群模式 Data ONTAP 应用建议的 ESXi 主机设置。
+
+您可以使用 Virtual Storage Console （ VSC ）配置 ESXi 主机设置。VSC 是标准的 NetApp 插件，它使 vSphere vCenter 能够为 Data ONTAP 配置 ESXi 主机设置。应使用 VSC 配置部署在源 7- 模式系统上的 ESXi 主机和虚拟机（ VM ）。或者，您也可以使用以下知识库文章中的信息手动配置 VM ：
+
+* 子操作系统调整 _
+* vSphere 5.1_ 中 LUN 的任务集完整（ QFull ）可调参数
+* NetApp 阵列的 _Storage Array Type 插件选项 VMware vSphere
+* _HardwareAcceleratedLocking Setting required for VMware deployment_
+

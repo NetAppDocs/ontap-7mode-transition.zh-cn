@@ -1,0 +1,57 @@
+---
+permalink: copy-free/concept_supported_and_unsupported_data_protection_relationships.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, data, protection, supported, unsupported, configurations 
+summary: 您可以过渡属于 SnapMirror 关系的卷。但是，某些数据保护和灾难恢复配置不支持过渡，因此您必须执行一些手动步骤来过渡这些配置。 
+---
+= 数据保护过渡：支持和不支持的配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以过渡属于 SnapMirror 关系的卷。但是，某些数据保护和灾难恢复配置不支持过渡，因此您必须执行一些手动步骤来过渡这些配置。
+
+
+
+== 支持的配置
+
+您可以使用 7- 模式过渡工具过渡卷 SnapMirror 关系。您可以对主 HA 对和二级 HA 对执行无副本过渡。然后，您必须在过渡后手动设置卷 SnapMirror 关系。
+
+xref:task_transitioning_a_snapmirror_relationship.adoc[过渡 SnapMirror 关系]
+
+
+
+== 不支持的配置
+
+* SnapVault 关系
++
+可以迁移作为 SnapVault 关系源的卷，但不会过渡 SnapVault 关系。作为 SnapVault 关系目标的卷只能在 SnapVault 备份停止后迁移。
+
++
+http://www.netapp.com/us/media/tr-4052.pdf["NetApp 技术报告 4052 ：《成功过渡到集群模式 Data ONTAP 》（ Data ONTAP 8.2.x 和 8.3 ）"]
+
+* qtree SnapMirror 关系
++
+可以过渡 qtree 作为 qtree SnapMirror 关系源的卷，但不会过渡 qtree SnapMirror 关系。只有在 qtree SnapMirror 关系中断后，才能迁移 qtree 作为 qtree SnapMirror 关系目标的卷。
+
+* 灾难恢复 vFiler 单元
++
+可以迁移作为灾难恢复 vFiler 单元源的卷；但是，灾难恢复 vFiler 单元不会过渡。只有在删除灾难恢复关系后，才能迁移作为灾难恢复 vFiler 单元目标的卷。
+
+* NDMP 配置
++
+过渡完成后，您必须在 ONTAP 中手动为过渡后的卷设置备份策略。
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ptbrg/home.html["使用磁带备份保护数据"]
+
+* 同步 SnapMirror 关系
++
+ONTAP 不支持此功能；但是，属于此关系一部分的卷可以过渡。
+
+
+
+* 相关信息 *
+
+xref:task_customizing_configurations_for_transition.adoc[自定义 7- 模式配置的过渡]

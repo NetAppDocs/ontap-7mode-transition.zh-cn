@@ -1,0 +1,13 @@
+---
+permalink: san-host/concept_transitioning_solaris_host_data_luns_with_zfs_file_systems.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, solaris, host, data, lun, zfs, file, systems 
+summary: 如果使用 7- 模式过渡工具将具有 ZFS 文件系统的 Solaris 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP \ （ 7MTT\ ），则必须在过渡之前和过渡之后执行特定步骤以修复主机上的过渡问题。 
+---
+= 过渡具有 ZFS 文件系统的 Solaris 主机数据 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果使用 7- 模式过渡工具（ 7MTT ）将具有 ZFS 文件系统的 Solaris 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP ，则必须在过渡之前和过渡之后执行特定步骤以修复主机上的过渡问题。

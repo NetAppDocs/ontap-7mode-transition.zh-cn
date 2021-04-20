@@ -1,0 +1,48 @@
+---
+permalink: copy-based/task_customizing_configurations_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, customize, 7, mode, configurations 
+summary: 在规划将配置从 7- 模式过渡到 ONTAP 时，您可以通过两种方式自定义配置过渡。您可以忽略或跳过一个或多个配置的过渡。您可以整合 7- 模式 NFS 导出规则，然后在目标 SVM 上重复使用现有 NFS 导出策略和 Snapshot 策略。 
+---
+= 自定义 7- 模式配置的过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在规划将配置从 7- 模式过渡到 ONTAP 时，您可以通过两种方式自定义配置过渡。您可以忽略或跳过一个或多个配置的过渡。您可以整合 7- 模式 NFS 导出规则，然后在目标 SVM 上重复使用现有 NFS 导出策略和 Snapshot 策略。
+
+在应用配置（预转换）阶段之前，必须执行此任务。这是因为在此阶段之后，对任何修改都会禁用 " 计划配置 " 窗格。您可以使用 7- 模式过渡工具的命令行界面（ CLI ）排除转换阶段应用的配置。
+
+7- 模式过渡工具不会对排除的配置执行预检。
+
+默认情况下，所有 7- 模式配置都会选择进行过渡。
+
+最好先对所有配置运行预检，然后在后续运行预检时排除一个或多个配置。这有助于您了解哪些配置已从过渡中排除，哪些预检随后会跳过。
+
+.步骤
+. 从 Plan Configuration 页面的 * SVM Configuration* 窗格中选择以下选项：
++
+** 要排除配置过渡，请清除这些配置对应的复选框。
+** 要将相似的 7- 模式 NFS 导出规则整合到 ONTAP 中的单个导出策略中，然后将该导出策略应用于过渡后的卷或 qtree ，请选中 * 在 7- 模式上整合 NFS 导出策略 * 复选框。
+** 要重复使用 SVM 上与该工具将创建的导出策略匹配的现有 NFS 导出策略，然后将该策略应用于过渡后的卷或 qtree ，请选中 * 重复使用 SVM* 的导出策略复选框。
+** 要将相似的 7- 模式 Snapshot 计划整合到 ONTAP 中的单个 Snapshot 策略中，然后将该策略应用于过渡后的卷，请选中 * 整合 7- 模式 Snapshot 策略 * 复选框。
+** 要重复使用 SVM 上与该工具将创建的 Snapshot 策略匹配的现有 Snapshot 策略，然后将该策略应用于过渡后的卷，请选中 * 重新使用 SVM* 的 Snapshot 策略复选框。
+
+
+. 单击 * 保存并转到信息板 * 。
+
+
+* 相关信息 *
+
+xref:concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[过渡到 ONTAP 时支持和不支持的 CIFS 配置]
+
+xref:concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[NFS 过渡：支持和不支持的配置以及所需的手动步骤]
+
+xref:concept_supported_and_unsupported_name_services_configurations.adoc[名称服务过渡：支持和不支持的配置以及所需的手动步骤]
+
+xref:concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.adoc[SAN 过渡：支持和不支持的配置以及所需的手动步骤]
+
+xref:reference_example_consolidating_nfs_export_rules_for_transition.adoc[整合 NFS 导出规则和 Snapshot 计划的示例 过渡]
+
+xref:reference_configurations_that_can_be_excluded.adoc[可从过渡中排除的配置]

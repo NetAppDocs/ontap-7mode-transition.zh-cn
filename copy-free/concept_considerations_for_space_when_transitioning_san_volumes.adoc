@@ -1,0 +1,25 @@
+---
+permalink: copy-free/concept_considerations_for_space_when_transitioning_san_volumes.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, space, considerations, san, volumes 
+summary: 过渡期间，您必须确保卷中有足够的可用空间。除了存储数据和 Snapshot 副本所需的空间之外，过渡过程还需要每个 LUN 1 MB 的空间来更新某些文件系统元数据。 
+---
+= 过渡 SAN 卷时的空间注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡期间，您必须确保卷中有足够的可用空间。除了存储数据和 Snapshot 副本所需的空间之外，过渡过程还需要每个 LUN 1 MB 的空间来更新某些文件系统元数据。
+
+您可以在 7- 模式卷上使用 `df -h` 命令来验证卷中的每个 LUN 是否有 1 MB 的可用空间。卷还应具有与主机暂停前预期写入卷的数据量等效的可用空间。如果卷没有足够的可用空间，则必须向 7- 模式卷添加所需的空间量。
+
+如果在导入阶段由于卷上缺少空间而导致过渡失败，则会生成以下 EMS 消息： `LUN.vol.proc.fail.no.space: 由于空间不足，无法处理卷 vol_name 中的 LUN` 。
+
+如果卷包含预留了空间的 LUN ，则将每个 LUN 的卷增加 1 MB 可能无法提供足够的空间。在这种情况下，需要添加的空间量是卷的 Snapshot 预留大小。向卷添加空间后，您可以使用 `lun transition start` 命令过渡 LUN 。
+
+* 相关信息 *
+
+xref:task_recovering_from_a_failed_lun_transition.adoc[从失败的 LUN 过渡中恢复]
+
+http://docs.netapp.com/ontap-9/index.jsp["NetApp 文档： ONTAP 9"]

@@ -1,0 +1,61 @@
+---
+permalink: copy-free/task_selecting_lifs_to_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, select, lif 
+summary: 您可以选择指定过渡后要在 SVM 上配置的 LIF 。这些 LIF 可以是 7- 模式系统上的现有 IP 地址，也可以是新的 LIF 。仅过渡 NAS LIF 。必须在 SVM 配置阶段之前手动配置 FC 和 iSCSI LIF 。 
+---
+= 选择要过渡的 LIF
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以选择指定过渡后要在 SVM 上配置的 LIF 。这些 LIF 可以是 7- 模式系统上的现有 IP 地址，也可以是新的 LIF 。仅过渡 NAS LIF 。必须在 SVM 配置阶段之前手动配置 FC 和 iSCSI LIF 。
+
+在 SVM 配置阶段，将通过以下方式在 SVM 上配置选择进行过渡的 LIF ：
+
+* 选择进行过渡的现有 7- 模式 IP 地址将在管理关闭状态下创建。
++
+这些 IP 地址可以继续在 7- 模式下提供数据，直到转换开始为止。在导入阶段，这些 IP 地址会配置为管理启动状态。
+
+* 在管理启动状态下创建新的 IP 地址。
++
+在 SVM 配置阶段之后，您可以使用这些 LIF 测试 SVM 与名称服务器的连接。
+
+
+
+.步骤
+. 在 LIF 配置选项卡中，选择以下选项之一：
++
+|===
+| 要过渡的内容 | 那么 ... 
+
+
+ a| 
+7- 模式系统上的现有 IP 地址
+ a| 
+.. 单击 * 选择 7- 模式 LIF* 。
+.. 选择要过渡的 IP 地址，然后指定目标 SVM 和其他网络参数。
+.. 单击 * 保存 * 。
+
+
+
+
+ a| 
+新的 IP 地址
+ a| 
+.. 单击 * 添加新 LIF* 。
+.. 指定要配置的 IP 地址，目标 SVM 和其他网络参数。
+.. 单击 * 保存 * 。
+
+
+|===
++
+
+NOTE: 目标端口必须与目标 SVM 位于同一 IP 空间中。
+
+. 单击 * 下一步 * 。
++
+此时将显示 Plan Configuration 选项卡。
+
+

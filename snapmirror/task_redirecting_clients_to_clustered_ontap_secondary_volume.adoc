@@ -1,0 +1,32 @@
+---
+permalink: snapmirror/task_redirecting_clients_to_clustered_ontap_secondary_volume.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, snapmirror, redirect, clients, disaster, clustered, secondary, volume 
+summary: 如果在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间建立了 SnapMirror 灾难恢复 \ （ DR\ ）关系，并且 7- 模式主站点发生灾难，则必须将客户端访问重定向到集群模式 Data ONTAP 二级卷。 
+---
+= 将客户端重定向到集群模式 Data ONTAP 二级卷 灾难
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间建立了 SnapMirror 灾难恢复（ DR ）关系，并且 7- 模式主站点发生灾难，则必须将客户端访问重定向到集群模式 Data ONTAP 二级卷。
+
+.步骤
+. 在二级集群中，使用 `snapmirror break` 命令中断 7- 模式主卷与集群模式 Data ONTAP 二级卷之间的 SnapMirror 关系。
++
+[listing]
+----
+sec_cluster::> snapmirror break -destination-path dst_vserver:dst_c_vol
+----
+. 在二级集群中，使用 `snapmirror delete` 命令删除 7- 模式主卷与集群模式 Data ONTAP 二级卷之间的 SnapMirror 关系。
++
+[listing]
+----
+sec_cluster::> snapmirror delete -destination-path dst_vserver:dst_c_vol
+----
+. 将客户端访问重定向到集群模式 Data ONTAP 二级卷。
++
+有关在集群模式 Data ONTAP 中设置客户端访问的详细信息，请参见 link:https://library.netapp.com/ecm/ecm_get_file/ECMP1401220["《集群模式 Data ONTAP 文件访问和协议管理指南》"]。
+
+

@@ -1,0 +1,131 @@
+---
+permalink: san-host/task_preparing_linux_guest_operating_systems_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, linux, operating, system 
+summary: 如果将 7- 模式 LUN 作为物理兼容 RDM （ PTRDM\ ）映射到启动设备的 Linux 虚拟机，则必须执行以下步骤来准备要过渡的 Linux VM 。 
+---
+= 准备 Linux 子操作系统以进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果将 7- 模式 LUN 作为物理兼容 RDM （ PTRDM ）映射到启动设备的 Linux 虚拟机（ VM ），则必须执行以下步骤来准备要过渡的 Linux VM 。
+
+* 对于基于副本的过渡，请在 7- 模式过渡工具（ 7MTT ）中启动存储转换操作之前执行以下步骤。
+* 对于无副本过渡，请在 7MTT 中启动导出并暂停 7- 模式系统操作之前执行以下步骤。
+
+
+.步骤
+. 获取 SCSI 设备序列号：
++
+` * cat /boot/grub/menu.lst*`
+
++
+在以下示例中， 360a9800032466879362b45777447462d-part2 和 360a9800032466879362b45777447462d-part1 是 SCSI 设备编号：
+
++
+[listing]
+----
+# cat /boot/grub/menu.lst
+...
+kernel /boot/vmlinuz-3.0.13-0.27-default root=/dev/disk/by-id/scsi-
+360a9800032466879362b45777447462d-part2 resume=/dev/disk/by-id/scsi-
+360a9800032466879362b45777447462d-part1
+----
+. 确定 SCSI 设备序列号和 SCSI 设备 / 分区之间的映射：
++
+` * # ls -l /dev/disk/by-id*`
+
++
+以下示例显示了关系映射的显示方式。`SCSI 设备 / 分区` 显示在 `SCSI 设备 / 分区序列号` 之后。在此示例中， ` ../../sda ， ../../sda1 和 ../../sda2` 是 SCSI 设备 / 分区。
+
++
+[listing]
+----
+lrwxrwxrwx 1 root root 9 Oct 27 06:54 scsi-360a9800032466879362b45777447462d -> ../../sda
+   lrwxrwxrwx 1 root root 10 Oct 27 05:09 scsi-360a9800032466879362b45777447462d-part1 -> ../../sda1
+   lrwxrwxrwx 1 root root 10 Oct 27 02:21 scsi-360a9800032466879362b45777447462d-part2 -> ../../sda2
+----
+. 确定 SCSI 设备路径和 UUID 之间的映射：
++
+` * ls -l /dev/disk/by-uid*`
+
++
+以下示例显示了关系映射的显示方式。在此示例` 中， `33d43a8b-cfae-4ac4-9355-36b479cfa524` 是 SCSI 设备 / 分区 sda2 的 UUID` ， `603e01f8-7873-440a-9182-878abff17143` 是 SCSI 设备 / 分区 sdb 的 UUID ，而 `cda50s19-08f1791 是 SCSI 分区的 UUID 。
+
++
+[listing]
+----
+ lrwxrwxrwx 1 root root 10 Oct 27 02:21 33d43a8b-cfae-4ac4-9355-36b479cfa524 -> ../../sda2
+   lrwxrwxrwx 1 root root 9 Oct 27 06:54 603e01f8-7873-440a-9182-878abff17143 -> ../../sdb
+   lrwxrwxrwx 1 root root 10 Oct 27 05:09 c50b757b-0817-4c19-8291-0d14938f7f0f -> ../../sda1
+----
+. 使用 UUID 通过将 grub boot `menu.lst` 文件中的设备引用与 SCSI 设备路径和 SCSI 序列号进行匹配来更新此设备引用。
++
+[listing]
+----
+#blkid
+/dev/sda1: UUID="c50b757b-0817-4c19-8291-0d14938f7f0f" TYPE="swap"
+/dev/sda2: UUID="33d43a8b-cfae-4ac4-9355-36b479cfa524" TYPE="ext3"
+/dev/sdb: UUID="603e01f8-7873-440a-9182-878abff17143" SEC_TYPE="ext2" TYPE="ext3"
+----
+. 使用刚刚检索到的 UUID 更新 grub boot `menu.lst` 文件中的设备引用。
++
+以下示例显示了更新后的 `menu.lst` 文件：
+
++
+[listing]
+----
+# Modified by YaST2. Last modification on Fri Oct 17 02:08:40 EDT 2014
+default 0
+timeout 8
+##YaST - generic_mbr
+gfxmenu (hd0,1)/boot/message
+##YaST - activate
+###Don't change this comment - YaST2 identifier: Original name: linux###
+title SUSE Linux Enterprise Server 11 SP2 - 3.0.13-0.27
+root (hd0,1)
+kernel /boot/vmlinuz-3.0.13-0.27-default root=/dev/disk/by-uuid/e5127cdf-8b30-
+418e-b0b2-35727161ef41 resume=/dev/disk/by-uuid/d9133964-d2d1-4e29-b064-7316c5ca5566
+splash=silent crashkernel=128M-:64M showopts vga=0x314
+initrd /boot/initrd-3.0.13-0.27-default
+----
+. 更新 ` /etc/fstab` 文件：
++
+.. 使用刚刚检索到的 UUID 更新 ` /etc/fstab` 文件中的设备引用。
++
+以下示例显示了具有 SCSI 序列号的 ` /etc/fstab` 文件：
+
++
+[listing]
+----
+/dev/disk/by-id/scsi-360a9800032466879362b45777447462d-part1 swap swap
+defaults 0 0
+/dev/disk/by-id/scsi-360a9800032466879362b45777447462d-part2 / ext3
+acl,user_xattr 1 1
+proc /proc proc defaults 0 0
+sysfs /sys sysfs noauto 0 0
+debugfs /sys/kernel/debug debugfs noauto 0 0
+devpts /dev/pts devpts mode=0620,gid=5 0 0
+----
+.. 将对 SCSI 序列号的引用替换为 UUID 。
++
+以下示例显示了一个 ` /etc/fstab` 文件，该文件已进行更新，以将 SCSI 序列号替换为 UUID ：
+
++
+[listing]
+----
+cat /etc/fstab
+UUID="c50b757b-0817-4c19-8291-0d14938f7f0f swap swap defaults
+0 0
+UUID="33d43a8b-cfae-4ac4-9355-36b479cfa524 / ext3 acl,user_xattr
+1 1
+proc /proc proc defaults 0 0
+sysfs /sys sysfs noauto 0 0
+debugfs /sys/kernel/debug debugfs noauto 0 0
+devpts /dev/pts devpts mode=0620,gid=5 0 0
+----
+
+
+

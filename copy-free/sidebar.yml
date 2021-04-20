@@ -1,0 +1,210 @@
+---
+section: copy-free
+title: 无副本过渡
+url: "/copy-free/index.html"
+entries:
+- title: 过渡概述
+  url: "/copy-free/concept_transition_overview.html"
+  entries:
+  - title: 使用 7- 模式过渡工具实现无副本过渡
+    url: "/copy-free/concept_copy_free_transition_using_7mtt.html"
+  - title: 过渡术语
+    url: "/copy-free/concept_transition_terminology.html"
+- title: 收集和评估清单信息
+  url: "/copy-free/concept_collecting_and_assessing_inventory_information.html"
+  entries:
+  - title: 用于过渡评估的存储，主机和 FC 交换机版本要求
+    url: "/copy-free/concept_storage_and_host_version_requirements.html"
+  - title: 准备 7- 模式系统和主机以进行过渡评估
+    url: "/copy-free/task_preparing_7_mode_systems_for_inventory_collection.html"
+  - title: 评估控制器和主机
+    url: "/copy-free/task_assessing_controllers_and_hosts.html"
+    entries:
+    - title: 通过向 7- 模式添加系统来生成评估报告 过渡工具
+      url: "/copy-free/task_generating_an_assessment_report_by_adding_systems_to_7mtt.html"
+    - title: 通过导入清单报告 XML 生成评估报告
+      url: "/copy-free/task_generating_an_assessment_report_by_importing_inventory_report_xml.html"
+  - title: 生成 FC 分区计划
+    url: "/copy-free/task_generating_fc_zone_plan.html"
+    entries:
+    - title: 支持用于生成 FC 分区计划的配置
+      url: "/copy-free/concept_supported_configurations_for_generating_an_fc_zone_plan.html"
+  - title: 如何使用评估内容提要进行过渡 评估
+    url: "/copy-free/concept_how_you_can_use_assessment_executive_summary_for_transition_assessment.html"
+- title: 无副本过渡工作流
+  url: "/copy-free/task_copy_free_transition_workflow.html"
+  entries:
+  - title: 无副本过渡的阶段
+    url: "/copy-free/concept_phases_of_copy_free_transition.html"
+- title: 准备无副本过渡
+  url: "/copy-free/concept_preparing_for_migration.html"
+  entries:
+  - title: 无副本过渡的要求
+    url: "/copy-free/concept_requirements_for_copy_free_transition.html"
+  - title: 无副本过渡所需的工具和文档
+    url: "/copy-free/reference_required_tools_and_documentation.html"
+  - title: 与 7- 模式过渡工具通信的端口要求
+    url: "/copy-free/concept_port_requirements_for_communicating_with_7mtt.html"
+  - title: 准备 7- 模式 HA 对以进行过渡
+    url: "/copy-free/task_preparing_7_mode_system_for_transition.html"
+  - title: 在 7- 模式系统上设置 SP 或 RLM 用于无副本过渡
+    url: "/copy-free/task_setting_up_sp_or_rlm_for_transition.html"
+  - title: 准备网络以进行过渡
+    url: "/copy-free/task_preparing_your_network_for_transition.html"
+    entries:
+    - title: 过渡 7- 模式 IP 地址的注意事项
+      url: "/copy-free/concept_considerations_for_transitioning_7_mode_ip_addresses.html"
+  - title: 准备集群以进行过渡
+    url: "/copy-free/task_preparing_cluster_for_transition.html"
+  - title: 收集用于过渡的布线信息
+    url: "/copy-free/task_gathering_cabling_information_for_transition.html"
+    entries:
+    - title: 无副本过渡布线工作表
+      url: "/copy-free/reference_copy_free_transition_cabling_worksheet.html"
+  - title: 准备 7- 模式聚合和卷以进行过渡
+    url: "/copy-free/task_preparing_7_mode_volumes_and_aggregates_for_transition.html"
+    entries:
+    - title: 过渡 7- 模式聚合和卷的限制
+      url: "/copy-free/concept_restrictions_for_copy_free_transition.html"
+    - title: 准备过渡具有 32 位聚合的 7- 模式系统
+      url: "/copy-free/task_transitioning_to_clustered_ontap_8_3_from_a_7_mode_version_with_32_bit_data.html"
+      entries:
+      - title: 将聚合扩展为 64 位格式
+        url: "/copy-free/task_expanding_an_aggregate_to_64_bit_format_without_adding_storage.html"
+      - title: 查找和删除 32 位卷和 Snapshot 副本
+        url: "/copy-free/task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.html"
+    - title: 过渡时的聚合空间要求
+      url: "/copy-free/concept_aggregate_space_considerations_during_transition.html"
+  - title: 正在准备过渡名称服务
+    url: "/copy-free/concept_preparing_for_name_services_transition.html"
+    entries:
+    - title: 名称服务过渡：支持和不支持的配置以及所需的手动步骤
+      url: "/copy-free/concept_supported_and_unsupported_name_services_configurations.html"
+    - title: 过渡 DNS ， NIS 和 LDAP 配置的注意事项
+      url: "/copy-free/concept_considerations_for_transitioning_dns_and_ldap_configurations.html"
+    - title: 过渡网络组以及 UNIX 用户和组的注意事项
+      url: "/copy-free/concept_considerations_for_transitioning_unix_users_and_groups.html"
+  - title: 为 NFS 过渡做准备
+    url: "/copy-free/concept_preparing_for_nfs_transition.html"
+    entries:
+    - title: 过渡 NFS 配置的前提条件
+      url: "/copy-free/concept_prerequisites_to_transition_nfs_configurations.html"
+    - title: NFS 过渡：支持和不支持的配置以及所需的手动步骤
+      url: "/copy-free/concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html"
+    - title: NFS 导出的过渡方式
+      url: "/copy-free/concept_how_nfs_exports_are_transitioned.html"
+  - title: 为 SMB/CIFS 过渡做准备
+    url: "/copy-free/concept_preparing_for_cifs_transition.html"
+    entries:
+    - title: 过渡 CIFS 配置的前提条件
+      url: "/copy-free/concept_prerequisites_for_transitioning_cifs_configurations.html"
+    - title: 过渡到 ONTAP 时支持和不支持的 CIFS 配置
+      url: "/copy-free/concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html"
+    - title: 过渡 CIFS 本地用户和组的注意事项
+      url: "/copy-free/concept_considerations_for_local_users_and_groups_transition.html"
+  - title: 为 SAN 过渡做准备
+    url: "/copy-free/task_preparing_for_san_transition.html"
+    entries:
+    - title: 过渡前创建 SAN LIF
+      url: "/copy-free/task_creating_san_lifs_before_transition.html"
+    - title: 使用 FC 分区计划配置分区
+      url: "/copy-free/task_configuring_zones_by_using_fc_zone_plan.html"
+    - title: 准备 SAN 主机以进行过渡
+      url: "/copy-free/task_preparing_san_hosts_for_transition.html"
+    - title: SAN 过渡：支持和不支持的配置以及所需的手动步骤
+      url: "/copy-free/concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.html"
+    - title: 过渡 SAN 卷时的空间注意事项
+      url: "/copy-free/concept_considerations_for_space_when_transitioning_san_volumes.html"
+  - title: 准备数据保护功能以进行过渡
+    url: "/copy-free/concept_preparing_data_protection_features_for_transition.html"
+    entries:
+    - title: 准备集群以过渡卷 SnapMirror 关系
+      url: "/copy-free/task_preparing_cluster_for_transitioning_volume_snapmirror_relationships.html"
+    - title: 数据保护过渡：支持和不支持的配置
+      url: "/copy-free/concept_supported_and_unsupported_data_protection_relationships.html"
+- title: 使用无副本过渡过渡过渡过渡过渡 7- 模式聚合
+  url: "/copy-free/task_performing_copy_free_transition_of_7_mode_aggregates.html"
+  entries:
+  - title: 规划无副本过渡项目
+    url: "/copy-free/task_planning_a_copy_free_transition_project.html"
+    entries:
+    - title: 无副本过渡项目规划工作表
+      url: "/copy-free/reference_copy_free_transition_project_planning_worksheet.html"
+    - title: 添加控制器和集群
+      url: "/copy-free/task_adding_controllers_and_clusters.html"
+    - title: 创建无副本过渡项目
+      url: "/copy-free/task_selecting_source_7_mode_systems_for_transition.html"
+    - title: 选择要过渡的目标集群节点
+      url: "/copy-free/task_selecting_target_cluster_for_transition.html"
+    - title: 映射 SVM 和卷
+      url: "/copy-free/task_svm_and_volume_mapping.html"
+    - title: 选择要过渡的 LIF
+      url: "/copy-free/task_selecting_lifs_to_transition.html"
+    - title: 自定义 7- 模式配置的过渡
+      url: "/copy-free/task_customizing_configurations_for_transition.html"
+      entries:
+      - title: 整合 NFS 导出规则和 Snapshot 计划的示例 过渡
+        url: "/copy-free/reference_example_consolidating_nfs_export_rules_for_transition.html"
+    - title: 正在运行预检
+      url: "/copy-free/task_running_prechecks.html"
+      entries:
+      - title: 预检消息的严重性级别
+        url: "/copy-free/concept_severity_levels_for_precheck_messages.html"
+  - title: 正在应用 SVM 配置
+    url: "/copy-free/task_applying_svm_configurations.html"
+  - title: 验证 7- 模式系统是否已做好转换准备
+    url: "/copy-free/task_verifying_readiness_for_cutover.html"
+  - title: 导出存储配置并暂停 7- 模式系统
+    url: "/copy-free/task_exporting_7_mode_system_and_hardware_information.html"
+  - title: 断开磁盘架与 7- 模式系统的连接并连接到 集群节点
+    url: "/copy-free/task_removing_disk_shelves_from_7_mode_and_connecting_to_cluster_nodes.html"
+  - title: 将 7- 模式数据导入 ONTAP
+    url: "/copy-free/task_importing_7_mode_data_to_clustered_ontap.html"
+- title: 完成过渡
+  url: "/copy-free/task_completing_post_transition_tasks_for_a_copy_free_transition.html"
+  entries:
+  - title: 预生产测试期间的限制
+    url: "/copy-free/concept_restrictions_during_preproduction_testing.html"
+  - title: 将过渡后的卷重新托管到其他 SVM
+    url: "/copy-free/task_rehosting_volumes_from_different_svms_to_a_single_svm.html"
+  - title: 验证过渡后的配置
+    url: "/copy-free/task_verifying_transition_configurations.html"
+  - title: 过渡后执行手动配置任务
+    url: "/copy-free/task_performing_manual_configuration_tasks.html"
+  - title: 测试工作负载和应用程序
+    url: "/copy-free/task_testing_workloads_and_applications.html"
+  - title: 提交无副本过渡项目
+    url: "/copy-free/task_committing_7_mode_aggregates_to_clustered_ontap_format.html"
+- title: 过渡 SnapMirror 关系
+  url: "/copy-free/task_transitioning_a_snapmirror_relationship.html"
+  entries:
+  - title: 交错过渡 SnapMirror 关系中的 HA 对 配置
+    url: "/copy-free/task_transitioning_primary_and_secondary_systems_of_a_snapmirror_relationship_in_staggered_way.html"
+  - title: 过渡中 SnapMirror 关系中的主系统和二级系统 并行
+    url: "/copy-free/task_transitioning_primary_and_secondary_systems_of_a_snapmirror_relationship_in_parallel.html"
+- title: 对过渡问题进行故障排除
+  url: "/copy-free/concept_troubleshooting_transition_issues.html"
+  entries:
+  - title: 如果发生可忽略的错误，则继续过渡
+    url: "/copy-free/task_acknowledging_errors_to_continue_with_transition.html"
+    entries:
+    - title: 过渡期间发生可忽略的错误
+      url: "/copy-free/reference_ignorable_errors_during_transition.html"
+  - title: 下载过渡日志文件
+    url: "/copy-free/task_collecting_tool_logs.html"
+  - title: 7- 模式过渡工具的日志文件
+    url: "/copy-free/concept_log_files_for_7mtt.html"
+  - title: 从失败的 LUN 过渡中恢复
+    url: "/copy-free/task_recovering_from_a_failed_lun_transition.html"
+  - title: 无法在维护模式下启动 7- 模式控制器
+    url: "/copy-free/reference_failed_to_boot_7_mode_controller_in_maintenance_mode.html"
+- title: 执行过渡回滚到 7- 模式
+  url: "/copy-free/concept_reverting_a_copy_free_transition_project.html"
+  entries:
+  - title: 何时回滚过渡以及何时调用 技术支持
+    url: "/copy-free/concept_when_to_revert_and_when_to_call_technical_support_transition.html"
+  - title: 回滚无副本过渡项目
+    url: "/copy-free/task_performing_a_transition_rollback.html"
+    entries:
+    - title: 手动回滚过渡
+      url: "/copy-free/task_running_manual_steps_for_rolling_back_transition.html"

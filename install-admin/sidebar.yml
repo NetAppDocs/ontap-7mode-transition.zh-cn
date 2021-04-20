@@ -1,0 +1,49 @@
+---
+section: install-admin
+title: 7- 模式过渡工具安装和管理
+url: "/install-admin/index.html"
+entries:
+- title: 使用 7- 模式过渡工具过渡到集群模式 ONTAP
+  url: "/install-admin/concept_transition_to_clustered_ontap_using_7mtt.html"
+  entries:
+  - title: 7- 模式过渡工具支持的 ONTAP 目标版本
+    url: "/install-admin/concept_ontap_target_releases_supported_by_7mtt.html"
+  - title: 无副本过渡与基于副本的过渡的比较
+    url: "/install-admin/concept_comparison_of_copy_free_transition_and_copy_based_transition.html"
+  - title: Windows 和 Linux 上提供的接口和过渡功能
+    url: "/install-admin/reference_interfaces_and_transition_capabilities_available_on_windows_and_linux.html"
+- title: 在 Windows 上安装或卸载 7- 模式过渡工具 系统
+  url: "/install-admin/concept_installing_and_uninstalling_7mtt.html"
+  entries:
+  - title: 在 Windows 上安装 7- 模式过渡工具的系统要求 系统
+    url: "/install-admin/concept_system_requirements_for_7mtt_on_windows.html"
+  - title: 在 Windows 系统上安装 7- 模式过渡工具
+    url: "/install-admin/task_installing_7mtt.html"
+  - title: 为不属于管理员组的用户启用登录
+    url: "/install-admin/task_enabling_login_for_users_not_part_of_administrator_group.html"
+  - title: 登录到 7- 模式过渡工具
+    url: "/install-admin/task_logging_in_to_tool.html"
+  - title: 在 Windows 系统上卸载 7- 模式过渡工具
+    url: "/install-admin/task_uninstalling_7mtt.html"
+- title: 在 Linux 上安装或卸载 7- 模式过渡工具 （仅限基于副本的过渡）
+  url: "/install-admin/concept_installing_and_uninstalling_7mtt_on_linux.html"
+  entries:
+  - title: 在 Linux 上安装 7- 模式过渡工具的系统要求
+    url: "/install-admin/concept_system_requirements_for_7_mode_transition_tool_on_linux.html"
+  - title: 在 Linux 上安装 7- 模式过渡工具
+    url: "/install-admin/task_installing_7_mode_transition_tool_on_linux.html"
+  - title: 在 Linux 上卸载 7- 模式过渡工具
+    url: "/install-admin/task_uninstalling_7_mode_transition_tool_on_linux.html"
+- title: 修改 7- 模式过渡工具的配置选项
+  url: "/install-admin/task_modifying_default_configuration_settings_of_7mtt.html"
+- title: 对问题进行故障排除
+  url: "/install-admin/concept_troubleshooting_web_interface_issues.html"
+  entries:
+  - title: 工具安装失败，并显示操作系统不兼容错误
+    url: "/install-admin/reference_tool_installation_fails_with_incompatible_os_error.html"
+  - title: 阻止安装或卸载 7- 模式过渡工具
+    url: "/install-admin/reference_installation_or_uninstallation_of_7mtt_is_blocked.html"
+  - title: 在 Windows 上重新安装或升级 7- 模式过渡工具失败 系统
+    url: "/install-admin/reference_reinstalling_or_upgrading_7mtt_fails_on_windows_system.html"
+  - title: 安装工具时显示 Windows 程序兼容性助手通知
+    url: "/install-admin/reference_windows_compatibility_assistant_notification_displayed_while_installing.html"

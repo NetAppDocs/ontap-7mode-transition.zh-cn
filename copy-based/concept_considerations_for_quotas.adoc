@@ -1,0 +1,25 @@
+---
+permalink: copy-based/concept_considerations_for_quotas.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, quotas 
+summary: 您必须了解在只读和读写模式下运行 " 应用配置 " \ （预转换 \ ）时如何过渡配额。 
+---
+= 配额注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须了解在只读和读写模式下运行 "`apply configuration` " （预转换）时如何过渡配额。
+
+在预转换阶段，可以通过以下方式应用配额：
+
+* 只读模式
++
+配额不会在 ONTAP 系统的预转换只读模式下应用；它们仅会在存储转换阶段应用。
+
+* 读写模式
++
+配额会在 ONTAP 系统上以预转换读写模式应用，以便您可以在 ONTAP 中对其进行测试。但是，在 ONTAP 卷重新同步（测试完成后）期间会删除这些配额。配额将在存储转换阶段再次应用。
+
+

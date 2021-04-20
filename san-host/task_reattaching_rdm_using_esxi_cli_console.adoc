@@ -1,0 +1,84 @@
+---
+permalink: san-host/task_reattaching_rdm_using_esxi_cli_console.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rdm, esxi, cli, console 
+summary: 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，必须重新连接原始设备映射（ RDM ）。 
+---
+= 使用 ESXi 的命令行界面 / 控制台重新连接 RDM
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，您必须重新连接原始设备映射（ RDM ）。
+
+* 您必须检索清单评估工作簿 _ 的磁盘列中列出的 RDM 磁盘文件。
+* 您必须从 7MTT 映射文件检索新的集群模式 Data ONTAP LUN naa ID 。
+
+
+.步骤
+. 使用 SSH 登录到 ESXi 控制台。
+. 使用 mv 命令备份 RDM 磁盘文件和关联设备文件。
++
+RDM 磁盘文件将列在清单评估工作簿 _ 的磁盘列中。
+
++
+如果 RDM 磁盘文件为 ` /vmfs/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-A/VM2-winbus-A.vmdk` ，则应执行问题描述命令：
+
++
+` * mv /vmfs/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-A/VM2-winbus-a.vmdk /vmfs/volumes/53a3ac3d-df5aca03-3a94-VMec9d631cbk/vm2-win-bus/vmbk/vmf5a3d3ac3a-wbk/vmk/vmf5ac3a03-a03-a03-001cbk/vmec9dv-vmbk/vmbk/w-`
+
++
+** 对于物理兼容性 RDM （ PTRDM ）： + ` * mv _RDM_disk_file_name_-rdmp.vdmk __RDM_disk_file_name_-rdmp.vdmk_Bak*`
++
+例如：
+
++
+` * mv/vmfs/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-A/VM2-winbus-a-rdmp.vmdk/vmfs/volumes/53a3ac3d-df5aca03-3a94-vm2-cecbk-vbk/w-9bak-vcbk/vmbk/w-wa-wbk/vmf5ac3df5ac3df5aca03.a`
+
+** 对于虚拟兼容性 RDM （ NPTDM ）： + ` * mv _RDM_disk_file_name_-rdmp.vdmk __RDM_disk_file_name_-rdmp.vdmk_bak*`
++
+例如：
+
++
+` * mv/vmfs/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-A/VM2-winbus-a-rdmp.vmdk/vmfs/volumes/53a3ac3d-df5aca03-3a94-vm2-cecbk-vbk/w-9bak-vcbk/vmbk/w-wa-wbk/vmf5ac3df5ac3df5aca03.a`
+
+
+
+. 使用新的集群模式 Data ONTAP LUN naa ID 和 RDM 磁盘文件重新创建 RDM 配置和设备文件。
++
+** 对于 PTRDM ： + ` * # vmkfstools – z /vmfs/devices/disks/__new_clustered_Data_ontap_naa_ID_.vmdk*`
++
+例如：
+
++
+` * vmkfstools – z /vmfs/devices/disks/naa.600a098054314c6c442b446f79712313 /vmfs/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-A/VM2-win-bus-vmdk *`
+
+** 对于 NPTDM ： + ` * # vmkfstools – r /vmfs/devices/disks/__new_clustered_Data_ontap_naa_ID_.vmdk*`
++
+例如：
+
++
+` * vmkfstools – r /vmfs/devices/disks/naa.600a098054314c6c442b446f79712313 /vmfs/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-A/VM2-win-bus-vmdk *`
+
+
+
+. 确认已创建配置和指针文件：
++
+` * # ls /vmfs/volumes/_datastore/vm_directory__*`
+
++
+` *#ls /vmfs/volumes/53a3ac3d-df5aca03-3a94-001ec9d631cb/VM2-win-bus-a*`
+
++
+新配置和指针文件将显示在 VM 目录路径下。
+
+. 对连接了 RDM 的所有 VM 重复上述步骤。
+. 重新启动 ESXi 主机中的 hostd 和 vpxa 代理：
++
+` * /etc/init.d/hostd/restart*`
+
++
+` * /etc/init.d/vpxa/restart*`
+
+

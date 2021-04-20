@@ -1,0 +1,19 @@
+---
+permalink: san-host/concept_preparing_for_cutover_when_transitioning_san_boot_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, san, boot, lun 
+summary: 如果要将 SAN 启动 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP ，则必须在进入转换阶段之前了解某些前提条件。 
+---
+= 过渡 SAN 启动 LUN 时为转换阶段做准备
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要将 SAN 启动 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP ，则必须在进入转换阶段之前了解某些前提条件。
+
+对于 FC 配置，您必须与集群模式 Data ONTAP 控制器建立网络结构连接并进行分区。对于 iSCSI 配置，必须发现 iSCSI 会话并将其登录到集群模式 Data ONTAP 控制器。您还必须关闭主机。
+
+* 对于基于副本的过渡，应先关闭主机，然后再在 7- 模式过渡工具（ 7MTT ）中启动存储转换操作。HP-UX 主机不支持无副本过渡。
+* 对于无副本过渡，应先关闭主机，然后再在 7MTT 中启动导出并暂停 7- 模式操作。
+

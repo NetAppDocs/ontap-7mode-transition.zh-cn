@@ -1,0 +1,31 @@
+---
+permalink: copy-based/task_acknowledging_errors_to_continue_with_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, continue, ignorable, errors 
+summary: 过渡期间，您可能会遇到一些错误，从而阻止过渡。您可以通过 7- 模式过渡工具命令行界面确认问题，从而选择忽略其中某些错误。忽略错误后，您应重新运行失败的操作，以继续过渡。 
+---
+= 如果发生可忽略的错误，则继续过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡期间，您可能会遇到一些错误，从而阻止过渡。您可以通过 7- 模式过渡工具命令行界面确认问题，从而选择忽略其中某些错误。忽略错误后，您应重新运行失败的操作，以继续过渡。
+
+确认错误后，即表示您已了解这些错误的影响并已确认这些错误。
+
+忽略此错误后，您必须重新运行过渡操作。在某些情况下，确认问题描述后， Data ONTAP 会在下次运行此操作时对受影响的聚合和卷执行更正操作。
+
+.步骤
+. 如果过渡操作导致任何可忽略的错误，请从 7- 模式过渡工具命令行界面运行以下命令：
++
+` * 过渡 CBT ignorableerrors add -p _project_name_ -c _ignorable_errorcategory_*`
+
++
+` _ignorable_errorcategory_s` 是您可以忽略的错误类型。
+
+. 重新运行过渡操作。
++
+阻止错误将更改为警告，并且错误显示为 `已确认` 。您可以在出现警告的情况下继续过渡。
+
+

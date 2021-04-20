@@ -1,0 +1,26 @@
+---
+permalink: copy-free/task_collecting_tool_logs.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, download, log, files 
+summary: 7- 模式过渡工具可创建日志文件，这些文件提供在系统上运行的过渡评估和迁移操作的处理详细信息。 
+---
+= 下载过渡日志文件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7- 模式过渡工具可创建日志文件，这些文件提供在系统上运行的过渡评估和迁移操作的处理详细信息。
+
+.步骤
+. 单击顶部菜单中的 * 日志 * 。
+. 单击 * 收集项目日志 * 以收集与所有项目相关的日志。
+. 要收集给定项目的日志，请从项目列表中找到这些项目，然后单击 * 下载 * 。
++
+日志以 ` .zip` 文件的形式下载，文件夹名称是时间戳。
+
+
+
+* 相关信息 *
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["如何将文件上传到 NetApp"]

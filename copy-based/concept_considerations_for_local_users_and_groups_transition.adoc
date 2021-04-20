@@ -1,0 +1,53 @@
+---
+permalink: copy-based/concept_considerations_for_local_users_and_groups_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, cifs, local, users, groups 
+summary: 迁移 CIFS 本地用户和组时，您必须了解运行过渡操作的注意事项。 
+---
+= 过渡 CIFS 本地用户和组的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+迁移 CIFS 本地用户和组时，您必须了解运行过渡操作的注意事项。
+
+* 如果目标集群运行的是集群模式 Data ONTAP 8.2 ，则不应尝试过渡正在提供 CIFS 数据且正由本地用户和组访问的 7- 模式卷。
++
+7- 模式过渡工具不支持将本地用户和组过渡到集群模式 Data ONTAP 8.2 。
+
+* 不支持将 CIFS 数据提供卷从具有本地用户和组的 7- 模式控制器或 vFiler 单元过渡到具有非 BUILTIN CIFS 本地用户和组的 SVM 。
++
+要进行过渡， SVM 只能具有 BUILTIN CIFS 本地用户和组。
+
++
+将本地用户和组从特定的 7- 模式控制器或 vFiler 单元过渡到特定的 SVM 时，第一个过渡项目中的本地用户和组将被过渡。在后续将具有相同 7- 模式控制器或 vFiler 单元的项目过渡到同一 SVM 时，虽然过渡成功，但会忽略本地用户和组的过渡。7- 模式系统上的本地用户名不得与 SVM 上的 CIFS 服务器名相同。
+
+* 您必须了解集群模式 Data ONTAP 8.2.1 及更高版本中支持的本地用户和组数量限制。
+* 在 7- 模式系统中，密码为空的本地用户帐户或密码超过 14 个字符的本地用户帐户将过渡到密码为 ` * cifsUser@1*` 的 ONTAP 软件。
++
+过渡完成后，您可以使用密码 ` * cifsUser@1*` 从 Windows 系统访问这些用户。然后，您必须使用以下命令手动更改 SVM 上此类 CIFS 本地用户的密码：
+
++
+` * cifs users-and-groups local-user set-password -vserver _svm_name_ -user-name _user_name_*` 。
+
+* 如果无法从目标 ONTAP 软件访问 7- 模式过渡工具 IP 地址，则 7- 模式过渡工具会阻止在预检阶段将 CIFS 本地用户和组过渡到 ONTAP 软件。如果您在预检阶段发现此错误，请使用
++
+` * 网络 ping -node local -destination _ip_address_*`
+
++
+命令以确保可从目标 ONTAP 软件访问 7- 模式过渡工具 IP 地址。您可以编辑随 7- 模式过渡工具安装的 ` \etc\conf\transition-tool.conf` 文件，以修改该工具使用的任何配置选项，例如 7- 模式过渡工具 IP 地址。
+
+* 要将本地用户和组过渡到的 SVM 必须具有数据 LIF 。
+* 如果本地组将多个成员系统标识符（ SID ）映射到 7- 模式系统上的单个域用户或组，则 7- 模式过渡工具会阻止在预检阶段将本地用户和组过渡到 ONTAP 。
++
+如果您在预检阶段看到此错误，则必须手动删除映射到 7- 模式系统上的单个域用户或组的其他 SID 。然后，您必须重新运行预检操作，并且仅将一个 SID 映射到域用户或组。
+
++
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Troubleshooting_Workflow%3A_CIFS%3A_Device_attached_to_the_system_is_not_functioning["故障排除工作流： CIFS ：连接到系统的设备无法正常运行"]
+
+
+
+* 相关信息 *
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-cifs/home.html["SMB/CIFS 管理"]

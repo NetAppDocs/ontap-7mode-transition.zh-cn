@@ -1,0 +1,13 @@
+---
+permalink: command-map/index.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, index 
+summary: 将 7- 模式命令映射到 ONTAP 中的等效命令 
+---
+= 7- 模式管理员命令映射
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+本指南将 7- 模式命令映射到 ONTAP 中的等效命令。

@@ -1,0 +1,297 @@
+---
+permalink: copy-free/reference_example_consolidating_nfs_export_rules_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, examples, nfs, export, rules, snapshot, schedules 
+summary: 您可能需要查看有关如何将相似的 7- 模式导出规则和 7- 模式 Snapshot 计划整合到 ONTAP 中的单个 NFS 导出策略和单个 Snapshot 策略的示例。您可能还希望了解如何将整合的策略分配给过渡后的卷或 qtree ，无论是否重复使用目标 SVM 上匹配的现有策略。 
+---
+= 整合 NFS 导出规则和 Snapshot 计划的示例 过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能需要查看有关如何将相似的 7- 模式导出规则和 7- 模式 Snapshot 计划整合到 ONTAP 中的单个 NFS 导出策略和单个 Snapshot 策略的示例。您可能还希望了解如何将整合的策略分配给过渡后的卷或 qtree ，无论是否重复使用目标 SVM 上匹配的现有策略。
+
+
+
+== 整合 NFS 导出规则以进行过渡的示例
+
+* 过渡前 7- 模式和 ONTAP 中的 NFS 导出规则 *
+
+* 7- 模式导出规则 *
+
+[listing]
+----
+/vol/vol1       -sec=sys,rw,nosuid
+/vol/vol2       -sec=sys,rw,nosuid
+/vol/vol3       -sec=sys,rw,nosuid
+----
+* 导出 ONTAP 中的现有策略 *
+
+[listing]
+----
+cluster-2::> vserver export-policy show -vserver vs1
+Vserver          Policy Name
+---------------  -------------------
+vs1              default
+vs1              export_policy_1
+----
+现有导出策略 export_policy_1 具有以下导出规则：
+
+[listing]
+----
+cluster-2::> vserver export-policy rule show -vserver vs1 -policyname export_policy_1
+             Policy          Rule    Access   Client                RO
+Vserver      Name            Index   Protocol Match                 Rule
+------------ --------------- ------  -------- --------------------- ---------
+vs1          export_policy_1 1       nfs      0.0.0.0/0             sys
+----
+* 通过整合（不重复使用）进行过渡后在 ONTAP 中导出策略 *
+
+卷 vol1 ， vol2 和 vol3 在 7- 模式中具有类似的导出规则；因此，过渡后会为这些卷分配一个新的整合导出策略 transition_export_policy_1 ：
+
+[listing]
+----
+cluster-2::> vserver export-policy show -vserver vs1
+Vserver          Policy Name
+---------------  -------------------
+vs1              default
+vs1              export_policy_1
+vs1              transition_export_policy_1
+3 entries were displayed.
+----
+[listing]
+----
+cluster-2::> vserver export-policy rule show -vserver vs1 -policyname transition_export_policy_1
+             Policy          Rule    Access   Client                RO
+Vserver      Name            Index   Protocol Match                 Rule
+------------ --------------- ------  -------- --------------------- ---------
+vs1          transition_export_policy_1
+                             1       nfs      0.0.0.0/0             sys
+----
+[listing]
+----
+cluster-2::> volume show -vserver vs1 -volume vol1,vol2,vol3 -fields policy
+vserver volume policy
+------- ------ --------------------------
+vs1     vol1   transition_export_policy_1
+vs1     vol2   transition_export_policy_1
+vs1     vol3   transition_export_policy_1
+3 entries were displayed.
+----
+* 通过整合和重复使用进行过渡后在 ONTAP 中导出策略 *
+
+卷 vol1 ， vol2 和 vol3 在 7- 模式中具有类似的导出规则；因此，过渡后会为这些卷分配一个整合的导出策略。SVM 上已存在与 7- 模式导出规则匹配的导出策略 export_policy_1 。因此，此策略将应用于以下卷：
+
+[listing]
+----
+cluster-2::> vserver export-policy show -vserver vs1
+Vserver          Policy Name
+---------------  -------------------
+vs1              default
+vs1              export_policy_1
+2 entries were displayed.
+----
+[listing]
+----
+cluster-2::> vserver export-policy rule show -vserver vs1 -policyname export_policy_1
+             Policy          Rule    Access   Client                RO
+Vserver      Name            Index   Protocol Match                 Rule
+------------ --------------- ------  -------- --------------------- ---------
+vs1          export_policy_1 1       nfs      0.0.0.0/0             sys
+----
+[listing]
+----
+cluster-2::> volume show -vserver vs1 -volume vol1,vol2,vol3 -fields policy
+vserver volume policy
+------- ------ --------------------------
+vs1     vol1   export_policy_1
+vs1     vol2   export_policy_1
+vs1     vol3   export_policy_1
+3 entries were displayed.
+----
+
+
+== 整合 Snapshot 策略以进行过渡的示例
+
+* 过渡前 7- 模式和 ONTAP 中的 Snapshot 计划 *
+
+* 7- 模式计划 *
+
+|===
+| 7- 模式卷 | 7- 模式 Snapshot 计划 
+
+
+ a| 
+卷 1
+ a| 
+0 2 4@8 ， 12 ， 16 ， 20 （每周 Snapshot 副本数： 0 ，每日 Snapshot 副本数： 2 ，每小时 Snapshot 副本数： 6 ， 2 ， 4 ， 8 ， 12 ， 16 ， 20 小时）
+
+
+
+ a| 
+VOL2
+ a| 
+0 2 4@8 ， 12 ， 16 ， 20
+
+
+
+ a| 
+卷 3
+ a| 
+0 2 4@8 ， 12 ， 16 ， 20
+
+
+
+ a| 
+卷 4
+ a| 
+1 2 3@8 ， 12 ， 16 （每周 Snapshot 副本数： 1 ，每日 Snapshot 副本数： 2 ，每小时 Snapshot 副本数： 3 ， 8 ， 12 ， 16 小时）
+
+
+
+ a| 
+卷 5
+ a| 
+2 2 3@8 ， 12 ， 16 （每周 Snapshot 副本数： 2 ，每日 Snapshot 副本数： 2 ，每小时 Snapshot 副本数： 3 ， 8 ， 12 ， 16 小时）
+
+|===
+* ONTAP 中存在的 Snapshot 策略 *
+
+|===
+| Snapshot 策略名称 | 策略详细信息 
+
+
+ a| 
+计划每周
+ a| 
+每周，计数： 1
+
+
+
+ a| 
+ScheduleDailyHourly4.
+ a| 
+* 计划详细信息 *
+
+* 计划 1 ：每天，数量 1 ： 2
+* 计划 2 ：每小时，数量 2 ：每 8 ， 12 ， 16 ， 20 小时 4 个
+
+
+
+
+ a| 
+计划资源 1.
+ a| 
+每小时 8 ， 12 ， 16 ， 20 小时，计数： 4
+
+|===
+* 通过整合（不重复使用）进行过渡后 ONTAP 中的 Snapshot 策略 *
+
+|===
+| 7- 模式卷 | 7- 模式 Snapshot 计划 | ONTAP 中的 Snapshot 策略 
+
+
+ a| 
+卷 1
+ a| 
+0 2 4@8 ， 12 ， 16 ， 20 （每周 Snapshot 副本数： 0 ，每日 Snapshot 副本数： 2 ，每小时 Snapshot 副本数： 4 ， 8 ， 12 ， 16 ， 20 小时）
+ a| 
+vol1 ， vol2 和 vol3 的 * 整合策略 *
+
+* 名称： transition_snapshot_policy_0
+* 计划详细信息
++
+** 计划 1 ：每天，数量 1 ： 2
+** 计划 2 ：每小时，数量 2 ：每 8 ， 12 ， 16 ， 20 小时 4 个
+
+
+
+
+
+
+ a| 
+VOL2
+ a| 
+0 2 4@8 ， 12 ， 16 ， 20
+ a| 
+卷 3
+
+
+
+ a| 
+0 2 4@8 ， 12 ， 16 ， 20
+ a| 
+卷 4
+ a| 
+1 2 3@8 ， 12 ， 16 （每周 Snapshot 副本数： 1 ，每日 Snapshot 副本数： 2 ，每小时 Snapshot 副本数： 3 ， 8 ， 12 ， 16 小时）
+
+
+
+ a| 
+* 名称： transition_snapshot_policy_1
+* 计划详细信息
++
+** 计划 1 ：每周，数量 1 ： 1
+** 计划 2 ：每天，数量 2 ： 2
+** 计划 3 ：每小时，数量 3 ：每 8 ， 12 ， 16 小时 3 个
+
+
+
+ a| 
+卷 5
+ a| 
+2 2 3@8 ， 12 ， 16 （每周 Snapshot 副本数： 2 ，每日 Snapshot 副本数： 2 ，每小时 Snapshot 副本数： 3 ， 8 ， 12 ， 16 小时）
+
+|===
+* 通过整合和重复使用进行过渡后 ONTAP 中的 Snapshot 策略 *
+
+|===
+| 7- 模式卷 | 7- 模式 Snapshot 计划 | ONTAP 中的 Snapshot 策略 
+
+
+ a| 
+卷 1
+ a| 
+0 2 4@8 ， 12 ， 16 ， 20 （每周 Snapshot 副本数： 0 ，每日 Snapshot 副本数： 2 ，每小时 Snapshot 副本数： 4 ， 2 ， 4 ， 8 ， 12 ， 16 ， 20 小时）
+ a| 
+vol1 ， vol2 和 vol3 的整合策略，可重复使用现有 ONTAP 策略
+
+名称： ScheduleDailyHourly4
+
+
+
+ a| 
+VOL2
+ a| 
+0 2 4@8 ， 12 ， 16 ， 20
+ a| 
+卷 3
+
+
+
+ a| 
+0 2 4@8 ， 12 ， 16 ， 20
+ a| 
+卷 4
+ a| 
+1 2 3@8 ， 12 ， 16 （每周 Snapshot 副本数： 1 ，每日 Snapshot 副本数： 2 ，每小时 Snapshot 副本数： 3 ， 8 ， 12 ， 16 小时）
+
+
+
+ a| 
+* 名称： transition_snapshot_policy_1
+* 计划详细信息
++
+** 计划 1 ：每周，数量 1 ： 1
+** 计划 2 ：每天，数量 2 ： 2
+** 计划 3 ：每小时，数量 3 ：每 8 ， 12 ， 16 小时 3 个
+
+
+
+ a| 
+卷 5
+ a| 
+2 2 3@8 ， 12 ， 16 （每周 Snapshot 副本数： 2 ，每日 Snapshot 副本数： 2 ，每小时 Snapshot 副本数： 3 ， 8 ， 12 ， 16 小时）
+
+|===

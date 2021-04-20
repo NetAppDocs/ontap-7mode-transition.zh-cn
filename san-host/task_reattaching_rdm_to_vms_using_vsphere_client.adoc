@@ -1,0 +1,53 @@
+---
+permalink: san-host/task_reattaching_rdm_to_vms_using_vsphere_client.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rdm, vm, vshpere, client 
+summary: 使用 7- 模式过渡工具（ 7MTT\ ）过渡 ESXi 主机后，必须将 RDM 重新连接到虚拟机（ VM\ ）。 
+---
+= 使用 vSphere Client 将 RDM 重新连接到 VM
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 7- 模式过渡工具（ 7MTT ）过渡 ESXi 主机后，必须将 RDM 重新连接到虚拟机（ VM ）。
+
+必须已删除陈旧的原始设备映射（ RDM ）。
+
+.步骤
+. 打开管理 ESXi 主机的 ESXi 主机或 vCenter 服务器。
+. 右键单击虚拟机，然后选择 * 编辑设置 * 。
++
+此时将打开 VM 属性窗口。
+
+. 单击 * 添加 * 。
++
+此时将打开添加硬件窗口。
+
+. 单击 * 硬盘 * 。
+. 单击 * 下一步 * 以选择磁盘。
+. 选择 * 原始设备映射 * 。
+. 单击 * 下一步 * 以选择目标 LUN 。
+. 选择具有从 7MTT 映射文件中记下的新集群模式 Data ONTAP NAA ID 的 LUN 。
+. 单击 * 下一步 * 。
+. 选择 * 选择数据存储库 * 。
+. 选择与您在 7MTT 映射文件中记下的磁盘路径匹配的数据存储库。
+. 单击 * 下一步 * 。
+. 为 * 兼容模式 * 选择 * 物理 * 或 * 虚拟 * 。
++
+选择删除旧的 RDM 时记下的兼容模式。
+
+. 单击 * 下一步 * 。
+. 选择 * 高级选项 * 。
+. 选择 * 虚拟设备节点 * 。
++
+选择在删除陈旧的 RDM 时记下的虚拟设备模式。
+
+. 单击 * 下一步 * 。
+. 单击 * 完成 * 提交更改。
+. 对连接了 RDM 的所有 VM 重复上述步骤。
+
+
+* 相关信息 *
+
+xref:task_removing_stale_rdm_using_vsphere_client.adoc[使用 vSphere Client 删除陈旧的 RDM]

@@ -1,0 +1,24 @@
+---
+permalink: copy-free/task_committing_7_mode_aggregates_to_clustered_ontap_format.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, commit, project 
+summary: 过渡的最后一步是提交无副本过渡项目。提交聚合后，您将无法回滚到 7- 模式。 
+---
+= 提交无副本过渡项目
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡的最后一步是提交无副本过渡项目。提交聚合后，您将无法回滚到 7- 模式。
+
+您必须已手动验证过渡后的数据和配置，并已测试工作负载和应用程序。
+
+在导出阶段创建的所有聚合级别 Snapshot 副本都将被删除。
+
+.步骤
+. 单击 * 提交 * 。
+. 在显示的警告消息中，单击 * 是 * 。
+
+
+所有预生产测试阶段的限制均会取消，如果过渡后的卷未在预生产测试阶段提供生产数据，则可以提供这些数据。

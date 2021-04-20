@@ -1,0 +1,102 @@
+---
+permalink: san-host/task_mounting_logical_volumes_on_linux_host_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, mount, logical, volumes, linux, hosts 
+summary: 从 7- 模式 ONTAP 过渡到集群模式 Data ONTAP 后，逻辑卷将脱机。您必须挂载这些逻辑卷，以便主机可以访问 LUN 。 
+---
+= 过渡后在 Linux 主机上挂载逻辑卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 7- 模式 ONTAP 过渡到集群模式 Data ONTAP 后，逻辑卷将脱机。您必须挂载这些逻辑卷，以便主机可以访问 LUN 。
+
+如果要执行无副本过渡（ CFT ），则必须完成 vol rehost 的过程。请参见 link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["《 7- 模式过渡工具无副本过渡指南》"] 了解详细信息。
+
+* 对于基于副本的过渡（ CBT ），请在 7- 模式过渡工具（ 7MTT ）中完成存储转换操作后执行以下步骤。
+* 对于 CFT ，请在 7MTT 中执行导入数据和配置操作后执行以下步骤。
++
+.. 生成 7- 模式到集群模式 Data ONTAP LUN 映射文件：
++
+*** 对于基于副本的过渡，请从安装了 7MTT 的 Linux 主机运行以下命令： + ` * 过渡 CBT 导出 lunmap -p _project-name_ -o _file_path_*`
++
+例如：
+
++
+` * 过渡 CBT 导出 lunmap -p SanWorkLoad -o c ： /Libraires/Documents/7-C-LUN-mapping-csv*`
+
+*** 对于无副本过渡，请从安装了 7MTT 的系统运行以下命令：
++
+` * 过渡 CFT 导出 lunmap -p p_roobject-name_ -s _svm-name_ -o _output-file_*`
+
++
+例如：
+
++
+` * 过渡 CFT 导出 lunmap -p SanWorkLoad -s svml -0 c ： /Libraries/Documents/7--to-C-LUN-mapping-svml.csv *`
+
++
+
+NOTE: 您必须对每个 Storage Virtual Machine （ SVM ）运行此命令。
+
+
+
+.. 删除为 7- 模式 LUN 创建的 SCSI 设备：
++
+*** 要删除所有 SCSI 设备，请执行以下操作： + ` * rescan-scsi-bus.sh -r*`
+*** 单独删除每个 SCSI 设备： + ` * echo 1> /sys/block/_SCSI_ID__/delete*`
++
+必须在所有 7- 模式 LUN SCSI 设备上执行此命令。请参见清单评估工作簿 _ 的 SAN 主机 LUN 选项卡上的 SCSI 设备 ID 列，以确定 LUN 的 SCSI 设备 ID 。
+
+
+
+.. 发现新的 ONTAP LUN ：
++
+` * 重新扫描 -scsi-bus.sh*`
+
+.. 为 ONTAP LUN 配置 DMMP 设备：
++
+` * 多路径 *`
+
+.. 验证是否已发现 ONTAP LUN ：
++
+` * sanlun lun show*`
+
+.. 确定新的 ONTAP LUN 设备句柄 ID ：
++
+` * 多路径 -ll _Device_handle_name_*`
+
+.. 导入卷组：
++
+` * vgimport _vg_name_*`
+
+.. 验证卷组状态：
++
+` * vgdisplay*`
+
+.. 启用逻辑卷：
++
+` * vgchange -ay _vg_name_*`
+
+.. 验证逻辑卷状态：
++
+` * lvdisplay*`
+
++
+LV 状态应显示为 "`Available` " 。
+
+.. 将逻辑卷从 ONTAP LUN 挂载到其相应的挂载点目录：
++
+`mount _lv_namemount_point_`
+
++
+如果在 `etc/fstab` 文件中定义了挂载点，则可以使用 `mount -a` 命令挂载逻辑卷。
+
+.. 验证挂载点：
++
+` * 挂载 *`
+
+
+
+

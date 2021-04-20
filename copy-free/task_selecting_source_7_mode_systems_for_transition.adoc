@@ -1,0 +1,44 @@
+---
+permalink: copy-free/task_selecting_source_7_mode_systems_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, create, project 
+summary: 规划过渡项目的第一步是，选择要从中过渡磁盘架，聚合，卷和配置的源 7- 模式 HA 对，然后创建过渡项目。 
+---
+= 创建无副本过渡项目
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+规划过渡项目的第一步是，选择要从中过渡磁盘架，聚合，卷和配置的源 7- 模式 HA 对，然后创建过渡项目。
+
+* HA 对中的 7- 模式控制器必须在支持无副本过渡的平台上运行受支持的 ONTAP 版本。
++
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
+* HA 配置中的两个控制器都必须运行状况良好。
++
+.. 从主页中选择 * 无副本过渡 * 迁移方法，然后单击 * 开始规划 * 。
++
+如果未添加新项目所需的控制器和集群，您可以在输入设备凭据窗格中输入详细信息。
+
+.. 选择要过渡的源 7- 模式 HA 对。
+.. 单击 * 创建项目 * 。
++
+... 在项目详细信息窗口中，为项目提供一个名称。
+... 选择应将项目添加到的项目组。
++
+您可以创建新项目组，也可以将项目添加到默认组。
+
++
+通过创建项目组，您可以对相关项目进行分组和监控。
+
+... 单击 * 保存 * 。
++
+此时将显示 Select Target Cluster 屏幕。
+
+
+
+
+
+

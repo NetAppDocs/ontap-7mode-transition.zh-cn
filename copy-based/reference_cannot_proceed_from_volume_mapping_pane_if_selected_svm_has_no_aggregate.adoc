@@ -1,0 +1,19 @@
+---
+permalink: copy-based/reference_cannot_proceed_from_volume_mapping_pane_if_selected_svm_has_no_aggregate.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, volume, mapping, pane, svm, aggregate, cannot, error 
+summary: 该工具会显示一条错误消息： SVM does not have aggregate assigned.如果选定 SVM 没有根节点聚合以外的聚合，请将某些聚合分配给 SVM ，然后单击卷映射窗格中的刷新按钮。 
+---
+= 如果选择，则无法从卷映射窗格继续 SVM 没有聚合
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+该工具会显示一条错误消息 `SVM does not have aggregate assigned.请将某些聚合分配给 SVM ，如果选定 SVM 除根节点聚合外没有其他聚合，请单击 * 卷映射 * 窗格中的刷新按钮` 。
+
+
+
+== 临时解决策
+
+将聚合添加到集群模式 Data ONTAP 中的 SVM 。

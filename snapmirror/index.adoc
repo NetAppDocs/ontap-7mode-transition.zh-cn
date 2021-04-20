@@ -1,0 +1,13 @@
+---
+permalink: snapmirror/index.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, snapmirror, transition, index, data 
+summary: 介绍如何使用 SnapMirror 命令将数据从 7- 模式系统过渡到 ONTAP 。 
+---
+= 使用 SnapMirror ® 技术的 7- 模式数据过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+介绍如何使用 SnapMirror 命令将数据从 7- 模式系统过渡到 ONTAP 。

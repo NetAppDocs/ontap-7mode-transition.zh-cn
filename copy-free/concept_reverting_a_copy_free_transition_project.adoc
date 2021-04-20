@@ -1,0 +1,17 @@
+---
+permalink: copy-free/concept_reverting_a_copy_free_transition_project.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, performing, rollback, 7, mode 
+summary: 回滚是指停止过渡到 ONTAP 系统并还原到 7- 模式系统。过渡回滚是手动执行的；但是， 7- 模式过渡工具提供了回滚必须执行的手动任务列表。 
+---
+= 执行过渡回滚到 7- 模式
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+回滚是指停止过渡到 ONTAP 系统并还原到 7- 模式系统。过渡回滚是手动执行的；但是， 7- 模式过渡工具提供了回滚必须执行的手动任务列表。
+
+您可以在 SVM 配置，导出，布线，导入或预生产测试阶段回滚过渡项目。提交过渡项目后，您无法回滚。
+
+回滚后，过渡后的卷中写入或修改的任何新数据（例如 LUN 或 LUN 克隆）都将丢失。这些卷将还原到其原始 7- 模式状态。

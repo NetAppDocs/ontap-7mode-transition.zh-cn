@@ -1,0 +1,98 @@
+---
+permalink: san-host/task_preparing_for_transition_of_iscsi_san_boot_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, iscsi, san, boot, lun 
+summary: 过渡 iSCSI SAN 启动 LUN 之前，必须在主机上执行特定步骤。不支持过渡 Red Hat Enterprise Linux\（ RHER\ ） 5.x 。支持过渡 RHEL 6 。 
+---
+= 为过渡 iSCSI SAN 启动 LUN 做准备
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡 iSCSI SAN 启动 LUN 之前，必须在主机上执行特定步骤。不支持过渡 Red Hat Enterprise Linux （ RHEL ） 5.x 。支持过渡 RHEL 6 。
+
+您必须从清单评估工作簿 _ 中获取以下信息：
+
+* 安装了 RHEL 6 的 LUN 的名称
+* 过渡 LUN 的 DMMP 设备名称
+* 逻辑卷（ LV ）名称
+* 卷组（ VG ）名称
+* 物理卷（ PV ）设备
+* 逻辑卷管理器（ LVM ）名称和挂载目录 已安装 RHEL 6 /boot 和根（ / ）分区
+* DMMP 上配置的文件系统
+* 7- 模式控制器的 iSCSI 会话
+* Grub 信息
+* 其中的 Storage Virtual Machine （ SVM ）的 IQN 编号 此时将创建 iSCSI SAN 启动 LUN
+* 集群模式 Data ONTAP SVM 的 LIF IP 地址，其中 此时将创建 iSCSI SAN 启动 LUN
+
+
+这种基于操作步骤适用场景副本的过渡和无副本过渡。
+
+.步骤
+. 验证 DMMP 设备是否位于 /dev/mapper 目录中：
++
+` * ls /dev/mapper/_DMMP_device_name___*`
+
++
+如果未显示 DMMP 设备，则此设备可能使用别名或用户友好名称。
+
+. 确定 DMMP 设备是否属于 LVM ：
++
+` * blkid *`
+
++
+如果 DMMP 设备 `type` 值为 `LVM2_member` ，则 DMMP 是 LVM 的一部分。
+
+. 从 ` /etc/fstab` 文件中获取 ` /` 和 ` /boot` 分区的挂载点详细信息：
++
+** 如果 DMMP 设备上安装了 ` 或 boot` 分区，请检查启动时在 ` /etc/fstab` 文件中如何引用该分区进行挂载。
+** 如果使用通过 `blkid` 命令输出获取的文件系统 UUID 挂载了 ` /boot` 分区，则不需要进行过渡前更改。
+
+
+. 如果 /boot 分区在 ` /etc/fstab` 文件中以其 DMMP 设备名称引用，请将 DMMP 设备名称替换为文件系统 UUID 名称。
+. 对于 iSCSI SAN 启动的主机，编辑 ` /boot/grub/grub.conf` 文件以创建一个新的内核命令行条目，其中包含集群模式 Data ONTAP 控制器的 IQN 编号和 iSCSI 会话信息。
++
+此示例显示了编辑前的 ` /boot/grub/grub.conf` 文件。内核命令行包含 7- 模式控制器的 IQN 编号和 iSCSI 会话信息。
+
++
+[listing]
+----
+title Red Hat Enterprise Linux Server (2.6.32-431.el6.x86_64)
+    	root (hd0,0)
+	kernel /vmlinuz-2.6.32-431.el6.x86_64 ro root=/dev/mapper/vg_ibmx3550m3229-LogVol00 ifname=eth0:5c:f3:fc:ba:46:d8 rd_NO_LUKS netroot=iscsi:@10.226.228.241::3260::iqn.1992-08.com.netapp:sn.1574168453 LANG=en_US.UTF-8 rd_LVM_LV=vg_ibmx3550m3229/LogVol01 rd_LVM_LV=vg_ibmx3550m3229/LogVol00 rd_NO_MD netroot=iscsi:@10.226.228.155::3260::iqn.1992-08.com.netapp:sn.1574168453 iscsi_initiator= iqn.1994-08.com.redhat:229.167 crashkernel=auto ip=eth0:dhcp
+	initrd /initramfs-2.6.32-431.el6.x86_64.img
+----
++
+此示例显示了在添加新标题并使用 cDOT 后缀的 ` /boot/grub/grub.conf` 文件，以及包含集群模式 Data ONTAP 控制器的 IQN 编号和 iSCSI 会话信息的新内核命令行：
+
++
+[listing]
+----
+title Red Hat Enterprise Linux Server (2.6.32-431.el6.x86_64) - cDOT
+    	root (hd0,0)
+	kernel /vmlinuz-2.6.32-431.el6.x86_64 ro root=/dev/mapper/vg_ibmx3550m3229-LogVol00 ifname=eth0:5c:f3:fc:ba:46:d8 rd_NO_LUKS netroot=iscsi:@10.226.228.99::3260:: ::iqn.1992-08.com.netapp:sn.81c4f5cc4aa611e5b1ad00a0985d4dbe:vs.15 LANG=en_US.UTF-8 rd_LVM_LV=vg_ibmx3550m3229/LogVol01 rd_LVM_LV=vg_ibmx3550m3229/LogVol00 rd_NO_MD netroot=iscsi:@10.226.228.98::3260:: ::iqn.1992-08.com.netapp:sn.81c4f5cc4aa611e5b1ad00a0985d4dbe:vs.15 netroot=iscsi:@10.226.228.97::3260:: ::iqn.1992-08.com.netapp:sn.81c4f5cc4aa611e5b1ad00a0985d4dbe:vs.15 netroot=iscsi:@10.226.228.96::3260:: ::iqn.1992-08.com.netapp:sn.81c4f5cc4aa611e5b1ad00a0985d4dbe:vs.15 iscsi_initiator= iqn.1994-08.com.redhat:229.167 crashkernel=auto ip=eth0:dhcp
+	initrd /initramfs-2.6.32-431.el6.x86_64.img
+----
+. 备份现有的 `initramfs` 文件。
++
+[listing]
+----
+# cd /boot
+# cp initramfs-2.6.32-71.el6.x86_64.img initramfs-2.6.32-
+71.el6.x86_64.img.img_bak
+----
+. 使用 backup `initrd` image name 更新 ` /boot/grub/grub.conf` 文件中的 7- 模式内核行。
++
+对于 RHEL 6.4 及更高版本，请验证集群模式 Data ONTAP 内核行在 ` /boot/grub/grub.conf` 文件中是否附加了 "`rdloaddriver=SCSI_DH_ALUA` " 。
+
+. 如果更新了 ` /boot/grub/grub.conf` 文件，则更新内核初始 RAM 磁盘（`initramfs` ）。
++
+必须重新创建 `initramfs` 文件，以便引用新的集群模式 Data ONTAP IQN 编号和 iSCSI 会话，并使主机在启动时与集群模式 Data ONTAP 控制器建立 iSCSI 连接。
+
+. 使用 `dracut -force -add multipath -verbose` 命令重新创建 `initrd` 映像。
+
+
+* 相关信息 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[从清单评估工作簿收集过渡前信息]

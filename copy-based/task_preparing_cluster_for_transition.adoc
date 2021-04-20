@@ -1,0 +1,171 @@
+---
+permalink: copy-based/task_preparing_cluster_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, cluster 
+summary: 过渡之前，您必须确保集群满足各种要求，例如允许 HTTPS ，设置集群间 LIF 以及验证过渡所需的网络连接。 
+---
+= 准备集群以进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡之前，您必须确保集群满足各种要求，例如允许 HTTPS ，设置集群间 LIF 以及验证过渡所需的网络连接。
+
+* 必须已设置集群和 SVM 。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["软件设置"]
+
++
+目标 SVM 不能处于 SVM 灾难恢复关系中。
+
+* 集群必须运行状况良好，并且所有节点都不能处于接管模式。
+* 要包含过渡后的卷的目标聚合必须具有 SFO 策略。
+* 聚合必须位于尚未达到卷上限的节点上。
+* 如果要将卷从 7- 模式系统的 32 位聚合过渡到 Data ONTAP 8.2.x 集群的 64 位聚合，则必须在目标聚合中额外提供 5% 的空间。
++
+要将过渡后的卷升级到 64 位格式，需要额外的空间。
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+
+* 要在过渡卷 SnapMirror 关系时建立 SVM 对等关系，必须满足以下条件：
++
+** 二级集群不应具有与主 SVM 同名的 SVM 。
+** 主集群的 SVM 不应与二级 SVM 同名。
+** 源 7- 模式系统的名称不应与任何已建立对等关系的本地 SVM 或 SVM 冲突。
+
+
+
+
+过渡期间，不应将集群升级到其他 ONTAP 版本。
+
+
+NOTE: 如果需要，您可以将集群升级到相同 ONTAP 版本的修补程序版本。
+
+.步骤
+. 从管理主机中，使用集群管理 LIF 验证集群是否可访问：
++
+` * ssh _username@cluster_mgmt_IP_*`
+
+. 在集群上启用 SSLv3 或 FIPS ：
++
+|===
+| 如果要启用 ... | 输入 ... 
+
+
+ a| 
+SSLv3
+ a| 
+` * 系统服务 Web 修改 -sslv3-enabled true*`
+
+
+
+ a| 
+FIPS 140-2 合规性
+ a| 
+` * 系统服务 Web 修改 -ssl-fips-enabled true*`
+
+|===
++
+启用 FIPS 140-2 合规性后， SSLv3 将被禁用。启用 FIPS 140-2 合规性后， ONTAP 会阻止您启用 SSLv3 。如果启用 FIPS 140-2 后又将其禁用， SSLv3 将保持禁用状态。
+
++
+
+IMPORTANT: 最佳做法是，由于 SSLv3 中存在安全漏洞，启用 FIPS 。
+
+. 验证集群管理 LIF 是否允许使用 HTTPS ：
++
+.. 查看集群管理 LIF 的防火墙策略：
++
+` * 网络接口 show -vserver _svm_name_ -lif _cluster_mgmt_lif_ -fields firewall-policy*`
+
++
+[listing]
+----
+cluster1::> network interface show -vserver cluster1 -lif cluster_mgmt -fields firewall-policy
+vserver lif          firewall-policy
+------- ------------ ---------------
+cluster1  cluster_mgmt mgmt
+----
+.. 验证与集群管理 LIF 关联的防火墙策略是否允许 HTTPS 访问：
++
+` * 系统服务防火墙策略 show -policy mgm*`
+
++
+[listing]
+----
+cluster1::> system services firewall policy show -policy mgmt
+Policy           Service    Action IP-List
+---------------- ---------- ------ --------------------
+mgmt
+                 dns        allow  0.0.0.0/0, ::/0
+                 http       allow  0.0.0.0/0, ::/0
+                 https      allow  0.0.0.0/0, ::/0
+                 ndmp       allow  0.0.0.0/0, ::/0
+                 ntp        allow  0.0.0.0/0, ::/0
+                 rsh        deny   0.0.0.0/0, ::/0
+                 snmp       allow  0.0.0.0/0, ::/0
+                 ssh        allow  0.0.0.0/0, ::/0
+                 telnet     deny   0.0.0.0/0, ::/0
+9 entries were displayed.
+----
+
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
+
+. 在集群的每个节点上创建一个集群间 LIF ，以便在集群和 7- 模式系统之间进行通信：
++
+.. ` * 网络接口 create -vserver _svm_name_ -lif _intercluster_lif_ -role intercluster -home-node _home_node_-home-port _home_port_ -address _ip_address_ -netmask _netmask_*`
++
+[listing]
+----
+cluster1::> network interface create -vserver cluster1-01 -lif intercluster_lif -role intercluster -home-node cluster1-01 -home-port e0c -address 192.0.2.130 -netmask 255.255.255.0
+----
+.. 创建静态路由。
++
+|===
+| 过渡到 ... | 运行此命令 ... 
+
+
+ a| 
+ONTAP 9.5 或更早版本或集群模式 Data ONTAP 8.3.x
+ a| 
+创建网络路由
+
+[listing]
+----
+cluster1::> network route create -vserver vs0 -destination 0.0.0.0/0 -gateway 10.61.208.1
+----
+
+
+ a| 
+集群模式 Data ONTAP 8.2.x
+ a| 
+network routing-groups route create
+
+[listing]
+----
+cluster1::> network routing-groups route create -vserver cluster1-01 -routing-group i192.0.0.0/18 -destination 0.0.0.0/0 - gateway 192.0.2.129
+----
+|===
+.. 验证是否可以使用集群间 LIF 对 7- 模式系统执行 ping 操作：
++
+` * network ping -lif _intercluster_lif_ -vserver _svm_name_ -destination _remote_inetaddress_*`
+
++
+[listing]
+----
+cluster1::> network ping -lif intercluster_lif -vserver cluster1 -destination system7mode
+system7mode is alive
+----
++
+对于多路径，每个节点上必须有两个集群间 LIF 。
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]
+
+
+
+

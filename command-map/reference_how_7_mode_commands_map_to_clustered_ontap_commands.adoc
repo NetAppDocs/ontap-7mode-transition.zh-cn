@@ -1,0 +1,4355 @@
+---
+permalink: command-map/reference_how_7_mode_commands_map_to_clustered_ontap_commands.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, commands, map, commands 
+summary: 您可以使用提供的表查找与 7- 模式命令等效的 ONTAP ，但 options 命令除外。 
+---
+= 7- 模式命令与 ONTAP 命令的映射关系
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用提供的表查找与 7- 模式命令等效的 ONTAP ，但 options 命令除外。
+
+下表列出了 7- 模式选项命令的等效 ONTAP 。此外，还提供了有关了解这些表的信息。
+
+xref:concept_how_to_interpret_clustered_ontap_command_maps_for_7_mode_administrators.adoc[了解 7- 模式到集群模式 Data ONTAP 命令映射]
+
+
+
+== A-E
+
+[role="lead"]
+* 答 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+`acpadmin configure`
+ a| 
+` * 系统节点 run -node ｛ _nodename __llocal ｝ acpadmin configure*`
+
+
+
+ a| 
+`acpadmin list_all`
+ a| 
+` * 系统节点 run -node ｛ _nodename __llocal ｝ acpadmin list_all*`
+
+
+
+ a| 
+`acpadmin stats`
+ a| 
+` * 系统节点 run -node ｛ _nodename __llocal ｝ acpadmin stals*`
+
+
+
+ a| 
+`aggr add`
+ a| 
+` * aggr add*`
+
+`aggr add-disks`
+
+`s存储聚合附加磁盘`
+
+
+
+ a| 
+`aggr create`
+ a| 
+` * 聚合 create"`
+
+`s存储聚合创建`
+
+
+
+ a| 
+`聚合销毁`
+ a| 
+` * 聚合删除 *`
+
+`s存储聚合删除`
+
+
+
+ a| 
+`aggr media_scrub`
+ a| 
+` * 系统节点 run -node ｛ _nodename __llocal ｝ aggr media_scrub*`
+
+
+
+ a| 
+`aggr offline`
+ a| 
+` * 聚合脱机 *`
+
+`s存储聚合脱机`
+
+
+
+ a| 
+`aggr online`
+ a| 
+` * 聚合联机 *`
+
+`s存储聚合联机`
+
+
+
+ a| 
+`聚合选项`
+ a| 
+` * aggr modify*`
+
+`s存储聚合 ｛ show | modify ｝`
+
+
+
+ a| 
+`aggr rename`
+ a| 
+` * 聚合重命名 *`
+
+`s存储聚合重命名`
+
+
+
+ a| 
+`聚合限制`
+ a| 
+` * 聚合限制 *`
+
+`s存储聚合限制`
+
+
+
+ a| 
+`聚合擦洗`
+ a| 
+` * 聚合擦除 *`
+
+`s存储聚合擦洗`
+
+
+
+ a| 
+`aggr show-space`
+ a| 
+` * aggr show-space*`
+
+`s存储聚合显示空间`
+
+
+
+ a| 
+`聚合状态`
+ a| 
+`aggr show`
+
+`s存储聚合显示`
+
+
+
+ a| 
+`aggr verify`
+ a| 
+` * 系统节点 run -node ｛ _nodename __llocal ｝ aggr verify*`
+
+
+
+ a| 
+`AutoSupport 目标`
+ a| 
+` * AutoSupport Destinations*`
+
+`s系统节点 AutoSupport 目标`
+
+
+
+ a| 
+`AutoSupport 历史记录`
+ a| 
+` * AutoSupport history*`
+
+`s系统节点 AutoSupport 历史记录`
+
+
+
+ a| 
+`AutoSupport 清单`
+ a| 
+` * AutoSupport Manifest*`
+
+`s系统节点 AutoSupport 清单`
+
+
+
+ a| 
+`AutoSupport trigger`
+ a| 
+` * AutoSupport trigger*`
+
+`s系统节点 AutoSupport 触发器`
+
+|===
+[role="lead"]
+* 字节 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+`备份状态`
+ a| 
+` * 系统节点 run -node ｛ _nodename_ -command backup status*`
+
+
+
+ a| 
+`备份终止`
+ a| 
+不支持
+
+
+
+ a| 
+`bmc`
+ a| 
+不支持
+
+
+
+ a| 
+`bmc reboot`
+ a| 
+不支持
+
+
+
+ a| 
+`bmc status`
+ a| 
+不支持
+
+
+
+ a| 
+`bmc test`
+ a| 
+不支持
+
+|===
+[role="lead"]
+* C*
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+`CDPD show-neighbors`
+ a| 
+` * 系统节点 run -node ｛ _nodename __llocal ｝ -command network device-discovery show*`
+
+
+
+ a| 
+`CDPD show-stats`
+ a| 
+` * 系统节点 run -node ｛ _nodename__llocal ｝ -command cdpd-show-stals*`
+
+
+
+ a| 
+`CDPD 零统计信息`
+ a| 
+` * 系统节点 run -node ｛ _nodename __llocal ｝ -command cdpd-zero-stals*`
+
+
+
+ a| 
+`cf disable`
+ a| 
+`cf disable`
+
+
+
+ a| 
+`cf enable`
+ a| 
+`cf enable`
+
+
+
+ a| 
+`cf forcegiveback`
+ a| 
+不支持
+
+
+
+ a| 
+`cf forcetakeover`
+ a| 
+`cf forcetakeover`
+
+
+
+ a| 
+`cf giveback`
+ a| 
+` * cf giveback*`
+
+`s存储故障转移交还`
+
+
+
+ a| 
+`cf hw_assist`
+ a| 
+` * cf hwassist status*`
+
+`storage failover hwassist show`
+
+
+
+ a| 
+`cf monitor all`
+ a| 
+` * cf monitor all*`
+
+`storage failover show -instance`
+
+
+
+ a| 
+`CF 合作伙伴`
+ a| 
+` * cf partner*`
+
+`storage failover show -fields partner-name`
+
+
+
+ a| 
+`cf rsrctbl`
+ a| 
+` * cf rsrctbl*`
+
+`s存储故障转移进度 -table show`
+
+
+
+ a| 
+`f status`
+ a| 
+` * cf status*`
+
+`s存储故障转移显示`
+
+
+
+ a| 
+`cf takeover`
+ a| 
+` * cf takeover*`
+
+`s存储故障转移接管`
+
+
+
+ a| 
+`charmap`
+ a| 
+`Vserver CIFS 字符映射`
+
+
+
+ a| 
+`CIFS 访问`
+ a| 
+` * CIFS 访问 *`
+
+`Vserver cifs access`
+
+
+
+ a| 
+`CIFS BranchCache`
+ a| 
+` * CIFS BranchCache*`
+
+`Vserver CIFS BranchCache`
+
+
+
+ a| 
+`CIFS changefilerpwd`
+ a| 
+` * cifs changefilerpwd*`
+
+`vserver cifs changefilerpwd`
+
+
+
+ a| 
+`CIFS 域信息`
+ a| 
+SVM CIFS ｛ show instance| domain discovered-servers show -instance ｝
+
+
+
+ a| 
+`cifs gpresultt`
+ a| 
+`vserver cifs group-policy show-applied`
+
+
+
+ a| 
+`cifs gpupdate`
+ a| 
+`Vserver cifs group-policy update`
+
+
+
+ a| 
+`CIFS homedir`
+ a| 
+`Vserver CIFS 主目录`
+
+
+
+ a| 
+CIFS nbalias
+ a| 
+Vserver cifs ｛ add-netbios-aliases | remove-netbios-aliases | show -display-netbios-aliases ｝
+
+
+
+ a| 
+CIFS 预配置
+ a| 
+vserver cifs domain preferred-dc
+
+
+
+ a| 
+CIFS 重新启动
+ a| 
+SVM CIFS 启动
+
+
+
+ a| 
+CIFS 会话
+ a| 
+vserver cifs sessions show
+
+
+
+ a| 
+CIFS 设置
+ a| 
+Vserver cifs create
+
+
+
+ a| 
+CIFS 共享
+ a| 
+* CIFS 共享 * Vserver CIFS 共享
+
+
+
+ a| 
+CIFS 统计
+ a| 
+statistics show -object cifs
+
+
+
+ a| 
+CIFS 终止
+ a| 
+Vserver CIFS 停止
+
+
+
+ a| 
+CIFS 测试数据中心
+ a| 
+Vserver cifs domain discovered-servers
+
+
+
+ a| 
+CIFS 重置
+ a| 
+*cifs resetdc* vserver cifs domain discovered-servers reset-servers
+
+
+
+ a| 
+克隆清除
+ a| 
+不支持
+
+
+
+ a| 
+克隆开始
+ a| 
+创建卷文件克隆
+
+
+
+ a| 
+克隆停止
+ a| 
+不支持
+
+
+
+ a| 
+克隆状态
+ a| 
+volume file clone show
+
+
+
+ a| 
+配置克隆
+ a| 
+不支持
+
+
+
+ a| 
+配置差异
+ a| 
+不支持
+
+
+
+ a| 
+配置转储
+ a| 
+不支持
+
+
+
+ a| 
+配置还原
+ a| 
+不支持
+
+
+
+ a| 
+核心转储
+ a| 
+系统节点核心转储
+
+|===
+[role="lead"]
+* 数字 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+日期
+ a| 
+* 日期 * ｛ system | cluster ｝ date ｛ show | 修改 ｝
+
+
+
+ a| 
+DCB 优先级
+ a| 
+system node run -node _nodename_ -command DCB priority
+
+
+
+ a| 
+dcb priority show
+ a| 
+system node run -node _nodename_ -command dcb priority show
+
+
+
+ a| 
+DCB 展示
+ a| 
+system node run -node _nodename_ -command dcb show
+
+
+
+ a| 
+df
+ a| 
+* df*
+
+
+
+ a| 
+df [ 聚合名称 ]
+ a| 
+df -aggregate _aggregate-name_
+
+
+
+ a| 
+df [ 路径名称 ]
+ a| 
+df -filesys-name _path- name_
+
+
+
+ a| 
+df -a
+ a| 
+* df -A*
+
+
+
+ a| 
+df -g
+ a| 
+* df -g* df -gigabyte
+
+
+
+ a| 
+df -h
+ a| 
+* df -h* df -autosize
+
+
+
+ a| 
+df -i
+ a| 
+* df -I*
+
+
+
+ a| 
+df -k
+ a| 
+* df -k* df -kb
+
+
+
+ a| 
+df -L
+ a| 
+* df -L* df -df FlexCache
+
+
+
+ a| 
+df -m
+ a| 
+* df -m* df -megabyte
+
+
+
+ a| 
+df -r
+ a| 
+* df -r*
+
+
+
+ a| 
+df -s
+ a| 
+* df -s *
+
+
+
+ a| 
+df -S
+ a| 
+* df -S *
+
+
+
+ a| 
+df -t
+ a| 
+* df -t* df -terabyte
+
+
+
+ a| 
+df -V
+ a| 
+* df -v* df -volumes
+
+
+
+ a| 
+df -x
+ a| 
+* df -x* df -skip-snapshot-lines
+
+
+
+ a| 
+磁盘分配
+ a| 
+* 磁盘分配 * 存储磁盘分配
+
+
+
+ a| 
+磁盘加密
+ a| 
+system node run -node run_nodename _ -command disk encrypt
+
+
+
+ a| 
+磁盘出现故障
+ a| 
+* 磁盘故障 * 存储磁盘故障
+
+
+
+ a| 
+磁盘维护
+ a| 
+* 磁盘维护 ｛ start | abort | status | list ｝ * system node run -node ｛ _nodename_llocal ｝ -command disk maint ｛ start | 中止 | 状态 | 列表 ｝
+
+
+
+ a| 
+磁盘删除
+ a| 
+* 磁盘删除 * 存储磁盘删除
+
+
+
+ a| 
+磁盘更换
+ a| 
+* 磁盘替换 * 存储磁盘替换
+
+
+
+ a| 
+磁盘清理
+ a| 
+system node run -node _nodename_ -command disk sanitize
+
+
+
+ a| 
+磁盘擦洗
+ a| 
+存储聚合擦洗
+
+
+
+ a| 
+disk show
+ a| 
+storage disk show
+
+
+
+ a| 
+磁盘 simpull
+ a| 
+system node run -node _nodename_ -command disk simpull
+
+
+
+ a| 
+磁盘 simpush
+ a| 
+system node run -node _nodename_ -command disk simpush
+
+
+
+ a| 
+磁盘零备件
+ a| 
+存储磁盘清零
+
+
+
+ a| 
+disk_fw_update
+ a| 
+系统节点映像修改
+
+
+
+ a| 
+DNS 信息
+ a| 
+dns show
+
+
+
+ a| 
+下载
+ a| 
+系统节点映像更新
+
+
+
+ a| 
+du [ 路径名称 ]
+ a| 
+du -vserver _vservername_ -path _pathname___volume file show-disk-usage -vserver _vserver_name_ -path _pathname_
+
+
+
+ a| 
+du -h
+ a| 
+du -vserver _vservername_ -path _pathname_ -hvolume file show-disk-usage -vserver _vserver_name_ -path _pathname_ -h
+
+
+
+ a| 
+du -k
+ a| 
+du -vserver _vservername_ -path _pathname_ -kvolume file show-disk-usage -vserver _vserver_name_ -path _pathname_ -k
+
+
+
+ a| 
+du -m
+ a| 
+du -vserver _vservername_ -path _pathname_ -mvolume file show-disk-usage -vserver _vserver_name_ -path _pathname_ -m
+
+
+
+ a| 
+du -r
+ a| 
+du -vserver _vservername_ -path _pathname_ -rvolume file show-disk-usage -vserver _vserver_name_ -path _pathname_ -r
+
+
+
+ a| 
+du -u
+ a| 
+du -vserver _vservername_ -path _pathname_ -uvolume file show-disk-usage -vserver _vserver_name_ -path _pathname_ -u
+
+
+
+ a| 
+转储
+ a| 
+不支持您必须按照磁带备份文档中所述使用 NDMP 启动备份。要使用 dump-to-null 功能，必须设置 NDMP 环境变量 dump_to_NULL 。
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ptbrg/home.html["使用磁带备份保护数据"]
+
+|===
+[role="lead"]
+* e*
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+回显
+ a| 
+* 回显 *
+
+
+
+ a| 
+EMS 事件状态
+ a| 
+* EMS event status* event status show
+
+
+
+ a| 
+EMS 日志转储
+ a| 
+event log show -time >_time-interval__
+
+
+
+ a| 
+EMS 日志转储值
+ a| 
+event log show
+
+
+
+ a| 
+环境机箱
+ a| 
+system node run -node ｛ _nodename_llocal ｝ -command environment chassis
+
+
+
+ a| 
+环境状态
+ a| 
+system node run -node_nodename _ -command environment status
+
+
+
+ a| 
+环境架
+ a| 
+不支持
+
+您必须使用 `storage shelf` 命令集。
+
+
+
+ a| 
+环境 shelf_log
+ a| 
+* 环境 shelf_log* 系统节点 run -node ｛ _nodename __llocal ｝ -command environment shelf_log
+
+
+
+ a| 
+环境 shelf_stats
+ a| 
+system node run -node ｛ _nodename_llocal ｝ -command environment shelf_stats
+
+
+
+ a| 
+环境 shelf_power_status
+ a| 
+不支持您必须使用 `storage shelf` 命令集。
+
+
+
+ a| 
+环境机箱
+ a| 
+system node run -node ｛ _nodename_llocal ｝ -command environment chassis
+
+
+
+ a| 
+环境机箱列表传感器
+ a| 
+system node run -node ｛ _nodename_llocal ｝ environment sensors show
+
+
+
+ a| 
+导出
+ a| 
+SVM 导出策略 [ 规则 ]
+
+
+
+ a| 
+exportfs -f
+ a| 
+SVM 导出策略缓存刷新
+
+
+
+ a| 
+exportfs -o
+ a| 
+SVM 导出策略规则
+
+
+
+ a| 
+exportfs -p
+ a| 
+SVM 导出策略规则
+
+
+
+ a| 
+exportfs -q
+ a| 
+SVM 导出策略 [ 规则 ]
+
+|===
+
+
+== F-J
+
+[role="lead"]
+* 阵 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+fcadmin 配置
+ a| 
+system node run -node ｛ _nodename__llocal ｝ -command fcadmin config
+
+
+
+ a| 
+fcadmin link_stats
+ a| 
+system node run -node ｛ _nodename_llocal ｝ -command fcadmin link_stats
+
+
+
+ a| 
+fcadmin fcal_stats
+ a| 
+system node run -node ｛ _nodename_llocal ｝ -command fcadmin fCAL_stats
+
+
+
+ a| 
+fcadmin device_map
+ a| 
+system node run -node ｛ _nodename __llocal ｝ -command fcadmin device_map
+
+
+
+ a| 
+fcnic
+ a| 
+不支持
+
+
+
+ a| 
+FCP 配置
+ a| 
+修改网络 FCP 适配器
+
+
+
+ a| 
+FCP 命名服务器
+ a| 
+* fcp nameserver show* vserver fcp nameserver show
+
+
+
+ a| 
+FCP 节点名称
+ a| 
+Vserver FCP 节点名称
+
+
+
+ a| 
+FCP ping
+ a| 
+* fcp ping-igroup show 或 fcp ping-initiator show*
+
+vserver fcp ping-igroup show 或 vserver fcp ping-initiator show
+
+
+
+ a| 
+FCP 端口名称
+ a| 
+* fcp portname show* vserver fcp portname show
+
+
+
+ a| 
+fcp show
+ a| 
+vserver fcp show
+
+
+
+ a| 
+FCP 启动
+ a| 
+* FCP start* vserver fcp start
+
+
+
+ a| 
+FCP 统计信息
+ a| 
+* FCP 统计信息 * FCP 适配器统计信息
+
+
+
+ a| 
+FCP 状态
+ a| 
+SVM FCP 状态
+
+
+
+ a| 
+FCP 停止
+ a| 
+* fcp stop* vserver fcp stop
+
+
+
+ a| 
+FCP 拓扑
+ a| 
+network fcp topology show 或 vserver fcp topology show
+
+
+
+ a| 
+FCP WWPN 别名
+ a| 
+* FCP WWPN 别名 * Vserver FCP WWPN 别名
+
+
+
+ a| 
+FCP 区域
+ a| 
+* fcp zone show*
+
+network fcp zone show
+
+
+
+ a| 
+FCP 转储
+ a| 
+* FCP 适配器转储 * 网络 FCP 适配器转储
+
+
+
+ a| 
+FCP 重置
+ a| 
+* FCP 适配器重置 * 网络 FCP 适配器重置
+
+
+
+ a| 
+fcstat link_stats
+ a| 
+system node run -node ｛ _nodename_llocal ｝ -command fcstat link_stats
+
+
+
+ a| 
+fcstat FCAL_STATS
+ a| 
+system node run -node ｛ _nodename_llocal ｝ -command fcstat FCAL_stats
+
+
+
+ a| 
+fcstat device_map
+ a| 
+system node run -node ｛ _nodename __llocal ｝ -command fcstat device_map
+
+
+
+ a| 
+文件预留
+ a| 
+卷文件预留
+
+
+
+ a| 
+文件存储
+ a| 
+不支持
+
+
+
+ a| 
+FlexCache
+ a| 
+卷 FlexCache
+
+
+
+ a| 
+fpolicy
+ a| 
+* fpolicy* vserver fpolicy
+
+
+
+ a| 
+fsecurity show
+ a| 
+vserver security file-directory show
+
+
+
+ a| 
+fsecurity apply
+ a| 
+应用 Vserver security file-directory
+
+
+
+ a| 
+fsecurity 状态
+ a| 
+vserver security file-directory job-show
+
+
+
+ a| 
+fsecurity 取消
+ a| 
+vserver security file-directory job-stop
+
+
+
+ a| 
+fsecurity remove-guard
+ a| 
+SVM security file-directory remove-slag
+
+
+
+ a| 
+FTP
+ a| 
+不支持
+
+|===
+[role="lead"]
+* 高 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+暂停
+ a| 
+system node halt -node _nodename_
+
+
+
+ a| 
+halt -f
+ a| 
+system node halt inhibit -takeover true
+
+
+
+ a| 
+暂停 -d
+ a| 
+system node halt -dump true
+
+
+
+ a| 
+帮助
+ a| 
+？
+
+
+NOTE: 您必须键入问号（？） 用于在 ONTAP 中执行此命令的符号。
+
+
+
+ a| 
+主机名
+ a| 
+* 主机名 * 系统主机名
+
+
+
+ a| 
+httpstat
+ a| 
+不支持您必须使用 statistics 命令。
+
+|===
+[role="lead"]
+* 一 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+if_addr_filter_info
+ a| 
+system node run -note _nodename_ -command if_addr_filter_info
+
+
+
+ a| 
+ifconfig
+ a| 
+网络接口网络 ｛ interface | port ｝
+
+
+
+ a| 
+ifconfig -a
+ a| 
+network interface show network ｛ interface | port ｝ show
+
+
+
+ a| 
+ifconfig 别名
+ a| 
+创建网络接口
+
+
+
+ a| 
+ifconfig 已关闭
+ a| 
+network interface modify -status-admin down
+
+
+
+ a| 
+ifconfig 流量控制
+ a| 
+network port modify -flowcontrol-admin
+
+
+
+ a| 
+ifconfig MediaType
+ a| 
+网络端口修改 ｛ -duplex-admin | -speed-admin ｝
+
+
+
+ a| 
+ifconfig mtusize
+ a| 
+network port modify -mtu
+
+
+
+ a| 
+ifconfig 网络掩码
+ a| 
+network interface modify -netmask
+
+
+
+ a| 
+ifconfig up
+ a| 
+network interface modify -status-admin up
+
+
+
+ a| 
+ifgrp create
+ a| 
+网络端口 ifgrp create
+
+
+
+ a| 
+ifgrp add
+ a| 
+网络端口 ifgrp add -port
+
+
+
+ a| 
+ifgrp 删除
+ a| 
+网络端口 ifgrp remove-port
+
+
+
+ a| 
+ifgrp 销毁
+ a| 
+网络端口 ifgrp 删除
+
+
+
+ a| 
+ifgrp 优惠
+ a| 
+对于 ONTAP 9 版本，请使用 network interface failover-groups create 命令为这两个端口创建一个故障转移组。然后，使用 network interface modify 命令使用 -home-port 选项设置首选主端口，并将 -autreevt 选项设置为 true 。
+
+
+NOTE: 在将端口添加到故障转移组之前，请先从 ifgrp 中删除这些端口。最佳做法是使用来自不同 NIC 的端口。这种做法还可以防止出现有关冗余不足的 EMS 警告。
+
+
+
+ a| 
+ifgrp node.
+ a| 
+对于 ONTAP 9 版本，对故障转移组使用相同的操作步骤。
+
+
+
+ a| 
+ifgrp 状态
+ a| 
+system node run -node ｛ _nodename_llocal ｝ -command ifgrp status
+
+
+
+ a| 
+ifgrp stat
+ a| 
+system node run -node ｛ _nodename_llocal ｝ -command ifstat _ifgrp-port_
+
+
+
+ a| 
+ifgrp show
+ a| 
+network port ifgrp show
+
+
+
+ a| 
+ifinfo
+ a| 
+system node run -node ｛ _nodename_llocal ｝ -command ifinfo
+
+
+
+ a| 
+ifstat
+ a| 
+system node run -node ｛ _nodename_llocal ｝ -command ifstat
+
+
+
+ a| 
+igroup add
+ a| 
+* igroup add* lun igroup add
+
+
+
+ a| 
+igroup ALUA
+ a| 
+lun igroup modify -ALUA
+
+
+
+ a| 
+igroup 绑定
+ a| 
+* igroup bind* lun igroup bind
+
+
+
+ a| 
+igroup 销毁
+ a| 
+* igroup delete* lun igroup delete
+
+
+
+ a| 
+igroup create
+ a| 
+* igroup cree* lun igroup create
+
+
+
+ a| 
+igroup 删除
+ a| 
+* igroup remove* lun igroup remove
+
+
+
+ a| 
+igroup 重命名
+ a| 
+* igroup rename* lun igroup rename
+
+
+
+ a| 
+igroup 已设置
+ a| 
+igrouplun igroup 集
+
+
+
+ a| 
+igroup show
+ a| 
+* igroup show* lun igroup show
+
+
+
+ a| 
+igroup 设置操作系统类型
+ a| 
+igroup modify -ostype
+
+
+
+ a| 
+igroup 取消绑定
+ a| 
+* igroup unbind* lun igroup unbind
+
+
+
+ a| 
+IPsec
+ a| 
+不支持
+
+
+
+ a| 
+iSCSI 别名
+ a| 
+iSCSI 创建服务器 iSCSI 创建或
+
+iSCSI 修改
+
+vserver iscsi modify
+
+
+
+ a| 
+iSCSI 连接
+ a| 
+* iSCSI 连接 * Vserver iSCSI 连接
+
+
+
+ a| 
+iSCSI 启动程序
+ a| 
+* iSCSI 启动程序 * Vserver iSCSI 启动程序
+
+
+
+ a| 
+iSCSI 接口
+ a| 
+* iSCSI 接口 * Vserver iSCSI 接口
+
+
+
+ a| 
+iSCSI iSNS
+ a| 
+* iSCSI iSNS * SVM iSCSI iSNS
+
+
+
+ a| 
+iSCSI 门户
+ a| 
+* iSCSI portal * SVM iSCSI portal
+
+
+
+ a| 
+iSCSI 安全性
+ a| 
+* iSCSI 安全性 * Vserver iSCSI 安全性
+
+
+
+ a| 
+iSCSI 会话
+ a| 
+* iSCSI 会话 * SVM iSCSI 会话
+
+
+
+ a| 
+iscsi show
+ a| 
+* iscsi show* vserver iscsi show
+
+
+
+ a| 
+iSCSI 启动
+ a| 
+* iSCSI start* vserver iscsi start
+
+
+
+ a| 
+iSCSI 统计信息
+ a| 
+统计信息 ｛ start_stop_show ｝ -object _objection_
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+iSCSI 停止
+ a| 
+* iSCSI stop* vserver iscsi stop
+
+|===
+
+
+== K-O
+
+[role="lead"]
+* 千 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+key_manager
+ a| 
+系统节点运行 -node ｛ _nodename_llocal ｝ -command key_manager
+
+
+
+ a| 
+密钥管理器
+ a| 
+system node run -node ｛ _nodename_llocal ｝ -command keymgr 对于管理接口密钥，您必须使用 `security certificates` 命令。
+
+|===
+[role="lead"]
+* 升 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+` * 许可证 *`
+ a| 
+` * 许可证显示 *`
+
+` * 系统许可证显示 *`
+
+
+
+ a| 
+` * 许可证添加 *`
+ a| 
+` * 许可证添加 *`
+
+` * 系统许可证添加 -license-code _v2_license_code_*`
+
+
+
+ a| 
+` * 许可证删除 *`
+ a| 
+` * 许可证删除 *`
+
+` * 系统许可证删除 -package _package_name_*`
+
+
+
+ a| 
+` * 锁定中断 *`
+ a| 
+` * Vserver locks break*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+` * 锁定中断 -h host*`
+ a| 
+` * vserver locks break -client-address _client-address_*`
+
+
+
+ a| 
+` * 锁定中断 -net network*`
+ a| 
+` * vserver locks break -client-address-type _IP address type_*`
+
+
+
+ a| 
+` * 锁定中断 -o owner*`
+ a| 
+` * vserver locks break -owner-id _owner-id_*`
+
+
+
+ a| 
+` * 锁定中断 -p 协议 *`
+ a| 
+` * vserver locks break -protocol _protocol_*`
+
+
+
+ a| 
+` * 锁定状态 *`
+ a| 
+` * Vserver locks show*`
+
+
+
+ a| 
+` * 锁定状态 -h host*`
+ a| 
+` * vserver locks show -client-address _client-address_*`
+
+
+
+ a| 
+` * 锁定状态 -o owner*`
+ a| 
+` * vserver locks show -owner-id _owner id_*`
+
+
+
+ a| 
+` * 锁定状态 -p protocol*`
+ a| 
+` * vserver locks show -protocol _protocol_*`
+
+
+
+ a| 
+` * 日志程序 *`
+ a| 
+` * 日志程序 *`
+
+` * 系统节点 run -node ｛ nodeame| local ｝ -command log程序 *`
+
+
+
+ a| 
+` * 注销 *`
+ a| 
+` * 退出 *`
+
+
+
+ a| 
+` * LUN 克隆 *`
+ a| 
+` * 卷文件克隆 cre*`
+
+
+
+ a| 
+` * LUN 注释 *`
+ a| 
+` * LUN 注释 *`
+
+
+
+ a| 
+` * LUN config_check*`
+ a| 
+不支持
+
+
+
+ a| 
+` * LUN cre*`
+ a| 
+`lun create – vserver _vserver_name_*`
+
+
+
+ a| 
+` * LUN 销毁 *`
+ a| 
+` * LUN delete*`
+
+
+
+ a| 
+` * LUN 映射 *`
+ a| 
+` * LUN 映射– vserver _vserver_name_*`
+
+
+
+ a| 
+` * LUN 最大大小 *`
+ a| 
+` * LUN 最大大小 *`
+
+
+
+ a| 
+` * LUN 移动 *`
+ a| 
+` * LUN 移动 *`
+
+
+
+ a| 
+` * LUN 脱机 *`
+ a| 
+` * lun modify -state offline*`
+
+
+
+ a| 
+` * LUN 联机 *`
+ a| 
+` * lun modify -state online*`
+
+
+
+ a| 
+` * LUN 大小调整 *`
+ a| 
+` * LUN 大小调整 *`
+
+
+
+ a| 
+` * LUN Set*`
+ a| 
+` * LUN Set*`
+
+
+
+ a| 
+` * LUN 设置 *`
+ a| 
+` * LUN cre*`
+
+
+
+ a| 
+` * LUN 共享 *`
+ a| 
+不支持
+
+
+
+ a| 
+` * LUN 显示 *`
+ a| 
+` * LUN 显示 *`
+
+
+
+ a| 
+` * LUN Snap*`
+ a| 
+不支持
+
+
+
+ a| 
+` * LUN 统计信息 *`
+ a| 
+` * 统计信息显示 -object LUN*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+` * LUN unmap*`
+ a| 
+` * LUN unmap*`
+
+|===
+[role="lead"]
+* 月 * 日
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+手动
+ a| 
+* 人 *
+
+
+
+ a| 
+最大文件数
+ a| 
+vol modify -max-_number-fs-files_ 或 vol -fields 文件
+
+
+
+ a| 
+机器
+ a| 
+不支持
+
+您必须使用 storage tape 命令集。
+
+|===
+[role="lead"]
+* 不 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+nbtstat
+ a| 
+Vserver CIFS nbtstat
+
+
+
+ a| 
+ndmpd.
+ a| 
+｛ system | server ｝ 服务 NDMP
+
+
+
+ a| 
+ndmpcopy
+ a| 
+系统节点运行 -node ｛ _nodename_llocal ｝ ndmpcopy
+
+
+
+ a| 
+ndmpd 打开
+ a| 
+* ndmpd on* system services ndmpd on
+
+
+
+ a| 
+ndmpd 关闭
+ a| 
+* ndmpd off* system services ndmpd off
+
+
+
+ a| 
+ndmpd 状态
+ a| 
+｛ system | vserver ｝ 服务 NDMP 状态
+
+
+
+ a| 
+ndmpd 探测
+ a| 
+｛ system | vserver ｝ 为 NDMP 探针提供服务
+
+
+
+ a| 
+ndmpd kill
+ a| 
+｛ system | vserver ｝ 服务 ndmp kill
+
+
+
+ a| 
+ndmpd killall
+ a| 
+｛ system | vserver ｝ 服务 ndmp kill-all
+
+
+
+ a| 
+ndmpd 密码
+ a| 
+｛ system | vserver ｝ services ndmp 密码
+
+
+
+ a| 
+ndmpd 版本
+ a| 
+｛ system | vserver ｝ 服务 NDMP 版本
+
+
+
+ a| 
+NDP
+ a| 
+system node run -node ｛ _nodename_llocal ｝ keymgr
+
+
+
+ a| 
+Netdiag
+ a| 
+不支持您必须使用 network interface 或 netstat 命令。
+
+
+
+ a| 
+网络
+ a| 
+system node run node _nodename_ command netstat
+
+
+
+ a| 
+网络接口故障转移
+ a| 
+network interface show -failover
+
+
+
+ a| 
+network port vlan modify
+ a| 
+不支持
+
+
+
+ a| 
+NFS 关闭
+ a| 
+* NFS 关 * SVM NFS 关
+
+
+
+ a| 
+启用 NFS
+ a| 
+* NFS on * Vserver NFS on
+
+
+
+ a| 
+NFS 设置
+ a| 
+vserver nfs create 或 vserver setup
+
+
+
+ a| 
+NFS 统计
+ a| 
+统计信息 ｛ start | stop | show ｝ -object nfs*
+
+
+
+ a| 
+NFS 状态
+ a| 
+Vserver NFS 状态
+
+
+
+ a| 
+NFS vStorage
+ a| 
+vserver nfs modify -vStorage
+
+
+
+ a| 
+nfsstat
+ a| 
+statistics show -object nfs*
+
+|===
+[role="lead"]
+* 操作 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+orouted
+ a| 
+不支持
+
+|===
+
+
+== P-T
+
+[role="lead"]
+* P*
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+合作伙伴
+ a| 
+不支持
+
+
+
+ a| 
+密码
+ a| 
+安全登录密码
+
+
+
+ a| 
+perf 报告 -t
+ a| 
+统计信息 ｛ start | stop | show ｝ -object perf
+
+
+
+ a| 
+正在 Ping \｛ host ｝
+ a| 
+网络 ping ｛ -node _nodename_ _ _ _ - lif _lif-name_ ｝ -destination
+
+
+
+ a| 
+正在 Ping \｛ count ｝
+ a| 
+网络 ping ｛ -node _nodename_ _ _ _ - lif _lif-name_ ｝ -count
+
+
+
+ a| 
+ping -l 接口
+ a| 
+network ping -lif _lif-name_
+
+
+
+ a| 
+ping -v
+ a| 
+network ping -node ｛ _nodename_ _ _ - lif _lif-name_ ｝ -verbose
+
+
+
+ a| 
+ping -s
+ a| 
+network ping -node ｛ _nodename _ _ _ _ -lif _lif-name_ ｝ -show-detail
+
+
+
+ a| 
+ping -R
+ a| 
+network ping -node ｛ _nodename _ _ _ _ -lif _lif-name_ ｝ -record-route
+
+
+
+ a| 
+pktt 删除
+ a| 
+system node run -node ｛ _nodename_llocal ｝ pktt delete
+
+
+
+ a| 
+pktt 转储
+ a| 
+system node run -node ｛ _nodename_llocal ｝ pktt dump
+
+
+
+ a| 
+pktt 列表
+ a| 
+system node run -node ｛ _nodename_llocal ｝ pktt list
+
+
+
+ a| 
+pktt 暂停
+ a| 
+system node run -node ｛ _nodename__llocal ｝ pktt pause
+
+
+
+ a| 
+pktt start
+ a| 
+system node run -node ｛ _nodename__llocal ｝ pktt start
+
+
+
+ a| 
+pktt 状态
+ a| 
+系统节点运行 -node ｛ _nodename_llocal ｝ pktt 状态
+
+
+
+ a| 
+pktt 停止
+ a| 
+system node run -node ｛ _nodename_llocal ｝ pktt stop
+
+
+
+ a| 
+端口集添加
+ a| 
+* 端口集添加 * LUN 端口集添加
+
+
+
+ a| 
+端口集创建
+ a| 
+* 端口集创建 * LUN 端口集创建
+
+
+
+ a| 
+端口集删除
+ a| 
+* 端口集删除 * LUN 端口集删除
+
+
+
+ a| 
+端口集删除
+ a| 
+* 端口集删除 * LUN 端口集删除
+
+
+
+ a| 
+portset show
+ a| 
+* 端口集显示 * lun portset show
+
+
+
+ a| 
+优先级混合缓存默认值
+ a| 
+不支持
+
+
+
+ a| 
+已设置优先级混合缓存
+ a| 
+volume modify -volume _volume_name_ -vserver _vserver_name_ -caching-policy _policy_name_
+
+
+
+ a| 
+Priority hybrid-cache show
+ a| 
+volume show -volume _volume_name_ -vserver _vserver_name_ -fields caching-policy
+
+
+
+ a| 
+PRIV 集
+ a| 
+set -privilege
+
+|===
+[role="lead"]
+* 问 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+qtree create
+ a| 
+* qtree cre* 卷 qtree create
+
+
+
+ a| 
+qtree 操作锁定
+ a| 
+* qtree oplocks* 卷 qtree oplocks
+
+
+
+ a| 
+qtree 安全性
+ a| 
+* qtree security* 卷 qtree 安全性
+
+
+
+ a| 
+qtree 状态
+ a| 
+qtree show volume qtree show
+
+
+
+ a| 
+qtree 统计信息
+ a| 
+qtree 统计信息卷 qtree 统计信息
+
+
+
+ a| 
+配额允许
+ a| 
+quota modify -state volume quota modify -state on
+
+
+
+ a| 
+配额不允许
+ a| 
+quota modify -statevolume quota modify -state off
+
+
+
+ a| 
+配额关闭
+ a| 
+* 配额关闭 * 卷配额关闭
+
+
+
+ a| 
+启用配额
+ a| 
+* 配额开 * 卷配额开
+
+
+
+ a| 
+配额报告
+ a| 
+* 配额报告 * 卷配额报告
+
+
+
+ a| 
+调整配额大小
+ a| 
+* 配额调整大小 * 卷配额调整大小
+
+
+
+ a| 
+配额状态
+ a| 
+quota show volume quota show
+
+
+
+ a| 
+配额日志消息
+ a| 
+volume quota show -fields logging ， logging -interval
+
+|===
+[role="lead"]
+* R*
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+半径
+ a| 
+不支持
+
+
+
+ a| 
+rdate
+ a| 
+不支持
+
+
+
+ a| 
+rdfile
+ a| 
+不支持
+
+
+
+ a| 
+重新分配
+ a| 
+* 重新分配关闭 *
+
+
+
+ a| 
+重新分配衡量指标
+ a| 
+* 重新分配度量值 *
+
+
+
+ a| 
+重新分配
+ a| 
+* 重新分配位置 *
+
+
+
+ a| 
+重新分配暂停
+ a| 
+* 重新分配暂停 *
+
+
+
+ a| 
+重新分配重新启动
+ a| 
+* 重新分配重新启动 *
+
+
+
+ a| 
+重新分配计划
+ a| 
+* 重新分配计划 *
+
+
+
+ a| 
+重新分配开始
+ a| 
+* 重新分配 start*
+
+
+
+ a| 
+重新分配状态
+ a| 
+reallocate show
+
+
+
+ a| 
+重新分配停止
+ a| 
+* 重新分配 stop*
+
+
+
+ a| 
+重新启动
+ a| 
+* 重新启动 *
+
+system node reboot -node _nodename_
+
+
+
+ a| 
+重新启动 -d
+ a| 
+* 重新启动 -d*
+
+system node reboot -dump true -node _nodename_
+
+
+
+ a| 
+重新启动 -f
+ a| 
+* 重新启动 -f *
+
+reboot -inhibit-takeover true -node _nodename_
+
+
+
+ a| 
+还原
+ a| 
+不支持
+
+您必须按照磁带备份文档中所述使用 NDMP 启动还原。
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ptbrg/home.html["使用磁带备份保护数据"]
+
+
+
+ a| 
+restore_backup
+ a| 
+系统节点还原备份
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+revert_to
+ a| 
+系统节点还原到节点 _nodename_ -version
+
+
+
+ a| 
+RLM
+ a| 
+不支持
+
+
+
+ a| 
+路由添加
+ a| 
+* 路由添加 *
+
+创建网络路由
+
+
+
+ a| 
+路由删除
+ a| 
+* 路由删除 *
+
+网络路由删除
+
+
+
+ a| 
+路由 -s
+ a| 
+* 路由显示 *
+
+network route show
+
+
+NOTE: network routing-groups 命令系列在 ONTAP 9 中已弃用，从 9.4 开始不再受支持。
+
+|===
+[role="lead"]
+* S*
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+` * sasadmin adapter_state*`
+ a| 
+` * 系统节点 run -node ｛ nodeame_local ｝ -command sasadmin adapter_state*`
+
+
+
+ a| 
+` * sasadmin Channel*`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ -command sasadmin channel*`
+
+
+
+ a| 
+` * sasadmin dev_stats *`
+ a| 
+` * 系统节点 run -node ｛ nodeame_local ｝ -command sasadmin dev_stats *`
+
+
+
+ a| 
+` * sasadmin 扩展器 *`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ -command sasadmin expander*`
+
+
+
+ a| 
+` * sasadmin expander_map*`
+ a| 
+` * 系统节点 run -node ｛ nodeame_local ｝ -command sasadmin expander_map*`
+
+
+
+ a| 
+` * sasadmin expander_phy_state*`
+ a| 
+` * 系统节点 run -node ｛ nodeame_local ｝ -command sasadmin expander_phy_state*`
+
+
+
+ a| 
+` * sasadmin shelf*`
+ a| 
+` * 存储架 *`
+
+
+
+ a| 
+` * sasadmin shelf_shorter*`
+ a| 
+` * 存储架 *`
+
+
+
+ a| 
+` * sasstat dev_stats *`
+ a| 
+` * 系统节点 run -node ｛ nodeame_local ｝ -command sasstat dev_stats *`
+
+
+
+ a| 
+` * sasstat adapter_state*`
+ a| 
+` * 系统节点 run -node ｛ nodeame_local ｝ -command sasstat adapter_state*`
+
+
+
+ a| 
+` * sasstat 扩展器 *`
+ a| 
+` * 系统架 show -port*`
+
+
+
+ a| 
+` * sasstat expander_map*`
+ a| 
+` * 存储架 show -module*`
+
+
+
+ a| 
+` * sasstat expander_phy_state*`
+ a| 
+` * 系统节点 run -node ｛ nodeame_local ｝ sasstat expander_phy_state*`
+
+
+
+ a| 
+` * sasstat 磁盘架 *`
+ a| 
+` * 存储架 *`
+
+
+
+ a| 
+` * savecore*`
+ a| 
+` * 系统节点 coredump save-all*`
+
+
+
+ a| 
+` * savecore -I*`
+ a| 
+` * 系统节点核心转储配置 show -I*`
+
+
+
+ a| 
+` * savecore -l*`
+ a| 
+` * 系统节点 coredump show*`
+
+
+
+ a| 
+` * savecore -s *`
+ a| 
+` * 系统节点核心转储状态 *`
+
+
+
+ a| 
+` * savecore -* w`
+ a| 
+不支持
+
+
+
+ a| 
+` * savecore -k*`
+ a| 
+` * 系统节点 coredump delete-all -type unsaved-kernel*`
+
+
+
+ a| 
+` * sectrace add*`
+ a| 
+` * vserver security trace cre*`
+
+
+
+ a| 
+` * sectrace delete*`
+ a| 
+` * SVM 安全跟踪删除 *`
+
+
+
+ a| 
+` * sectrace show*`
+ a| 
+` * vserver security trace filter show*`
+
+
+
+ a| 
+` * sectrace print-status*`
+ a| 
+` * vserver security trace trace-result show*`
+
+
+
+ a| 
+` * SecureAdmin addcert*`
+ a| 
+` * 安全证书安装 *`
+
+
+
+ a| 
+` * 安全管理员禁用 ssh*`
+ a| 
+` * 安全登录修改 *`
+
+
+
+ a| 
+` * 安全管理员禁用 SSL*`
+ a| 
+` * 安全 SSL modify*`
+
+
+
+ a| 
+` * 安全管理员启用 SSL*`
+ a| 
+` * 安全 SSL modify*`
+
+
+
+ a| 
+` * 安全管理员设置 *`
+ a| 
+` * 安全性 *`
+
+
+
+ a| 
+` * 安全管理员设置 ssh*`
+ a| 
+` * 安全 ssh ｛ add| modify ｝ *`
+
+
+
+ a| 
+` * 安全管理员设置 SSL*`
+ a| 
+` * 安全 SSL ｛ add|modify ｝ *`
+
+
+
+ a| 
+` * 安全管理员启用 ssh*`
+ a| 
+` * 安全登录修改 *`
+
+
+
+ a| 
+` * 安全管理员状态 ssh*`
+ a| 
+` * 安全登录显示 *`
+
+
+
+ a| 
+` * 安全管理员状态 ssl*`
+ a| 
+` * 安全 SSL show*`
+
+
+
+ a| 
+` * 设置 *`
+ a| 
+不支持
+
+
+
+ a| 
+` * shelfchk*`
+ a| 
+` * 安全 ssh ｛ add| modify ｝ *`
+
+
+
+ a| 
+` * showfh*`
+ a| 
+` * 安全 SSL ｛ add|modify ｝ *`
+
+
+
+ a| 
+` * sis config*`
+ a| 
+` * 安全登录修改 *`
+
+
+
+ a| 
+` * 关闭 *`
+ a| 
+` * 安全登录显示 *`
+
+
+
+ a| 
+` * sis on*`
+ a| 
+` * 安全 SSL show*`
+
+
+
+ a| 
+` * sis revert_to_*`
+ a| 
+不支持
+
+
+
+ a| 
+` * sis start*`
+ a| 
+` * showfh*`
+
+` * 卷文件 show-filehander*`
+
+
+
+ a| 
+` * sis stop*`
+ a| 
+` * 关闭 *`
+
+` * 卷效率关闭 *`
+
+
+
+ a| 
+` * smtape*`
+ a| 
+` * sis on*`
+
+` * 卷效率开 *`
+
+
+
+ a| 
+` * 快照自动删除 *`
+ a| 
+` * sis policy*`
+
+
+
+ a| 
+` * snap creer*`
+ a| 
+` * sis revert_to_*`
+
+` * 卷效率 revert-to-*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+` * snap delete*`
+ a| 
+` * snap delete*`
+
+` * 卷快照删除 *`
+
+
+
+ a| 
+` * 快照增量 *`
+ a| 
+不支持
+
+
+
+ a| 
+` * 快照列表 *`
+ a| 
+` * snap show*`
+
+` * 卷快照显示 *`
+
+
+
+ a| 
+` * 可回收快照 *`
+ a| 
+` * 卷快照计算 - 可回收 *`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+` * 快照重命名 *`
+ a| 
+` * 快照重命名 *`
+
+` * 卷快照重命名 *`
+
+
+
+ a| 
+` * 快照预留 *`
+ a| 
+卷 ｛ modify_show ｝ -fields percent-snapshot-space -volume ` volume-name_`
+
+存储聚合 ｛ modify_show ｝ —字段 percent-snapshot-space —聚合 ` 聚合名称 _`
+
+
+
+ a| 
+` * 快照还原 *`
+ a| 
+` * 快照还原 *`
+
+` * 卷快照还原 *`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+` * snap sched*`
+ a| 
+` * 卷快照策略 *`
+
+
+
+ a| 
+` * 可回收快照 *`
+ a| 
+` * 卷快照计算可回收 *`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+` * SnapMirror 中止 *`
+ a| 
+` * SnapMirror 中止 *`
+
+
+
+ a| 
+` * SnapMirror 中断 *`
+ a| 
+` * SnapMirror 中断 *`
+
+
+
+ a| 
+` * SnapMirror 目标 *`
+ a| 
+` * SnapMirror list-destinations*`
+
+
+
+ a| 
+` * SnapMirror initialize*`
+ a| 
+` * SnapMirror initialize*`
+
+
+
+ a| 
+` * SnapMirror migrate*`
+ a| 
+不支持
+
+
+
+ a| 
+` * SnapMirror Off*`
+ a| 
+不支持
+
+
+
+ a| 
+` * SnapMirror 开 *`
+ a| 
+不支持
+
+
+
+ a| 
+` * SnapMirror 暂停 *`
+ a| 
+` * SnapMirror 暂停 *`
+
+
+
+ a| 
+` * SnapMirror 版本 *`
+ a| 
+` * SnapMirror 版本 *`
+
+
+
+ a| 
+` * SnapMirror resum*`
+ a| 
+` * SnapMirror resum*`
+
+
+
+ a| 
+` * SnapMirror resynync*`
+ a| 
+` * SnapMirror resynync*`
+
+
+
+ a| 
+` * SnapMirror 状态 *`
+ a| 
+` * SnapMirror show*`
+
+
+
+ a| 
+` * SnapMirror 限制 *`
+ a| 
+不支持
+
+
+
+ a| 
+` * SnapMirror 更新 *`
+ a| 
+` * SnapMirror 更新 *`
+
+
+
+ a| 
+` * SNMP authtrap*`
+ a| 
+` * SNMP authtrap*`
+
+
+
+ a| 
+` * SNMP community*`
+ a| 
+` * SNMP community*`
+
+
+
+ a| 
+` * SNMP 联系人 *`
+ a| 
+` * SNMP 联系人 *`
+
+
+
+ a| 
+` * SNMP init*`
+ a| 
+` * SNMP init*`
+
+
+
+ a| 
+` * SNMP 位置 *`
+ a| 
+` * SNMP 位置 *`
+
+
+
+ a| 
+` * SNMP 陷阱主机 *`
+ a| 
+` * SNMP 陷阱主机 *`
+
+
+
+ a| 
+` * SNMP 陷阱 *`
+ a| 
+` * 事件路由 show -snmp-support true*`
+
+
+
+ a| 
+` * 软件删除 *`
+ a| 
+` * 系统节点映像软件包 delete*`
+
+
+
+ a| 
+` * 软件获取 *`
+ a| 
+` * 系统节点映像 get*`
+
+
+
+ a| 
+` * 软件安装 *`
+ a| 
+` * 系统节点映像更新 *`
+
+
+
+ a| 
+` * 软件列表 *`
+ a| 
+` * 系统节点映像软件包 show*`
+
+
+
+ a| 
+` * 软件更新 *`
+ a| 
+` * 系统节点映像更新 *`
+
+
+
+ a| 
+` * 源 *`
+ a| 
+不支持
+
+
+
+ a| 
+` * sp reboot*`
+ a| 
+` * system service-processor reboot-sp*`
+
+
+
+ a| 
+` * sp setup*`
+ a| 
+` * 系统服务处理器网络修改 *`
+
+
+
+ a| 
+` * sp status*`
+ a| 
+` * system service-processor show*`
+
+
+
+ a| 
+` * sp status -d` *
+ a| 
+` * 系统节点 AutoSupport invoke-splog*`
+
+
+
+ a| 
+` * sp status -v*`
+ a| 
+` * 系统节点 AutoSupport invoke-splog*`
+
+
+
+ a| 
+` * sp update*`
+ a| 
+` * 系统服务处理器映像更新 *`
+
+
+
+ a| 
+` * sp update-status*`
+ a| 
+` * 系统服务处理器映像更新进度 *`
+
+
+
+ a| 
+` * statit*`
+ a| 
+` * 统计信息 ｛ start|stop|show ｝ -preset statit*`
+
+
+
+ a| 
+` * 统计数据 *`
+ a| 
+` * 统计信息 ｛ start|stop|show ｝ –对象 *`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+` * 存储聚合副本 *`
+ a| 
+不支持
+
+
+
+ a| 
+` * 存储聚合 media_scrub*`
+ a| 
+` * 系统节点 run -node nodename -command aggr media_scrub*`
+
+
+
+ a| 
+` * 存储聚合 Snapshot*`
+ a| 
+不支持
+
+
+
+ a| 
+` * 存储聚合拆分 *`
+ a| 
+不支持
+
+
+
+ a| 
+` * 存储聚合未销毁 *`
+ a| 
+不支持
+
+
+
+ a| 
+` * 存储别名 *`
+ a| 
+` * 存储磁带别名集 *`
+
+
+
+ a| 
+` * 存储阵列 *`
+ a| 
+` * 存储阵列 *`
+
+
+
+ a| 
+` * 存储阵列修改 *`
+ a| 
+` * 存储阵列修改 *`
+
+
+
+ a| 
+` * 存储阵列删除 *`
+ a| 
+` * 存储阵列删除 *`
+
+
+
+ a| 
+` * 存储阵列删除端口 *`
+ a| 
+` * 存储阵列端口删除 *`
+
+
+
+ a| 
+` * 存储阵列显示 *`
+ a| 
+` * 存储阵列显示 *`
+
+
+
+ a| 
+` * 存储阵列 show-config*`
+ a| 
+` * 存储阵列配置显示 *`
+
+
+
+ a| 
+` * 存储阵列显示 LUN*`
+ a| 
+不支持
+
+
+
+ a| 
+` * 存储阵列 show-ports*`
+ a| 
+` * 存储阵列端口显示 *`
+
+
+
+ a| 
+` * 存储禁用适配器 *`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ -command storage disable adapter*`
+
+
+
+ a| 
+` * 存储下载 acp*`
+ a| 
+` * 存储架 ACP 固件更新 *`
+
+
+
+ a| 
+` * 存储下载架 *`
+ a| 
+` * 存储固件下载 *`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+` * 存储启用适配器 *`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ -command storage enable adapter*`
+
+
+
+ a| 
+` * 存储负载平衡 *`
+ a| 
+` * 存储负载平衡 *`
+
+
+
+ a| 
+` * 存储负载显示 *`
+ a| 
+` * 存储负载显示 *`
+
+
+
+ a| 
+` * 存储显示 acp*`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ -command storage show acp*`
+
+
+
+ a| 
+` * storage show adapter*`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ -command storage show adapter*`
+
+
+
+ a| 
+` * storage show bridge` *
+ a| 
+` * 存储网桥显示 *`
+
+
+
+ a| 
+` * storage show disk*`
+ a| 
+` * storage show disk*`
+
+` * 存储磁盘显示 *`
+
+
+
+ a| 
+` * 存储显示扩展器 *`
+ a| 
+` * 存储架 *`
+
+
+
+ a| 
+` * 存储显示网络结构 *`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ -command storage show fabric*`
+
+
+
+ a| 
+` * 存储显示故障 *`
+ a| 
+` * 系统节点 run -node _nodename_ -command storage show faults*`
+
+
+
+ a| 
+` * storage show hub*`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ -command storage show hub*`
+
+
+
+ a| 
+` * storage show initiators*`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ -command storage show initiators*`
+
+
+
+ a| 
+` * 存储显示 mc*`
+ a| 
+` * 存储磁带 show-media-changer*`
+
+
+
+ a| 
+` * 存储显示端口 *`
+ a| 
+` * 存储交换机 *`
+
+
+
+ a| 
+` * 存储显示磁盘架 *`
+ a| 
+` * 存储架 *`
+
+
+
+ a| 
+` * storage show switch*`
+ a| 
+` * 存储交换机显示 *`
+
+
+
+ a| 
+` * storage show tape*`
+ a| 
+` * storage tape show-tape-drive*`
+
+
+
+ a| 
+` * 存储统计数据磁带 *`
+ a| 
+` * statistics show -object tape*`
+
+
+
+ a| 
+` * 存储统计数据磁带置零 *`
+ a| 
+` * 统计信息 ｛ start|stop|show ｝ -object tape*`
+
+
+
+ a| 
+` * 存储 unalias*`
+ a| 
+` * 存储磁带别名 clear*`
+
+
+
+ a| 
+` * sysconfig*`
+ a| 
+不支持
+
+
+
+ a| 
+` * sysconfig -a *`
+ a| 
+` * 系统节点运行 -node ｛ nodeame| local ｝ -command sysconfig -A*`
+
+
+
+ a| 
+` * sysconfig -a *`
+ a| 
+` * 系统节点运行 -node ｛ nodeame| local ｝ -command sysconfig -A*`
+
+
+
+ a| 
+` * sysconfig -ac*`
+ a| 
+` * 系统控制器配置 show-errors -verbes*`
+
+
+
+ a| 
+` * sysconfig -c*`
+ a| 
+` * 系统控制器配置错误显示 *`
+
+
+
+ a| 
+` * sysconfig -d*`
+ a| 
+` * 系统节点运行 -node ｛ nodeame| local ｝ -command sysconfig -d*`
+
+
+
+ a| 
+` * sysconfig -D*`
+ a| 
+` * 系统控制器配置 pci show-add-on devices*`
+
+
+
+ a| 
+` * sysconfig -h*`
+ a| 
+` * 系统节点运行 -node ｛ nodeame| local ｝ -command sysconfig -h*`
+
+
+
+ a| 
+` * sysconfig -m*`
+ a| 
+` * 存储磁带 show-media-changer*`
+
+
+
+ a| 
+` * 系统配置 -M*`
+ a| 
+` * 系统节点运行 -node ｛ nodeame| local ｝ -command sysconfig -M*`
+
+
+
+ a| 
+` * sysconfig -p*`
+ a| 
+不支持
+
+您必须使用以下命令作为替代方法：
+
+* 虚拟机管理程序信息： system node virtual-machine hypervisor show
+* 系统磁盘后备存储： system node virtual-machine instance show-system-disks
+* 虚拟磁盘后备信息： storage disk show -virtual-machine-disk-info
+
+
+
+
+ a| 
+` * sysconfig -P*`
+ a| 
+` * 系统控制器配置 pci show-hierarchy*`
+
+
+
+ a| 
+` * sysconfig -r*`
+ a| 
+不支持
+
+要查看磁盘信息，必须使用以下命令：
+
+* 文件系统磁盘： storage aggregate showstatus
+* 备用磁盘： storage aggregate show-sparedisks
+* 损坏的磁盘： storage disk show -broken
+* 维护中心中的磁盘： storage disk show -maintenance
+
+
+
+
+ a| 
+` * sysconfig -t*`
+ a| 
+` * 存储磁带显示` *
+
+
+
+ a| 
+` * sysconfig -v*`
+ a| 
+` * 系统节点运行 -node _nodename_ -command sysconfig -v` *
+
+
+
+ a| 
+` * sysconfig -V*`
+ a| 
+` * 系统节点运行 -node ｛ nodeame| local ｝ -command sysconfig -V*`
+
+
+
+ a| 
+` * 系统统计 *`
+ a| 
+` * 统计信息 ｛ start|stop|show ｝ -preset sysstat*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+` * 系统运行状况警报 *`
+ a| 
+` * 系统运行状况警报 *`
+
+
+
+ a| 
+` * 系统运行状况 AutoSupport *`
+ a| 
+` * 系统运行状况 AutoSupport *`
+
+
+
+ a| 
+` * 系统运行状况配置 *`
+ a| 
+` * 系统运行状况配置 *`
+
+
+
+ a| 
+` * 系统运行状况节点连接 *`
+ a| 
+` * 系统运行状况节点连接 *`
+
+
+
+ a| 
+` * 系统运行状况策略 *`
+ a| 
+` * 系统运行状况策略 *`
+
+
+
+ a| 
+` * 系统运行状况 *`
+ a| 
+` * 系统运行状况 *`
+
+
+
+ a| 
+` * 系统运行状况子系统显示 *`
+ a| 
+` * 系统运行状况子系统显示 *`
+
+|===
+[role="lead"]
+* T*
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+时区
+ a| 
+* 时区 *
+
+
+
+ a| 
+traceroute -m
+ a| 
+* traceroute -m*
+
+网络 traceroute ｛ -node _nodename _ _ _ - lif _lif-name_ ｝ -maxtl _intege_
+
+
+
+ a| 
+traceroute -n
+ a| 
+* traceroute -n*
+
+network traceroute -node ｛ _nodename _ ｝ -lif _lif-name_ ｝ -numeric true
+
+
+
+ a| 
+traceroute -p
+ a| 
+* traceroute -p*
+
+网络 traceroute ｛ -node _nodename _ _ _ _ -lif _lif-name_ ｝ -port _intege_
+
+
+
+ a| 
+traceroute -q
+ a| 
+* traceroute -q*
+
+网络 traceroute ｛ -node _nodename _ _ _ - lif _lif-name_ ｝ -nqueries _intege_
+
+
+
+ a| 
+traceroute -s
+ a| 
+不支持
+
+
+
+ a| 
+traceroute -v
+ a| 
+* traceroute -v*
+
+网络 traceroute ｛ -node _nodename _ _ _ - lif _lif-name_ ｝ -verbose [ 正确 ]
+
+
+
+ a| 
+traceroute -w
+ a| 
+* traceroute -w*
+
+网络 traceroute ｛ -node _nodename _ _ _ - lif _lif-name_ ｝ -waittime _intege_
+
+|===
+
+
+== U-Z
+
+[role="lead"]
+* 使用 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+ucadmin
+ a| 
+系统节点硬件统一连接
+
+
+
+ a| 
+UPS
+ a| 
+不支持
+
+
+
+ a| 
+正常运行时间
+ a| 
+system node show -fields uptime
+
+
+
+ a| 
+useradmin domainuser add
+ a| 
+创建安全登录
+
+
+
+ a| 
+useradmin domainuser delete
+ a| 
+安全登录删除
+
+
+
+ a| 
+useradmin 域用户列表
+ a| 
+security login show
+
+
+
+ a| 
+useradmin 域用户负载
+ a| 
+不支持使用 "vserver cifs users-and-groups" 命令集。
+
+
+
+ a| 
+useradmin 组添加
+ a| 
+创建安全登录角色
+
+
+
+ a| 
+useradmin 组删除
+ a| 
+安全登录角色删除
+
+
+
+ a| 
+useradmin 组列表
+ a| 
+security login role show
+
+
+
+ a| 
+useradmin 组 modify
+ a| 
+安全登录角色修改
+
+
+
+ a| 
+useradmin 角色添加
+ a| 
+创建安全登录角色
+
+
+
+ a| 
+useradmin 角色删除
+ a| 
+安全登录角色删除
+
+
+
+ a| 
+useradmin 角色列表
+ a| 
+security login role show
+
+
+
+ a| 
+useradmin 角色 modify
+ a| 
+安全登录角色修改
+
+
+
+ a| 
+useradmin 用户添加
+ a| 
+创建安全登录
+
+
+
+ a| 
+useradmin 用户删除
+ a| 
+安全登录删除
+
+
+
+ a| 
+useradmin 用户列表
+ a| 
+security login show
+
+
+
+ a| 
+useradmin 用户修改
+ a| 
+安全登录修改
+
+|===
+[role="lead"]
+* 五 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+版本 -b
+ a| 
+* 版本 -b*
+
+或 system image show
+
+
+
+ a| 
+版本 -v
+ a| 
+* 版本 -v*
+
+或 system image show
+
+
+
+ a| 
+vFiler
+ a| 
+不支持
+
+
+
+ a| 
+vFiler 运行
+ a| 
+SVM
+
+
+
+ a| 
+vFiler 启动
+ a| 
+SVM 启动
+
+
+
+ a| 
+vFiler 停止
+ a| 
+SVM 停止
+
+
+
+ a| 
+vFiler 状态
+ a| 
+vserver show
+
+
+
+ a| 
+vFiler 不允许
+ a| 
+vserver modify -disallowed-protocols
+
+
+
+ a| 
+VLAN 添加
+ a| 
+网络端口 vlan create
+
+
+
+ a| 
+创建 VLAN
+ a| 
+网络端口 vlan create
+
+
+
+ a| 
+VLAN 删除
+ a| 
+网络端口 VLAN 删除
+
+
+
+ a| 
+VLAN 修改
+ a| 
+不支持
+
+
+
+ a| 
+VLAN 统计
+ a| 
+system node run -node _nodename_ -command vlan stat
+
+
+
+ a| 
+vmservices
+ a| 
+system node run -node ｛ _nodename_llocal ｝ vmservices
+
+
+
+ a| 
+卷添加
+ a| 
+不支持
+
+
+
+ a| 
+卷自动调整大小
+ a| 
+* 卷自动调整大小 *
+
+
+
+ a| 
+卷克隆
+ a| 
+* 卷克隆 *
+
+
+
+ a| 
+卷克隆拆分
+ a| 
+* 卷克隆拆分 *
+
+
+
+ a| 
+卷容器
+ a| 
+volume show -fields aggregate
+
+
+
+ a| 
+卷副本
+ a| 
+不支持您必须使用逻辑存储文档中所述的以下方法之一：
+
+* 为原始卷创建一个 FlexClone 卷，然后使用 volume move 命令将该卷移动到另一个聚合。
+* 使用 SnapMirror 复制原始卷，然后中断 SnapMirror 关系以创建读写卷副本。
+
+
+http://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-5578BA46-5522-4BA6-B354-5C924B8207B1.html["《逻辑存储管理指南》"]
+
+
+
+ a| 
+卷创建
+ a| 
+* 卷创建 *
+
+
+
+ a| 
+卷销毁
+ a| 
+卷销毁
+
+
+
+ a| 
+卷文件指纹
+ a| 
+不支持
+
+
+
+ a| 
+卷 media_scrub
+ a| 
+不支持
+
+
+
+ a| 
+卷迁移
+ a| 
+不支持
+
+
+
+ a| 
+卷镜像
+ a| 
+不支持
+
+
+
+ a| 
+卷移动
+ a| 
+* 卷移动 *
+
+
+
+ a| 
+卷脱机
+ a| 
+* 卷脱机 *
+
+
+
+ a| 
+卷联机
+ a| 
+* 卷联机 *
+
+
+
+ a| 
+卷选项
+ a| 
+卷 ｛ show | modify ｝
+
+
+
+ a| 
+卷配额允许
+ a| 
+不支持
+
+
+
+ a| 
+卷配额不允许
+ a| 
+不支持
+
+
+
+ a| 
+卷重命名
+ a| 
+* 卷重命名 *
+
+
+
+ a| 
+卷限制
+ a| 
+* 卷限制 *
+
+
+
+ a| 
+卷擦除
+ a| 
+不支持
+
+
+
+ a| 
+卷大小
+ a| 
+* 卷大小 *
+
+
+
+ a| 
+卷快照增量
+ a| 
+不支持
+
+
+
+ a| 
+卷快照预留
+ a| 
+不支持
+
+其他命令包括：
+
+* 对于卷，请使用 "volume show -fields percent-snapshot-space" 和 "volume modify -volume _VolumeName_ -percent-snapshot-space _percent_" 命令。
+* 对于聚合，请使用 "storage aggregate show -fields percent-snapshot-space" 和 "storage aggregate modify -aggregate _aggregate name_ -percent-snapshot-space _percent_" 命令。
+
+
+
+
+ a| 
+卷拆分
+ a| 
+不支持
+
+
+
+ a| 
+卷状态
+ a| 
+volume show
+
+
+
+ a| 
+卷验证
+ a| 
+不支持
+
+
+
+ a| 
+卷 wafliron
+ a| 
+不支持
+
+
+
+ a| 
+Vscan
+ a| 
+Vserver vscan
+
+
+
+ a| 
+Vserver CIFS adupdate
+ a| 
+不支持
+
+
+
+ a| 
+Vserver CIFS 广播
+ a| 
+不支持
+
+
+
+ a| 
+Vserver CIFS 注释
+ a| 
+不支持
+
+
+
+ a| 
+Vserver CIFS 顶部
+ a| 
+不支持
+
+
+
+ a| 
+vserver iscsi ip_tpgroup add
+ a| 
+不支持
+
+
+
+ a| 
+vserver iscsi ip_tpgroup create
+ a| 
+不支持
+
+
+
+ a| 
+SVM iSCSI IP_tpgroup destroy
+ a| 
+不支持
+
+
+
+ a| 
+vserver iscsi ip_tpgroup remove
+ a| 
+不支持
+
+
+
+ a| 
+vserver iscsi ip_tpgroup show
+ a| 
+不支持
+
+
+
+ a| 
+已设置 Vserver iSCSI tpgroup ALUA
+ a| 
+不支持
+
+
+
+ a| 
+vserver iscsi tpgroup ALUA show
+ a| 
+不支持
+
+
+
+ a| 
+Vserver services name-service dns flush
+ a| 
+不支持
+
+|===
+[role="lead"]
+* 宽 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+wrfile
+ a| 
+不支持
+
+|===
+[role="lead"]
+* 是 *
+
+|===
+| 7- 模式命令 | ONTAP 命令 
+
+
+ a| 
+类型
+ a| 
+不支持
+
+
+
+ a| 
+ypgroup
+ a| 
+不支持
+
+
+
+ a| 
+类型匹配
+ a| 
+不支持
+
+
+
+ a| 
+键入
+ a| 
+不支持
+
+|===

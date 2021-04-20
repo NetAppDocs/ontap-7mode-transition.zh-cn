@@ -1,0 +1,32 @@
+---
+permalink: copy-free/task_performing_manual_configuration_tasks.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, performing, manual, configuration 
+summary: 您必须手动执行访问过渡后的卷的工作负载和应用程序所需的一些配置任务。您可以从预检结果中获取手动任务列表。 
+---
+= 过渡后执行手动配置任务
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须手动执行访问过渡后的卷的工作负载和应用程序所需的一些配置任务。您可以从预检结果中获取手动任务列表。
+
+.步骤
+. 执行预检结果中列出的任务，以配置未由工具过渡或需要为您的环境自定义的功能。
++
+xref:concept_supported_and_unsupported_name_services_configurations.adoc[名称服务过渡：支持和不支持的配置以及所需的手动步骤]
+
++
+xref:concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[NFS 过渡：支持和不支持的配置以及所需的手动步骤]
+
++
+xref:concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[过渡到 ONTAP 时支持和不支持的 CIFS 配置]
+
++
+xref:concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.adoc[SAN 过渡：支持和不支持的配置以及所需的手动步骤]
+
++
+xref:task_transitioning_a_snapmirror_relationship.adoc[过渡 SnapMirror 关系]
+
+

@@ -1,0 +1,45 @@
+---
+permalink: copy-free/task_generating_an_assessment_report_by_importing_inventory_report_xml.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, inventory, report, xml, assessment, import 
+summary: 您可以导入清单收集工具生成的清单 XML 报告，以评估主机和控制器的特性和功能。然后，您可以通过创建评估报告来确定这些主机和控制器在选择进行过渡的 ONTAP 版本中的工作方式。 
+---
+= 通过导入清单报告 XML 生成评估报告
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以导入清单收集工具生成的清单 XML 报告，以评估主机和控制器的特性和功能。然后，您可以通过创建评估报告来确定这些主机和控制器在选择进行过渡的 ONTAP 版本中的工作方式。
+
+* 您必须已运行清单收集工具并生成清单报告 XML 文件。
++
+
+NOTE: 要评估用于无副本过渡的主机和控制器，必须使用清单收集工具 3.3 收集清单。
+
+* 您必须已准备好 7- 模式系统和主机以进行过渡评估。
+
+
+导入清单报告和执行过渡评估时，无需访问要评估的系统。
+
+.步骤
+. 登录到 7- 模式过渡工具，然后单击主页中的 * 收集和评估 * 。
+. 单击 * 导入清单报告 XML* 。
+. 单击 * 浏览 * ，然后选择清单收集工具生成的 XML 报告。
+. 单击 * 导入 * 。
++
+系统的评估状态显示 `Imported ； Ready` 。
+
+. 选择要对其执行过渡评估的系统。
+. 单击 * 创建过渡评估报告 * 。
+. 在创建过渡评估报告对话框中，选择目标集群的 Data ONTAP 版本。
+. 为报告的文件名指定前缀。
+. 单击 * 生成报告 * 。
++
+AssessmentWorkbook 和 AssessmentExecutiveSummary 报告以 XML 格式生成。
+
+. 使用 Microsoft Office 2007 或更高版本在 Microsoft Excel 中查看 AssessmentWorkbook 报告，在 Microsoft Word 中查看 AssessmentExecutiveSummary 报告。
++
+要在 Microsoft Excel 中查看 AssessmentWorkbook 报告，您可能需要在 Excel 中启用宏。
+
+

@@ -1,0 +1,76 @@
+---
+permalink: san-host/task_bringing_windows_hosts_online_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, windows, host, online 
+summary: 使用 Windows 主机的 7- 模式过渡工具（ 7MTT\ ）过渡 LUN 后，必须完成几个步骤才能使主机联机并重新开始提供数据。 
+---
+= 过渡后使 Windows 主机联机
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 Windows 主机的 7- 模式过渡工具（ 7MTT ）过渡 LUN 后，必须完成几个步骤才能使主机联机并重新开始提供数据。
+
+如果要执行无副本过渡（ CFT ），则必须完成 `vol rehost` 的过程。请参见 link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["《 7- 模式过渡工具无副本过渡指南》"] 了解详细信息。
+
+* 对于基于副本的过渡（ CBT ），请在 7- 模式过渡工具（ 7MTT ）中完成存储转换操作后执行以下步骤。
+* 对于 CFT ，请在 7MTT 中完成导入和数据配置操作后执行以下步骤。
++
+.. 生成 7- 模式到 ONTAP LUN 的映射文件：
++
+*** 对于基于副本的过渡，请从安装了 7MTT 的主机运行以下命令： + ` * 过渡 CBT 导出 lunmap -p _project-name_ -o _file_path_*`
++
+例如：
+
++
+` * 过渡 CBT 导出 lunmap -p SanWorkLoad -o c ： /Libraires/Documents/7-C-LUN-mapping-csv*`
+
+*** 对于无副本过渡，请在安装了 7MTT 的系统中运行以下命令： + ` * 过渡 CFT 导出 lunmap -p _project-name_ -s _svm-name_ -o _output-file_*`
++
+
+NOTE: 您必须对每个 Storage Virtual Machine （ SVM ）运行此命令。
+
++
+例如：
+
++
+` * 过渡 CFT 导出 lunmap -p SANWorkLoad -s svml -o c ： /Libraries/Documents/7-A-C-lun-mapping-svml.csv *`
+
+
+
+.. 如果 Windows 主机是 SAN 启动的，并且启动 LUN 已过渡，请启动该主机。
+.. 更新 FC BIOS ，使系统能够从集群模式 Data ONTAP 控制器上的 LUN 启动。
++
+有关详细信息，请参见 HBA 文档。
+
+.. 在 Windows 主机上，从磁盘管理器重新扫描磁盘。
+.. 获取映射到主机的 LUN 的 LUN 序列号， LUN ID 以及相应的 Windows 物理磁盘编号。
++
+*** 对于运行 Data ONTAP ONTAPDSM 的系统：使用 Data ONTAPDSM 管理扩展管理单元或 Get-SanDisk Windows PowerShell cmdlet 。
+*** 对于运行 MSDSM 的系统：使用清单收集工具（ ICT ）。
++
+LUN ID ， LUN 序列号和相应的序列号将捕获在 SAN 主机 LUN 选项卡下。
+
+
+
+.. 使用 LUN 序列号， LUN ID 和 LUN 对应的 Windows 物理磁盘编号以及 LUN 映射输出以及在过渡前状态下收集的数据来确定 LUN 是否已成功过渡。
+.. 请注意过渡后的 LUN 的物理磁盘编号是否已更改。
+.. 使磁盘联机。
++
+*** 使用 Windows 磁盘管理器将不属于集群故障转移的磁盘置于联机状态。
+*** 使用故障转移集群管理器将属于集群故障转移一部分的磁盘置于联机状态。
+
+
+.. 如果要过渡的主机运行的是 Windows Server 2003 ，并且已迁移仲裁设备，请在所有集群节点上启动集群服务。
+.. 如果主机上启用了 Hyper-V ，并且为 VM 配置了直通设备，请修改 Hyper-V Manager 中的设置。
++
+过渡后，与直通设备对应的 LUN 的物理磁盘编号可能已发生更改。
+
+
+
+
+
+* 相关信息 *
+
+xref:concept_what_the_inventory_collect_tool_is.adoc[什么是清单收集工具]

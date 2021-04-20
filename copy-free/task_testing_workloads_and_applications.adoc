@@ -1,0 +1,60 @@
+---
+permalink: copy-free/task_testing_workloads_and_applications.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, test, workload, application 
+summary: 您应在预生产环境中手动测试所有工作负载和应用程序。然后，您可以在提交项目之前，对是否需要回滚进行短暂的生产启动。 
+---
+= 测试工作负载和应用程序
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您应在预生产环境中手动测试所有工作负载和应用程序。然后，您可以在提交项目之前，对是否需要回滚进行短暂的生产启动。
+
+过渡后的聚合必须至少具有 5% 的可用物理空间。
+
+
+NOTE: 最佳做法是，在过渡后的聚合中至少留出 20% 的可用空间。
+
+在预生产测试期间，某些操作会受到限制。
+
+xref:concept_restrictions_during_preproduction_testing.adoc[预生产测试期间的限制]
+
+.步骤
+. 将客户端连接到过渡后的卷。
+. 如果您有 SAN 工作负载，请在 SAN 主机上执行过渡后主机修复任务。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 主机过渡和修复"]
+
+. 测试使用过渡后的数据和配置的所有工作负载和应用程序。
+. 通过 7- 模式过渡工具信息板中的聚合选项卡监控过渡后的聚合中的可用物理空间，验证过渡后的聚合是否未用尽空间。
++
+* 故障排除： * 如果过渡后的聚合空间不足，则可以添加磁盘。
+
++
+.. 登录到高级权限级别： + ` * 设置 -privilege advanced*`
+.. 从 7- 模式磁盘架中选择备用磁盘，然后添加磁盘以增加过渡后聚合中的空间： + ` * storage aggregate add-disks -aggregate _aggr_name_ -disklist _disk1_*`
++
+如果 7- 模式备用磁盘不可用，则可以使用集群节点中磁盘架中的备用磁盘；但是，这样做会使回滚过程复杂化。
+
+
+
+
+
+您可以开始提供生产数据。
+
+[IMPORTANT]
+====
+您可以在生产环境中短期提供数据，以确保工作负载在生产环境中正常运行，并且不需要回滚到 7- 模式。您不能延长此阶段，也不能因以下原因延迟提交无副本过渡项目：
+
+* 随着向卷写入新数据，过渡后的聚合中空间不足的可能性也会增加。
+* 在此阶段写入卷的任何新数据在回滚期间都不可用。
+
+
+====
+* 相关信息 *
+
+xref:concept_reverting_a_copy_free_transition_project.adoc[执行过渡回滚到 7- 模式]
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 命令"]

@@ -1,0 +1,51 @@
+---
+permalink: snapmirror/task_transitioning_7_mode_volumes_using_snapmirror.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, volumes, snapmirror, ontap, clustered, data 
+summary: 您可以使用集群模式 Data ONTAP SnapMirror 命令将 NAS 和 SAN 环境中的 7- 模式卷过渡到集群模式 Data ONTAP 卷。过渡完成后，您必须在集群上设置协议，服务和其他配置 
+---
+= 使用 SnapMirror 过渡 7- 模式卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用集群模式 Data ONTAP SnapMirror 命令将 NAS 和 SAN 环境中的 7- 模式卷过渡到集群模式 Data ONTAP 卷。过渡完成后，您必须在集群上设置协议，服务和其他配置。
+
+* 建议： * 您应使用 7- 模式过渡工具从基于副本的过渡到过渡 7- 模式卷，因为该工具提供了预检查功能，可在迁移过程的每个步骤中验证 7- 模式和集群，从而有助于避免许多潜在问题。该工具可显著简化所有协议，网络和服务配置的迁移以及数据迁移。
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["《 7- 模式过渡工具发行说明》"]
+
+此操作步骤提供了使用 SnapMirror 进行过渡时必须执行的高级任务。
+
+. xref:concept_planning_for_transition.adoc[验证您计划过渡的卷是否受支持 用于过渡]。
+. xref:task_preparing_7_mode_system_for_transition.adoc[准备 7- 模式系统以进行过渡]。
+. xref:task_preparing_cluster_for_transition.adoc[准备集群以进行过渡]。
+. xref:task_creating_a_transition_peering_relationship.adoc[在 7- 模式系统之间创建过渡对等关系 源和 SVM 作为目标]。
+. xref:task_transitioning_volumes.adoc[将数据从 7- 模式卷复制到集群模式卷 通过在之间创建 SnapMirror 关系来创建 Data ONTAP 卷 两个卷]。
+
+
+数据迁移完成后，您必须执行以下任务：
+
+* 可选：在 SVM 上创建数据 LIF 以启用客户端访问。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]。
+
+* 在 SVM 上配置协议，网络和服务。
++
+** https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]。
+** http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-cifs/home.html["SMB/CIFS 管理"]
+** https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]
+
+
+* 创建 igroup 并映射 LUN
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 管理"]
+
+* 如果要过渡包含 LUN 的卷，则必须先在主机上执行所需的过渡后任务，然后才能还原对过渡后的集群模式 Data ONTAP 卷的访问。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 主机过渡和修复"]
+
+
+
+https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]

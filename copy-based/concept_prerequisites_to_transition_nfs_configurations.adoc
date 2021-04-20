@@ -1,0 +1,45 @@
+---
+permalink: copy-based/concept_prerequisites_to_transition_nfs_configurations.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prerequisites, nfs, configurations 
+summary: 只有在 7- 模式系统和集群满足特定前提条件时， 7- 模式过渡工具才会过渡 NFS 配置。如果不满足任何条件，该工具将不会过渡配置。 
+---
+= 过渡 NFS 配置的前提条件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+只有在 7- 模式系统和集群满足特定前提条件时， 7- 模式过渡工具才会过渡 NFS 配置。如果不满足任何条件，该工具将不会过渡配置。
+
+
+
+== 7- 模式前提条件
+
+* NFS 必须获得许可。
+* 如果 MultiStore 已获得许可，则必须在拥有过渡卷的 vFiler 单元上启用 NFS 。
+* 要将基于 Microsoft Active Directory （ AD ）的 Kerberos 服务器过渡到新的 SVM ， AD 域必须存在 DNS 条目。
++
+
+NOTE: 要过渡 Kerberos 配置，必须在项目中至少过渡一个 LIF ，并且 LIF 必须可解析为主机名。
+
+* 如果要过渡内存导出规则，必须在过渡前将其添加到 ` /etc/exports` 文件中。
++
+7- 模式过渡工具仅过渡在 ` /etc/exports` 文件中定义的持久导出规则。
+
+
+
+
+
+== 集群前提条件
+
+* NFS 必须获得许可。
+* 要将基于 Microsoft AD 的 Kerberos 服务器过渡到配置了 DNS 的现有 SVM ， AD 域必须存在 DNS 条目。
+* Kerberos 密钥分发中心（ KDC ）和 ONTAP 系统之间的时钟偏差必须小于或等于 5 分钟。
+
+
+* 相关信息 *
+
+xref:concept_how_nfs_exports_are_transitioned.adoc[NFS 导出的过渡方式]
+
+http://docs.netapp.com/ontap-9/index.jsp["NetApp 文档： ONTAP 9"]

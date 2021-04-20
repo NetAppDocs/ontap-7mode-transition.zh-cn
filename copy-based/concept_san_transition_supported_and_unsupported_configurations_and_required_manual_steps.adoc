@@ -1,0 +1,91 @@
+---
+permalink: copy-based/concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, san, supported, unsupported, configurations, manual, steps, required 
+summary: 您必须了解 7- 模式过渡工具过渡的 SAN 配置。此外，您还应了解 ONTAP 不支持的 7- 模式 SAN 功能，以便在过渡之前采取任何必要的措施。 
+---
+= SAN 过渡：支持和不支持的配置以及所需的手动步骤
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须了解 7- 模式过渡工具过渡的 SAN 配置。此外，您还应了解 ONTAP 不支持的 7- 模式 SAN 功能，以便在过渡之前采取任何必要的措施。
+
+您应验证所有预检错误和警告消息，以评估此类配置对过渡的影响。
+
+
+
+== 已过渡的配置
+
+7- 模式过渡工具会过渡以下 SAN 配置：
+
+* FC 和 iSCSI 服务
+* igroup 和 LUN 映射
++
+[NOTE]
+====
+** 未映射到任何 LUN 的 7- 模式 igroup 不会过渡到目标 SVM 。
+** 对于集群模式 Data ONTAP 8.3.0 和 8.3.1 ，在预转换操作期间不支持过渡 igroup 和 LUN 映射配置。
++
+而是在转换操作期间创建所需的 igroup 。对于主卷和独立卷， LUN 会在转换操作期间映射到 igroup 。但是，对于二级卷，在转换操作期间不支持将 LUN 映射到 igroup 。完成主卷的过渡后，必须手动映射二级 LUN 。
+
+** 对于 ONTAP 8.3.2 及更高版本支持的版本，将在预转换操作期间应用 igroup 和 LUN 映射配置。
+
+
+====
+
+
+
+
+== ONTAP 中不支持的配置
+
+ONTAP 中不支持的配置如下：
+
+* 7- 模式 Snapshot 副本支持的 LUN 克隆
++
+任何还原操作都不支持 Snapshot 副本中存在的 Snapshot 副本支持的 LUN 克隆。在 ONTAP 中无法访问这些 LUN 。过渡前，必须拆分或删除 7- 模式 Snapshot 副本支持的 LUN 克隆。
+
+* 参数值 `ostype` `vld` ， `image` 或任何用户定义的字符串的 LUN
++
+过渡前，您必须更改此类 LUN 的 `ostype` 参数值或删除这些 LUN 。
+
+* LUN 克隆拆分
++
+过渡前，您必须等待活动的 LUN 克隆拆分操作完成，或者中止 LUN 克隆拆分并删除 LUN 。
+
+
+
+以下 7- 模式功能可用于继续过渡过程，但在 ONTAP 中不受支持：
+
+* 命令 `lun share`
++
+通过 NAS 协议共享 LUN
+
+* SnapValidator
+
+
+
+
+== 必须手动过渡的配置
+
+必须手动过渡以下配置：
+
+* SAN LIF
++
+过渡前，必须手动创建 LIF 。
+
+* 端口集
++
+过渡后，必须手动配置绑定到端口集的 igroup 。
+
+* iSCSI 访问列表信息
+* iSNS 配置
+* iSCSI CHAP 和 RADIUS 配置
+
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]

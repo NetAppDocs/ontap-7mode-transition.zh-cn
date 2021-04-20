@@ -1,0 +1,27 @@
+---
+permalink: san-host/concept_linux_host_remediation.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rhel, host, remediation 
+summary: 如果在 SAN 环境中使用 7- 模式过渡工具 \ （ 7MTT\ ）从 7- 模式 Data ONTAP 迁移到集群模式 Data ONTAP ， 过渡前后，您必须根据 LUN 类型在 Red Hat Enterprise Linux \ （ RHEL\ ）主机上执行一系列步骤，以避免过渡复杂化。 
+---
+= RHEL 主机修复
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在 SAN 环境中使用 7- 模式过渡工具（ 7MTT ）从 7- 模式 Data ONTAP 迁移到集群模式 Data ONTAP ， 过渡前后，您必须根据 LUN 类型在 Red Hat Enterprise Linux （ RHEL ）主机上执行一系列步骤，以避免过渡复杂化。
+
+7MTT 过渡仅支持 RHEL 5 和 RHEL 6 。
+
+* 相关信息 *
+
+xref:concept_transitioning_rhel_dmmp_devices_without_file_systems.adoc[过渡不具有文件系统的 RHEL DMMP 设备]
+
+xref:concept_transitioning_luns_with_mount_points_using_dmmp_devices_names.adoc[过渡挂载点使用 DMMP 设备名称的 LUN]
+
+xref:concept_transitioning_luns_with_mount_points_using_dmmp_alias_names.adoc[过渡挂载点使用 DMMP 别名的 LUN]
+
+xref:concept_transitioning_linux_host_file_systems_on_lvm_devices.adoc[过渡 LVM 设备上的 Linux 主机文件系统]
+
+xref:concept_transition_of_san_boot_luns.adoc[过渡 SAN 启动 LUN]

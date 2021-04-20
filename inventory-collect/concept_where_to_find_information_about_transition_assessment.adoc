@@ -1,0 +1,13 @@
+---
+permalink: inventory-collect/concept_where_to_find_information_about_transition_assessment.html 
+sidebar: sidebar 
+keywords: 7, mode, ontap, transition, assessment, information 
+summary: 您可以在《 7- 模式过渡工具基于副本的过渡指南》中找到有关评估存储系统，主机和主机应用程序以验证它们是否已做好过渡准备的信息。本指南详细介绍了如何导入为控制器和主机创建的清单报告，以及如何评估这些控制器和主机以验证它们是否已做好过渡准备。 
+---
+= 从何处查找有关过渡评估的信息
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在中找到有关评估存储系统，主机和主机应用程序以验证它们是否已做好过渡准备的信息 link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-based/index.html["《 7- 模式过渡工具基于副本的过渡指南》"]。本指南详细介绍了如何导入为控制器和主机创建的清单报告，以及如何评估这些控制器和主机以验证它们是否已做好过渡准备。

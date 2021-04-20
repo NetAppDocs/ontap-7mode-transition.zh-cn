@@ -1,0 +1,19 @@
+---
+permalink: san-host/concept_transitioning_luns_with_mount_points_using_dmmp_alias_names.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, mount, points, dmmp, alias, names 
+summary: 过渡挂载点使用别名的 LUN 时，必须执行特定步骤为转换阶段做准备，并且必须在过渡后重新挂载 LUN 。 
+---
+= 过渡挂载点使用 DMMP 别名的 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡挂载点使用别名的 LUN 时，必须执行特定步骤为转换阶段做准备，并且必须在过渡后重新挂载 LUN 。
+
+* 相关信息 *
+
+xref:task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.adoc[过渡具有挂载的 LUN 时为转换阶段做准备 在 Linux 主机上使用 DMMP 设备名称的点]
+
+xref:task_remounting_luns_with_mount_point_using_dmmp_alias_name_on_linux_hosts_after_transition.adoc[重新挂载挂载点使用了 DMMP 别名的 LUN 过渡后的 Linux 主机]

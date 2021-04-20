@@ -1,0 +1,102 @@
+---
+permalink: inventory-collect/task_collecting_inventory_and_generating_inventory_report.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, collect, inventory, generating, inventory, report, transition 
+summary: 您可以收集有关 Data ONTAP 系统（集群中的 7- 模式系统和节点），交换机，主机和主机应用程序的信息。通过使用此信息，您可以生成清单报告，其中包含用于过渡评估的 7- 模式系统，主机和主机应用程序的详细信息。 
+---
+= 收集清单并生成清单报告
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以收集有关 Data ONTAP 系统（集群中的 7- 模式系统和节点），交换机，主机和主机应用程序的信息。通过使用此信息，您可以生成清单报告，其中包含用于过渡评估的 7- 模式系统，主机和主机应用程序的详细信息。
+
+* 您必须已从 NetApp 支持站点下载 `it.exe` 文件。
+* 您必须具有需要清单报告的存储系统和主机的用户名，密码和 IP 地址。
+* 存储系统和主机的用户名必须具有足够的权限才能执行命令。
+* 如果要添加多个系统以进行清单收集，则必须已创建一个以 ASCII 或 UTF-8 格式编码并包含系统详细信息的文本文件，每行一个系统。
++
+每个系统详细信息必须采用以下格式：
+
++
+` （ ontap_windows|vmware_Linux_Cisco_Brocade ）： //[ （ _domain_user__\\_user__ ）： _[ 密码 ]@ ）（ host_name_ip ） _`
+
++
+如果您提供 ` *` 作为密码，则系统会提示您在命令行中输入密码。
+
+* 必须配置所有功能并启用其许可证，以便工作簿可以包含有关这些功能的清单信息。
+* 所有存储系统配置（例如 CIFS 共享名称，用户名和组名称）都必须采用 UTF-8 格式。
+* 对于 FC 分区计划， 7- 模式系统和主机必须连接到交换机。
++
+集群可以连接到与 7- 模式系统相同的交换机，也可以连接到同一网络结构中的新交换机。
+
+
+
+清单收集工具最多可以同时从四个控制器和 20 个主机收集配置信息。但是，对于具有配额， qtree ，导出或 UNIX 用户和组的扩展配置，可能需要很长时间才能生成清单报告。
+
+
+NOTE: 您应避免在高峰时段对活动存储控制器执行清单收集操作。
+
+. 在 Windows 命令提示符中，导航到清单收集工具的下载路径。
+. 使用系统 IP 地址和凭据运行 `ICT` 命令以生成清单报告：
++
+|===
+| 如果要提供信息 ... | 输入以下命令 ... 
+
+
+ a| 
+使用命令行界面为每个系统创建
+ a| 
+` *ICT -cmd Collect -output _filename_ （ ontap_windows|VMware_Linux_Cisco_Brocade ）： //[ （ _user____domain_user_） （：（ _password__>* ） ]@ ） _hostname_ ） ...*
+
+** ` filename_` 是要为清单报告提供的名称。
+** `ontap|windows|vmware|linux` 是系统类型。
++
+例如，对于 7- 模式存储系统，系统类型为 ONTAP ；对于 Linux 主机，系统类型为 Linux 。
+
+** `Cisco|Brocade` 是受支持的 FC 交换机。
+** ` 用户` 域用户 _ ` 和` 密码 _ 是系统凭据。
++
+如果控制器没有密码，您可以输入字符 ` \""` 作为密码。
+
+** ` 主机名 _` 是控制器，主机或交换机的 IP 地址或主机名。
+
+
+
+
+ a| 
+文本文件中的多个系统
+ a| 
+` *ICT -cmd Collect -output _filename_ -input _credentials_file.txt_*`
+
+` Credentials_file.txt_` 是一个文本文件，其中包含多个系统的系统详细信息和凭据：
+
+** 仅支持以 ASCII 格式编码的文本文件。
+** 如果您提供 ` *` 作为密码，则系统会提示您在命令行中输入密码。
+** 如果控制器没有密码，则可以输入 ` ""` 作为密码。
+
+
+|===
++
+
+NOTE: 如果存储系统运行的是 Windows 7 或更高版本，并且您对存储清单报告输出 XML 文件的文件夹拥有有限的权限，则输出文件会自动存储在 `VirtualStore` 目录中，并且应用程序会照常运行。
+
++
+清单报告是为存储系统和 Linux 主机创建的。生成的报告为 `collected_data.xml` 和 `collected_data_InventoryWorkbook.xml` ：
+
++
+[listing]
+----
+ict --cmd collect --output collected_data ontap://root:test123@hostname1 linux://root@hostname2
+----
++
+此时将显示收集每个控制器的清单信息所需的估计时间。
+
++
+清单工作簿和清单报告以 XML 格式生成。
+
+. 使用 Microsoft Office 2007 或更高版本在 Microsoft Excel 中查看清单工作簿。
+
+
+您可以将清单报告 XML 导入到 7- 模式过渡工具中，以评估 7- 模式控制器和主机的特性和功能，并确定这些特性和功能在选择进行过渡的集群模式 Data ONTAP 版本中的工作方式。

@@ -1,0 +1,107 @@
+---
+permalink: copy-based/task_preparing_7_mode_system_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, 7, mode 
+summary: 开始过渡之前，您必须在 7- 模式系统上完成某些任务，例如添加 SnapMirror 许可证，启用 7- 模式系统与目标集群通信以及启用 TLS 。 
+---
+= 准备 7- 模式系统以进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+开始过渡之前，您必须在 7- 模式系统上完成某些任务，例如添加 SnapMirror 许可证，启用 7- 模式系统与目标集群通信以及启用 TLS 。
+
+要过渡的所有 7- 模式卷都必须联机。
+
+.步骤
+. 在 7- 模式系统上添加并启用 SnapMirror 许可证：
++
+.. 在 7- 模式系统上添加 SnapMirror 许可证：
++
+` * 许可证添加 _license_code_*`
+
++
+` license_code_cr` 是您购买的许可证代码。
+
+.. 启用 SnapMirror 功能： + ` * options snapmirror.enable on*`
+
+
+. 通过选择以下选项之一，配置 7- 模式系统和目标集群以彼此通信：
++
+** 将 `snapmirror.access` 选项设置为 all 。
+** 将 `snapmirror.access` 选项的值设置为集群上所有集群间 LIF 的 IP 地址。
+** 如果 `snapmirror.access` 选项为 `legacy` 而 `snapmirror.checkip.enable` 选项为 `off` ，请将 SVM 名称添加到 ` /etc/snapmirror.allow` 文件中。
+** 如果 `snapmirror.access` 选项为 `legacy` 而 `snapmirror.checkip.enable` 选项为 `on` ，请将集群间 LIF 的 IP 地址添加到 ` /etc/snapmirror.allow` 文件中。
+
+
+. 如果存储系统上未启用 HTTPS ，请启用 HTTPS ：
++
+` * options httpd.admin.ssl.enable on*`
+
++
+默认情况下， HTTPS 处于启用状态。
+
+. 在 7- 模式存储系统上启用 TLS ，以使 7- 模式过渡工具能够与 7- 模式系统通信：
++
+.. 如果存储系统上尚未启用 SSL ，请设置并启动 SSL ：
++
+` * 安全管理员设置 SSL*`
+
++
+默认情况下，为存储系统设置 SSL 。如果先前已为存储系统设置 SSL ，系统会询问您是否要继续。如果您不想进行任何更改，可以退出 SSL 设置。
+
+.. 启用 SSL ：
++
+` * 选项 ssl.enable on*`
+
++
+要允许通过 TLS 进行通信，必须启用此选项。
+
+.. 启用 TLS ：
++
+` * 选项 tls.enable on*`
+
+.. 在 7- 模式系统上禁用 SSLv2 和 SSLv3 ：
++
+` * 选项 ssl.v2.enable off*`
+
++
+` * 选项 ssl.v3.enable off*`
+
+
+
++
+7- 模式过渡工具使用 TLS 或 SSL 协议与 7- 模式存储系统进行通信。如果在存储系统上启用了 TLS ，则该工具将使用 TLS 协议与存储系统进行通信。如果在存储系统上禁用了 TLS 且启用了 SSLv3 ，则该工具将使用 SSLv3 与存储系统进行通信。
+
++
++ 重要信息：最佳实践是启用 TLS 并禁用 SSLv2 和 SSLv3 ，以避免出现安全漏洞。
+
+. 根据 7- 模式系统的 Data ONTAP 版本，执行以下步骤：
++
+.. 允许所有接口上的 SnapMirror 流量：
++
+` * options interface.blocked.snapmirror ""*`
+
+.. 如果您运行的是 Data ONTAP 7.3.7 ， 8.0.3 或 8.1 版，并且使用 e0M 接口的 IP 地址作为管理 IP 地址来与 7- 模式过渡工具进行交互，请允许在 e0M 接口上传输数据流量：
++
+` * options interface.blocked.mgmt_data_traffic off*`
+
+
+
+. 如果已在卷上设置 I2P ，读取分配或 NVFAIL 选项，请执行以下步骤：
++
+.. 确认禁用这些选项后，其他操作不会受到影响。
+.. 禁用选项：
++
+` * vol options vol_name no_i2p off*`
+
++
+` * vol options vol_name read_realloc off*`
+
++
+` * vol options vol_name nvfail off*`
+
+
+
+

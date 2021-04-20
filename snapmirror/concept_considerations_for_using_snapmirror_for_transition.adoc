@@ -1,0 +1,33 @@
+---
+permalink: snapmirror/concept_considerations_for_using_snapmirror_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, transition, mode, snapmirror, operations, snapvault, considerations 
+summary: 在 7- 模式系统中同时运行 SnapMirror 或 SnapVault 操作时，您必须了解某些注意事项，例如并发 SnapMirror 传输的最大数量，数据复制计划以及使用多个路径进行过渡。 
+---
+= 使用 SnapMirror 进行过渡的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 7- 模式系统中同时运行 SnapMirror 或 SnapVault 操作时，您必须了解某些注意事项，例如并发 SnapMirror 传输的最大数量，数据复制计划以及使用多个路径进行过渡。
+
+
+
+== 并发 SnapMirror 传输的最大数量
+
+过渡期间， 7- 模式和 ONTAP 系统支持的并发 SnapMirror 传输的最大数量取决于特定存储系统型号允许的卷 SnapMirror 复制操作的数量。
+
+有关您的系统型号的并发卷 SnapMirror 传输的最大数量的信息，请参见 link:https://library.netapp.com/ecm/ecm_get_file/ECMP1635994["《 Data ONTAP 数据保护联机备份和恢复指南》 7- 模式"]。
+
+
+
+== 数据复制计划
+
+过渡操作的数据复制计划不应与 7- 模式系统上运行的 SnapMirror 或 SnapVault 操作的现有计划重叠。
+
+
+
+== 使用多个路径进行过渡
+
+您可以使用数据复制 IP 地址和多路径 IP 地址指定两个过渡路径。但是，这两个路径只能用于负载平衡，而不能用于故障转移。

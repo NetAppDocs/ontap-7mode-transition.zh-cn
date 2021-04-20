@@ -1,0 +1,90 @@
+---
+permalink: san-host/task_preparing_rhel_luns_for_transition_using_the_cli.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, phel, lun, mount, points, dmmp, alias, names, cli 
+summary: 过渡使用 DMMP 设备名称的挂载点之前，必须将 DMMP 设备名称替换为相应的文件系统 UUID 编号。 
+---
+= 使用 DMMP 别名准备挂载点的 RHEL LUN 用于使用 CLI 进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡使用 DMMP 设备名称的挂载点之前，必须将 DMMP 设备名称替换为相应的文件系统 UUID 编号。
+
+这种基于操作步骤适用场景副本的过渡和无副本过渡。
+
+.步骤
+. 确定并记录要过渡的 LUN 的 SCSI 设备 ID ：
++
+` * sanlun lun show*`
+
++
+SCSI 设备 ID 列在输出的 filename 列下。
+
+. 确定并记录要过渡的 LUN 的 DMMP 设备名称：
++
+` * 多路径 -ll _SCSI_device_ID_*`
+
++
+在以下示例中， `360a9800037534562572b453855496b41` 是 DMMP 设备名称：
+
++
+[listing]
+----
+[root@IBMx3550M3-229-169 ~]# multipath -ll /dev/sdc
+dmmp_fs_lun (360a9800037534562572b453855496b41) dm-3 NETAPP, LUN
+[size=1.0G] [features=3 queue_if_no_path pg_init_retries 50] [hwhandler=0][rw]
+\_ round-robin 0 [prio=2][active]
+	\_ 9:0:0:1 sdc 8:32  [active][ready]
+	\_ 9:0:0:1 sdg 8:96  [active][ready]
+----
+. 确定 DMMP 设备上配置的文件系统：
++
+` * blkid` -I _DMMP_device_name_*
+
++
+输出中的类型值用于标识文件系统。
+
++
+在以下示例中，文件系统为 `ext3` 。
+
++
+[listing]
+----
+[root@ibmx3550-229-108 ~]#blkid | grep -i 3600a09804d532d79565d47617679658
+/dev/mapper/3600a09804d532d79565d47617679658:
+UUID="450b999a-4f51-4828-8139-29b20d2f8708" TYPE="ext3" SEC_TYPE="ext2"
+----
+. 确定 LUN 的 UUID 编号：
++
+` * dumpe2fs _device_path_name_` UUID *
+
+. 确定 DMMP 设备的挂载目录：
++
+` * df -h*`
+
++
+在以下示例中， ` /mnt/DMMP_ext3` 表示 DMMP 设备挂载到的目录：
+
++
+[listing]
+----
+[root@IBMx3550M3-229-169 ~]# df -h
+Filesystem Size Used Avail Use% Mounted on
+/dev/mapper/dmmp_fs_lun
+1008M 34M 924M 4% /mnt/dmnp_ext3
+----
+. 在 ` /etc/fstab` 文件中验证是否已定义 DMMP 设备的挂载点：
++
+` * cat /etc/fstab*`
+
++
+DMMP 设备名称和挂载目录应显示在输出中。
+
+. 创建 ` /etc/fstab` 文件的备份：
++
+` * cp /etc/fstab /etc/_fstab_pre_transition_bkup_*`
+
+. 编辑 ` /etc/fstab` 文件，将 DMMP 设备名称替换为其相应的文件系统 UUID 编号。
+

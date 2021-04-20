@@ -1,0 +1,23 @@
+---
+permalink: san-host/concept_transitioning_luns_with_mount_points_using_dmmp_devices_names.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, mount, points, dmmp, device, name 
+summary: 过渡挂载点使用 DMMP 设备名称的 LUN 之前，必须将 DMMP 设备名称替换为相应的文件系统 UUID 编号。您必须执行特定步骤为转换阶段做准备，并且必须在过渡后在主机上重新挂载 DMMP 设备。您可以对 Red Hat Enterprise Linux \ （ RHER\ ） 5 和 RHEL 6 执行相同的过程。 
+---
+= 过渡挂载点使用 DMMP 设备名称的 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡挂载点使用 DMMP 设备名称的 LUN 之前，必须将 DMMP 设备名称替换为相应的文件系统 UUID 编号。您必须执行特定步骤为转换阶段做准备，并且必须在过渡后在主机上重新挂载 DMMP 设备。您可以对 Red Hat Enterprise Linux （ RHEL ） 5 和 RHEL 6 执行相同的过程。
+
+* 相关信息 *
+
+xref:task_preparing_rhel_luns_transition_using_inventory_assessment_workbook.adoc[使用 DMMP 设备名称准备挂载点的 RHEL LUN 使用清单评估工作簿进行过渡]
+
+xref:task_preparing_rhel_luns_for_transition_using_the_cli.adoc[使用 DMMP 别名准备挂载点的 RHEL LUN 用于使用 CLI 进行过渡]
+
+xref:task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.adoc[过渡具有挂载的 LUN 时为转换阶段做准备 在 Linux 主机上使用 DMMP 设备名称的点]
+
+xref:task_remounting_dmmp_devices_on_linux_hosts_after_transition.adoc[过渡后重新挂载 Linux 主机上的 DMMP 设备]

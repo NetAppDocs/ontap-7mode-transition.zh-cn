@@ -1,0 +1,39 @@
+---
+permalink: copy-based/concept_scenarios_for_selecting_volumes_in_a_session.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, scenarios, selecting, volumes, project 
+summary: 规划项目构成并确定要在单个过渡操作中过渡的 7- 模式卷有助于减少应用程序的停机时间。了解一些示例方案有助于您在环境中创建项目。 
+---
+= 选择项目中的卷的方案
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+规划项目构成并确定要在单个过渡操作中过渡的 7- 模式卷有助于减少应用程序的停机时间。了解一些示例方案有助于您在环境中创建项目。
+
+
+
+== 双向 SnapMirror 关系
+
+要过渡双向 SnapMirror 关系，必须为每个卷创建不同的过渡项目。
+
+例如，如下图所示，假设 system1 上的 vf1 ： vol1 （主）与 system2 上的 vf2 ： vol1 （二级）之间存在卷 SnapMirror 关系。同样， system2 上的 vf2 ： vol2 （主）和 system1 上的 vf1 ： vol2 （二级）之间也存在另一个卷 SnapMirror 关系。
+
+image::../media/transition_bidirectional.gif[双向过渡]
+
+不能将卷 vf1 ： vol1 和 vf1 ： vol2 组合在一个过渡项目中。同样，不能将卷 vf2 ： vol1 和 vf2 ： vol2 组合在一个过渡项目中。要过渡卷 SnapMirror 关系，必须为每个卷创建单独的过渡项目。
+
+
+
+== 具有 CIFS 配置的卷
+
+您必须将具有 CIFS 配置的卷分组到一个项目中，以便将所有 CIFS 相关配置完全过渡到 SVM 。
+
+例如，如果 7- 模式系统或 vFiler 单元中的 10 个卷具有关联的 CIFS 共享，主目录搜索路径和审核配置，则必须在一个项目中过渡这 10 个卷。这样可以确保过渡后所有卷和 CIFS 配置都完全应用于 SVM 。
+
+
+
+== 主卷与多个二级卷之间的 SnapMirror 关系
+
+如果主卷和多个二级卷之间存在 SnapMirror 关系，并且所有二级卷都位于同一个 7- 模式控制器上，则可以创建一个二级项目，以便对所有二级卷进行分组，并完成该项目中所有二级卷的过渡。然后，您可以创建一个主项目来过渡主卷并完成 SnapMirror 过渡。

@@ -1,0 +1,19 @@
+---
+permalink: copy-free/concept_preparing_for_migration.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, prepare 
+summary: 在开始无副本过渡之前，您必须确定要过渡的 7- 模式 HA 对，了解迁移的要求和限制，并为过渡准备 7- 模式系统和集群。此外，您还必须了解过渡支持和不支持的 Data ONTAP 功能。 
+---
+= 准备无副本过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在开始无副本过渡之前，您必须确定要过渡的 7- 模式 HA 对，了解迁移的要求和限制，并为过渡准备 7- 模式系统和集群。此外，您还必须了解过渡支持和不支持的 Data ONTAP 功能。
+
+image::../media/delete_me_cft_preparation_workflow.gif[删除 ME CFT 准备工作流]
+
+* 相关信息 *
+
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]

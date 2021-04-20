@@ -1,0 +1,264 @@
+---
+section: copy-based
+title: 基于副本的过渡
+url: "/copy-based/index.html"
+entries:
+- title: 过渡概述
+  url: "/copy-based/concept_transition_overview.html"
+  entries:
+  - title: 使用 7- 模式过渡工具进行基于副本的过渡
+    url: "/copy-based/concept_copy_based_transition_using_7mtt.html"
+  - title: 过渡术语
+    url: "/copy-based/concept_transition_terminology.html"
+  - title: 过渡限制
+    url: "/copy-based/reference_limits_for_transition.html"
+- title: 收集和评估清单信息
+  url: "/copy-based/concept_collecting_and_assessing_inventory_information.html"
+  entries:
+  - title: 用于过渡评估的存储，主机和 FC 交换机版本要求
+    url: "/copy-based/concept_storage_host_fc_switches_version_requirements.html"
+  - title: 准备 7- 模式系统和主机以进行过渡评估
+    url: "/copy-based/task_preparing_7_mode_systems_for_inventory_collection.html"
+  - title: 评估控制器和主机
+    url: "/copy-based/task_assessing_controllers_and_hosts.html"
+    entries:
+    - title: 通过向 7- 模式添加系统来生成评估报告 过渡工具
+      url: "/copy-based/task_generating_an_assessment_report_by_adding_systems_to_7mtt.html"
+    - title: 通过导入清单报告 XML 生成评估报告
+      url: "/copy-based/task_generating_an_assessment_report_by_importing_inventory_report_xml.html"
+  - title: 生成 FC 分区计划
+    url: "/copy-based/task_generating_fc_zone_plan.html"
+    entries:
+    - title: 支持用于生成 FC 分区计划的配置
+      url: "/copy-based/concept_supported_configurations_for_generating_an_fc_zone_plan.html"
+  - title: 如何使用评估内容提要进行过渡 评估
+    url: "/copy-based/concept_how_you_can_use_assessment_executive_summary_for_transition_assessment.html"
+- title: 基于副本的过渡工作流
+  url: "/copy-based/concept_copy_based_transition_workflow.html"
+- title: 数据和配置迁移过程
+  url: "/copy-based/concept_data_and_configuration_migration_process.html"
+  entries:
+  - title: 如何过渡独立卷
+    url: "/copy-based/concept_how_you_transition_a_stand_alone_volume.html"
+  - title: 如何过渡 SnapMirror 关系中的卷
+    url: "/copy-based/concept_how_you_transition_volumes_in_a_snapmirror_relationship.html"
+- title: 为基于副本的过渡做准备
+  url: "/copy-based/concept_preparing_for_copy_based_transition.html"
+  entries:
+  - title: 基于副本的过渡的要求
+    url: "/copy-based/concept_requirements_for_copy_based_transition.html"
+  - title: 与 7- 模式过渡工具通信的端口要求
+    url: "/copy-based/concept_port_requirements_for_communicating_with_7mtt.html"
+  - title: 过渡限制
+    url: "/copy-based/concept_restrictions_for_transition.html"
+  - title: 准备 7- 模式系统以进行过渡
+    url: "/copy-based/task_preparing_7_mode_system_for_transition.html"
+  - title: 准备网络以进行过渡
+    url: "/copy-based/task_preparing_network_for_transition.html"
+    entries:
+    - title: 过渡 7- 模式 IP 地址的注意事项
+      url: "/copy-based/concept_considerations_for_transitioning_7_mode_ip_addresses.html"
+  - title: 准备集群以进行过渡
+    url: "/copy-based/task_preparing_cluster_for_transition.html"
+  - title: 准备 7- 模式聚合和卷以进行过渡
+    url: "/copy-based/task_preparing_7_mode_volumes_and_aggregates_for_transition.html"
+    entries:
+    - title: 过渡 7- 模式卷的限制
+      url: "/copy-based/concept_restrictions_for_copy_free_transition.html"
+    - title: 准备过渡到 ONTAP 8.3 及更高版本支持的版本
+      url: "/copy-based/task_transitioning_to_clustered_ontap_8_3_from_a_7_mode_version_with_32_bit_data.html"
+      entries:
+      - title: 将聚合扩展为 64 位格式
+        url: "/copy-based/task_expanding_an_aggregate_to_64_bit_format_without_adding_storage.html"
+      - title: 查找和删除 32 位卷和 Snapshot 副本
+        url: "/copy-based/task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.html"
+    - title: 重复数据删除和数据压缩注意事项
+      url: "/copy-based/concept_considerations_for_deduplication_and_compression.html"
+    - title: FlexClone 卷的注意事项
+      url: "/copy-based/concept_considerations_for_flexclone_volumes.html"
+    - title: 配额注意事项
+      url: "/copy-based/concept_considerations_for_quotas.html"
+  - title: 支持过渡 SnapLock 卷
+    url: "/copy-based/concept_support_for_transitioning_snaplock_volumes.html"
+    entries:
+    - title: 过渡 SnapLock 企业卷的注意事项
+      url: "/copy-based/concept_considerations_for_transitioning_of_snaplock_enterprise_volumes.html"
+    - title: 过渡 SnapLock Compliance 卷的注意事项
+      url: "/copy-based/concept_considerations_for_transitioning_of_snaplock_compliance_volumes.html"
+    - title: 过渡 SnapLock 审核卷的注意事项
+      url: "/copy-based/concept_considerations_for_transitioning_of_snaplock_audit_volumes.html"
+    - title: 过渡 7- 模式 SnapLock 选项的注意事项
+      url: "/copy-based/concept_considerations_for_transitioning_of_7_mode_snaplock_options.html"
+    - title: 对 7- 模式 SnapLock 使用监管链验证的注意事项 卷
+      url: "/copy-based/concept_considerations_for_chain_of_custody_verification_for_7_mode_snaplock_volumes.html"
+  - title: 正在准备过渡名称服务
+    url: "/copy-based/concept_preparing_for_name_services_transition.html"
+    entries:
+    - title: 名称服务过渡：支持和不支持的配置以及所需的手动步骤
+      url: "/copy-based/concept_supported_and_unsupported_name_services_configurations.html"
+    - title: 过渡 DNS ， NIS 和 LDAP 配置的注意事项
+      url: "/copy-based/concept_considerations_for_transitioning_dns_and_ldap_configurations.html"
+    - title: 过渡网络组以及 UNIX 用户和组的注意事项
+      url: "/copy-based/concept_considerations_for_transitioning_unix_users_and_groups.html"
+  - title: 为 NFS 过渡做准备
+    url: "/copy-based/concept_preparing_for_nfs_transition.html"
+    entries:
+    - title: 过渡 NFS 配置的前提条件
+      url: "/copy-based/concept_prerequisites_to_transition_nfs_configurations.html"
+    - title: NFS 过渡：支持和不支持的配置以及所需的手动步骤
+      url: "/copy-based/concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html"
+    - title: NFS 导出的过渡方式
+      url: "/copy-based/concept_how_nfs_exports_are_transitioned.html"
+  - title: 为 SMB/CIFS 过渡做准备
+    url: "/copy-based/concept_preparing_for_smb_cifs_transition.html"
+    entries:
+    - title: 过渡 CIFS 配置的前提条件
+      url: "/copy-based/concept_prerequisites_for_transitioning_cifs_configurations.html"
+    - title: 过渡到 ONTAP 时支持和不支持的 CIFS 配置
+      url: "/copy-based/concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.html"
+    - title: 过渡 CIFS 本地用户和组的注意事项
+      url: "/copy-based/concept_considerations_for_local_users_and_groups_transition.html"
+  - title: 为 MetroCluster 配置过渡做准备
+    url: "/copy-based/concept_preparing_for_metrocluster_configuration_transition.html"
+  - title: 为 SAN 过渡做准备
+    url: "/copy-based/task_preparing_for_san_transition.html"
+    entries:
+    - title: 准备 SAN 主机以进行过渡
+      url: "/copy-based/task_preparing_san_hosts_for_transition.html"
+    - title: 使用 FC 分区计划配置分区
+      url: "/copy-based/task_configuring_zones_by_using_fc_zone_plan.html"
+    - title: 过渡前创建 SAN LIF
+      url: "/copy-based/task_creating_san_lifs_before_transition.html"
+    - title: SAN 过渡：支持和不支持的配置以及所需的手动步骤
+      url: "/copy-based/concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.html"
+    - title: 过渡 SAN 卷时的空间注意事项
+      url: "/copy-based/concept_considerations_for_space_when_transitioning_san_volumes.html"
+  - title: 准备数据保护功能以进行过渡
+    url: "/copy-based/concept_preparing_data_protection_features_for_transition.html"
+    entries:
+    - title: 数据保护过渡：支持和不支持的配置
+      url: "/copy-based/concept_supported_and_unsupported_data_protection_relationships.html"
+    - title: 使用 SnapMirror 进行过渡的注意事项
+      url: "/copy-based/concept_considerations_for_using_snapmirror_for_transition.html"
+  - title: 确定何时执行转换的准则
+    url: "/copy-based/concept_guidelines_for_deciding_when_to_cutover.html"
+  - title: 接管和交还对过渡的影响
+    url: "/copy-based/concept_impact_of_takeover_and_giveback_on_transition.html"
+- title: 从 7- 模式卷迁移数据和配置
+  url: "/copy-based/task_transitioning_volumes_using_7mtt.html"
+  entries:
+  - title: 过渡准备检查清单
+    url: "/copy-based/reference_transition_preparation_checklist.html"
+  - title: 添加控制器和集群
+    url: "/copy-based/task_adding_controllers_and_clusters.html"
+  - title: 创建过渡项目
+    url: "/copy-based/task_creating_a_transition_project.html"
+  - title: 自定义 7- 模式配置的过渡
+    url: "/copy-based/task_customizing_configurations_for_transition.html"
+  - title: 正在运行预检
+    url: "/copy-based/task_running_prechecks.html"
+    entries:
+    - title: 预检消息的严重性级别
+      url: "/copy-based/concept_severity_levels_for_precheck_messages.html"
+  - title: 正在启动基线数据复制
+    url: "/copy-based/task_starting_baseline_data_copy.html"
+  - title: 应用 7- 模式配置
+    url: "/copy-based/task_applying_7_mode_configurations.html"
+  - title: 使用 FC 分区计划配置分区
+    url: "/copy-based/task_configuring_zones_by_using_fc_zone_plan.html"
+  - title: 执行按需 SnapMirror 更新
+    url: "/copy-based/task_performing_on_demand_snapmirror_update_operation.html"
+  - title: 完成过渡项目
+    url: "/copy-based/task_completing_a_transition_project.html"
+  - title: 完成监管链验证
+    url: "/copy-based/task_completing_chain_of_custody_verification.html"
+- title: 使用 7- 模式过渡工具命令行界面过渡卷
+  url: "/copy-based/concept_transitioning_volumes_using_7mtt_cli.html"
+  entries:
+  - title: 选择项目中的卷的方案
+    url: "/copy-based/concept_scenarios_for_selecting_volumes_in_a_session.html"
+  - title: 使用 7- 模式过渡工具命令行界面过渡卷
+    url: "/copy-based/concept_transitioning_volumes_using_7mtt_cli.html"
+    entries:
+    - title: 创建过渡项目
+      url: "/copy-based/task_creating_a_transition_session.html"
+    - title: 使用命令行界面自定义 7- 模式配置的过渡
+      url: "/copy-based/task_transitioning_volumes_by_excluding_a_subset_of_configurations.html"
+      entries:
+      - title: 可从过渡中排除的配置
+        url: "/copy-based/reference_configurations_that_can_be_excluded.html"
+      - title: 整合 NFS 导出规则和 Snapshot 计划的示例 过渡
+        url: "/copy-based/reference_example_consolidating_nfs_export_rules_for_transition.html"
+    - title: 正在运行预检
+      url: "/copy-based/task_running_precheck_on_a_session.html"
+    - title: 为过渡项目启动数据复制
+      url: "/copy-based/task_starting_data_copy_for_a_transition_session.html"
+    - title: 将配置应用于 ONTAP 卷
+      url: "/copy-based/task_applying_configurations_to_ontap_volumes.html"
+    - title: 完成过渡
+      url: "/copy-based/task_completing_transition_process.html"
+  - title: 用于管理过渡的命令
+    url: "/copy-based/reference_commands_for_managing_transition_sessions.html"
+- title: 执行手动过渡后任务
+  url: "/copy-based/task_performing_post_transition_tasks.html"
+  entries:
+  - title: 使用 FC 分区计划配置分区
+    url: "/copy-based/task_configuring_zones_by_using_fc_zone_planner.html"
+  - title: 从失败的 LUN 过渡中恢复
+    url: "/copy-based/task_recovering_from_a_failed_lun_transition.html"
+  - title: 查看过渡后的 SAN 配置
+    url: "/copy-based/task_viewing_transitioned_san_configurations.html"
+  - title: 由 SnapDrive 管理的 LUN 的 7- 模式 Snapshot 副本的限制 和 SnapManager
+    url: "/copy-based/concept_limitations_with_snapshot_copies_and_luns_managed_by_snap_products.html"
+  - title: 过渡后在远程站点上配置 cron 作业计划 MetroCluster 配置
+    url: "/copy-based/task_post_transition_task_for_a_metrocluster_configuration.html"
+  - title: 从过渡后的卷中删除 7- 模式卷 Snapshot 副本
+    url: "/copy-based/task_deleting_7_mode_volume_snapshot_copies_from_transitioned_volumes.html"
+  - title: 整合过渡后的卷中的 cron 计划
+    url: "/copy-based/task_consolidating_snapshot_policies_and_cron_schedules_on_transitioned_volumes.html"
+- title: 管理过渡项目
+  url: "/copy-based/concept_managing_a_transition_project.html"
+  entries:
+  - title: 编辑项目
+    url: "/copy-based/task_editing_a_subproject.html"
+  - title: 管理 SnapMirror 传输和计划
+    url: "/copy-based/concept_managing_snapmirror_transfers_and_schedule.html"
+    entries:
+    - title: 为 SnapMirror 传输创建数据复制计划
+      url: "/copy-based/task_creating_schedule_for_snapmirror_transfers.html"
+    - title: 创建数据复制计划的注意事项
+      url: "/copy-based/concept_guidelines_for_creating_a_data_copy_schedule.html"
+    - title: 编辑或删除 SnapMirror 传输的数据复制计划
+      url: "/copy-based/task_editing_or_deleting_snapmirror_transfer_schedule.html"
+  - title: 管理逻辑接口
+    url: "/copy-based/task_managing_logical_interfaces.html"
+  - title: 从项目中删除卷
+    url: "/copy-based/task_removing_volumes_from_a_project.html"
+  - title: 暂停和恢复项目
+    url: "/copy-based/task_pausing_and_resuming_a_subproject.html"
+  - title: 中止项目
+    url: "/copy-based/task_aborting_a_subproject.html"
+  - title: 删除项目
+    url: "/copy-based/task_deleting_a_project.html"
+- title: 对问题进行故障排除
+  url: "/copy-based/concept_troubleshooting_web_interface_issues.html"
+  entries:
+  - title: 下载过渡日志文件
+    url: "/copy-based/task_collecting_tool_logs.html"
+  - title: 7- 模式过渡工具的日志文件
+    url: "/copy-based/concept_log_files_for_7mtt.html"
+  - title: 如果发生可忽略的错误，则继续过渡
+    url: "/copy-based/task_acknowledging_errors_to_continue_with_transition.html"
+    entries:
+    - title: 过渡期间发生可忽略的错误
+      url: "/copy-based/reference_ignorable_errors_during_transition.html"
+  - title: 过渡因切换或而失败的 MetroCluster 配置 切回
+    url: "/copy-based/task_transitioning_a_metrocluster_configuration_if_a_switchover_or_switchback_event_occurs.html"
+  - title: 无法从卷选择窗格中选择二级卷
+    url: "/copy-based/reference_cannot_select_a_secondary_volume_from_volume_selection_pane.html"
+  - title: 如果工具失败，则无法选择要过渡的卷 以检索卷信息
+    url: "/copy-based/reference_cannot_select_volume_for_transition_if_tool_fails_to_retrieve_volume_information.html"
+  - title: 如果选择，则无法从卷映射窗格继续 SVM 没有聚合
+    url: "/copy-based/reference_cannot_proceed_from_volume_mapping_pane_if_selected_svm_has_no_aggregate.html"
+  - title: 从 Data ONTAP 7.3.x 过渡后未启用数据压缩
+    url: "/copy-based/reference_compression_fails_to_start_after_transition.html"

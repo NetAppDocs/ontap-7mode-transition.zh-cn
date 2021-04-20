@@ -1,0 +1,19 @@
+---
+permalink: san-host/concept_hp_ux_host_remediation.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, hp, ux, host, remediation 
+summary: 如果在 SAN 环境中使用 7- 模式过渡工具（ 7MTT\ ）从 7- 模式 Data ONTAP 迁移到集群模式 Data ONTAP ，则必须在过渡前后在 HP-UX 主机上执行一系列步骤，以避免过渡复杂化。 
+---
+= HP-UX 主机修复
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在 SAN 环境中使用 7- 模式过渡工具（ 7MTT ）从 7- 模式 Data ONTAP 迁移到集群模式 Data ONTAP ，则必须在过渡前后在 HP-UX 主机上执行一系列步骤，以避免过渡复杂化。
+
+* 相关信息 *
+
+xref:task_making_a_san_boot_lun_primary_for_hp_ux_emulex_hbas_after_transition.adoc[使 SAN 启动 LUN 成为的主启动 LUN 过渡后的 HP-UX Emulex HBA]
+
+xref:task_making_san_boot_lun_primary_boot_lun_for_hp_ux_qlogic_hbas_after_transition.adoc[使 SAN 启动 LUN 成为的主启动 LUN 过渡后的 HP-UX QLogic HBA]

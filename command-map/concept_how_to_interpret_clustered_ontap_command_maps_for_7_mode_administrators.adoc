@@ -1,0 +1,105 @@
+---
+permalink: command-map/concept_how_to_interpret_clustered_ontap_command_maps_for_7_mode_administrators.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, clustered, commands, options, configuration, file, maps, interpret 
+summary: 如果要从 7- 模式下运行的 Data ONTAP 迁移到集群模式 Data ONTAP ，您可能会发现参考命令映射非常方便，其中显示了与 7- 模式命令，选项和配置文件等效的集群模式 Data ONTAP 。 
+---
+= 如何为 7- 模式管理员解释集群模式 Data ONTAP 命令，选项和配置文件映射
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要从 7- 模式下运行的 Data ONTAP 迁移到集群模式 Data ONTAP ，您可能会发现参考命令映射非常方便，其中显示了与 7- 模式命令，选项和配置文件等效的集群模式 Data ONTAP 。
+
+
+
+== 包含哪些映射信息
+
+7- 模式管理员命令映射包括以下 7- 模式命令，选项和配置文件与集群模式 Data ONTAP 等效项的映射：
+
+* xref:reference_how_7_mode_commands_map_to_clustered_ontap_commands.adoc[7- 模式命令与集群模式 Data ONTAP 命令的映射关系]
+* xref:reference_how_7_mode_options_map_to_clustered_ontap_commands.adoc[7- 模式选项与集群模式 Data ONTAP 命令的映射关系]
+* xref:reference_how_7_mode_configuration_files_map_to_clustered_ontap_commands.adoc[7- 模式配置文件如何映射到集群模式 Data ONTAP 命令]
+
+
+
+
+== 如何解读与 7- 模式兼容的快捷命令
+
+尽管 Data ONTAP 命令行界面（ CLI ）已针对集群操作进行了显著的重新组织，但许多命令都具有与 7- 模式兼容的快捷方式版本，无需更改脚本或执行其他自动化任务。这些快捷方式版本会首先列出，并在下表中以 * 粗体 * 显示。下面列出了与 7- 模式不兼容的快捷方式版本，后面是完整的长格式命令：
+
+|===
+| 7- 模式命令 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`aggr add`
+ a| 
+` * aggr add*`
+
+`aggr add-disks`
+
+`s存储聚合附加磁盘`
+
+|===
+如果未列出任何 * 粗体 * 快捷方式，则没有与 7- 模式兼容的版本。表中并未显示所有形式的命令。命令行界面极其灵活，允许使用多种缩写形式。
+
+
+
+== 了解 CLI 命令的不同集群模式 Data ONTAP shell
+
+集群具有三种不同的命令行界面命令 Shell ：
+
+* clustershell_ 是原生 shell ，登录到集群时会自动启动。
++
+它提供了配置和管理集群所需的所有命令。
+
+* nodeshell_ 是一个特殊的 Shell ，可用于运行一组 7- 模式命令。
++
+这些命令仅在节点级别生效。您可以从 clustershell 切换到 nodeshell 会话以交互方式运行 nodeshell 命令，也可以从 clustershell 运行单个 nodeshell 命令。如果命令的形式为（长） `ssystem node run -node ｛ _nodename_llocal ｝ commandname` ，则可以将其识别为 nodeshell 命令。
+
+* systemshell_ 是一个低级 Shell ，仅用于诊断和故障排除目的。
++
+它不用于一般管理目的。请仅在技术支持的指导下访问 systemshell 。
+
+
+
+
+
+== 正在切换到 nodeshell
+
+如果您看到与 7- 模式兼容的 nodeshell 命令快捷版本，则假定您正在从 nodeshell 运行此命令。要切换到 nodeshell ，请输入以下命令：
+
+` * 系统节点 run -node ｛ _nodename__llocal ｝ *`
+
+必须从 clustershell 运行其他形式的 `nodeshell` 命令。
+
+
+
+== 从何处获取更多信息
+
+|===
+| 如果您要 ... | 有关详细信息 ... 
+
+
+ a| 
+使用 clustershell 命令
+ a| 
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 命令"]
+
+
+
+ a| 
+使用 nodeshell 命令
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMP1511537["Data ONTAP 8.2 命令：《 7- 模式手册页参考》，卷 1"]
+
+
+
+ a| 
+执行 CLI 命令，导航 CLI 命令目录，在 CLI 中设置值，并使用查询，模式和通配符
+ a| 
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
+
+|===

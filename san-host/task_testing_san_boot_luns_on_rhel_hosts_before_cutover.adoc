@@ -1,0 +1,56 @@
+---
+permalink: san-host/task_testing_san_boot_luns_on_rhel_hosts_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, boot, lun, rhel, cutover, copy, based 
+summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本对 Red Hat Enterprise Linux \ （ RHEL\ ）主机执行基于副本的过渡，则可以在转换阶段之前测试过渡后的 ONTAP SAN 启动 LUN 。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。 
+---
+= 在转换之前测试 RHEL 主机上的 SAN 启动 LUN 基于副本的过渡阶段
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果使用 7- 模式过渡工具（ 7MTT ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本对 Red Hat Enterprise Linux （ RHEL ）主机执行基于副本的过渡，则可以在转换阶段之前测试过渡后的 ONTAP SAN 启动 LUN 。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。
+
+新的 ONTAP LUN 必须映射到测试主机，并且 LUN 必须做好过渡准备。
+
+您应保持测试主机与源主机之间的硬件奇偶校验。
+
+* 对于基于副本的过渡，必须在 7- 模式过渡工具中完成存储转换操作后执行以下步骤。
+* 对于无副本过渡，必须在 7- 模式过渡工具中执行导入数据和配置操作之后执行这些步骤。
+
+
+.步骤
+. 仅适用于 FC 和 FCoE 配置：
++
+.. 进入 HBA BIOS 设置模式。
+.. 选择 * 重新扫描 * 以发现主机上的 ONTAP SAN 启动 LUN 。
+.. 删除 7- 模式启动 LUN ID 。
+.. 在 HBA BIOS 中添加 ONTAP 启动 LUN ID 。
+.. 退出 HBA BIOS 设置模式，然后重新启动主机。
+
+
+. 主机重新启动后，更改测试主机上的 IP 地址和主机名。
+. 验证是否已发现新的 ONTAP LUN ：
++
+` * sanlun lun show*`
+
+. 为 ONTAP LUN 配置 DMMP 设备：
++
+` * 多路径 -ll*`
+
+. 根据需要执行测试。
+. 关闭测试主机：
++
+` * shutdown -h -t0 now*`
+
+. 在 7- 模式过渡工具用户界面（ UI ）中，单击 * 完成测试 * 。
+
+
+如果要将 ONTAP LUN 重新映射到源主机，则必须为转换阶段准备源主机。如果 ONTAP LUN 仍要映射到测试主机，则无需在测试主机上执行其他步骤。
+
+* 相关信息 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[从清单评估工作簿收集过渡前信息]
+
+xref:concept_preparing_for_cutover_when_transitioning_san_boot_luns.adoc[过渡 SAN 启动 LUN 时为转换阶段做准备]

@@ -1,0 +1,58 @@
+---
+permalink: san-host/task_preparing_rhel_luns_transition_using_inventory_assessment_workbook.html 
+sidebar: sidebar 
+keywords: rhel, lun, mount, points, dmmp, device, names, inventory, assessment, workbook 
+summary: 过渡挂载点使用 DMMP 设备名称的 LUN 之前，必须将 DMMP 设备名称替换为相应的文件系统 UUID 编号。此适用场景 Red Hat Enterprise Linux \ （ RHER\ ） 5 和 RHEL 6 。 
+---
+= 使用 DMMP 设备名称准备挂载点的 RHEL LUN 使用清单评估工作簿进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡挂载点使用 DMMP 设备名称的 LUN 之前，必须将 DMMP 设备名称替换为相应的文件系统 UUID 编号。此适用场景 Red Hat Enterprise Linux （ RHEL ） 5 和 RHEL 6 。
+
+这种基于操作步骤适用场景副本的过渡和无副本过渡。
+
+.步骤
+. 从清单评估工作簿 _ 收集过渡前信息。
++
+具体而言，您需要以下信息：
+
++
+** DMMP 设备上配置的文件系统
+** DMMP 设备挂载到的目录
+** DMMP 设备的文件系统 UUID
+
+
+
+
+.步骤
+. 验证 DMMP 设备的挂载点是否已在 ` /etc/fstab `文件中定义。
+. 创建文件的备份：
++
+` * cp /etc/fstab /etc/fstab_pre_transition*`
+
+. 编辑 ` /etc/fstab` 文件，将 DMMP 设备名称替换为其相应的文件系统 UUID 编号。
++
+在以下示例中， DMMP 设备 /dev/mapper/360a9800037534562572b453855496b41 将替换为 UUID a073547e-00b6-4bf9-8e08-5eef08499a9c ：
+
++
+[listing]
+----
+[root@IBMx3550M3-229-169 ~]# cat /etc/fstab
+/dev/VolGroup00/LogVol00 /  ext3  defaults   1 1
+LABEL=/boot /boot  ext3     defaults         1 2
+tmpfs  /dev/shm    tmpfs    defaults         0 0
+devpts /dev/pts    devpts   gid=5, mode=620  0 0
+sysfs  /sys	       sysfs           defaults  0 0
+proc   /proc       proc           defaults   0 0
+/dev/VolGroup00/LogVol01 swap	swap  defaults 0 0
+/dev/mapper/test_vg-test_lv /mnt/lvm_ext3 ext3 defaults,_netdev 0 0
+UUID=a073547e-00b6-4bf9-8e08-5eef08499a9c /mnt/dmmp_ext3 ext3 defaults,_netdev 0 0
+----
+
+
+* 相关信息 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[从清单评估工作簿收集过渡前信息]

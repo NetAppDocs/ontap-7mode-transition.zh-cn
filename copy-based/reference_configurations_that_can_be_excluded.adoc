@@ -1,0 +1,236 @@
+---
+permalink: copy-based/reference_configurations_that_can_be_excluded.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, configurations, excluded 
+summary: 您可以通过使用 7- 模式过渡工具命令行界面的 transition CBT property-set 命令指定属性名称来从过渡中排除 NFS ， CIFS ， SAN 和名称服务配置的某些卷级或 SVM 级配置，从而自定义配置过渡。 
+---
+= 可从过渡中排除的配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过使用 7- 模式过渡工具命令行界面的 `transition CBT property-set` 命令指定属性名称来从过渡中排除 NFS ， CIFS ， SAN 和名称服务配置的某些卷级或 SVM 级配置，从而自定义配置过渡。
+
+
+
+== NFS
+
+|===
+| 要排除的 7- 模式配置 | 属性名称 
+
+
+ a| 
+导出策略
+ a| 
+`ignore-nfs-exports-transition`
+
+
+
+ a| 
+NFS 选项
+ a| 
+`ignore-nfs-options-transition`
+
+
+
+ a| 
+所有 NFS 配置
+ a| 
+`ignore-all-nfs-configuration-transition`
+
+|===
+
+
+== CIFS
+
+|===
+| 要排除的 7- 模式配置 | 属性名称 
+
+
+ a| 
+本地用户和组
+ a| 
+`ignore-local-users-groups-transition`
+
+
+
+ a| 
+主目录路径
+ a| 
+`ignore-cifs-home-directory-paths-transition`
+
+
+
+ a| 
+符号链接
+ a| 
+`ignore-cifs-symlinks-transition`
+
+
+
+ a| 
+Widelink
+ a| 
+`ignore-cifs-widelinks-transition`
+
+
+
+ a| 
+共享和共享 ACL
+ a| 
+`ignore-cifs-shares 和 -ACLs-transition`
+
+
+
+ a| 
+CIFS 选项
+ a| 
+`ignore-cifs-options-transition`
+
+
+
+ a| 
+名称映射
+ a| 
+`ignore-cifs-name-mmaping-transition`
+
+
+
+ a| 
+审核配置
+ a| 
+`ignore-cifs-audit-transition`
+
+
+
+ a| 
+首选域控制器列表
+ a| 
+`ignore-cifs-preferred-domain-controller-list-transition`
+
+
+
+ a| 
+所有 CIFS 配置
+ a| 
+`ignore-all-cifs-configuration-transition`
+
+|===
+
+
+== 名称服务
+
+|===
+| 要排除的 7- 模式配置 | 属性名称 
+
+
+ a| 
+网络组
+ a| 
+`ignore-netgroups-transition`
+
+
+
+ a| 
+UNIX 用户和组
+ a| 
+`ignore-unix-users-groups-transition`
+
+
+
+ a| 
+NIS
+ a| 
+`ignore-nis-transition`
+
+
+
+ a| 
+DNS
+ a| 
+`ignore-dns-transition`
+
+
+
+ a| 
+LDAP
+ a| 
+`ignore-ldap-transition`
+
+
+
+ a| 
+` /etc/nsswitch.conf` 文件
+ a| 
+`ignore-nsswitch-transition`
+
+
+
+ a| 
+基于 LDAP 的用户映射
+ a| 
+`ignore-nmswitch-transition`
+
+
+
+ a| 
+` /etc/hosts` 文件
+ a| 
+`ignore-etc-hosts-transition`
+
+
+
+ a| 
+所有名称服务配置
+ a| 
+`ignore-all-nameservices — configurations — transition`
+
+|===
+
+
+== SAN
+
+|===
+| 要排除的 7- 模式配置 | 属性名称 
+
+
+ a| 
+igroup 和 LUN 映射
+ a| 
+`ignore-igroup-and-lunmapping-transition`
+
+
+
+ a| 
+所有配置
+ a| 
+`ignore-all-san-configuration-transition`
+
+|===
+
+
+== Snapshot 计划
+
+|===
+| 要排除的 7- 模式配置 | 属性名称 
+
+
+ a| 
+Snapshot 计划
+ a| 
+ignore-snapshot-schedule-transition
+
+
+NOTE: 如果此选项设置为 true ，则会将 "default"Snapshot 策略应用于过渡后的卷。
+
+|===
+* 相关信息 *
+
+xref:concept_cifs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[过渡到 ONTAP 时支持和不支持的 CIFS 配置]
+
+xref:concept_nfs_configurations_supported_unsupported_or_requiring_manual_steps_for_transition.adoc[NFS 过渡：支持和不支持的配置以及所需的手动步骤]
+
+xref:concept_supported_and_unsupported_name_services_configurations.adoc[名称服务过渡：支持和不支持的配置以及所需的手动步骤]
+
+xref:concept_san_transition_supported_and_unsupported_configurations_and_required_manual_steps.adoc[SAN 过渡：支持和不支持的配置以及所需的手动步骤]

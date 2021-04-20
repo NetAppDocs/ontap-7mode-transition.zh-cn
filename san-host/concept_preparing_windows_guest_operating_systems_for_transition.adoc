@@ -1,0 +1,17 @@
+---
+permalink: san-host/concept_preparing_windows_guest_operating_systems_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, windows, guest, operating, systems 
+summary: 如果 Windows VM 使用物理兼容 RDM （ PTRDM\ ）设备，则必须在过渡之前使 Windows VM 上的磁盘脱机。您可以使用磁盘管理器使磁盘脱机。 
+---
+= 准备要过渡的 Windows 子操作系统
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果 Windows VM 使用物理兼容 RDM （ PTRDM ）设备，则必须在过渡之前使 Windows VM 上的磁盘脱机。您可以使用磁盘管理器使磁盘脱机。
+
+* 对于基于副本的过渡，请在 7- 模式过渡工具（ 7MTT ）中启动存储转换操作之前执行以下步骤。
+* 对于无副本过渡，请在 7MTT 中启动导出并暂停 7- 模式系统操作之前执行以下步骤。
+

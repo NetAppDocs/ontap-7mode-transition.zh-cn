@@ -1,0 +1,11 @@
+---
+permalink: copy-free/reference_copyright_and_trademark.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, copyright, trademark 
+summary: 《无副本过渡指南》的版权和商标。 
+---
+= 版权和商标
+:icons: font
+:imagesdir: ../media/
+
+

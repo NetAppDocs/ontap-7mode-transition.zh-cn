@@ -1,0 +1,26 @@
+---
+permalink: inventory-collect/concept_collecting_host_and_storage_inventory_information_for_transition_assessment.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, collect, storage, host, inventory, information 
+summary: 通过清单收集工具，您可以收集有关集群模式 Data ONTAP 和 7- 模式系统，交换机，主机以及这些主机上运行的应用程序的信息，并创建清单报告。然后，您可以将清单报告导入到 7- 模式过渡工具中以进行过渡评估。 
+---
+= 收集存储和主机清单信息
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过清单收集工具，您可以收集有关集群模式 Data ONTAP 和 7- 模式系统，交换机，主机以及这些主机上运行的应用程序的信息，并创建清单报告。然后，您可以将清单报告导入到 7- 模式过渡工具中以进行过渡评估。
+
+该工具将生成清单报告工作簿和清单报告 XML 文件，其中包含存储和主机系统的配置详细信息。
+
+清单收集工具使用 TLS 或 SSL 协议与 7- 模式存储系统进行通信，并使用 SSH 或 WMI 与主机进行通信。如果在存储系统上启用了 TLS ，则该工具将使用 TLS 协议与存储系统进行通信。如果在存储系统上禁用了 TLS 且启用了 SSLv3 ，则该工具将使用 SSLv3 与存储系统进行通信。
+
+
+NOTE: 最佳实践是在存储系统上启用 TLS 并禁用 SSLv3 ，以避免出现 SSLv3 安全漏洞（ CVE-2014-3566 ）。
+
+如果由于安全原因无法在环境中安装 7- 模式过渡工具，则可以将清单收集工具生成的清单报告 XML 文件导入到 7- 模式过渡工具（安装在数据中心外部）以生成评估报告。您可以使用评估报告评估系统的特性和功能，并确定这些特性和功能在选择进行过渡的集群模式 Data ONTAP 版本中的工作方式。
+
+清单收集工具是一个独立实用程序，不需要任何安装。
+
+请务必参考当前的 7- 模式过渡工具 link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["发行说明"] 有关受支持的目标版本和已知问题的最新信息。

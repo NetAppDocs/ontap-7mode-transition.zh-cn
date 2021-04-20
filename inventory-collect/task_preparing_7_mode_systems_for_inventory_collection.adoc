@@ -1,0 +1,92 @@
+---
+permalink: inventory-collect/task_preparing_7_mode_systems_for_inventory_collection.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, prepare, system, host, inventory, collection 
+summary: 要成功生成清单报告，您必须确保 7- 模式系统和主机满足特定的网络和协议要求。 
+---
+= 准备 7- 模式系统和主机以进行清单收集
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要成功生成清单报告，您必须确保 7- 模式系统和主机满足特定的网络和协议要求。
+
+.步骤
+. 在 7- 模式系统上启用 HTTPS ：
++
+` * options httpd.admin.ssl.enable on*`
+
+. 在 7- 模式系统上启用 TLS ：
++
+` * 选项 tls.enable on*`
+
++
+
+IMPORTANT: 最佳做法是，由于 SSLv3 中存在安全漏洞，启用 TLS 。
+
+. 在 7- 模式系统上启用 SSL 并禁用 SSLv2 和 SSLv3 ：
++
+.. 设置和启动 SSL ：
++
+` * 安全管理员设置 SSL*`
+
+.. 启用 SSL ：
++
+` * 选项 ssl.enable on*`
+
+.. 禁用 SSLv2 和 SSLv3 ： + ` * options ssl.v2.enable off*`
++
+` * 选项 ssl.v3.enable off*`
+
++
+
+IMPORTANT: 最佳实践是禁用 SSLv2 和 SSLv3 以避免安全漏洞。
+
+
+
+. 在 7- 模式系统上启用 SSH ：
++
+.. 在 7- 模式系统上设置 SSH ：
++
+` * SecureAdmin setup -f ssh*`
+
++
+f 选项可强制运行设置，即使已配置 SSH 服务器也是如此。
+
+.. 启用 SSH ：
++
+` * 启用 SecureAdmin ssh2*`
+
+.. 在 SSH 服务器上启用密码身份验证：
++
+` * 选项 ssh.passwd_auth.enable*`
+
+.. 启用对主机的 SSH 访问：
++
+` * 选项 ssh.access*`
+
+
+
+. 准备 Windows 主机系统：
++
+** 启用 WMI 访问。
++
+有关启用 WMI 访问的详细信息，请参见主机文档。
+
+** 如果您使用的是 Windows Server 2003 ，请验证是否已安装 Microsoft 光纤通道信息工具（ fcinfo ）软件包，并在 Windows 主机系统上运行该工具一次。
++
+使用此工具可以收集主机的 HBA 配置信息。
+
+
+
+. 在 Linux 或 ESXi 主机上启用 SSH 。
++
+有关启用 SSH 的详细信息，请参见主机文档。
+
+. 验证您是否已为每个主机安装最新的 NetApp Host Utilities 软件。
++
+有关下载和安装 NetApp Host Utilities 软件的信息，请参见 NetApp 支持站点。
+
+. 验证运行清单收集工具的 Windows 系统是否可以访问所有主机和存储系统。
+

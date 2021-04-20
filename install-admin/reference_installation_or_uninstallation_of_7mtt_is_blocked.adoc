@@ -1,0 +1,31 @@
+---
+permalink: install-admin/reference_installation_or_uninstallation_of_7mtt_is_blocked.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, uninstall, transition, tool, blocked 
+summary: 在使用 7- 模式过渡工具安装程序或卸载程序执行任何操作（例如安装，修复，重新安装，升级，卸载）时， 此时将显示以下错误消息：另一个 NetApp 7- 模式过渡工具安装或卸载实例正在运行。一次只能运行一个实例。 
+---
+= 阻止安装或卸载 7- 模式过渡工具
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 7- 模式过渡工具安装程序或卸载程序执行任何操作（例如安装，修复，重新安装，升级，卸载）时， 此时将显示以下错误消息： `另一个 NetApp 7- 模式过渡工具安装或卸载实例正在运行。一次只能运行一个实例` 。
+
+
+
+== 临时解决策
+
+开始之前，请确保没有打开 7- 模式过渡工具的实例或对话框。否则，您可能需要再次执行这些步骤。
+
+. 单击 * 启动 * 以打开 * 注册表 * 。
+. 在 * 搜索程序和文件 * 中，输入 ` * regedit*` 。
+. 打开注册表编辑器后，找到 HKEY_LOCAL_MACHINE 注册表单元。
+. 单击文件夹图标左侧的展开图标，展开 HKEY_LOCAL_MACHINE 单元。
+. 继续展开注册表项和子项，直到找到 `HKEY_LOCAL_MACHINE \ software \NetApp \7- 模式过渡工具` 。
+. 单击 * 7- 模式过渡工具 * 。
+. 右键单击 installation_status ，然后选择 * 修改 * 。
+. 将值从 installer_running 更改为 installed ，然后单击 * 确定 * 。
+
+
+现在，您应该能够使用 7- 模式过渡工具安装程序或卸载程序执行任何操作。

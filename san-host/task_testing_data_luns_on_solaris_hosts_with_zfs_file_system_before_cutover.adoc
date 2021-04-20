@@ -1,0 +1,148 @@
+---
+permalink: san-host/task_testing_data_luns_on_solaris_hosts_with_zfs_file_system_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, data, lun, solaris, zfs, cutover, copy, based 
+summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 Solaris 主机 ZFS 数据 LUN ，则可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以挂载 MPIO 设备。 
+---
+= 在使用 ZFS 文件系统的 Solaris 主机上测试数据 LUN 在基于副本的过渡的转换阶段之前
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果使用 7- 模式过渡工具（ 7MTT ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 Solaris 主机 ZFS 数据 LUN ，则可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以挂载 MPIO 设备。
+
+* 在开始测试阶段过渡之前，具有 ZFS 数据 LUN 的源主机需要脱机。
++
+有关详细信息，请参见 _Oracle 文档 ID 1316472.1 ：在 ZFS zpool is Online" 时不支持 LUN 复制。
+
+* 新的集群模式 Data ONTAP LUN 必须映射到测试主机，并且 LUN 必须已做好过渡准备。
+* 在生产主机上导出 zpool 会导致应用程序中断；所有 I/O 操作都应在 7- 模式 LUN 之前停止。
+
+
+您应保持测试主机与源主机之间的硬件奇偶校验，并应在测试主机上执行以下步骤。
+
+测试期间，集群模式 Data ONTAP LUN 处于读 / 写模式。测试完成后，它们将转换为只读模式，而您正在为转换阶段做准备。
+
+. 在生产（源）主机上，导出 zpool ：
++
+` * #zpool export _pool-name_*`
+
++
+[listing]
+----
+# zpool export n_pool
+
+# zpool import
+  pool: n_pool
+    id: 5049703405981005579
+ state: ONLINE
+action: The pool can be imported using its name or numeric identifier.
+config:
+
+        n_pool                                   ONLINE
+          c0t60A98000383035356C2447384D396550d0  ONLINE
+          c0t60A98000383035356C2447384D39654Ed0  ONLINE
+----
+. 基线数据复制完成后，在 7MTT 用户界面（ UI ）中选择 * 测试模式 * 。
+. 在 7MTT UI 中，单击 * 应用配置 * 。
++
+
+NOTE: 完成此步骤后，您可以将应用程序重新设置为联机，并将 I/O 操作启动为 7- 模式 LUN 。后续步骤不会对任何应用程序中断进行发生原因处理。
+
+. 在生产主机上，导入 zpool ：
++
+` * #zpool import _pool-name_*`
+
++
+[listing]
+----
+# zpool import n_pool
+----
+. 在测试主机上，重新扫描新的集群模式 Data ONTAP LUN ：
++
+.. 确定 FC 主机端口（类型为 fc-fabric ）： + ` * #cfgadm – l*`
+.. 取消配置第一个 fc-fabric 端口： + ` * #cfgadm – c 取消配置 c1*`
+.. 配置第一个 fc-fabric 端口： + ` * #cfgadm – c unconfigure c2 *`
+.. 对其他光纤通道端口重复上述步骤。
+.. 显示有关主机端口及其连接设备的信息： + ` * # cfgadm – al*`
+.. 重新加载驱动程序： + ` * # devfsadm – CV*`
++
+` * # devfsadm – i iSCSI*`
+
+
+
+. 验证集群模式 Data ONTAP LUN 是否存在：
++
+` *#sanlun lun show*`
+
++
+[listing]
+----
+# sanlun lun show
+controller(7mode)/                    device                                            host                  lun
+vserver(Cmode)       lun-pathname     filename                                          adapter    protocol   size    mode
+--------------------------------------------------------------------------------------------------------------------------
+vs_5           /vol/zfs/zfs2    /dev/rdsk/c5t600A0980383030444D2B466542485935d0s2 scsi_vhci0 FCP        6g      C
+vs_5           /vol/zfs/zfs1    /dev/rdsk/c5t600A0980383030444D2B466542485934d0s2 scsi_vhci0 FCP        6g      C
+vs_5           /vol/ufs/ufs2    /dev/rdsk/c5t600A0980383030444D2B466542485937d0s2 scsi_vhci0 FCP        5g      C
+vs_5           /vol/ufs/ufs1    /dev/rdsk/c5t600A0980383030444D2B466542485936d0s2 scsi_vhci0 FCP        5g      C
+----
+. 验证计划测试的 zpool 是否可导入：
++
+` * #zpool import*`
+
++
+[listing]
+----
+# zpool import
+  pool: n_pool
+    id: 5049703405981005579
+ state: ONLINE
+action: The pool can be imported using its name or numeric identifier.
+config:
+
+        n_pool                                   ONLINE
+          c5t600A0980383030444D2B466542485935d0  ONLINE
+          c5t600A0980383030444D2B466542485934d0  ONLINE
+----
+. 使用池名称或池 ID 导入 zpool ：
++
+** ` * #zpool import pool-name*`
+** ` * #zpool import pool-id*`
+
+
++
+[listing]
+----
+#zpool import n_pool
+----
++
++
+
++
+[listing]
+----
+#zpool import 5049703405981005579
+----
+. 验证是否已挂载 ZFS 数据集：
++
+** ` * zfs list*`
+** ` * df -ah*`
+
+
++
+[listing]
+----
+# zfs list
+NAME           USED  AVAIL  REFER  MOUNTPOINT
+n_pool        2.67G  9.08G   160K  /n_pool
+n_pool/pool1  1.50G  2.50G  1.50G  /n_pool/pool1
+n_pool/pool2  1.16G  2.84G  1.16G  /n_pool/pool2
+----
+. 根据需要执行测试。
+. 关闭测试主机。
+. 在 7MTT UI 中，单击 * 完成测试 * 。
+
+
+如果要将集群模式 Data ONTAP LUN 重新映射到源主机，则必须为源主机做好转换阶段的准备。如果集群模式 Data ONTAP LUN 仍要映射到测试主机，则无需在测试主机上执行其他步骤。

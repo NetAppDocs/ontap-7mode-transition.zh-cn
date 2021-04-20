@@ -1,0 +1,37 @@
+---
+permalink: snapmirror/concept_planning_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, plan, clustered, volumes, snapmirror 
+summary: 在将数据从 7- 模式卷复制到集群模式 ONTAP 卷之前，您必须了解何时使用 SnapMirror 执行过渡，并查看有关支持的 7- 模式版本和支持的过渡卷的信息。您还必须了解某些过渡注意事项。 
+---
+= 规划过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在将数据从 7- 模式卷复制到集群模式 ONTAP 卷之前，您必须了解何时使用 SnapMirror 执行过渡，并查看有关支持的 7- 模式版本和支持的过渡卷的信息。您还必须了解某些过渡注意事项。
+
+如果存在任何过渡问题，您应查看过渡目标版本的 _Release Notes_。
+
+https://library.netapp.com/ecmdocs/ECMLP2492508/html/frameset.html["《 ONTAP 9 发行说明》"]
+
+以下版本支持 7- 模式卷和集群模式 ONTAP 卷之间的 SnapMirror 关系：
+
+* ONTAP 9.8 及更高版本
+* ONTAP 9.7P2 及更高版本 9.7
+* ONTAP 9.6P7 及更高版本 9.6
+* ONTAP 9.0 到 ONTAP 9.5
+
+
+在以下情况下，您可以使用 SnapMirror 过渡数据：
+
+* 7- 模式过渡工具不支持您的过渡要求；例如， 7- 模式过渡工具需要的 Windows 或 Linux 主机可能在您的环境中不可用。
++
+* 建议： * 您应使用 7- 模式过渡工具过渡 7- 模式卷，因为该工具提供了预检查来验证过渡的可行性，并迁移所有协议，网络和服务配置以及数据。
+
++
+您可以安装并使用 7- 模式过渡工具执行过渡预检查，然后使用 SnapMirror 命令执行从 7- 模式卷到集群模式 ONTAP 卷的数据迁移。
+
+* 集群和 Storage Virtual Machine （ SVM ）已配置完毕，只需将数据从 7- 模式卷过渡到集群模式 ONTAP 卷即可。
+

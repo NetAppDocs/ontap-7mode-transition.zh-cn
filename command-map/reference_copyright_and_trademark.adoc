@@ -1,0 +1,11 @@
+---
+permalink: command-map/reference_copyright_and_trademark.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, copyright, trademark 
+summary: 《 7- 模式命令映射管理员指南》的版权和商标。 
+---
+= 版权和商标
+:icons: font
+:imagesdir: ../media/
+
+

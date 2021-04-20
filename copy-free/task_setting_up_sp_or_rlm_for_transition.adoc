@@ -1,0 +1,147 @@
+---
+permalink: copy-free/task_setting_up_sp_or_rlm_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, sp, rlm, system, set, up 
+summary: 如果尚未在 7- 模式存储系统上配置服务处理器 \ （ SP\ ）或远程 LAN 模块 \ （ RLM\ ），或者您已为 SP 或 RLM 配置 IPv6 地址，则必须为 SP 或 RLM 配置 IPv4 地址。 
+---
+= 在 7- 模式系统上设置 SP 或 RLM 用于无副本过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果尚未在 7- 模式存储系统上配置服务处理器（ SP ）或远程 LAN 模块（ RLM ），或者您已为 SP 或 RLM 配置了 IPv6 地址，则必须为 SP 或 RLM 配置 IPv4 地址。
+
+* 安装了 7- 模式过渡工具的主机必须支持 SSHv2 。
+* 您必须能够使用 "`admin` " 角色或具有 "`login-sp` " 功能的角色的凭据访问 SP 或 RLM"`naroot` " 帐户或 Data ONTAP 用户帐户。
+
+
+在过渡期间系统暂停时， 7- 模式过渡工具会使用远程管理设备访问 7- 模式系统，该设备可以是 SP 或 RLM ，具体取决于您的系统上根据平台型号提供的任何设备。您必须使用 IPv4 地址配置 SP 或 RLM 。过渡不支持 IPv6 配置。
+
+.步骤
+* 配置 SP 并为安装了 7- 模式过渡工具的主机提供 SP 访问权限。
++
+.. 使用 IPv4 地址 + ` * sp setup*` 配置并启用 SP 网络
++
+[listing]
+----
+system1> sp setup
+   The Service Processor (SP) provides remote management capabilities
+   including console redirection, logging and power control.
+   It also extends autosupport by sending
+   additional system event alerts. Your autosupport settings are use
+   for sending these alerts via email over the SP LAN interface.
+Would you like to configure the SP? y
+Would you like to enable DHCP on the SP LAN interface? n
+Please enter the IP address of the SP []: 192.168.123.98
+Please enter the netmask of the SP []: 255.255.255.0
+Please enter the IP address for the SP gateway []: 192.168.123.1
+Do you want to enable IPv6 on the SP ? n
+Verifying mailhost settings for SP use...
+----
+.. 验证 SP 网络配置设置：
++
+` * sp status*`
+
++
+[listing]
+----
+system1> sp status
+        Service Processor      Status: Online
+             Firmware Version:   1.2
+             Mgmt MAC Address:   00:A0:98:01:7D:5B
+             Ethernet Link:      up
+             Using DHCP:         no
+    IPv4 configuration:
+             IP Address:         192.168.123.98
+             Netmask:            255.255.255.0
+             Gateway:            192.168.123.1
+----
+.. 提供对安装了 7- 模式过渡工具的主机的 SP 访问权限：
++
+` * options sp.ssh.access host=__7mtt_host___*`
+
++
+` _7mtt_host_` 是安装了 7- 模式过渡工具的主机的主机名或 IP 地址。
+
++
+
+NOTE: 配置 SP 时，默认情况下会为所有主机授予访问权限。如果要限制对特定主机的访问，则必须执行此步骤。
+
+.. 从安装了 7- 模式过渡工具的主机登录到 SP ： + ` * ssh _username@SP_IP_address_*`
++
+出现提示时，输入用户名的密码。
+
++
+此时将显示 SP 提示符，指示您有权访问 SP 命令行界面。
+
+
+
+* 配置 RLM 并为安装了 7- 模式过渡工具的主机提供 RLM 访问权限。
++
+.. 使用 IPv4 地址配置 RLM 网络： + ` * RLM setup*`
++
+在 RLM 命令行界面向导中，必须输入 RLM 的 IP 地址，网络掩码和网关。
+
++
+[listing]
+----
+system> rlm setup
+	  The Remote LAN Module (RLM) provides remote management capabilities
+ 	 including console redirection, logging and power control.
+ 	 It also extends autosupport by sending
+ 	 additional system event alerts. Your autosupport settings are used
+ 	 for sending these alerts via email over the RLM LAN interface.
+Would you like to configure the RLM? y
+Would you like to enable DHCP on the RLM LAN interface? n
+Please enter the IP address for the RLM []:192.168.123.98
+Please enter the netmask for the RLM []:255.255.255.0
+Please enter the IP address for the RLM gateway []:192.168.123.1
+Do you want to enable IPv6 on the RLM ? n
+Verifying mailhost settings for RLM use...
+----
+.. 验证 RLM 网络配置是否正确：
++
+` * RLM status*`
+
++
+[listing]
+----
+system> rlm status
+	Remote LAN Module    Status: Online
+		Part Number:        110-00030
+		Revision:           A0
+		Serial Number:      123456
+		Firmware Version:   4.0
+		Mgmt MAC Address:   00:A0:98:01:7D:5B
+		Ethernet Link:      up, 100Mb, full duplex, auto-neg complete
+		Using DHCP:         no
+	IPv4 configuration:
+		IP Address:         192.168.123.98
+		Netmask:            255.255.255.0
+		Gateway:            192.168.123.1
+----
+.. 为安装了 7- 模式过渡工具的主机提供 RLM 访问权限：
++
+` + 选项 rlm.ssh.access host=__7mtt_host___*`
+
++
+7mtt_host 是安装了 7- 模式过渡工具的主机的主机名或 IP 地址。
+
++
+
+NOTE: 配置 RLM 时，默认情况下会为所有主机授予访问权限。如果要限制对特定主机的访问，则必须执行此步骤。
+
+.. 从安装了 7- 模式过渡工具的主机登录到 RLM ：
++
+` * ssh _username@RLM_IP_address_*`
+
++
+出现提示时，您必须输入用户名的密码。
+
++
+此时将显示 RLM 提示符，指示您有权访问 RLM 命令行界面。
+
+
+
+

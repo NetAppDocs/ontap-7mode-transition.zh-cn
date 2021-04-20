@@ -1,0 +1,35 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_windows_hosts.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, windows, hosts 
+summary: 如果要将 Windows 主机从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP ，则必须在过渡开始后，转换阶段开始之前执行一些步骤。 
+---
+= 过渡 Windows 主机时为转换阶段做准备
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要将 Windows 主机从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP ，则必须在过渡开始后，转换阶段开始之前执行一些步骤。
+
+如果您运行的是 Data ONTAP DSM ，则目标集群模式 Data ONTAP 节点上运行的 Data ONTAP 版本必须支持服务器上安装的 Data ONTAP DSM 版本。
+
+如果您运行的是 MSDSM ，则目标集群模式 Data ONTAP 节点上运行的 Data ONTAP 版本必须支持服务器上安装的 Windows Host Utilities 版本。
+
+* 对于基于副本的过渡，请在 7- 模式过渡工具（ 7MTT ）中启动存储转换操作之前执行以下步骤。
+* 对于无副本过渡，请在 7MTT 中启动导出并暂停 7- 模式操作之前执行以下步骤。
+
+
+.步骤
+. 使用磁盘管理器使要过渡的磁盘脱机。
+. 如果主机从 SAN 启动且启动 LUN 正在过渡，请关闭启动主机。
+. 如果主机是集群主机，请使用故障转移集群管理器使集群磁盘（包括仲裁磁盘）脱机。
+. 如果主机运行的是 Windows Server 2003 ，并且您需要迁移仲裁设备，请停止所有集群节点上的集群服务。
+. 如果要过渡启用了 Hyper-V 的服务器上的 LUN ，请对子操作系统执行相应的主机端过渡步骤。
+. 如果要过渡启用了 Hyper-V 的服务器上的 LUN ，而子操作系统的启动设备驻留在正在过渡的 Data ONTAP LUN 上，请执行以下操作：
++
+.. 关闭子操作系统。
+.. 使父系统上的相应磁盘脱机。
+
+
+

@@ -1,0 +1,51 @@
+---
+permalink: san-host/task_preparing_for_transition_of_esxi_hosts.html 
+sidebar: sidebar 
+keywords: transition, esxi, host 
+summary: 在使用 7- 模式过渡工具（ 7MTT\ ）将 ESXi 主机从 7- 模式 Data ONTAP 过渡到 ONTAP 之前，您必须完成几项前提条件任务。 
+---
+= 为过渡 ESXi 主机做准备
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用 7- 模式过渡工具（ 7MTT ）将 ESXi 主机从 7- 模式 Data ONTAP 过渡到 ONTAP 之前，您必须完成几项前提条件任务。
+
+.步骤
+. 按照中所述配置集群模式 Data ONTAP link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-based/index.html["《 7- 模式过渡工具基于副本的过渡指南》"] 或 link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-free/index.html["《 7- 模式过渡工具无副本过渡指南》"] 根据要执行的过渡类型。
+. 收集要过渡的 ESXi 主机的以下信息：
++
+** IP 地址
+** 主机名
+** 身份验证详细信息
+
+
+. 完成 FC 或 FCoE 主机与新的集群模式 Data ONTAP 节点之间的分区。
++
+您可以使用收集和评估功能生成分区计划。
+
+. 使用 link:https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"] 验证过渡到集群模式 Data ONTAP 是否支持以下操作：
++
+** 您在 7- 模式下运行的 Data ONTAP 版本
++
+在某些情况下，您可能需要将在 7- 模式下运行的 Data ONTAP 版本升级到与 7MTT SAN 兼容的版本。例如，在 7- 模式下运行的 Data ONTAP 7.3.7 与使用 7MTT 的过渡不兼容。如果您运行的是此版本，则必须在启动过渡之前对其进行升级。
+
+** ESXi 主机配置
+** HBA 驱动程序和固件
++
+对于 iSCSI ，仅支持软件启动程序。对于 FC 和 FCoE ，仅支持 QLogic 和 Emulex 启动程序。如果不支持 ESXi FC 或 FCoE 启动程序，则必须按照互操作性表中所述升级到集群模式 Data ONTAP 支持的版本。
+
+
+
+. 如果已配置，请禁用 VMware 高可用性（ HA ）和分布式资源计划程序（ DRS ）。
++
+过渡期间不支持 VMware HA 和 DRS 。
+
+
+
+* 相关信息 *
+
+http://kb.vmware.com/kb/2032893["在中禁用 VMware DRS 集群时保留资源池 vSphere Web Client"]
+
+http://kb.vmware.com/kb/1008025["禁用 VMware 高可用性（ HA ）"]

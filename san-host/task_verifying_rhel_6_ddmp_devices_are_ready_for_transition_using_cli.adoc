@@ -1,0 +1,31 @@
+---
+permalink: san-host/task_verifying_rhel_6_ddmp_devices_are_ready_for_transition_using_cli.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rhel, ddmp, devices, cli 
+summary: 过渡 Red Hat Enterprise Linux （ RHEL\ ） 6 DMMP 设备之前，您必须确认它不属于逻辑卷管理器（ LVM ），并且它不具有文件系统。 
+---
+= 验证 RHEL 6 DDMP 设备是否已做好过渡准备 使用 CLI
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在过渡 Red Hat Enterprise Linux （ RHEL ） 6 DMMP 设备之前，您必须验证它不是逻辑卷管理器（ LVM ）的一部分，也不具有文件系统。
+
+.步骤
+. 从清单评估工作簿 _ 收集过渡前信息。
+. 验证 DMMP 设备是否位于 ` /dev/mapper` 目录中：
++
+` * ls /dev/mapper/ _DMMP_device_name_*`
+
++
+如果未显示 DMMP 设备，则此设备可能使用别名或用户友好名称。
+
+. 确定 DMMP 设备是否属于 LVM ，以及 DMMP 设备是否具有文件系统：
++
+` * blkid *`
+
++
+如果 DMMP 设备不是 LVM 的一部分并且没有文件系统，则设备条目不应显示在 blkidoutput 中。
+
+

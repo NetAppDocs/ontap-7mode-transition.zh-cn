@@ -1,0 +1,47 @@
+---
+permalink: copy-free/task_preparing_7_mode_system_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, prepare, ha, pair 
+summary: 开始过渡之前，您必须在 7- 模式系统上完成某些任务，例如，启用 7- 模式系统与目标集群通信以及启用 HTTPS 和 TLS 。 
+---
+= 准备 7- 模式 HA 对以进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+开始过渡之前，您必须在 7- 模式系统上完成某些任务，例如，启用 7- 模式系统与目标集群通信以及启用 HTTPS 和 TLS 。
+
+HA 对必须运行状况良好，并且任何节点都不能处于接管模式，可以使用 cf status 命令进行验证。您还可以使用 NetApp AutoSupport 工具检测任何错误或存在风险的情况。
+
+. 如果存储系统上未启用 HTTPS ，请启用 HTTPS ：
++
+` * options httpd.admin.ssl.enable on*`
+
++
+默认情况下， HTTPS 处于启用状态。
+
+. 在 7- 模式存储系统上启用 TLS ，以使 7- 模式过渡工具能够与 7- 模式系统通信：
++
+.. 如果存储系统上尚未启用 SSL ，请设置并启动 SSL ： + ` * SecureAdmin setup ssl*`
++
+默认情况下，为存储系统设置 SSL 。如果先前已为存储系统设置 SSL ，系统会询问您是否要继续。如果您不想进行任何更改，可以退出 SSL 设置。
+
+.. 启用 SSL ： + ` * options ssl.enable on*`
++
+要允许通过 TLS 进行通信，必须启用此选项。
+
+.. 启用 TLS ： + ` * options tls.enable on*`
+.. 在 7- 模式系统上禁用 SSLv2 和 SSLv3 ： + ` * options ssl.v2.enable off*`
++
+` * 选项 ssl.v3.enable off*`
+
+
+
++
+7- 模式过渡工具使用 TLS 或 SSL 协议与 7- 模式存储系统进行通信。如果在存储系统上启用了 TLS ，则该工具将使用 TLS 协议与存储系统进行通信。如果在存储系统上禁用了 TLS 且启用了 SSLv3 ，则该工具将使用 SSLv3 与存储系统进行通信。
+
++
++ 重要信息：最佳实践是启用 TLS 并禁用 SSLv2 和 SSLv3 ，以避免出现安全漏洞。
+
+

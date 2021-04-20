@@ -1,0 +1,44 @@
+---
+permalink: copy-based/task_performing_on_demand_snapmirror_update_operation.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, perform, demand, snapmirror, updates 
+summary: 您可以在转换操作之前对所有卷执行 SnapMirror 增量更新，以缩短转换时间。 
+---
+= 执行按需 SnapMirror 更新
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在转换操作之前对所有卷执行 SnapMirror 增量更新，以缩短转换时间。
+
+* 如果在基线数据复制之后和预转换操作之后计划增量数据传输，则无法执行按需 SnapMirror 更新。
+* 这是一项可选任务。
++
+.. 单击 * 立即更新 * 以执行手动 SnapMirror 更新。
++
+此时将显示过渡更新对话框，在此可以选择自定义此操作的 SnapMirror 传输数和限制。
+
+.. 选中 * 自定义此操作的并发 SnapMirror 传输数和限制 * 复选框以指定 SnapMirror 数据复制操作数和限制。
++
+... 输入要在过渡期间运行的并发 SnapMirror 传输的最大数量。
+... 输入此工具可用于 SnapMirror 传输的可用流的百分比。
++
+默认情况下，该工具会使用 50% 的可用卷 SnapMirror 传输。
+
+... 输入限制以使用最大带宽。
++
+默认情况下，该工具会对配置过渡使用最大限制。
+
+
+
+.. 单击 * 继续 * 。
+
+
+
+
+* 相关信息 *
+
+xref:task_starting_baseline_data_copy.adoc[正在启动基线数据复制]
+
+xref:task_creating_schedule_for_snapmirror_transfers.adoc[为 SnapMirror 传输创建数据复制计划]

@@ -1,0 +1,17 @@
+---
+permalink: copy-based/task_consolidating_snapshot_policies_and_cron_schedules_on_transitioned_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, consolidate, cron, schedules, transitioned, volumes 
+summary: 7- 模式过渡工具会为每个过渡后的卷生成唯一的计划。因此，过渡后可以创建大量 cron 计划，因此您需要了解过渡后如何整合这些计划。 
+---
+= 整合过渡后的卷中的 cron 计划
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7- 模式过渡工具会为每个过渡后的卷生成唯一的计划。因此，过渡后可以创建大量 cron 计划，因此您需要了解过渡后如何整合这些计划。
+
+.步骤
+. 使用 `job schedule cron` 命令在过渡后整合 cron 计划。
+

@@ -1,0 +1,38 @@
+---
+permalink: san-host/task_testing_transitioned_san_boot_luns_on_aix_hosts_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, boot, lun, aix, hosts, cutover, phase, copy, based 
+summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 7- 模式 Windows 主机 LUN ，则可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证它们是否按需要运行。 
+---
+= 在之前测试 AIX 主机上已过渡的 SAN 启动 LUN 基于副本的过渡的转换阶段
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果使用 7- 模式过渡工具（ 7MTT ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 7- 模式 Windows 主机 LUN ，则可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证它们是否按预期运行。
+
+7- 模式 LUN 必须已做好过渡准备。
+
+您应保持测试主机与源主机之间的硬件奇偶校验，并应在测试主机上执行以下步骤。
+
+测试期间，集群模式 Data ONTAP LUN 处于读 / 写模式。测试完成后，它们将转换为只读模式，而您正在为转换阶段做准备。
+
+.步骤
+. 基线数据复制完成后，在 7MTT 用户界面（ UI ）中选择 * 测试模式 * 。
+. 在 7MTT UI 中，单击 * 应用配置 * 。
+. 在测试主机上，登录到硬件管理控制台，然后在 * SMS * 菜单中启动主机。
+. 主机启动后，更改 IP 地址和主机名。
+. 验证集群模式 Data ONTAP LUN 是否存在：
++
+` * sanlun lun show*`
+
+. 根据需要执行测试。
+. 关闭测试主机：
++
+` * shutdown -h*`
+
+. 在 7MTT UI 中，单击 * 完成测试 * 。
+
+
+如果要将集群模式 Data ONTAP LUN 重新映射到源主机，则必须为源主机做好转换阶段的准备。如果集群模式 Data ONTAP LUN 仍要映射到测试主机，则无需在测试主机上执行其他步骤。

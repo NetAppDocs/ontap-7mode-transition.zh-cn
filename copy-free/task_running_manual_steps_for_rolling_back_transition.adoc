@@ -1,0 +1,95 @@
+---
+permalink: copy-free/task_running_manual_steps_for_rolling_back_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, manual, roll, back 
+summary: 如果决定回滚过渡，则必须在集群和 7- 模式系统上执行一些手动步骤。7- 模式过渡工具会生成手动回滚步骤列表。 
+---
+= 手动回滚过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果决定回滚过渡，则必须在集群和 7- 模式系统上执行一些手动步骤。7- 模式过渡工具会生成手动回滚步骤列表。
+
+回滚步骤因您决定回滚的阶段而异。如果您决定在导入操作成功后回滚，则必须执行此任务中的所有步骤。如果您决定在早期阶段回滚，则必须执行以下部分步骤。
+
+.步骤
+. 登录到集群。
+. 如果任何过渡后的卷处于 SnapMirror 关系中，请选择以下操作之一：
++
+** 如果过渡后的卷是 SnapMirror 关系的目标，请删除 SnapMirror 关系： + ` * snapmirror delete -destination-path _destination-path_ -source-path _source-path_*`
+** 如果过渡后的卷是 SnapMirror 关系的源，请释放 SnapMirror 关系： ` * snapmirror release -destination-path destination-path -source-path source-path*`
+
+
+. 在集群中，验证过渡后的卷上是否未运行以下操作：
++
+.. 卷移动操作： + ` * volume move show*`
+.. LUN 移动操作： + ` * lun move show*`
+.. LUN 复制操作： + ` * lun copy show*`
+
+
+. 对所有 7- 模式聚合执行回滚：
++
+.. 登录到诊断权限级别： + ` * 设置 -privilege diagnostic*`
+.. 使用 `storage transition revert start` 命令将聚合还原到 7- 模式状态。
++
+此命令需要其他参数，例如过渡项目 ID 和聚合属性。您应使用完整命令以及由 7- 模式过渡工具生成的参数及其值。
+
+.. 验证所有已过渡的聚合是否已成功回滚： + ` * storage transition revert show-status*`
++
+成功回滚后，聚合的 `status-code` 字段将显示为 `revert_complete` 。
+
+
+
+. 将目标集群节点中的磁盘所有权重新分配给 7- 模式控制器：
++
+.. 为 7- 模式控制器分配磁盘所有权： + ` * disk assign – disk _disk_id_ – s _system_id_ -force true*`
+.. 验证是否已将磁盘所有权分配给 7- 模式控制器：
++
+` * 存储磁盘 show -fields owner-id*`
+
+
+
+. 从 SVM 中删除 7- 模式 LIF ：
++
+` * 网络接口删除 -vserver _svm_name_ -lif _lif_name_*`
+
+. 从诊断权限级别删除目标集群节点上的无副本过渡限制：
++
+` * 存储过渡预提交 end -session-id _transition_project_id_*`
+
++
+您也可以在回滚操作完成且 7- 模式控制器正常运行后执行此步骤。
+
+. 使用以下诊断权限级别命令删除有关目标集群节点的过渡项目信息：
++
+` * 存储过渡清除信息 -session-id _transition_project_id_*`
+
++
+您也可以在回滚操作完成且 7- 模式控制器正常运行后执行此步骤。
+
+. 如果在导出并暂停操作期间在集群节点上禁用了磁盘所有权自动分配，请启用它：
++
+` * 存储磁盘分配 -auto true*`
+
+. 手动删除该工具已过渡到目标 SVM 的所有配置。
++
+您可以查看 SVM 配置和导入操作的结果，了解有关此工具过渡的配置的信息。
+
+. 从目标集群节点中卸下磁盘架，然后将其重新连接到 7- 模式控制器。
++
+
+TIP: 您应使用 Config Advisor 工具验证布线。
+
+. 如果更改了任何 7- 模式磁盘架 ID 以解决与目标集群节点的磁盘架 ID 冲突，请手动将其更改为旧 ID 并重新启动磁盘架，以使新 ID 生效。
+. 将源 7- 模式控制器启动至正常模式。
+. 从一个源 7- 模式控制器中，启用接管功能：
++
+` * cf enable*`
+
+. 如果在导出并暂停操作期间禁用了聚合 Snapshot 副本的自动删除，请启用它：
++
+` * options snap autodelete _aggr_name_ on*`
+
+

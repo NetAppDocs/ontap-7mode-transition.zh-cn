@@ -1,0 +1,56 @@
+---
+permalink: san-host/task_testing_data_luns_on_hp_ux_hosts_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, data, lun, hp, ux, citover, phase, copy, based 
+summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本对 HP-UX 主机数据 LUN 执行基于副本的过渡， 您可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以挂载 MPIO 设备。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。 
+---
+= 在转换阶段之前测试 HP-UX 主机上的数据 LUN 基于副本的过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果使用 7- 模式过渡工具（ 7MTT ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本对 HP-UX 主机数据 LUN 执行基于副本的过渡， 您可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以挂载 MPIO 设备。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。
+
+新的 ONTAP LUN 必须映射到您的测试 主机和 LUN 必须已做好过渡准备
+
+您应保持测试主机与源主机之间的硬件奇偶校验，并应在测试主机上执行以下步骤。
+
+测试期间， ONTAP LUN 处于读 / 写模式。测试完成后，它们将转换为只读模式，而您正在为转换阶段做准备。
+
+.步骤
+. 基线数据复制完成后，在 7MTT 用户界面（ UI ）中选择 * 测试模式 * 。
+. 在 7MTT UI 中，单击 * 应用配置 * 。
+. 在测试主机上，重新扫描新的 ONTAP LUN ：
++
+` * ioscan -FNC disk*`
+
+. 验证 ONTAP LUN 是否存在：
++
+` * sanlun lun show*`
+
+. 将先前复制到外部源的 ` /tmp/mapfile.vg01 mapfile` 复制到新主机。
+. 使用映射文件导入卷组：
++
+` * vgimport -s -m /tmp/mapfile/vg01 vg01*`
+
+. 验证 `VG Status` 是否显示为 `Available` ：
++
+` * vgdisplay*`
+
+. 将原有设备专用文件名（ DSF ）转换为永久性 DSF ：
++
+` * vgdsf -c /dev/vg01*`
+
+. 使用 mount 命令手动挂载每个逻辑卷。
+. 如果系统提示您运行 `fsck` 命令，请执行此操作。
+. 验证挂载点：
++
+` * bdf*`
+
+. 根据需要执行测试。
+. 关闭测试主机。
+. 在 7MTT UI 中，单击 * 完成测试 * 。
+
+
+如果必须将 ONTAP LUN 重新映射到源主机，则必须为转换阶段准备源主机。如果 ONTAP LUN 必须始终映射到测试主机，则无需在测试主机上执行其他步骤。

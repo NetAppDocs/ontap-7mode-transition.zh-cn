@@ -1,0 +1,15 @@
+---
+permalink: copy-based/concept_preparing_for_nfs_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, nfs 
+summary: 如果 NFS 已获得许可，并且 NFS 服务正在 7- 模式系统上运行，则必须手动准备集群和目标 SVM 以过渡 NFS 配置。此外，您还必须了解要过渡的配置。 
+---
+= 为 NFS 过渡做准备
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果 NFS 已获得许可，并且 NFS 服务正在 7- 模式系统上运行，则必须手动准备集群和目标 SVM 以过渡 NFS 配置。此外，您还必须了解要过渡的配置。
+
+ONTAP 不支持某些在 7- 模式下运行的 NFS 配置。某些配置不会通过 7- 模式过渡工具进行过渡，必须手动应用于 SVM 。

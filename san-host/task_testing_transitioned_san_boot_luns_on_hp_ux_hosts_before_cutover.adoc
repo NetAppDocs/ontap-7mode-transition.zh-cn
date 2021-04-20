@@ -1,0 +1,38 @@
+---
+permalink: san-host/task_testing_transitioned_san_boot_luns_on_hp_ux_hosts_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, boot, lun, hp, ux, cutover, phase, copy, based 
+summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 HP-UX 主机 SAN 启动 LUN ，则可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN 。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。 
+---
+= 在之前测试 HP-UX 主机上已过渡的 SAN 启动 LUN 基于副本的过渡的转换阶段
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果使用 7- 模式过渡工具（ 7MTT ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 HP-UX 主机 SAN 启动 LUN ，则可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN 。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。
+
+新的集群模式 Data ONTAP LUN 必须映射到 测试主机和 LUN 必须已准备就绪 过渡
+
+您应保持测试主机与源主机之间的硬件奇偶校验，并应在测试主机上执行以下步骤。
+
+测试期间，集群模式 Data ONTAP LUN 处于读 / 写模式。测试完成后，它们将转换为只读模式，而您正在为转换阶段做准备。
+
+.步骤
+. 基线数据复制完成后，在 7MTT 用户界面（ UI ）中选择 * 测试模式 * 。
+. 在 7MTT UI 中，单击 * 应用配置 * 。
+. 在测试主机上，输入 HBA BIOS 。
+. 更改测试主机上的 IP 地址和主机名。
+. 验证测试主机上是否存在集群模式 Data ONTAP LUN ：
++
+` * sanlun lun show*`
+
+. 根据需要执行测试。
+. 关闭测试主机：
++
+` * shutdown -h -y 0*`
+
+. 在 7MTT UI 中，单击 * 完成测试 * 。
+
+
+如果要将集群模式 Data ONTAP LUN 重新映射到源主机，则必须为源主机做好转换阶段的准备。如果集群模式 Data ONTAP LUN 仍要映射到测试主机，则无需在测试主机上执行其他步骤。

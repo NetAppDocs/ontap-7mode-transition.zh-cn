@@ -1,0 +1,11 @@
+---
+permalink: install-admin/reference_copyright_and_trademark.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, copyright, trademark, machine, translation 
+summary: 《 7- 模式过渡工具安装和设置指南》的版权和商标信息。 
+---
+= 版权，商标和机器翻译
+:icons: font
+:imagesdir: ../media/
+
+

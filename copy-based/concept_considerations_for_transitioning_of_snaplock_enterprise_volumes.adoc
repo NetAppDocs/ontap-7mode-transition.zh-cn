@@ -1,0 +1,20 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_of_snaplock_enterprise_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snaplock, enterprise, volumes 
+summary: 7- 模式过渡工具支持过渡 SnapMirror 关系中的独立 SnapLock 企业卷和 SnapLock 企业卷。 
+---
+= 过渡 SnapLock 企业卷的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7- 模式过渡工具支持过渡 SnapMirror 关系中的独立 SnapLock 企业卷和 SnapLock 企业卷。
+
+过渡 SnapLock 企业卷的工作流与过渡 FlexVol 卷的工作流相同。
+
+过渡期间会保留 SnapMirror 关系。
+
+
+NOTE: 7- 模式过渡工具仅支持对 SnapLock 企业卷的 SnapMirror 关系进行类似的过渡。也就是说，源卷和目标卷都必须是 SnapLock 企业卷。

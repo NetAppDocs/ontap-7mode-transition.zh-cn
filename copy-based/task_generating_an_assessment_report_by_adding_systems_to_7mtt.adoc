@@ -1,0 +1,111 @@
+---
+permalink: copy-based/task_generating_an_assessment_report_by_adding_systems_to_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, generate, assessment, report, add, system, tool 
+summary: 您可以通过将系统添加到 7- 模式过渡工具来收集控制器，主机和 FC 交换机的清单信息。然后，您可以创建评估报告来评估这些系统的特性和功能，并确定它们在选择进行过渡的 ONTAP 版本中的工作方式。 
+---
+= 通过向 7- 模式添加系统来生成评估报告 过渡工具
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过将系统添加到 7- 模式过渡工具来收集控制器，主机和 FC 交换机的清单信息。然后，您可以创建评估报告来评估这些系统的特性和功能，并确定它们在选择进行过渡的 ONTAP 版本中的工作方式。
+
+* 存储系统和主机的用户名必须具有足够的权限才能执行自述文件中列出的命令。
++
+自述文件位于 ` _7-Mode_Transition_Tool_installed_location\bin\ICT_` 。
+
+* 您必须已准备好 7- 模式系统，主机和 FC 交换机以进行过渡评估。
+* 要评估 Windows 系统，您必须具有域用户帐户。
+* 如果要添加多个系统进行评估，则必须创建一个以 ASCII 或 UTF-8 格式编码的文本文件，并且必须以每行一个系统的形式包含系统详细信息。
++
+每个系统详细信息必须采用以下格式：
+
++
+[listing]
+----
+(ontap|windows|vmware|linux|cisco|brocade)://[(user|domain_user)[:password]@](host_name|ip)
+----
+* 安装并运行 7- 模式过渡工具的系统必须能够访问控制器或主机。
+* 必须配置所有功能或启用其许可证，以便工作簿可以包含有关这些功能的清单信息。
+* 存储系统的用户名必须具有足够的管理权限才能收集清单信息。
+* 所有主机名和存储系统配置（例如 CIFS 共享名称，用户名和组名称）都必须采用 UTF-8 格式。
+
+
+如果 7- 模式过渡工具服务或安装了此工具的系统重新启动，则添加到该工具的系统详细信息将丢失，必须再次将系统添加到该工具中。
+
+.步骤
+. 如果要使用最新的互操作性表（ Interoperability Matrix ， IMT ）数据进行过渡评估：
++
+.. 从互操作性表下载 IMT 数据，然后保存：
++
+... 从报告菜单中，单击 * 完成每日导出 * 。
+... 在完成每日导出对话框的搜索字段中，输入 FAS 。
+... 下载 ONTAP SAN 主机 Excel 文件，然后保存该文件。https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
+
+.. 在命令行界面中，使用 `transition IMT import` 命令导入 IMT 数据。
+.. 使用 `transition IMT show` 命令验证导入是否成功。
++
+* 故障排除： * 如果 IMT 数据导入操作失败，您可以使用 `transition IMT restore` 命令还原到先前的数据。
+
+
+
+. 登录到 7- 模式过渡工具，然后单击收集和评估部分中的 * 开始使用 * 。
+. 单击 * 添加系统 * 。
+. 在添加系统窗口中，执行以下操作之一：
++
+** 添加单个系统：
++
+... 输入系统的完全限定域名（ FQDN ）或 IP 地址。
+... 输入指定系统的用户名和密码。
+... 选择系统类型：
++
+**** Data ONTAP 存储系统
+**** 主机： Microsoft Windows ， Red Hat Linux Enterprise 和 VMware ESXi
+**** FC 交换机： Cisco 和 Brocade
+
+
+
+
+** 单击 * 浏览 * 添加多个系统，然后选择包含多个系统凭据的文本文件。
+
+
+. 单击 * 添加 * 。
++
+如果系统的评估状态为 Ready ，则可以对该系统执行过渡评估。
+
+. 生成过渡评估报告：
++
+.. 选择要进行过渡评估的系统。
+.. 单击 * 创建过渡评估报告 * 。
+.. 在创建过渡评估报告对话框中，选择目标集群的 Data ONTAP 版本。
+.. 为报告的文件名指定前缀。
+.. 单击 * 生成报告 * 。
+
+
++
+评估工作簿（报告名称后附加 "`AssessmentWorkbook` " ）和评估内容提要（报告名称后附加 "`AssessmentExecutiveSummary` " ）报告将以 XML 格式生成。
+
++
++ 您可以从 ` …… etc/webapp/transition-gui/TMC` 文件夹访问用于生成评估报告的评估工作簿，评估摘要和清单 XML 文件。
+
+. 使用 Microsoft Office 2007 或更高版本在 Microsoft Excel 中查看评估工作簿，在 Microsoft Word 中查看评估内容提要。
++
+在评估工作簿中，有关基于副本的过渡评估详细信息，请参见过渡可行性（ CBT ），配置预检摘要，配置预检详细信息和 CBT 预检摘要选项卡。
+
++
+在评估内容摘要中，有关控制器级别评估的详细信息，请参见基于副本的过渡可行性一节。
+
++
+您可能需要在 Excel 中启用宏才能查看评估工作簿。
+
++
+在评估工作簿的数据收集摘要中，如果系统的访问状态为 `failed` ，则该系统的清单信息无效。在评估内容提要中，此系统某些字段的值显示为 `未评估` 。
+
+
+
+* 相关信息 *
+
+xref:task_collecting_tool_logs.adoc[下载过渡日志文件]

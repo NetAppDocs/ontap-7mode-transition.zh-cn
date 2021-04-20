@@ -1,0 +1,35 @@
+---
+permalink: san-host/task_discovering_san_boot_luns_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, discover, san, boot, lun 
+summary: 将 SAN 启动 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，您必须发现主机上的 SAN 启动 LUN 。这对于基于副本的过渡 \ （ CBT\ ）和无副本过渡 \ （ CFT\ ）是必需的。此适用场景 FC ， FCoE 和 iSCSI 配置。 
+---
+= 过渡后发现 SAN 启动 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将 SAN 启动 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，您必须发现主机上的 SAN 启动 LUN 。这对于基于副本的过渡（ CBT ）和无副本过渡（ CFT ）是必需的。此适用场景 FC ， FCoE 和 iSCSI 配置。
+
+如果您正在执行 CFT ，则必须完成 `vol rehost` 的过程。请参见 link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["《 7- 模式过渡工具无副本过渡指南》"] 了解详细信息。
+
+. 启动主机。
+. 仅适用于 FC 和 FCoE 配置：
++
+.. 进入 HBA BIOS 设置模式。
+.. 选择 * 重新扫描 * 可发现主机上的集群模式 Data ONTAP SAN 启动 LUN 。
+.. 删除 7- 模式启动 LUN ID 。
+.. 在 HBA BIOS 中添加集群模式 Data ONTAP 启动 LUN ID 。
+.. 退出 HBA BIOS 设置模式，然后重新启动主机。
+
+
+. 重新启动完成后，验证集群模式 Data ONTAP LUN ：
++
+` * sanlun lun show*`
+
+. 验证 DMMP 设备：
++
+` * 多路径 -ll*`
+
+

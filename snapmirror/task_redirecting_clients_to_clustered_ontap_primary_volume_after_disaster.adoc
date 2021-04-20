@@ -1,0 +1,90 @@
+---
+permalink: snapmirror/task_redirecting_clients_to_clustered_ontap_primary_volume_after_disaster.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, redirect, clients, clustered, data, primary, volume, snapmirror 
+summary: 在 7- 模式主卷恢复联机后，您可以过渡 7- 模式主卷，与集群模式 Data ONTAP 二级卷建立 SnapMirror 关系，以及将客户端访问重定向到集群模式 Data ONTAP 主卷。 
+---
+= 将客户端重定向到集群模式 Data ONTAP 主卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 7- 模式主卷恢复联机后，您可以过渡 7- 模式主卷，与集群模式 Data ONTAP 二级卷建立 SnapMirror 关系，以及将客户端访问重定向到集群模式 Data ONTAP 主卷。
+
+.步骤
+. 在主 SVM 和二级 SVM 之间创建 SVM 对等关系。
++
+.. 使用 `cluster peer create` 命令创建集群对等关系。
++
+[listing]
+----
+pri_cluster::> cluster peer create -peer-addrs cluster2-d2, 10.98.234.246 -timeout 60
+
+Notice: Choose a passphrase of 8 or more characters. To ensure the authenticity of the peering relationship, use a phrase or sequence of characters that would be hard to guess.
+
+Enter the passphrase: ********
+Confirm the passphrase: ********
+----
+.. 在源集群中，使用 `vserver peer create` 命令在集群模式 Data ONTAP 主卷和集群模式 Data ONTAP 二级卷之间创建 anSVM 对等关系。
++
+[listing]
+----
+pri_cluster::> vserver peer create -vserver src_vserver -peervserver src_c_vserver -applications snapmirror -peer-cluster sec_cluster
+----
+.. 在目标集群中，使用 `vserver peer accept` 命令接受 SVM 对等请求并建立 SVM 对等关系。
++
+[listing]
+----
+sec_cluster::> vserver peer accept -vserver dst_vserver -peervserver src_vserver
+----
+
+
+. 使用 `snapmirror create` 命令创建 SnapMirror 关系，其中集群模式 Data ONTAP 二级卷作为源，集群模式 Data ONTAP 主卷作为目标。
++
+[listing]
+----
+pri_cluster::> snapmirror create -source-path dst_vserver:dst_c_vol -destination-path src_vserver:src_c_vol
+----
+. 在主集群中，使用 `snapmirror resync` 命令重新同步集群模式 Data ONTAP 二级卷。
++
+[listing]
+----
+pri_cluster::> snapmirror resync -source-path dst_vserver:dst_c_vol -destination-path src_vserver:src_c_vol
+----
++
+您必须等待重新同步完成。重新同步完成后， SnapMirror 状态将更改为 `SnapMirrored` 。
+
+. 准备好切换到集群模式 Data ONTAP 主卷后，请断开客户端与集群模式 Data ONTAP 二级卷的访问。
+. 在主集群中，使用 `snapmirror update` 命令更新主卷。
++
+[listing]
+----
+pri_cluster::> snapmirror update -destination-path src_vserver:src_c_vol
+----
+. 在主集群中，使用 `snapmirror break`` 命令中断集群模式 Data ONTAP 主卷和二级卷之间的 SnapMirror 关系。
++
+[listing]
+----
+pri_cluster::> snapmirror break -destination-path src_vserver:src_c_vol
+----
+. 启用客户端对集群模式 Data ONTAP 主卷的访问。
+. 在主集群中，使用 `snapmirror delete` 命令删除集群模式 Data ONTAP 主卷与二级卷之间的 SnapMirror 关系。
++
+[listing]
+----
+pri_cluster::> snapmirror delete -destination-path src_vserver:src_c_vol
+----
+. 在二级集群中，使用 `snapmirror create` 命令创建 SnapMirror 关系，其中集群模式 Data ONTAP 主卷作为源卷，而集群模式 Data ONTAP 二级卷作为目标卷。 在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间使用与先前计划类似的计划。
++
+[listing]
+----
+sec_cluster::> snapmirror create -source-path src_vserver:src_c_vol -destination-path dst_vserver:dst_c_vol -schedule 15_minute_sched
+----
+. 在二级集群中，使用 `snapmirror resync` 命令重新同步集群模式 Data ONTAP 主卷。
++
+[listing]
+----
+sec_cluster::> snapmirror resync -source-path src_vserver:src_c_vol -destination-path dst_vserver:dst_c_vol
+----
+

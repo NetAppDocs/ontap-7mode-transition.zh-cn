@@ -1,0 +1,25 @@
+---
+permalink: copy-based/concept_considerations_for_chain_of_custody_verification_for_7_mode_snaplock_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, chain, custody, verification, snaplock, volumes, considerations 
+summary: 您应了解对 7- 模式 SnapLock 卷使用监管链验证的注意事项。 
+---
+= 对 7- 模式 SnapLock 使用监管链验证的注意事项 卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您应了解对 7- 模式 SnapLock 卷使用监管链验证的注意事项。
+
+* 只有在过渡 SnapLock 卷时需要执行 SnapLock 监管链验证时，才能执行此验证。
++
+您可以对项目中的所有或部分 SnapLock 卷执行监管链验证。
+
+* 根据 7- 模式 SnapLock 卷上的文件数量， SnapLock 监管链验证可能需要大量时间。
+* 只有读 / 写才支持监管链验证 7- 模式 SnapLock 卷
++
+只读卷不支持监管链验证。
+
+* 对于包含名称包含非 ASCII 字符的文件的 SnapLock 卷，不支持监管链验证。
+

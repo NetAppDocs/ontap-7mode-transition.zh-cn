@@ -1,0 +1,82 @@
+---
+permalink: copy-based/reference_ignorable_errors_during_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, ignorable, errors 
+summary: 过渡期间，您可能会遇到一些可忽略的错误。在继续过渡之前，您必须确认这些错误。 
+---
+= 过渡期间发生可忽略的错误
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡期间，您可能会遇到一些可忽略的错误。在继续过渡之前，您必须确认这些错误。
+
+如果使用 7- 模式过渡工具命令行界面将任何可忽略的错误类别添加到基于副本的过渡项目中，则表示您已了解此错误的影响。忽略此错误后，您必须重新运行过渡操作。此时，阻止错误将更改为警告消息，此错误将显示为 "`acknowledged` " 。您可以在出现警告的情况下继续过渡。
+
+|===
+| 类别 | 说明 
+
+
+ a| 
+`acknowledge -no-nonasci-文件 名 -in-source-volumes`
+ a| 
+确认此错误意味着您已确认为监管链验证操作选择的 SnapLock 卷不包含任何文件名包含非 ASCII 字符。
+
+
+
+ a| 
+`确认 -SnapLock-COC-volume-autosit-period`
+ a| 
+将此可忽略的错误添加到项目后， 7- 模式过渡工具将继续过渡，即使在配置为存储 SnapLock 监管链验证结果的 ONTAP SnapLock 卷上设置了 autosit period 属性也是如此。
+
+
+
+ a| 
+`nfs-qtree-exported`
+ a| 
+确认此错误意味着您已了解在 7- 模式下运行的 Data ONTAP 与 ONTAP 之间强制实施 qtree 导出规则的差异。这也意味着您已了解 7- 模式过渡工具应用 NFS 导出规则后可能需要执行的手动步骤。 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_Precheck_10111_-_How_to_transition_7-Mode_volumes_that_have_qtree_level_exports["7MTT 预检 10111 —如何过渡 7- 模式卷 具有 qtree 级导出"]
+
+
+
+ a| 
+`ignore-cifs-ad-domain-mismatch`
+ a| 
+如果确认此错误，即使 7- 模式系统的 CIFS Active Directory （ AD ）域与目标 SVM 的 CIFS AD 域不同， 7- 模式过渡工具仍会继续过渡 CIFS 配置。您必须确保 7- 模式系统和目标 SVM 的 CIFS AD 域是受信任域。否则，将 CIFS 配置过渡到目标 SVM 将失败。 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_transition_CIFS_configurations_when_Active_Directory_Domain_of_CIFS_server_on_7-Mode_and_target_SVM_are_different["如何在 Active Directory 域为时过渡 CIFS 配置 7- 模式和目标 SVM 上的 CIFS 服务器不同"]
+
+
+
+ a| 
+`ignore-ping-check-from-ic-lifs-to -7mode`
+ a| 
+将此可忽略的错误添加到项目后， 7- 模式过渡工具不会运行检查，以便从目标集群集群集群间 LIF 对 7- 模式存储系统执行 ping 操作。https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_cbt_-_How_to_handle_the_scenario_where_7-Mode_data-copy_IP_address["7MTT 基于副本的过渡—如何处理其中的情形 无法从目标集群访问 7- 模式数据复制 IP 地址 集群间 LIF"]
+
+
+
+ a| 
+`ignore-secondary snapmirror-source-check`
+ a| 
+将此可忽略的错误添加到项目后， 7- 模式过渡工具不会检查是否已将所有必需的主 7- 模式详细信息添加到二级项目中。由于此错误，在二级项目完成（转换）操作期间， 7- 模式过渡工具可能无法在主 7- 模式卷和二级集群卷之间创建 SnapMirror 关系。
+
+
+
+ a| 
+`ignore-configuration-limits-check`
+ a| 
+您可以使用此选项确认配置限制（预检错误）并继续过渡。确认此错误即表示您了解存储转换时间预计需要 3 到 8 小时以上，其中包括导出，暂停和导入操作（自动操作）以及将磁盘架连接到新控制器所需的时间。 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Storage_cutover_time_considerations_for_Copy-Free_Transition["无副本过渡的存储转换时间注意事项"]
+
+
+
+ a| 
+`mount-SnapLock-volume-using — 7mode-volume-name`
+ a| 
+将此可忽略的错误添加到项目后， 7- 模式过渡工具会使用挂载路径 ` /<7-mode-volume-name>` 挂载 SnapLock 卷
+
+
+
+ a| 
+`acknowledge -no-SnapLock-audit-transition-to MCC`
+ a| 
+将此可忽略的错误添加到项目后，即使目标集群采用 MetroCluster 配置， 7- 模式过渡工具也会继续过渡。
+
+|===

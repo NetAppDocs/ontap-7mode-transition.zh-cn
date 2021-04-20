@@ -1,0 +1,13 @@
+---
+permalink: snapmirror/task_preparing_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, prepare, storage, system, cluster 
+summary: 在开始过渡之前，您必须先准备 7- 模式存储系统和集群，然后再将 7- 模式卷过渡到集群模式 Data ONTAP 。此外，还必须在 7- 模式系统和 Storage Virtual Machine \ （ SVM\ ）之间创建过渡对等关系。 
+---
+= 为过渡做准备
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在开始过渡之前，您必须先准备 7- 模式存储系统和集群，然后再将 7- 模式卷过渡到集群模式 Data ONTAP 。此外，还必须在 7- 模式系统和 Storage Virtual Machine （ SVM ）之间创建过渡对等关系。

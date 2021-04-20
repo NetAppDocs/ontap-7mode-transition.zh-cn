@@ -1,0 +1,34 @@
+---
+permalink: install-admin/task_uninstalling_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, uninstall, transition, tool, windows 
+summary: 您可以使用 Windows 卸载程序实用程序卸载 7- 模式过渡工具。 
+---
+= 在 Windows 系统上卸载 7- 模式过渡工具
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 Windows 卸载程序实用程序卸载 7- 模式过渡工具。
+
+* 您必须已完成所有进行中的过渡。
++
+
+IMPORTANT: 安装较新版本的工具或重新安装相同版本的工具不允许访问由已卸载实例启动的过渡操作。
+
+* 如果 7- 模式过渡工具正在运行，则必须将其关闭。
+
+
+卸载过程中不会删除 Java Runtime Environment （ JRE ）。
+
+.步骤
+. 单击 * 开始 * > * 控制面板 * > * 卸载程序 * 。
+. 从程序列表中选择 7- 模式过渡工具，然后单击 * 卸载 * 。
+. 完成向导中的步骤以卸载 7- 模式过渡工具。
++
+您可以选择保存项目详细信息和日志以进行故障排除。
+
+
+
+如果您选择在卸载期间保留日志文件，则必须为日志文件创建备份。7- 模式过渡工具安装程序会将该工具安装到同一文件夹中，并在下次运行时覆盖日志文件。

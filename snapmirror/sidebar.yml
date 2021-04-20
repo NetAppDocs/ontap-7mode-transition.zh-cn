@@ -1,0 +1,69 @@
+---
+section: snap-mirror
+title: 使用 SnapMirror 进行 7- 模式数据过渡
+url: "/snapmirror/index.html"
+entries:
+- title: 使用 SnapMirror 过渡 7- 模式卷
+  url: "/snapmirror/task_transitioning_7_mode_volumes_using_snapmirror.html"
+  entries:
+  - title: 规划过渡
+    url: "/snapmirror/concept_planning_for_transition.html"
+    entries:
+    - title: 不支持过渡的功能和卷
+      url: "/snapmirror/concept_features_and_volumes_not_supported_for_transition.html"
+      entries:
+      - title: SAN 过渡不支持的功能
+        url: "/snapmirror/concept_unsupported_7_mode_san_functions.html"
+    - title: 过渡时的 7- 模式版本要求
+      url: "/snapmirror/reference_7_mode_ontap_version_requirements_for_transitioning_volumes_using_snapmirror.html"
+    - title: 使用 SnapMirror 进行过渡的注意事项
+      url: "/snapmirror/concept_considerations_for_using_snapmirror_for_transition.html"
+    - title: 过渡 SAN 卷时的空间注意事项
+      url: "/snapmirror/concept_considerations_for_space_when_transitioning_san_volumes.html"
+    - title: 过渡 SnapLock 卷的准则
+      url: "/snapmirror/concept_guidelines_for_transitioning_snaplock_volumes.html"
+  - title: 为过渡做准备
+    url: "/snapmirror/task_preparing_for_transition.html"
+    entries:
+    - title: 过渡的许可证要求
+      url: "/snapmirror/concept_licensing_requirements_for_transition.html"
+    - title: 准备 7- 模式系统以进行过渡
+      url: "/snapmirror/task_preparing_7_mode_system_for_transition.html"
+    - title: 准备集群以进行过渡
+      url: "/snapmirror/task_preparing_cluster_for_transition.html"
+    - title: 创建过渡对等关系
+      url: "/snapmirror/task_creating_a_transition_peering_relationship.html"
+    - title: 为 SnapMirror 关系配置 TCP 窗口大小
+      url: "/snapmirror/task_configuring_a_tcp_window_size_for_snapmirror_relationships.html"
+  - title: 正在过渡卷
+    url: "/snapmirror/task_transitioning_volumes.html"
+    entries:
+    - title: 过渡独立卷
+      url: "/snapmirror/task_transitioning_a_stand_alone_volume.html"
+    - title: 在交错配置中过渡卷 SnapMirror 关系
+      url: "/snapmirror/task_transitioning_a_data_protection_relationship.html"
+      entries:
+      - title: 过渡二级卷
+        url: "/snapmirror/task_transitioning_secondary_volume.html"
+      - title: 过渡主卷
+        url: "/snapmirror/task_transitioning_a_primary_volume.html"
+    - title: 并行过渡卷 SnapMirror 关系
+      url: "/snapmirror/task_transitioning_a_volume_snapmirror_relationship_in_parallel.html"
+- title: 过渡 vFiler 单元之间的灾难恢复关系
+  url: "/snapmirror/task_transitioning_disaster_recovery_relationship.html"
+- title: 过渡期间从 7- 模式站点的灾难中恢复
+  url: "/snapmirror/task_recovering_from_a_disaster_at_7_mode_site_during_transition.html"
+  entries:
+  - title: 将客户端重定向到集群模式 Data ONTAP 二级卷 灾难
+    url: "/snapmirror/task_redirecting_clients_to_clustered_ontap_secondary_volume.html"
+  - title: 将 7- 模式主卷过渡为独立卷
+    url: "/snapmirror/task_transitioning_7_mode_primary_as_a_standalone_volume.html"
+  - title: 将客户端重定向到集群模式 Data ONTAP 主卷
+    url: "/snapmirror/task_redirecting_clients_to_clustered_ontap_primary_volume_after_disaster.html"
+- title: 对使用 SnapMirror 时的过渡问题进行故障排除
+  url: "/snapmirror/reference_troubleshooting.html"
+  entries:
+  - title: 恢复失败的 SnapMirror 基线传输
+    url: "/snapmirror/task_resuming_a_failed_snapmirror_transfer_transition.html"
+  - title: 从失败的 LUN 过渡中恢复
+    url: "/snapmirror/task_recovering_from_a_failed_lun_transition.html"

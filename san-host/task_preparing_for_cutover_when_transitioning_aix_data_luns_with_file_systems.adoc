@@ -1,0 +1,45 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_aix_data_luns_with_file_systems.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, aix, data, lun 
+summary: 如果要将具有文件系统的 AIX 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP ，则必须在进入转换阶段之前执行特定步骤。 
+---
+= 过渡 AIX 主机数据 LUN 时为转换阶段做准备 文件系统
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要将具有文件系统的 AIX 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP ，则必须在进入转换阶段之前执行特定步骤。
+
+必须与集群模式 Data ONTAP 节点建立网络结构连接和分区。
+
+对于基于副本的过渡，请在 7- 模式过渡工具中完成存储转换操作后执行以下步骤。AIX 主机不支持无副本过渡。
+
+.步骤
+. 停止所有挂载点上的 I/O 。
+. 根据应用程序供应商的建议关闭访问 LUN 的每个应用程序。
+. 卸载所有挂载点：
++
+` * umount _mount_point_*`
+
+. 禁用卷组：
++
+` * varyoffvq _vg_name_*`
+
+. 导出卷组：
++
+` * exportvg _vg_name_*`
+
+. 验证卷组状态：
++
+` * lsvg*`
+
++
+导出的卷组不应列在输出中。
+
+. 如果存在任何陈旧条目，请将其删除：
++
+` * rmdev -RDL hdisk#*`
+
+

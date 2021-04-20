@@ -1,0 +1,14 @@
+---
+permalink: copy-based/reference_trademark.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, trademark 
+summary: 《 7- 模式过渡工具基于副本的过渡指南》的商标信息。 
+---
+= 商标
+:icons: font
+:imagesdir: ../media/
+
+
+NetApp 、 NetApp 徽标和 NetApp 商标页面上列出的标记是 NetApp 、 Inc. 的商标。其他公司和产品名称可能是其各自所有者的商标。
+
+https://www.netapp.com/company/legal/trademarks/[""]

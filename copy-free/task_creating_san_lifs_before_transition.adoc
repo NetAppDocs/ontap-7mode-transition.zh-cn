@@ -1,0 +1,36 @@
+---
+permalink: copy-free/task_creating_san_lifs_before_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, san, lifs, create 
+summary: 由于 7- 模式过渡工具不会过渡 FC 和 iSCSI LIF ，因此过渡前必须在 SVM 上创建这些 LIF 。您必须在拥有 LUN 的节点和节点的 HA 配对节点上配置 SAN LIF 。 
+---
+= 过渡前创建 SAN LIF
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+由于 7- 模式过渡工具不会过渡 FC 和 iSCSI LIF ，因此过渡前必须在 SVM 上创建这些 LIF 。您必须在拥有 LUN 的节点和节点的 HA 配对节点上配置 SAN LIF 。
+
+必须将所需的 SAN （ FC 或 iSCSI ）许可证添加到集群中。
+
+为了实现冗余，您必须在托管 LUN 的节点及其 HA 配对节点上创建 SAN LIF 。
+
+.步骤
+. 根据所使用的协议，在 LUN 过渡到的目标节点上创建 FC 或 iSCSI LIF ：
++
+` * 网络接口 cre*`
+
++
+如果要重复使用 iSCSI LIF 的 7- 模式 IP 地址，则必须在管理关闭状态下创建 LIF 。您可以在转换操作后将这些 LIF 置于管理启动状态。
+
+. 在节点的 HA 配对节点上创建 LIF 。
+. 验证是否已正确设置 LIF ：
++
+` * 网络接口显示 *`
+
+
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 管理"]

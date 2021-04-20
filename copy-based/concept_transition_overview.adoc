@@ -1,0 +1,27 @@
+---
+permalink: copy-based/concept_transition_overview.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, overview 
+summary: 过渡到集群模式 ONTAP 涉及确定当前环境，定义过渡范围，设计目标系统的最佳配置，规划如何迁移数据和配置以及进行必要的环境更新。 
+---
+= 过渡概述
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡到集群模式 ONTAP 涉及确定当前环境，定义过渡范围，设计目标系统的最佳配置，规划如何迁移数据和配置以及进行必要的环境更新。
+
+请务必查阅当前的 7- 模式过渡工具 _Release Notes_ ，了解有关受支持的目标版本和已知问题的最新信息。
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["《 7- 模式过渡工具发行说明》"]
+
+您必须首先收集有关当前环境的信息，包括当前存储环境以及主机和应用程序。收集存储清单后，您可以评估当前使用的特性和功能，并确定所选 ONTAP 版本中的任何差异。您可以使用 7- 模式过渡工具执行这些任务。
+
+然后，您可以定义迁移项目。这包括确定要同时迁移的卷和工作负载，然后您可以设计集群并规划过渡。您可以首先选择最佳迁移方法来开始规划迁移。在设计集群时，您可以使用收集的有关存储环境的信息将现有配置项映射到 ONTAP 中的等效项。例如，应将 7- 模式卷映射到 SVM ，并将 ONTAP 中的卷映射到 LIF ，而将要过渡的 IP 地址应映射到 LIF 。您还应确定是否需要对 ONTAP 系统进行任何环境更改。
+
+实施包括部署和配置集群，迁移数据，应用配置更改，断开客户端连接并重新连接到目标 ONTAP 系统，验证访问以及执行任何必要的环境更改。
+
+* 相关信息 *
+
+http://docs.netapp.com/ontap-9/index.jsp["NetApp 文档： ONTAP 9"]

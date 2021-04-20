@@ -1,0 +1,30 @@
+---
+permalink: inventory-collect/concept_system_requirements_for_running_ict.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, system, requirements, inventory, collect, tool 
+summary: 您可以在 Windows 系统上下载并运行清单收集工具。Windows 系统必须具有运行清单收集工具所需的配置。 
+---
+= 运行清单收集工具的系统要求
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在 Windows 系统上下载并运行清单收集工具。Windows 系统必须具有运行清单收集工具所需的配置。
+
+* Windows 系统必须为以下系统之一：
++
+** 64 位 Windows 7 Enterprise
+** Windows Server 2008 R2 Enterprise SP1 或更高版本
+** Windows Server 2012 R2 Standard
+
+
+
+
+
+NOTE: 您可以使用满足所需软件和硬件要求的 Windows 虚拟机来安装清单收集工具。
+
+* 双核 x64 处理器（ 1.0 GHz 或更高）
+* 4 GB RAM
+* 40 GB HDD
+

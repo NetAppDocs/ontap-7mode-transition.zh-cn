@@ -1,0 +1,136 @@
+---
+permalink: install-admin/concept_system_requirements_for_7mtt_on_windows.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, system, requirements, windows, transition, tool 
+summary: 要安装和运行 7- 模式过渡工具，您必须确保 Windows 主机满足所需的配置。 
+---
+= 在 Windows 上安装 7- 模式过渡工具的系统要求 系统
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要安装和运行 7- 模式过渡工具，您必须确保 Windows 主机满足所需的配置。
+
+请务必参考当前的 7- 模式过渡工具 link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["发行说明"] 有关受支持主机和已知问题的最新信息。
+
+
+
+== 硬件要求
+
+* 双核 x64 处理器， 1.0 GHz 或更高
+* 8 GB RAM
+* 40 GB 可用磁盘空间
+
+
+
+
+== 软件要求
+
+* 64 位 Windows 系统必须运行以下操作系统版本之一：
++
+** Windows 7 Enterprise
+** Windows 7 Enterprise SP1
+** Windows Server 2008 标准版
+** Windows Server 2008 R2 Standard
+** Windows Server 2008 R2 Enterprise SP1
+** Windows Server 2012 标准版
+** Windows Server 2012 R2 Standard
+** Windows 8.1 Enterprise
+** Windows Server 2012 R2 Datacenter 版本
+** 对于 7- 模式过渡工具版本 3.3.2P1 ，您还可以使用以下操作系统版本之一：
++
+*** Windows 10 Enterprise
+*** Windows Server 2016 标准版
+*** Windows Server 2016 Datacenter
+*** Windows Server 2019 标准版
+*** Windows Server 2019 Datacenter
+
+
+** 对于 7- 模式过渡工具版本 3.3.3 ，您还可以使用以下操作系统版本之一：
++
+*** Windows 10 专业版
++
+
+NOTE: 您可以使用满足所需软件要求和硬件要求的 Windows 虚拟机来安装 7- 模式过渡工具。
+
+
+
+
+
+* 64 位 Oracle Java Runtime Environment （ JRE ） 1.8 update 144
++
+
+NOTE: 如果 Windows 主机未安装 JRE 或安装了 32 位 JRE ，则 7- 模式过渡工具安装程序会自动安装 64 位 JRE 1.8 update 144 。如果安装了早期版本的 64 位 JRE ，则安装程序会自动将 JRE 更新到 JRE 1.8 update 144 。
+
++
+自动更新 JRE 后，需要早期版本 JRE 的其他应用程序可能会受到影响。
+
++
+
+NOTE: 对于 JRE 1.8 update 46 或更高版本（包括 JRE 1.8 update 144 ），要使 7- 模式过渡工具与 7- 模式系统和 ONTAP 系统中的 Data ONTAP 进行通信，在 7- 模式系统和 ONTAP 系统中运行的 Data ONTAP 上的 SSL 密钥长度必须至少为 1024 。
+
++
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT%3A_How_to_resolve_TLS_or_SSL_communication_issue["7MTT ：如何解析 TLS 或 SSL 通信问题描述"]
+
+
+
+
+
+== 服务器配置要求
+
+要访问 Web 界面，必须按以下方式配置安装了该工具的 Windows 系统：
+
+* 7- 模式过渡工具服务器的端口 8443 必须可用。
++
+如果端口 8443 不可用，或者您要使用其他端口，则必须更改 ` $INSTALL_DIR\etc\conf\transition-tool.conf` 文件中的 `tool.https.port` 参数指定的端口。
+
++
+最佳做法是使用 HTTPS 访问 Web 界面。但是，如果要使用 HTTP 访问 Web 界面，则端口 8088 必须可用。要替代端口 8088 ，您必须更改 `transition-tool.conf` 文件中的 `tool.http.port` 参数指定的端口。
+
++
+
+NOTE: 更改配置文件中的端口后，必须重新启动 7- 模式过渡工具服务。
+
+* 防火墙应关闭或配置为允许用于访问该工具的端口上的流量。
+
+
+要过渡网络组和 CIFS 本地用户和组，必须满足以下要求：
+
+* 7- 模式过渡工具的端口 8088 必须可用。
++
+要替代端口 8088 ，您必须更改 `transition-tool.conf` 文件中的 `tool.http.port` 参数指定的端口，然后重新启动 7- 模式过渡工具服务。
+
+* 集群中的每个节点必须至少为目标 SVM 配置一个数据 LIF 。
+* 所有 SVM 数据 LIF 都必须能够与 7- 模式过渡工具端口 8088 或 `transition-tool.conf` 文件中的 `tool.http.port` 参数指定的端口进行通信。
++
+
+NOTE: 您必须确保防火墙不会阻止此流量。
+
+
+
+
+
+== 客户端（ Web 界面）要求
+
+访问 Web 界面的系统必须具有以下内容：
+
+* 以下 Web 浏览器之一：
++
+** Microsoft Internet Explorer 9 ， 10 或 11
+** Google Chrome 27 或更高版本
+** Mozilla Firefox 20 或更高版本所有浏览器都必须启用 TLS 。
+
+
++
+
+NOTE: 如果使用 Microsoft Internet Explorer 作为 Web 浏览器，则必须禁用 SSLv2 。
+
+* 屏幕分辨率为 1280 × 1024 或更高
+
+
+每次安装新版本的工具时，您都必须通过在系统上按 Ctrl+F5 来清除浏览器缓存。
+
+* 相关信息 *
+
+https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性"]

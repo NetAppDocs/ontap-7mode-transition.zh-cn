@@ -1,0 +1,119 @@
+---
+permalink: copy-free/concept_prerequisites_for_transitioning_cifs_configurations.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, cifs, configurations, prerequisites 
+summary: 只有在 7- 模式系统和集群满足特定前提条件时， 7- 模式过渡工具才会过渡 CIFS 配置。如果不满足任何条件，该工具将不会过渡配置。 
+---
+= 过渡 CIFS 配置的前提条件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+只有在 7- 模式系统和集群满足特定前提条件时， 7- 模式过渡工具才会过渡 CIFS 配置。如果不满足任何条件，该工具将不会过渡配置。
+
+
+
+== 7- 模式前提条件
+
+* 必须添加 CIFS 许可证。
+* 如果启用了 MultiStore 许可证，则必须将 CIFS 添加到拥有过渡卷的 vFiler 单元的允许协议列表中。
+* 过渡期间必须设置并运行 CIFS 。
++
+即使在断开客户端访问并准备开始导出阶段后， CIFS 服务也必须在 7- 模式系统上运行。
+
+* CIFS 的身份验证类型必须为 Active Directory （ AD ）或工作组。
+
+
+
+
+== 集群前提条件
+
+* 必须添加 CIFS 许可证。
+* 不同的 ONTAP 版本支持以下 CIFS 身份验证方法：
++
+** 集群模式 Data ONTAP 8.2.x 和 8.3.x 支持 AD 身份验证。
+** ONTAP 9.0 或更高版本支持 AD 身份验证和工作组身份验证。
+
+
+* 下表列出了必须在目标 SVM 上使用的身份验证方法：
++
+|===
+| 7- 模式身份验证方法 | 集群模式 Data ONTAP 8.2.x 和 8.3.x 身份验证方法 | ONTAP 9.5 或更早版本的身份验证方法 
+
+
+ a| 
+AD
+ a| 
+AD
+ a| 
+AD
+
+
+
+ a| 
+工作组
+ a| 
+AD
+ a| 
+工作组或 AD
+
+|===
+* 如果 7- 模式 CIFS 服务器和目标 SVM CIFS 服务器之间的 AD 域不匹配，则可以将 CIFS 配置从 7- 模式过渡到 ONTAP 。
++
+检测到 AD 域名不匹配时，该工具会触发可忽略的阻止错误。要继续过渡，您可以确认阻止错误。
+
+* 必须在应用配置（预转换）阶段之前手动配置 CIFS 服务器。
++
+您可以通过以下两种方式在 SVM 上创建 CIFS 服务器：
+
++
+|===
+| 如果您要 ... | 执行以下操作 ... 
+
+
+ a| 
+将 CIFS 服务器标识传输或保留到目标 SVM
+ a| 
+....
+You have the following two options to create the CIFS server:
+....
+.. 适用于所有版本的 ONTAP ：
++
+*** 在 SVM 配置阶段之前，您必须使用临时 CIFS 标识在 7- 模式系统上重新配置 CIFS 服务器。
++
+通过这种重新配置，可以在 SVM 上配置原始 CIFS 服务器标识。您必须使用新的临时标识在 " `SVM 配置` " 和 "`导出并暂停` " 阶段验证 CIFS 服务器是否正在 7- 模式系统上运行。要在 SVM 配置和 "`导出并暂停` " 阶段从 7- 模式读取 CIFS 配置，需要执行此操作。
+
+*** 您必须使用原始 7- 模式 CIFS 标识在目标 SVM 上配置 CIFS 服务器。
+*** 满足这些条件后，您可以执行 " `SVM 配置` " 操作，然后执行 "`导出并暂停` " 操作，以使客户端能够访问 ONTAP 卷。
+
+
+.. 适用于 ONTAP 9.0 至 9.5 版：
++
+*** 使用 `vserver cifs modify` 命令更改 CIFS 服务器名称（ CIFS 服务器 NetBIOS 名称）。
++
+使用此功能，您应使用临时标识在目标 SVM 上创建 CIFS 服务器，然后执行 " `SVM 配置` " 操作。
+
+*** 在 "`import` " 阶段之后，您可以在目标集群上运行 `vserver cifs modify` 命令，将目标 SVM CIFS 标识替换为 7- 模式 CIFS 标识。
+
+
+
+
+
+
+ a| 
+使用新标识
+ a| 
+** 在 " `SVM 配置` " 阶段之前，您必须使用新的 CIFS 标识在目标 SVM 上配置 CIFS 服务器。
+** 在 " `SVM 配置` " 和 "`导出并暂停` " 阶段，您必须验证 CIFS 服务器是否已在 7- 模式系统上启动并运行。
++
+要在 " `SVM 配置` 和 "`导出并暂停` " 期间从 7- 模式读取 CIFS 配置，需要执行此操作。
+
+** 验证这些条件后，您可以执行 " `SVM 配置` " 操作。
++
+然后，您可以测试 SVM 配置，然后计划执行存储转换。
+
+
+
+|===
+

@@ -1,0 +1,13 @@
+---
+permalink: san-host/concept_transitioning_hp_ux_host_san_boot_luns_with_fc_fcoe_configurations.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, hp, ux, host, lun, fc, fcoe, configurations 
+summary: 如果使用 7- 模式过渡工具将具有 FC 或 FCoE 配置的 HP 主机 SAN 启动 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP ，则必须在过渡之前和过渡之后执行特定步骤以修复主机上的过渡问题。 
+---
+= 过渡具有 FC/FCoE 配置的 HP-UX 主机 SAN 启动 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果使用 7- 模式过渡工具（ 7MTT ）将具有 FC 或 FCoE 配置的 HP 主机 SAN 启动 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP ，则必须在过渡之前和过渡之后执行特定步骤以修复主机上的过渡问题。

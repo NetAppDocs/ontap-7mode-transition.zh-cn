@@ -1,0 +1,19 @@
+---
+permalink: copy-based/concept_impact_of_takeover_and_giveback_on_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, impact, takeover, giveback 
+summary: 过渡操作，例如过渡准备，启动，暂停，恢复或完成， 在控制器接管或交还期间失败。 
+---
+= 接管和交还对过渡的影响
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡操作，例如过渡准备，启动，暂停，恢复或完成， 在控制器接管或交还期间失败。
+
+如果过渡操作因接管而失败，则必须等待交还完成，然后再次运行过渡操作。
+
+如果在基线传输期间发生控制器接管，则传输将失败。要从基线传输中止的位置恢复此传输，您必须等待交还完成。
+
+数据复制将根据配置的计划恢复。

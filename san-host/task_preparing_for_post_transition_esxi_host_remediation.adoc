@@ -1,0 +1,51 @@
+---
+permalink: san-host/task_preparing_for_post_transition_esxi_host_remediation.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, post, esxi, host, remediation 
+summary: 完成 7- 模式过渡工具（ 7MTT\ ）过渡后，您必须执行各种 ESXi 主机修复任务。要执行这些任务，您必须完成几个步骤。 
+---
+= 为过渡后 ESXi 主机修复做准备
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+完成 7- 模式过渡工具（ 7MTT ）过渡后，您必须执行各种 ESXi 主机修复任务。要执行这些任务，您必须完成几个步骤。
+
+* 对于基于副本的过渡（ CBT ），请在 7MTT 中启动存储转换操作之前执行以下步骤。
+* 对于无副本过渡（ CFT ），请在 7MTT 中启动导出并暂停 7- 模式系统操作之前执行以下步骤。
+
+
+.步骤
+. 生成 7- 模式到 ONTAP LUN 的映射文件：
++
+** 对于 CBT ，请在安装了 7MTT 的 Linux 主机上运行以下命令： + ` * 过渡 CBT 导出 lunmap -p _project-name_ -o _file_path_*`
++
+例如：
+
++
+` * 过渡 CBT 导出 lunmap -p SanWorkLoad -o c ： /Libraires/Documents/7-C-LUN-mapping-csv*`
+
+** 对于 CFT ，请在安装了 7MTT 的系统中运行以下命令： + ` * transition cft export lunmap -p _project-name_ -s _svm-name_ -o _output-file_*`
++
+例如：
+
++
+` * 过渡 CFT 导出 lunmap -p SanWorkLoad -s svm1 -o c ： /Libraires/Documents/7-A-C-LUN-mapping-svm1.csv*`
+
++
+
+NOTE: 您必须对每个 Storage Virtual Machine （ SVM ）运行此命令。
+
+
+
+. 验证是否存在 igroup 和启动程序映射。
++
+7MTT 重新创建与在 7- 模式下运行的 Data ONTAP 中使用的启动程序相同的 igroup ，并将集群模式 Data ONTAP LUN 重新映射到主机。
+
+. 验证分区是否适用于新的集群模式 Data ONTAP 目标。
+. 如果要执行无副本过渡（ CFT ），请运行 `vol rehost` 。
++
+请参见 link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-free/index.html["《 7- 模式过渡工具无副本过渡指南》"] 用于 `vol rehost` 过程。
+
+

@@ -1,0 +1,66 @@
+---
+permalink: snapmirror/task_creating_a_transition_peering_relationship.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, create, peer, relationship, snapmirror 
+summary: 您必须先创建过渡对等关系，然后才能设置 SnapMirror 关系，以便在 7- 模式系统和集群之间进行过渡。作为集群管理员，您可以使用 vserver peer transition create 命令在 anSVM 和 7- 模式系统之间创建过渡对等关系。 
+---
+= 创建过渡对等关系
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须先创建过渡对等关系，然后才能设置 SnapMirror 关系，以便在 7- 模式系统和集群之间进行过渡。作为集群管理员，您可以使用 `vserver peer transition create` 命令在 anSVM 和 7- 模式系统之间创建过渡对等关系。
+
+* 您必须确保源 7- 模式系统的名称不会与任何本地 SVM 或已建立对等关系的 SVM 冲突。
+* 您必须已创建类型为 DP 的集群模式 Data ONTAP 卷，必须将 7- 模式数据过渡到该卷。
++
+集群模式 Data ONTAP 卷的大小必须等于或大于 7- 模式卷的大小。
+
+* 您必须确保 SVM 名称不包含 "" 。
+* 如果使用的是本地 LIF ，则必须确保满足以下条件：
++
+** 本地 LIF 会在默认 IP 空间中创建
+** 本地 LIF 是在其所在节点上配置的 卷驻留
+** LIF 迁移策略与卷节点相同，因此两者都可以迁移到同一目标节点
+
+
+
+
+在创建过渡对等关系时，您还可以指定多路径 FQDN 或 IP 地址来平衡数据传输的负载。
+
+.步骤
+. 使用 `vserver peer transition create` 命令创建过渡对等关系。
+. 使用 `vserver peer transition show` 确认已成功创建过渡对等关系。
+
+
+
+
+== 创建和查看过渡对等关系的示例
+
+以下命令使用多路径地址 src1-e0d 以及本地 LIF lif1 和 lif2 在 SVM vs1 和 7- 模式系统 src1 之间创建过渡对等关系：
+
+[listing]
+----
+cluster1::> vserver peer transition create -local-vserver vs1 -src-filer-name src1 -multi-path-address src1-e0d -local-lifs lif1,lif2
+----
+以下示例显示了一个 SVM （ vs1 ）和多个 7- 模式系统之间的过渡对等关系：
+
+[listing]
+----
+cluster1::> vserver peer transition create -local-vserver vs1 -src-filer-name src3
+Transition peering created
+
+cluster1::> vserver peer transition create -local-vserver vs1 -src-filer-name src2
+Transition peering created
+----
+以下输出显示了 SVM vs1 的过渡对等关系：
+
+[listing]
+----
+cluster1::> vserver peer transition show
+Vserver  Source Filer  Multi Path Address   Local LIFs
+-------  ------------  -----------------    ---------
+vs1      src2	         	-				    	-
+vs1      src3	        	-				     	-
+----

@@ -1,0 +1,33 @@
+---
+permalink: snapmirror/task_resuming_a_failed_snapmirror_transfer_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, resume, failed, snapmirror, baseline, transfer, transition 
+summary: 过渡期间， SnapMirror 基线传输可能会因多种原因而失败，例如网络连接断开，传输中止或控制器故障转移。更正发生原因故障后，如果重新启动检查点可用，您可以恢复 SnapMirror 传输。 
+---
+= 恢复失败的 SnapMirror 基线传输
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡期间， SnapMirror 基线传输可能会因多种原因而失败，例如网络连接断开，传输中止或控制器故障转移。更正发生原因故障后，如果重新启动检查点可用，您可以恢复 SnapMirror 传输。
+
+如果基线传输的重新启动检查点不可用，则必须删除并重新创建卷，重新建立 SnapMirror 关系并重新启动过渡。
+
+.步骤
+. 在目标集群中，使用带有 ` -snapshot-checkpoint` 参数的 `snapmirror show` 命令查看基线传输和重新启动检查点的状态。
++
+[listing]
+----
+cluster2::> snapmirror show -destination-path dest_vserver:vol3 -fields snapshot-checkpoint
+source-path          destination-path snapshot-checkpoint
+-------------------- ---------------- -------------------
+src_system:vol3    dest_vserver:vol3 50MB
+----
+. 如果存在 SnapMirror 检查点，请使用 `snapmirror initialize` 命令恢复基线传输。
++
+[listing]
+----
+cluster2::> snapmirror initialize -destination-path dest_vserver:vol3
+----
+

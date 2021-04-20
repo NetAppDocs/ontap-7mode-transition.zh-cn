@@ -1,0 +1,63 @@
+---
+permalink: snapmirror/task_transitioning_disaster_recovery_relationship.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, disaster, recovery, relationship, vfiler, units, snapmirror 
+summary: 您可以将 7- 模式系统上主 vFiler 单元和二级 vFiler 单元之间的灾难恢复 \ （ DR\ ）关系过渡到集群中源 SVM 和目标 SVM 之间的灾难恢复关系。 
+---
+= 过渡 vFiler 单元之间的灾难恢复关系
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将 7- 模式系统上主 vFiler 单元和二级 vFiler 单元之间的灾难恢复（ DR ）关系过渡到集群中源 SVM 和目标 SVM 之间的灾难恢复关系。
+
+在过渡过程中，主 vFiler 单元将过渡到源 SVM ，而二级 vFiler 单元将过渡到目标 SVM 。
+
+.步骤
+. 将主 vFiler 单元过渡到源 SVM ，将二级 vFiler 单元过渡到目标 SVM 。
+. 使用 `vserver stop` 命令停止目标 SVM 。
++
+您不能重命名任何卷或在目标 SVM 上添加任何新卷。
+
+. 对于每个已过渡的主卷，使用 `snapmirror create` 命令与相应的二级卷创建卷级 SnapMirror 关系。
++
+[listing]
+----
+destination_cluster::> snapmirror create -source-path src_vserver:c_vol -destination-path dst_vserver:c_vol -type DP
+----
+. 使用 `snapmirror resync` 命令重新同步已过渡的主卷和二级卷之间的卷级 SnapMirror 关系。
++
+要成功重新同步，主卷和二级卷之间必须存在一个通用 Snapshot 副本。
+
++
+[listing]
+----
+destination_cluster::> snapmirror resync -destination-path
+dst_vserver:c_vol
+----
+. 使用 `snapmirror show` 命令验证重新同步操作是否已完成，以及 SnapMirror 关系是否处于 `Snapmirrored` 状态。
+. 使用 `snapmirror create` 命令并将 ` identity-preserve` 选项设置为 `true` ，在源和目标 SVM 之间创建 SVM 灾难恢复关系。
++
+[listing]
+----
+destination_cluster::> snapmirror create -source-path src_vserver: -destination-path dst_vserver: -type DP -throttle unlimited -policy DPDefault -schedule hourly -identity-preserve true
+----
+. 使用 `snapmirror resync` 命令从源 SVM 重新同步目标 SVM 。
++
+[listing]
+----
+destination_cluster::> snapmirror resync dst_vserver:
+----
+. 使用 `snapmirror show` 命令验证重新同步操作是否已完成，以及 SnapMirror 关系是否处于 `Snapmirrored` 状态。
++
+[listing]
+----
+destination_cluster::> snapmirror show
+                                                                                    Progress
+Source               Destination     Mirror       Relationship  Total               Last
+Path           Type  Path            State        Status        Progress   Healthy  Updated
+--------       ---- ------------     -------      -------------- --------- ------- --------
+src_vserver     DP    dst_vserver    Snapmirrored  Idle           -         true    -
+----
+

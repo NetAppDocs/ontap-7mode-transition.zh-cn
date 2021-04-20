@@ -1,0 +1,21 @@
+---
+permalink: san-host/concept_transition_of_san_boot_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, san, boot, lun 
+summary: 在使用 7- 模式过渡工具（ 7MTT\ ）从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 之前，必须重新启动 SAN 启动 LUN 。您必须执行特定步骤为转换阶段做准备，过渡后必须发现 LUN 。 
+---
+= 过渡 SAN 启动 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用 7- 模式过渡工具（ 7MTT ）从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 之前，必须重新启动 SAN 启动 LUN 。您必须执行特定步骤为转换阶段做准备，过渡后必须发现 LUN 。
+
+* 相关信息 *
+
+xref:task_preparing_for_transition_of_fc_or_fcoe_san_boot_luns.adoc[为过渡 FC 或 FCoE SAN 启动 LUN 做准备 在 RHEL 主机上]
+
+xref:task_preparing_for_transition_of_iscsi_san_boot_luns.adoc[为过渡 iSCSI SAN 启动 LUN 做准备]
+
+xref:task_discovering_san_boot_luns_after_transition.adoc[过渡后发现 SAN 启动 LUN]

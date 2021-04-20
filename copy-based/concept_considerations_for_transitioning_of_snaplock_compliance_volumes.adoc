@@ -1,0 +1,25 @@
+---
+permalink: copy-based/concept_considerations_for_transitioning_of_snaplock_compliance_volumes.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snaplock, compliance, volumes 
+summary: 7- 模式过渡工具支持过渡 SnapMirror 关系中的独立 SnapLock Compliance 卷和 SnapLock Compliance 卷。 
+---
+= 过渡 SnapLock Compliance 卷的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7- 模式过渡工具支持过渡 SnapMirror 关系中的独立 SnapLock Compliance 卷和 SnapLock Compliance 卷。
+
+过渡独立 SnapLock Compliance 卷的工作流与过渡 FlexVol 卷的工作流相同。
+
+7- 模式过渡工具不会自动过渡 SnapLock Compliance 卷的 SnapMirror 关系。您必须将主 SnapLock Compliance 卷和二级 Compliance 卷作为独立卷进行过渡，然后手动重新同步这些关系。
+
+您可以在独立，主和二级项目中将 SnapLock Compliance 卷（独立卷和 SnapMirror 关系中的卷）作为独立卷包括在内。
+
+使用 SnapLock Compliance 卷的项目不支持预转换读 / 写模式。最佳做法是为 SnapLock Compliance 卷和非 SnapLock Compliance 卷创建单独的项目，因为如果项目中包含 SnapLock Compliance 卷，则不支持预转换读 / 写模式。
+
+在转换操作期间，如果选定卷是 SnapLock Compliance 卷且它是 SnapMirror 关系的目标，则会删除 7- 模式卷与 ONTAP 卷之间的 SnapMirror 关系，而不执行 SnapMirror 中断操作。此操作可使二级 ONTAP SnapLock Compliance 卷保持只读模式。要在主 SnapLock Compliance 卷和二级 ONTAP SnapLock Compliance 卷之间成功执行重新同步操作，二级 Compliance 卷必须处于只读模式。
+
+请参见 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_transition_the_7-Mode_SnapLock_Compliance_volumes_with_SnapMirror_relationship_to_clustered_Data_ONTAP["如何使用 SnapMirror 过渡 7- 模式 SnapLock 合规性卷 与集群模式 Data ONTAP 的关系"]

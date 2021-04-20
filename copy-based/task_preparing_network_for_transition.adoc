@@ -1,0 +1,46 @@
+---
+permalink: copy-based/task_preparing_network_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare, network 
+summary: 您必须通过创建逻辑端口（ VLAN 和接口组）为集群的数据网络做好过渡准备。 
+---
+= 准备网络以进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须通过创建逻辑端口（ VLAN 和接口组）来准备要过渡的集群数据网络。
+
+必须配置 NTP 服务器，并且必须在 7- 模式系统和集群之间同步时间。
+
+.步骤
+. 根据需要在目标集群节点上创建 VLAN 或接口组：
++
+` * 网络端口 vlan cre*`
+
++
+或
+
++
+` * 网络端口 ifgrp cre*`
+
++
+要在过渡后提供网络连接，您应将 7- 模式 IP 地址过渡到 ONTAP 中类似的网络拓扑。例如，如果在物理端口上配置了 7- 模式 IP 地址，则应将 IP 地址过渡到 ONTAP 中的相应物理端口。同样，在 VLAN 端口或接口组上配置的 IP 地址应过渡到 ONTAP 中的相应 VLAN 端口或接口组。
+
+. 如果希望 SVM 位于非默认 IP 空间中，请创建所需的 IP 空间：
++
+` * 网络 IP 空间 cre*`
+
++
+选择进行过渡的 7- 模式 IP 地址或新 LIF 将在映射的 SVM 的 IP 空间中创建。
+
++
+
+NOTE: IPv6 地址无法过渡，必须在过渡后手动配置。
+
+
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]

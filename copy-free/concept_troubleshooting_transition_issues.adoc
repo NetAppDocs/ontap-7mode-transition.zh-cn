@@ -1,0 +1,13 @@
+---
+permalink: copy-free/concept_troubleshooting_transition_issues.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, troubleshooting, issues 
+summary: 您应了解如何对 7- 模式过渡工具的问题进行故障排除，以及如何查找日志文件。使用 7- 模式过渡工具时，您可能会看到错误消息，指出问题描述并提供解决方案。 
+---
+= 对过渡问题进行故障排除
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您应了解如何对 7- 模式过渡工具的问题进行故障排除，以及如何查找日志文件。使用 7- 模式过渡工具时，您可能会看到错误消息，指出问题描述并提供解决方案。

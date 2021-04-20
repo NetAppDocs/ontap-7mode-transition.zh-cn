@@ -1,0 +1,17 @@
+---
+permalink: snapmirror/concept_licensing_requirements_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, license, requirements, transition, snapmirror, clusters, volume 
+summary: 在将卷从 7- 模式过渡到集群模式 Data ONTAP 之前，您必须确保 SnapMirror 在 7- 模式存储系统上获得许可。如果要过渡 7- 模式卷 SnapMirror 关系，则源集群和目标集群也需要 SnapMirror 许可证。 
+---
+= 过渡的许可证要求
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在将卷从 7- 模式过渡到集群模式 Data ONTAP 之前，您必须确保 SnapMirror 在 7- 模式存储系统上获得许可。如果要过渡 7- 模式卷 SnapMirror 关系，则源集群和目标集群也需要 SnapMirror 许可证。
+
+如果在 7- 模式系统上已获得 SnapMirror 许可，则可以使用相同的许可证进行过渡。如果您没有 7- 模式 SnapMirror 许可证，则可以从销售代表处获取一个临时 SnapMirror 许可证以进行过渡。
+
+必须将在 7- 模式系统上启用的功能许可证添加到集群中。有关在集群上获取功能许可证的信息，请参见 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["《系统管理参考》"]。

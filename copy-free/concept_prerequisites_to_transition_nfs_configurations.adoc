@@ -1,0 +1,40 @@
+---
+permalink: copy-free/concept_prerequisites_to_transition_nfs_configurations.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, prerequisites, nfs, configurations 
+summary: 只有在 7- 模式系统和集群满足特定前提条件时， 7- 模式过渡工具才会过渡 NFS 配置。如果不满足任何条件，该工具将不会过渡配置。 
+---
+= 过渡 NFS 配置的前提条件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+只有在 7- 模式系统和集群满足特定前提条件时， 7- 模式过渡工具才会过渡 NFS 配置。如果不满足任何条件，该工具将不会过渡配置。
+
+
+
+== 7- 模式前提条件
+
+* NFS 必须获得许可。
+* 如果 MultiStore 已获得许可，则必须在所有 vFiler 单元上启用 NFS 。
+* 过渡期间， 7- 模式系统上必须运行 NFS 服务。
++
+即使在断开客户端访问并准备开始导出阶段后，该服务也必须在 7- 模式系统上运行。
+
+* 如果要过渡内存导出规则，必须在过渡前将其添加到 ` /etc/exports` 文件中。
++
+7- 模式过渡工具仅过渡在 ` /etc/exports` 文件中定义的持久导出规则。
+
+
+
+
+
+== 集群前提条件
+
+* NFS 必须获得许可。
+
+
+* 相关信息 *
+
+http://docs.netapp.com/ontap-9/index.jsp["NetApp 文档： ONTAP 9"]

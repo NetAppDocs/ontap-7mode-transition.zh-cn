@@ -1,0 +1,17 @@
+---
+permalink: snapmirror/task_recovering_from_a_disaster_at_7_mode_site_during_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, snapmirror, recover, disaster, site 
+summary: 如果在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间建立了 SnapMirror 灾难恢复 \ （ DR\ ）关系，并且 7- 模式主站点发生灾难，则可以将客户端访问定向到集群模式 Data ONTAP 二级卷。在 7- 模式主卷恢复联机后，您必须执行其他步骤将客户端重定向到集群模式 Data ONTAP 主卷。 
+---
+= 过渡期间从 7- 模式站点的灾难中恢复
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间建立了 SnapMirror 灾难恢复（ DR ）关系，并且 7- 模式主站点发生灾难，则可以将客户端访问定向到集群模式 Data ONTAP 二级卷。在 7- 模式主卷恢复联机后，您必须执行其他步骤将客户端重定向到集群模式 Data ONTAP 主卷。
+
+要在发生灾难后保留写入到集群模式 Data ONTAP 二级卷上的任何数据，您必须在 7- 模式主卷恢复联机后过渡 7- 模式主卷，并在集群模式 Data ONTAP 主卷和二级卷之间建立 SnapMirror 关系。然后，您可以将客户端重定向到集群模式 Data ONTAP 主卷。
+
+不支持将 SnapMirror 从集群模式 Data ONTAP 卷重新同步到 7- 模式卷。因此，如果在发生灾难后在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间重新建立 DR 关系，则写入到集群模式二级 Data ONTAP 上的所有数据都将丢失。

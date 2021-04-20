@@ -1,0 +1,21 @@
+---
+permalink: copy-free/task_performing_copy_free_transition_of_7_mode_aggregates.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, aggregates, transition 
+summary: 无副本过渡工作流包括规划项目，将 7- 模式配置应用于 SVM ，导出 7- 模式系统信息并暂停 7- 模式系统，手动将磁盘架连接到集群节点以及导入 7- 模式数据和配置。 
+---
+= 使用无副本过渡过渡过渡过渡过渡 7- 模式聚合
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+无副本过渡工作流包括规划项目，将 7- 模式配置应用于 SVM ，导出 7- 模式系统信息并暂停 7- 模式系统，手动将磁盘架连接到集群节点以及导入 7- 模式数据和配置。
+
+image::../media/perform_cft_phases_workflow.gif[执行 CFT 阶段工作流]
+
+您必须已为 7- 模式系统和集群做好无副本过渡准备。
+
+存储转换时间可以为 4 到 8 小时或更短。转换时间包括该工具执行两个自动操作所用的时间，即导出，暂停和导入操作，以及通过缆线将磁盘架手动连接到新控制器所用的时间。
+
+导出和导入操作所需时间约为 2 小时或更短。布线可能需要 2 到 6 小时或更短时间。

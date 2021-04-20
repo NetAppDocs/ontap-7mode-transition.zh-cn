@@ -1,0 +1,70 @@
+---
+permalink: install-admin/concept_ontap_target_releases_supported_by_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, target, release, support, transition, tool 
+summary: ONTAP 过渡目标集群的版本支持取决于您要使用的过渡方法，基于副本或无副本以及 7- 模式过渡工具的版本。 
+---
+= 7- 模式过渡工具支持的 ONTAP 目标版本
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 过渡目标集群的版本支持取决于您要使用的过渡方法，基于副本或无副本以及 7- 模式过渡工具的版本。
+
+请务必参考当前的 7- 模式过渡工具 link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["发行说明"] 有关受支持的目标版本和已知问题的最新信息。
+
+这些 ONTAP 目标版本支持基于副本的过渡。
+
+|===
+| 如果过渡目标正在运行 ... | 您必须使用此 7- 模式过渡工具版本 ... 
+
+
+ a| 
+ONTAP 9.8 或更早版本支持
+ a| 
+3.3.3
+
+
+
+ a| 
+ONTAP 9.7P2 或更高版本 9.7 P 版本
+
+
+NOTE: 不支持 9.7 之前的版本。
+ a| 
+3.3.2
+
+
+
+ a| 
+ONTAP 9.6P7 或更高版本 9.6 P 版本
+
+
+NOTE: 不支持早期 9.6 版。
+ a| 
+3.3.2
+
+
+
+ a| 
+ONTAP 9.5 或更早版本的 ONTAP 9 版本
+ a| 
+3.3.2 或 3.3.1
+
+
+
+ a| 
+集群模式 Data ONTAP 8.1.4P4 及更高版本 8.x 。
+ a| 
+3.3.2 或 3.3.1
+
+|===
+支持使用 7- 模式过渡工具 3.3.1 对这些 ONTAP 目标版本进行无副本过渡。
+
+* ONTAP 9.4 及更早版本的 ONTAP 9 。
+* 集群模式 Data ONTAP 8.3.2 及更高版本 8.x 。
+
+
+
+NOTE: 您不能使用 7- 模式过渡工具使用无副本方法过渡到 ONTAP 9.5 或更高版本。为此，您必须先使用 7- 模式过渡工具 3.3.1 过渡到 ONTAP 9.4 ，然后再将集群升级到 ONTAP 9.5 或更高版本。7- 模式过渡工具 3.3.2 不支持无副本过渡。

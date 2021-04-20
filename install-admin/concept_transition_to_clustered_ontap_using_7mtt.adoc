@@ -1,0 +1,17 @@
+---
+permalink: install-admin/concept_transition_to_clustered_ontap_using_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, transition, tool, clustered 
+summary: 通过 7- 模式过渡工具，您可以收集 7- 模式控制器，主机，交换机和应用程序的清单，并评估它们是否已准备好过渡到集群模式 ONTAP 。评估后，您可以使用基于副本的过渡方法或无副本过渡方法将数据和配置从 7- 模式迁移到集群模式 ONTAP 。可以从 NetApp 支持站点下载 7- 模式过渡工具，并将其安装在 Linux 或 Windows 系统上。 
+---
+= 使用 7- 模式过渡工具过渡到集群模式 ONTAP
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过 7- 模式过渡工具，您可以收集 7- 模式控制器，主机，交换机和应用程序的清单，并评估它们是否已准备好过渡到集群模式 ONTAP 。评估后，您可以使用基于副本的过渡方法或无副本过渡方法将数据和配置从 7- 模式迁移到集群模式 ONTAP 。可以从 NetApp 支持站点下载 7- 模式过渡工具，并将其安装在 Linux 或 Windows 系统上。
+
+请务必查阅当前的 7- 模式过渡工具 _Release Notes_ ，了解有关受支持的目标版本和已知问题的最新信息。
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["《 7- 模式过渡工具发行说明》"]

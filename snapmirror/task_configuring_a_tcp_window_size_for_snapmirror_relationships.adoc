@@ -1,0 +1,55 @@
+---
+permalink: snapmirror/task_configuring_a_tcp_window_size_for_snapmirror_relationships.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, configure, tcp, window, size, snapmirror, relationship 
+summary: 您可以为 7- 模式卷和 ONTAP 卷之间的 SnapMirror 关系配置 TCP 窗口大小，以提高 SnapMirror 传输吞吐量，从而加快复制操作的完成速度。 
+---
+= 为 SnapMirror 关系配置 TCP 窗口大小
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以为 7- 模式卷和 ONTAP 卷之间的 SnapMirror 关系配置 TCP 窗口大小，以提高 SnapMirror 传输吞吐量，从而加快复制操作的完成速度。
+
+SnapMirror policy 命令提供了 `window-size-for-TDP 镜像` 选项，用于为 7- 模式卷和 ONTAP 卷（ TDP ）之间的 SnapMirror 关系配置 TCP 窗口大小。使用此选项，您可以配置更高 / 更低的 TCP 窗口大小。设置此选项时，必须注意以下注意事项：
+
+* 只能为类型为 `async-mirror` 的策略配置 `window-size-for-TDP 镜像` 选项。
+* 可以将 `window-size-for-TDP 镜像` 选项配置为 `256 KB` 到 `7 MB` 范围。否则，配置将失败。
+* `window-size-for-TDP 镜像` 选项的默认值为 `2 MB` 。
+
+
+
+NOTE: `window-size-for-TDP 镜像` 选项处于隐藏状态，并且选项卡完成不起作用。请务必键入完整选项以使用它。
+
+以下示例显示了如何为类型为 `TDP` 的 SnapMirror 关系配置 `5 MB` 的 TCP 窗口大小：
+
+.步骤
+. 创建类型为 `async-mirror` 且 TCP 窗口大小为 `5 MB` 的 SnapMirror 策略：
++
+` * SnapMirror 策略 cre*`
+
++
+[listing]
+----
+cluster01::> snapmirror policy create -vserver vserverA –policy tdp_window_size_policy -window-size-for-tdp-mirror 5MB -type async-mirror
+----
+. 创建类型为 `TDP` 的 SnapMirror 关系并应用策略：
++
+` * SnapMirror cre*`
+
++
+[listing]
+----
+cluster01::> snapmirror create -source-path filerA:volA -destination-path vserverA:volA -type TDP -policy tdp_window_size_policy
+----
+. 查看 SnapMirror 策略中配置的窗口大小：
++
+` * SnapMirror policy show*`
+
++
+[listing]
+----
+cluster01::> snapmirror policy show -vserver vserverA -policy tdp_window_size_policy -fields window-size-for-tdp-mirror
+----
+

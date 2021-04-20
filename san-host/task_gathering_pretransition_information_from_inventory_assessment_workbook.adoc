@@ -1,0 +1,45 @@
+---
+permalink: san-host/task_gathering_pretransition_information_from_inventory_assessment_workbook.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, pretransition, information, inventory, assessment, workbook 
+summary: 清单评估工作簿中包含过渡各个阶段所需的信息。您应在开始过渡之前收集并记录此信息，以便在整个过渡过程中根据需要进行引用。 
+---
+= 从清单评估工作簿收集过渡前信息
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+清单评估工作簿 _ 中提供了过渡各个阶段所需的信息。您应在开始过渡之前收集并记录此信息，以便在整个过渡过程中根据需要进行引用。
+
+.步骤
+. 使用清单收集工具（ ICT ）生成清单评估工作簿 _ 。
+. 打开清单评估工作簿 _ 。
+. 转到 * LUN * 选项卡。
+. 在 * LUN 名称 * 列中，确定并记录要过渡的 LUN 的名称。
+. 转到 * SAN 主机 LUN* 选项卡。
+. 在 * SCSI 设备 ID* 列中，识别并记录 SCSI 设备名称。
+. 在 * 操作系统设备 ID* 列中，确定并记录要过渡的 LUN 的 DMMP 设备名称。
+. 在 * 文件系统 * 列中，识别并记录 DMMP 设备上配置的文件系统。
+. 在 * UUID * 列中，确定并记录 LUN 的 UUID 编号。
+. 在 * 挂载 * 列中，确定并记录 DMMP 设备挂载到的目录。
+. 转到 * LVM* 选项卡。
+. 在 * 物理卷名称 * 列中，确定并记录逻辑卷使用的 DMMP 设备。
+. 转到 * SAN 主机 LVM* 选项卡。
+. 在 * 卷组名称 * 列中，确定并记录卷组。
+. 在 * 逻辑卷路径 * 列中，识别并记录逻辑卷。
+. 转到 * SAN 主机文件系统 * 选项卡。
+. 在 * 文件系统 * 列中，识别并记录逻辑卷上配置的文件系统。
+. 在 * 挂载 * 列中，确定并记录逻辑卷挂载到的目录。
+. 转到 * Grub Configuration* 选项卡。
+. 在 * initrd* 列中，确定并记录要修改的 initrd 映像。
+. 转到 * SAN 主机 HBA* 选项卡。
++
+您还可以查看 * iSCSI SAN 接口 * 选项卡，以确定在 7- 模式控制器上配置的 iSCSI IQN 编号和 IP 地址。
+
+. 在 * 目标 IP （ iSCSI ） * 列中，确定并记录 7- 模式控制器的 iSCSI 会话。
+
+
+* 相关信息 *
+
+xref:concept_what_the_inventory_collect_tool_is.adoc[什么是清单收集工具]

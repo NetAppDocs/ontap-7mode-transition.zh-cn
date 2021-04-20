@@ -1,0 +1,26 @@
+---
+permalink: san-host/concept_esxi_versions_and_features_supported_for_san_transitions_using_7mtt.html 
+sidebar: sidebar 
+keywords: esxi, ontap, san, host, transition, versions, san, 7mtt, features 
+summary: 使用 7- 模式过渡工具（ 7MTT\ ）的 SAN 过渡仅支持 ESXi 的某些版本和功能。 
+---
+= 使用 7MTT 的 SAN 过渡支持的 ESXi 版本和功能
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 7- 模式过渡工具（ 7MTT ）进行 SAN 过渡时，仅支持 ESXi 的某些版本和功能。
+
+支持以下版本和功能，如中所示 。 link:https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
+* ESXi 5.0 ， 5.1 ， 5.5 及更高版本
++
+您必须将运行 ESX/ESXi 4.x 或更早版本的主机升级到 ESX/ESXi 5.0 或更高版本才能进行过渡。
+
+* VMFS3 和 VMFS5 数据存储库
+* SAN 启动配置
+* RDM （原始设备映射）设备
+* 互操作性表中支持的所有子操作系统
+* 所有 SAN 协议（ FC/FCoE/iSCSI ）
+

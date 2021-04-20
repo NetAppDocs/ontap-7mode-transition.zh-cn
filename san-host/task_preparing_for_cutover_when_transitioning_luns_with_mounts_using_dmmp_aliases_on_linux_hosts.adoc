@@ -1,0 +1,41 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_luns_with_mounts_using_dmmp_aliases_on_linux_hosts.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, lun, point, dmmp, device, names 
+summary: 如果要过渡 Linux 主机上挂载点使用别名的 LUN ，则必须在进入转换阶段之前执行几个步骤。 
+---
+= 过渡具有挂载的 LUN 时为转换阶段做准备 在 Linux 主机上使用 DMMP 设备名称的点
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要过渡 Linux 主机上挂载点使用别名的 LUN ，则必须在进入转换阶段之前执行几个步骤。
+
+对于 FC 配置，您必须与集群模式 Data ONTAP 控制器建立网络结构连接并进行分区。
+
+对于 iSCSI 配置，必须发现 iSCSI 会话并将其登录到集群模式 Data ONTAP 控制器。
+
+* 对于基于副本的过渡，请在 7- 模式过渡工具（ 7MTT ）中启动存储转换操作之前执行以下步骤。
+* 对于无副本过渡，请在 7MTT 中启动导出并暂停 7- 模式系统操作之前执行以下步骤。
+
+
+.步骤
+. 停止挂载点的 I/O 。
+. 根据应用程序供应商的建议关闭正在访问 LUN 的应用程序。
+. 卸载 DMMP 设备：
++
+` * umount _dir_name_*`
+
+. 刷新 7- 模式 LUN DMMP 设备 ID ：
++
+` * 多路径 -f _device_name_*`
+
++
+如果需要，您可以从 _Inventory Assessment Workbook 中 * SAN Host LUNs* 选项卡下的 * 操作系统设备 ID* 列中获取 DDMP 设备名称。
+
+
+
+* 相关信息 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[从清单评估工作簿收集过渡前信息]

@@ -1,0 +1,23 @@
+---
+permalink: san-host/task_verifying_that_rhel_luns_are_ready_for_transition_using_inventory_assessment_workbook.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, rhel, lun, inventory, assessment, workbook 
+summary: 如果 Red Hat Enterprise Linux \ （ RHEL\ ） 5 或 RHEL 6 LUN 配置了设备映射程序多路径 \ （ DMMP\ ），则在将 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 之前，应验证是否未配置文件系统。 
+---
+= 使用验证 RHEL LUN 是否已做好过渡准备 清单评估工作簿
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果 Red Hat Enterprise Linux （ RHEL ） 5 或 RHEL 6 LUN 配置了设备映射程序多路径（ DMMP ），则在将 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 之前，应验证是否未配置文件系统。
+
+这种基于操作步骤适用场景副本的过渡和无副本过渡。
+
+.步骤
+. 从清单评估工作簿 _ 收集过渡前信息。
+. 检查 DMMP 设备条目是否位于 * SAN 主机文件系统 * 选项卡下。
++
+如果不存在 DMMP 设备条目，则表示未配置文件系统，您可以过渡 LUN 。
+
+

@@ -1,0 +1,39 @@
+---
+permalink: san-host/task_determining_whether_vmfs_volumes_need_to_be_remounted_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, vmfs, volumes, remounted 
+summary: 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，您可能需要重新挂载 VMFS 卷，以便将 VMFS 数据存储库和 VM 置于过渡前状态。 
+---
+= 确定过渡后是否需要重新挂载 VMFS 卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，您可能需要重新挂载 VMFS 卷，以便将 VMFS 数据存储库和 VM 置于过渡前状态。
+
+* 对于基于副本的过渡，请在 7- 模式过渡工具（ 7MTT ）中启动存储转换操作之前执行以下步骤。
+* 对于无副本过渡，请在 7MTT 中启动导出并暂停 7- 模式系统操作之前执行以下步骤。
+
+
+.步骤
+. 打开清单收集工具（ ICT ）生成的清单评估工作簿。
+. 单击 * SAN 主机文件系统 * 选项卡。
+. 在过渡之前，检查 * 驱动器 / 挂载 / 数据存储库名称 * 列中是否存在挂载在主机上的文件系统和数据存储库。
+. 记下数据存储库的 * SCSI 设备 ID/ 设备名称 * 列中对应的 LUN naa ID 。
+. 检查过渡后生成的 7MTT 映射文件中是否列出为数据存储库记录的 naa ID 。
++
+** 如果 7MTT 映射文件中不存在任何 naa ID ，则数据存储库及其底层 LUN 不属于 7MTT 过渡的一部分，因此不需要进行修复。
+** 如果 7MTT 映射文件中仅存在部分 naa ID ，则过渡不完整，无法继续。
+** 如果所有 naa ID 都存在，则必须重新挂载 VMFS 卷。
+
+
+
+
+* 相关信息 *
+
+xref:task_remounting_vmfs_volumes_after_transition_using_vsphere_client.adoc[过渡后使用 vSphere Client 重新挂载 VMFS 卷]
+
+xref:task_remounting_vmfs_volumes_after_transition_using_esxi_cli_console.adoc[过渡后使用 ESXi 命令行界面重新挂载 VMFS 卷]
+
+xref:concept_what_the_inventory_collect_tool_is.adoc[什么是清单收集工具]

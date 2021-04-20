@@ -1,0 +1,32 @@
+---
+permalink: copy-based/concept_preparing_for_copy_based_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, prepare 
+summary: 在从 7- 模式启动到 ONTAP 的数据复制操作之前，您必须了解迁移的要求和限制，并完成 7- 模式系统和集群上的某些任务。 
+---
+= 为基于副本的过渡做准备
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在从 7- 模式启动到 ONTAP 的数据复制操作之前，您必须了解迁移的要求和限制，并完成 7- 模式系统和集群上的某些任务。
+
+过渡前，您必须确保满足以下要求：
+
+* 必须可从安装了该工具的主机访问 7- 模式和 ONTAP 系统。
+* 7- 模式系统必须运行支持的 Data ONTAP 版本。
+* SnapMirror 必须在 7- 模式系统上获得许可。
+* 如果 7- 模式系统上存在所需的功能许可证，则必须在集群上安装这些许可证。
+* 必须配置 NTP 服务器，并且必须在 7- 模式系统和集群之间同步时间。
+* 必须完成 7- 模式系统上的所有准备任务。
+* 必须完成集群上的所有准备任务。
+
+
+* 相关信息 *
+
+xref:reference_transition_preparation_checklist.adoc[过渡准备检查清单]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT_v2.0%2F%2FTransitioned_Data_ONTAP_features["7MTT v2.0/Transitioned Data ONTAP 功能"]
+
+link:https://mysupport.netapp.com/matrix/imt.jsp?components=68128;&solution=1&isHWU&src=IMT["NetApp 互操作性表工具"^]

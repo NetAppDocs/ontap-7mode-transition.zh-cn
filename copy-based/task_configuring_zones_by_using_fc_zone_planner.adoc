@@ -1,0 +1,42 @@
+---
+permalink: copy-based/task_configuring_zones_by_using_fc_zone_planner.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, configure, zone, fc, plan 
+summary: 完成过渡后，您必须使用 FC 分区计划配置分区，以便对启动程序主机和目标进行分组，以便从集群提供数据访问。 
+---
+= 使用 FC 分区计划配置分区
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+完成过渡后，您必须使用 FC 分区计划配置分区，以便对启动程序主机和目标进行分组，以便从集群提供数据访问。
+
+* 集群和启动程序主机必须连接到交换机。
+* FC 分区脚本文件必须可访问。
+
+
+.步骤
+. 登录到交换机的命令行界面。
+. 一次复制并执行一个所需的分区命令。
++
+以下示例将在交换机上运行 zone 命令：
+
++
+[listing]
+----
+switch1:admin>config terminal
+# Enable NPIV feature
+feature npiv
+zone name auto_transition_igroup_d31_194bf3 vsan 10
+member pwwn 21:00:00:c0:dd:19:4b:f3
+member pwwn 20:07:00:a0:98:32:99:07
+member pwwn 20:09:00:a0:98:32:99:07
+.......
+.......
+.......
+copy running-config startup-config
+----
+
+
+启动程序主机可以从集群访问数据。

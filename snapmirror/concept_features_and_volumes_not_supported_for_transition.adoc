@@ -1,0 +1,42 @@
+---
+permalink: snapmirror/concept_features_and_volumes_not_supported_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, transition, feature, volumes, supported, snapmirror 
+summary: 您不能过渡某些 7- 模式卷（例如传统卷）和某些 7- 模式功能（例如同步 SnapMirror 关系），因为某些功能可能在集群模式 Data ONTAP 中不可用。 
+---
+= 不支持过渡的功能和卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您不能过渡某些 7- 模式卷（例如传统卷）和某些 7- 模式功能（例如同步 SnapMirror 关系），因为某些功能可能在集群模式 Data ONTAP 中不可用。
+
+只能将 7- 模式卷过渡到 SVM 。
+
+您不能过渡以下 7- 模式卷或配置：
+
+* 受限或脱机卷
+* 传统卷
+* 具有 NFS 到 CIFS 字符映射（ charmap ）的卷
+* 具有存储级别访问防护配置的卷
+* 包含具有存储级别访问防护配置的 qtree 的卷
++
+如果目标集群运行的是 Data ONTAP 8.3.1 或更高版本，则可以过渡包含此配置的 qtree 的卷。
+
+* 启用了 `no_i2p` 选项的卷。
+* FlexCache 卷
+* 具有 32 位 Snapshot 副本的 32 位卷和 64 位卷 如果目标集群运行的是 Data ONTAP 8.3 或 稍后
+* FlexClone 卷
++
+FlexClone 卷可以作为 FlexVol 卷进行过渡，但克隆层次结构和存储效率将会丢失。
+
+* vFiler 单元的根卷，其中根卷基于属于默认 vFiler 单元的 qtree
+* 同步 SnapMirror 配置
+* qtree SnapMirror 关系
+* IPv6 配置
+* SnapVault 关系
+* SnapMirror 的网络压缩
+* 将目标卷还原到特定 Snapshot 副本 （ snapmirror `break -s` command ）
+* 卷移动操作
+

@@ -1,0 +1,61 @@
+---
+permalink: san-host/task_testing_transitioned_luns_on_windows_hosts_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, test, lun, windows, cutover, phase 
+summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 Windows 主机 LUN ， 您可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以使磁盘联机以及应用程序操作是否按预期工作。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。 
+---
+= 在转换阶段之前测试 Windows 主机上已过渡的 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果使用 7- 模式过渡工具（ 7MTT ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 Windows 主机 LUN ， 您可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以使磁盘联机以及应用程序操作是否按预期工作。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。
+
+7- 模式 LUN 必须已做好过渡准备。
+
+您应保持测试主机与源主机之间的硬件奇偶校验，并应在测试主机上执行以下步骤。
+
+测试期间，集群模式 Data ONTAP LUN 处于读 / 写模式。测试完成后，它们将转换为只读模式，而您正在为转换阶段做准备。
+
+.步骤
+. 基线数据复制完成后，在 7MTT 用户界面（ UI ）中选择 * 测试模式 * 。
+. 在 7MTT UI 中，单击 * 应用配置 * 。
+. 生成 7- 模式到集群模式 Data ONTAP LUN 映射文件：
++
+** 对于基于副本的过渡，请从安装了 7MTT 的主机运行以下命令： + ` * 过渡 CBT 导出 lunmap -p _project-name_ -o _file_path_*`
++
+例如：
+
++
+` * 过渡 CBT 导出 lunmap -p SanWorkLoad -o c ： /Libraires/Documents/7-C-LUN-mapping-csv*`
+
+** 对于无副本过渡，请在安装了 7MTT 的系统中运行以下命令： + ` * 过渡 CFT 导出 lunmap -p _project-name_ -s _svm-name_ -o _output-fil_`
++
+
+NOTE: 您必须对每个 Storage Virtual Machine （ SVM ）运行此命令。
+
++
+例如：
+
++
+` * 过渡 CFT 导出 lunmap -p SANWorkLoad -s svml -o c ： /Libraries/Documents/7-A-C-lun-mapping-svml.csv *`
+
+
+
+. 使过渡后的磁盘和应用程序联机：
++
+** 如果过渡后的磁盘不属于集群故障转移，请使用 Windows 磁盘管理器将磁盘置于联机状态。
+** 如果过渡后的磁盘属于集群故障转移的一部分，请使用集群故障转移管理器将磁盘置于联机状态。
+
+
+. 根据需要执行测试。
+. 测试完成后，将应用程序和磁盘脱机：
++
+** 如果过渡后的磁盘不属于集群故障转移，请使用 Windows 磁盘管理器使磁盘脱机。
+** 如果过渡后的磁盘属于集群故障转移的一部分，请使用集群故障转移管理器使磁盘脱机。
+
+
+
+
+如果要将集群模式 Data ONTAP LUN 重新映射到源主机，则必须为源主机做好转换阶段的准备。如果集群模式 Data ONTAP LUN 仍要映射到测试主机，则无需在测试主机上执行其他步骤。

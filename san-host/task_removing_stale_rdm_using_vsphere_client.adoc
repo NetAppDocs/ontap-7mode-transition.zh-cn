@@ -1,0 +1,41 @@
+---
+permalink: san-host/task_removing_stale_rdm_using_vsphere_client.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, remove, stal, rdm, vsphere, client 
+summary: 在从 7- 模式 ONTAP 过渡到集群模式 Data ONTAP 期间，所有 RDM LUN 都会过时。过渡后，必须删除并重新连接 RDM ， LUN 才能开始提供数据。 
+---
+= 使用 vSphere Client 删除陈旧的 RDM
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在从 7- 模式 ONTAP 过渡到集群模式 Data ONTAP 期间，所有 RDM LUN 都会过时。过渡后，必须删除并重新连接 RDM ， LUN 才能开始提供数据。
+
+您必须从 _Inventory Assessment work簿 _ 中获取 RDM 的 VM 名称和磁盘路径。
+
+.步骤
+. 打开管理 ESXi 主机的 ESXi 主机或 vCenter Server 。
+. 右键单击虚拟机，然后选择 * 编辑设置 * 。
++
+此时将显示 VM 属性窗口。
+
+. 从使用 _Inventory Assessment Workbook 中磁盘路径的设备列表中选择硬盘。
+. 记下 VM 属性窗口中的 * 虚拟设备节点 * 和 * 兼容模式 * 。
++
+虚拟设备节点： SCSI 0 ： 2
+
++
+兼容模式：物理
+
+. 单击 * 删除 * 。
+. 选择 * 从虚拟机中删除并从磁盘中删除文件 * 。
+. 单击 * 确定 * 。
++
+此时将显示类似以下内容的错误消息。您可以忽略此消息。
+
++
+image::../media/reconfigure_virtual_machine.gif[重新配置虚拟机]
+
+. 单击 * 关闭 * 。
+

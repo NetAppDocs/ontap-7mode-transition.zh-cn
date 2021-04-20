@@ -1,0 +1,67 @@
+---
+permalink: san-host/task_preparing_for_cutover_when_transitioning_linux_host_file_systems_on_lvm_devices.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, cutover, phase, host, lvm, device 
+summary: 如果要过渡逻辑卷管理器（ LVM ）设备上的 Linux 主机文件系统，则必须在转换阶段之前执行一些步骤。 
+---
+= 过渡 Linux 主机文件系统时为转换阶段做准备 在 LVM 设备上
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要过渡逻辑卷管理器（ LVM ）设备上的 Linux 主机文件系统，则必须在转换阶段之前执行一些步骤。
+
+* 对于 FC 配置，您必须与集群模式 Data ONTAP 控制器建立网络结构连接并进行分区。
+* 对于 iSCSI 配置，必须发现 iSCSI 会话并将其登录到集群模式 Data ONTAP 控制器。
+* 您必须从清单评估工作簿 _ 收集以下过渡前信息：
++
+** LVM 使用的 DMMP 设备名称
+** 卷组名称
+** 逻辑卷名称
+** 在逻辑卷设备上配置的文件系统
+** 挂载逻辑卷的目录
+
+
+* 对于基于副本的过渡，请在 7- 模式过渡工具（ 7MTT ）中启动存储转换操作之前执行以下步骤。
+* 对于无副本过渡，请在 7MTT 中启动导出并暂停 7- 模式操作之前执行以下步骤。
+
+
+.步骤
+. 停止 LV 挂载点的 I/O 。
+. 根据应用程序供应商的建议关闭访问 LUN 的应用程序。
+. 卸载 LV 挂载点：
++
+` * umount _dir_name_*`
+
+. 禁用逻辑卷：
++
+` * vgchange -an _vg_name_*`
+
+. 验证逻辑卷状态：
++
+` * lvdisplay _dir_name_*`
+
++
+LV 状态应显示 "`not available` " 。
+
+. 导出卷组：
++
+` * vgexport _vg_name_*`
+
+. 验证 VG 状态：
++
+` * vgdisplay _vg_name_*`
+
++
+VG 状态应显示 "`exported` " 。
+
+. 刷新 7- 模式 DDMP 设备 ID ：
++
+` * 多路径 -f _device_name_*`
+
+
+
+* 相关信息 *
+
+xref:task_gathering_pretransition_information_from_inventory_assessment_workbook.adoc[从清单评估工作簿收集过渡前信息]

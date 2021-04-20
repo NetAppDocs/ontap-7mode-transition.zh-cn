@@ -1,0 +1,96 @@
+---
+permalink: san-host/task_replacing_7_mode_wwids_on_linux_host_after_transition_of_luns.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, 7, mode, wwids, linux, lun 
+summary: LUN 过渡后， 7- 模式 LUN WWID 将发生更改。您必须先将其替换为相应的 ONTAP LUN WWID ，然后才能开始提供数据。 
+---
+= 过渡后在 Linux 主机上替换 7- 模式 LUN WWID LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LUN 过渡后， 7- 模式 LUN WWID 将发生更改。您必须先将其替换为相应的 ONTAP LUN WWID ，然后才能开始提供数据。
+
+如果要执行无副本过渡（ CFT ），则必须完成 vol rehost 的过程。
+
+请参见 link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["《 7- 模式过渡工具无副本过渡指南》"]了解详细信息。
+
+* 对于基于副本的过渡（ CBT ），请在 7MTT 中完成存储转换操作后执行以下步骤。
+* 对于 CFT ，请在 7MTT 中的导入数据和配置操作完成后执行以下步骤。
+
+
+.步骤
+. 生成 7- 模式到 ONTAP LUN 的映射文件：
++
+** 对于 CBT ，请从安装了 7MTT 的 Linux 主机运行以下命令： + ` * 过渡 CBT 导出 lunmap -p project-name -o _file_path_*`
++
+例如：
+
++
+` * 过渡 CBT 导出 lunmap -p SanWorkLoad -o c ： /Libraires/Documents/7-C-LUN-mapping-csv*`
+
+** 对于 CFT ，请在安装了 7MTT 的系统中运行以下命令： + ` * transition cft export lunmap -p _project-name_ -s _svm-name_ -o _output-file_*`
++
+例如：
+
++
+` * 过渡 CFT 导出 lunmap -p SanWorkLoad -s svml -0 c ： /Libraries/Documents/7--to-C-LUN-mapping-svml.csv *`
+
++
+
+NOTE: 您必须对每个 Storage Virtual Machine （ SVM ）运行此命令。
+
+
+
+. 记下 LUN 映射文件中的新 ONTAP LUN 设备句柄 ID 。
+. 删除为 7- 模式 LUN 创建的 SCSI 设备：
++
+** 要删除所有 SCSI 设备，请执行以下操作： + ` * rescan-scsi-bus.sh -r*`
+** 单独删除每个 SCSI 设备： + ` * echo 1> /sys/block/_SCSI_ID__/delete*`
++
+必须在所有 7- 模式 LUN SCSI 设备上执行此命令。请参见清单评估工作簿 _ 的 SAN 主机 LUN 选项卡上的 SCSI 设备 ID 列，以确定 LUN 的 SCSI 设备 ID 。
+
+
+
+. 发现新的 ONTAP LUN ：
++
+` * 重新扫描 -scsi-bus.sh*`
+
+. 确定新 ONTAP LUN 的 SCSI 设备：
++
+` * sanlun lun show*`
+
+. 获取新 ONTAP LUN 的 WWID ：
++
+` * /lib/udev/scsi_id -g -u -d /dev/_scsi_dev_*`
+
+. 如果定义了 DMMP 别名，则更新 /etc/multipath.conf 文件，将 7- 模式 LUN WWID 替换为对应的 ONTAP LUN WWID ，以便 DMMP 别名指向集群模式 Data ONTAP LUN ：
++
+` * cat /etc/multipath.conf *`
+
+. 配置 DMMP 设备：
++
+` * 多路径 *`
+
+. 验证 DMMP 别名是否正确引用了 ONTAP LUN WWID ：
++
+` * 多路径 -11 *`
+
++
+在以下示例输出中， DMMP 别名 `dMMP_RAW_LUN` 引用 `3600a098051764b2d4f3f453135452d31` 作为 ONTAP WWID ：
+
++
+[listing]
+----
+root@IBMx3550M3-229-169 ~]# multipath -ll dmmp_raw_lun
+dmmp_raw_lun (3600a098051764b2d4f3f453135452d31) dm-8 NETAPP, LUN C-Mode
+[size=1.0G] [features=3 queue_if_no_path pg_init_retries 50] [hwhandler=1 alua] [rw]
+\_round-robin 0 [prio=50][enabled]
+ \_5:0:0:6 sdx 	65:112 [active][ready]
+	\_8:0:0:6 sdab 65:176 [active][ready]
+\_round-robin 0 [prio=10][enabled]
+ \_6:0:0:6 sdy 	65:128 [active][ready]
+	\_7:0:0:6 sdaa 65:160 [active][ready]
+----
+

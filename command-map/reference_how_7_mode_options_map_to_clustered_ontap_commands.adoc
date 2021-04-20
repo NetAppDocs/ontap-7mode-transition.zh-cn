@@ -1,0 +1,3448 @@
+---
+permalink: command-map/reference_how_7_mode_options_map_to_clustered_ontap_commands.html 
+sidebar: sidebar 
+keywords: ontap, command, map, transition, commands, options 
+summary: 在以 7- 模式运行的 Data ONTAP 中，您可以执行 options 命令来设置可配置的存储系统软件选项。在 ONTAP 中，您可以使用命令参数设置这些选项。您可以使用提供的表来查看 7- 模式命令与 ONTAP 命令的映射关系。 
+---
+= 7- 模式选项与 ONTAP 命令的映射关系
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在以 7- 模式运行的 Data ONTAP 中，您可以执行 `options` 命令来设置可配置的存储系统软件选项。在 ONTAP 中，您可以使用命令参数设置这些选项。您可以使用提供的表来查看 7- 模式命令与 ONTAP 命令的映射关系。
+
+为清晰起见，在 "`7-Mode command` " 列中不显示基本 options 命令。其中，您会看到 `acp.domain` ，该命令的实际长格式为 options `acp.domain` 。
+
+"`了解 7- 模式到集群模式 Data ONTAP 命令映射` " 一节介绍了有关本章中各表的组织方式的信息。
+
+xref:concept_how_to_interpret_clustered_ontap_command_maps_for_7_mode_administrators.adoc[了解 7- 模式到集群模式 Data ONTAP 命令的映射]
+
+
+
+== A-E
+
+[role="lead"]
+* 答 *
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`acp.domain`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ options acp.domain*`
+
+
+
+ a| 
+`acp.enabled`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ options acp.enabled*`
+
+
+
+ a| 
+`acp.netmask`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ options acp.netmask*`
+
+
+
+ a| 
+`acp.port`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ options acp.port*`
+
+
+
+ a| 
+`auditlog.enable`
+ a| 
+`s安全性审核`
+
+
+
+ a| 
+`auditlog.max_file_size`
+ a| 
+不支持
+
+
+
+ a| 
+`auditlog.readonly_api.enable`
+ a| 
+`s安全性审核`
+
+
+
+ a| 
+`autologout 。 console 。 enable`
+ a| 
+` * 系统超时修改 -timeout*`
+
+
+
+ a| 
+`autologout.console 。 timeout`
+ a| 
+` * 系统超时修改 -timeout*`
+
+
+
+ a| 
+`autologout 。 telnet.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`autologout.telnet.timeout`
+ a| 
+不支持
+
+
+
+ a| 
+`autosupport.cifs.verbose`
+ a| 
+不支持
+
+
+
+ a| 
+`autosupport.content`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -remove -private -data ｛ true_false ｝ *`
+
+
+
+ a| 
+`autosupport.doit`
+ a| 
+` * 系统节点 AutoSupport 调用 -node _nodename_ -type ｛ all_test ｝ *`
+
+
+
+ a| 
+`autosupport.enable`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -state ｛ enable_disable ｝ *`
+
+
+
+ a| 
+`autosupport.from`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -from*`
+
+
+
+ a| 
+`autosupport.local_Collection`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -local-Collection ｛ true_false ｝ *`
+
+
+
+ a| 
+`autosupport.mailhost`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -mail-hosts*`
+
+
+
+ a| 
+`autosupport.max_http_size`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -max-http-size*`
+
+
+
+ a| 
+`autosupport.max_smtp_size`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -max-smtp-size*`
+
+
+
+ a| 
+`autosupport.minimize.Subject.id`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -hostname-subj*`
+
+
+
+ a| 
+`autosupport.nHT_data.enable` （不在 SMF 中）
+ a| 
+` * AutoSupport modify -NHT*`
+
+` * 系统节点 AutoSupport modify -NHT*`
+
+
+
+ a| 
+`autosupport.noteto`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -nodeTo*`
+
+
+
+ a| 
+`autosupport.partner.to`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -partner-address*`
+
+
+
+ a| 
+`autosupport.performation_data.doit`
+ a| 
+` * 系统节点 AutoSupport 调用 -node _nodename_ -type performance*`
+
+
+
+ a| 
+`autosupport.performation_data.enable`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -perf ｛ true_false ｝ *`
+
+
+
+ a| 
+`autosupport.periodic.tx_window`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -periodical-TX-window*`
+
+
+
+ a| 
+`autosupport.retry.count`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -retry-count*`
+
+
+
+ a| 
+`autosupport.retry.interval`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -retry-interval*`
+
+
+
+ a| 
+`autosupport.support.enable`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -support ｛ enable_disable ｝ *`
+
+
+
+ a| 
+`autosupport.support.proxy`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -proxy-URL*`
+
+
+
+ a| 
+`autosupport.support.reminder`
+ a| 
+` * 系统节点 AutoSupport show -node _nodename_ -fields reminder *`
+
+
+
+ a| 
+`autosupport.support.transport`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -transport ｛ http_https_smtp ｝ *`
+
+
+
+ a| 
+`autosupport.to`
+ a| 
+` * 系统节点 AutoSupport modify -node _nodename_ -to *`
+
+
+
+ a| 
+`autosupport.validate_data_certificate`
+ a| 
+` * 系统节点 AutoSupport modify -node nodename -validate-modeal-certificate ｛ true|false ｝ *`
+
+|===
+[role="lead"]
+* 字节 *
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`backup.log.enable`
+ a| 
+不支持
+
+|===
+[role="lead"]
+* C*
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`CDPD.enable`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ options cdpd.enable*`
+
+
+
+ a| 
+`CDPD.HoldTime`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ options cdpd.HoldTime*`
+
+
+
+ a| 
+`cdpd.interval`
+ a| 
+` * 系统节点 run -node ｛ nodeame| local ｝ options cdpd.interval*`
+
+
+
+ a| 
+`cf.giveback.auto.after.panic.takeover`
+ a| 
+` * 存储故障转移修改 -auto-giveback-after-panic *`
+
+
+
+ a| 
+`cf.giveback.auto.cancel.on_network_failure`
+ a| 
+不支持
+
+
+
+ a| 
+`cf.giveback.auto.delay.seconds`
+ a| 
+` * 存储故障转移修改 -delay-seconds*`
+
+
+
+ a| 
+`cf.giveback.auto.enable`
+ a| 
+` * 存储故障转移修改 -auto-giveback*`
+
+
+
+ a| 
+`cf.hw_assist.enable`
+ a| 
+` * 存储故障转移修改 -hwassist*`
+
+
+
+ a| 
+`cf.hw_assist.partner.address`
+ a| 
+` * 存储故障转移修改 -hwassist-partner-IP*`
+
+
+
+ a| 
+`cf.hw_assist.partner.port`
+ a| 
+` * 存储故障转移修改 -hwassist-partner-port*`
+
+
+
+ a| 
+`cf.mode`
+ a| 
+` * 存储故障转移修改 -mode*`
+
+
+
+ a| 
+`cf.remote_SyncMirror.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`cf.sfoaggr_maxtime`
+ a| 
+` * 存储故障转移修改 -aggregate-migration-timeout*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`cf.takeover.change_fsid`
+ a| 
+不支持
+
+
+
+ a| 
+`cf.takeover.detection.seconds`
+ a| 
+` * 存储故障转移修改 -detect-time*`
+
+
+
+ a| 
+`cf.takeover.on_disk_shelf_miscompare`
+ a| 
+不支持
+
+
+
+ a| 
+`cf.takeover.on_failure`
+ a| 
+` * 存储故障转移修改 -onfailure*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`cf.takeover.on_network_interface_failure`
+ a| 
+不支持
+
+
+
+ a| 
+`cf.takeover.on_network_interface_failure.policy all_nics`
+ a| 
+不支持
+
+
+
+ a| 
+`cf.takeover.on_panic`
+ a| 
+` * 存储故障转移修改 -onpanic *`
+
+
+
+ a| 
+`cf.takeover.on_reboot`
+ a| 
+` * 存储故障转移修改 -onreboot*`
+
+
+
+ a| 
+`cf.takeover.on_short_uptime`
+ a| 
+` * 存储故障转移修改 -onshort-uptime*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`CIFS.LMCompatibilityLevel`
+ a| 
+` * vserver cifs security modify -lm_compatify-level*`
+
+
+
+ a| 
+`cifs.audit.autosave.file.extension`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.audit.autosave.file.limit`
+ a| 
+` * vserver audit modify -rotate-limit*`
+
+
+
+ a| 
+`cifs.audit.autosave.onsize.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.audit.autosave.onsize.threshold`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.audit.autosave.ontime.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.audit.autosave.ontime.interval`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.audit.enable`
+ a| 
+` * Vserver audit *`
+
+
+
+ a| 
+`cifs.audit.file_access_events.enable`
+ a| 
+` * vserver audit modify -events*`
+
+
+
+ a| 
+`cifs.audit.nfs.filter.filename`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.audit.logon_events.enable`
+ a| 
+` * vserver audit modify -events cifs-logon-logloglogon*`
+
+
+
+ a| 
+`cifs.audit.logsize`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.audit.nfs.enable`
+ a| 
+` * vserver audit modify -events file-ops*`
+
+
+
+ a| 
+`cifs.audit.nfs.filter.filename`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.audit.saveas`
+ a| 
+` * vserver audit modify -destination*`
+
+
+
+ a| 
+`cifs.bypass_traverse` checking
+ a| 
+` * Vserver cifs users-and-groups privilege *`
+
+
+
+ a| 
+`cifs.comment`
+ a| 
+` * vserver cifs create -com释 *`
+
+
+
+ a| 
+`cifs.enable_share_vanding_`
+ a| 
+`Vserver cifs share`
+
+
+
+ a| 
+`cifs.GPO.enable`
+ a| 
+` * Vserver cifs group-policy*`
+
+
+
+ a| 
+`cifs.GPO.trace.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.grant_implicit_exe_perms`
+ a| 
+` * vserver cifs options modify -read-grant-exec*`
+
+
+
+ a| 
+`cifs.guest_account`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.home_dir_namestm`
+ a| 
+` * Vserver cifs share cre*`
+
+
+
+ a| 
+`cifs.home_dirs_public`
+ a| 
+` * vserver cifs home-directory modify -is-home-dirs-access-for-public-enabled ｛ true|false ｝ *`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`cifs.home_dirs_public_for_admin`
+ a| 
+` * vserver cifs home-directory modify -is-home-dirs-access-for-public-enabled ｛ true|false ｝ *`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`cifs.idle_timeout`
+ a| 
+` * vserver cifs options modify -client-session-timeout*`
+
+
+
+ a| 
+`cifs.ipv6.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`CIFS.max_MPX`
+ a| 
+` * vserver cifs options modify -max-mpx*`
+
+
+
+ a| 
+`cifs.ms_snapshot_mode`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.mapped_null_user_ext_group`
+ a| 
+` vserver cifs options modify -win-name-for-null-uster_`
+
+
+
+ a| 
+`cifs.netbios_over_tcp.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.nfs_root_ignore_acl`
+ a| 
+` * vserver nfs modify -ignore-nt-acl-for-root*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`cifs.ntfs_ignore_unix_security_ops`
+ a| 
+` * vserver nfs modify -ntfs-unix-security-ops*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`cifs.oplocks.enable`
+ a| 
+`vserver cifs share properties add -share-properties`
+
+
+
+ a| 
+`cifs.oplocks.opendelta*`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.perm_check_ro_del_ok`
+ a| 
+` * vserver cifs options modify -is-read-one-delete-enabled*`
+
+
+
+ a| 
+`cifs.perm_check_use_gid`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.restrict_anonymous`
+ a| 
+` * vserver cifs options modify -restrict-anonymous *`
+
+
+
+ a| 
+`cifs.save_case`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.vemeid`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.search_domains`
+ a| 
+` * Vserver cifs domain name-mmaping-search*`
+
+
+
+ a| 
+`cifs.show-dotfiles`
+ a| 
+`is-hide-dotfile-enabled`
+
+
+
+ a| 
+`cifs.show-snapshot`
+ a| 
+` * vserver cifs share properties add -share-properties*`
+
+
+
+ a| 
+`cifs.shutdown_msg_level`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.signation.enable`
+ a| 
+` * Vserver cifs security modify -is-signing-required*`
+
+
+
+ a| 
+`cifs.smb2.client.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.smb2.Dural_handle.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`CIFS.SMB2.DURAY_handle.timeout`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.smb2.enable`
+ a| 
+` * vserver cifs options modify -smb2-enabled*`
+
+
+
+ a| 
+`cifs.smb2.signation.required`
+ a| 
+` * Vserver cifs security modify -is-signing-required*`
+
+
+
+ a| 
+`cifs.smb2_1.branch_cache.enable`
+ a| 
+` * SVM CIFS 共享属性 *`
+
+
+
+ a| 
+`cifs.smb2_1.branch_cache.hash_time_out`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.snapshot_file_folder.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.symlinks.cycl暂时 保护`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.symlinks.enable`
+ a| 
+` * vserver cifs share modify -symlink-properties*`
+
+
+
+ a| 
+`cifs.universal_nested _groups.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`cifs.w2K_password_change`
+ a| 
+` * Vserver cifs domain password change*`
+
+
+
+ a| 
+`cifs.w2K_password_change_interval`
+ a| 
+` * Vserver CIFS 域密码更改计划 *`
+
+
+
+ a| 
+`cifs.w2K_password_change_within`
+ a| 
+` * Vserver CIFS 域密码更改计划 *`
+
+
+
+ a| 
+`cifs.widelink.TTL`
+ a| 
+不支持
+
+
+
+ a| 
+`console 。 encoding`
+ a| 
+不支持
+
+
+
+ a| 
+`coredump.dump.attempts`
+ a| 
+` * 系统节点 coredump config modify -coredump-attempts-*`
+
+
+
+ a| 
+`coredump.metadata_only`
+ a| 
+` * 系统节点 coredump config modify -sparsecore-enabled true*`
+
+|===
+[role="lead"]
+* 数字 *
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`disk.asup_on_mp_loss`
+ a| 
+` * 系统节点 AutoSupport trigger modify dsk.Redun.fault.*`
+
+
+
+ a| 
+`disk.auto_assign`
+ a| 
+` * 存储磁盘选项 modify -autosassign*`
+
+
+
+ a| 
+`disk.auto_assign_shelf`
+ a| 
+` * 存储磁盘选项 modify -autosign-shelf*`
+
+
+
+ a| 
+`ddisk.maint_center.allowed_entries`
+ a| 
+不支持
+
+
+
+ a| 
+`ddisk.maint_center.enable`
+ a| 
+` * 系统节点 run -node ｛ nodeame_local ｝ options disk.maint_center.enable*`
+
+
+
+ a| 
+`ddisk.maint_center.max_disks`
+ a| 
+` * 系统节点 run -node ｛ nodeame_local ｝ options disk.maint_center.max_disks*`
+
+
+
+ a| 
+`ddisk.maint_center.rec_allowed_entries`
+ a| 
+` * 系统节点 run -node ｛ nodeame_local ｝ options disk.maint_center.rec_allowed_entries*`
+
+
+
+ a| 
+`ddisk.maint_center.spares_check`
+ a| 
+` * 系统节点 run -node ｛ nodeame_local ｝ options disk.maint_center.spares_check*`
+
+
+
+ a| 
+`disk.powercycle 。 enable`
+ a| 
+` * 系统节点 run -node ｛ nodename ； local ｝ options disk.powercycle 。 enable*`
+
+
+
+ a| 
+`disk.recovery_needed.count`
+ a| 
+不支持
+
+
+
+ a| 
+`disk.target_port.cmd_queue_depth`
+ a| 
+` * 存储阵列修改 -name _array_name_ -max-queue-depth*`
+
+
+
+ a| 
+`dns.cache.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`dns.domainname`
+ a| 
+` * vserver services name-service dns modify -domain*`
+
+
+
+ a| 
+`dns.enable`
+ a| 
+` * vserver services name-service dns modify -state*`
+
+
+
+ a| 
+`dns.update.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`dns.update.TTL`
+ a| 
+不支持
+
+|===
+[role="lead"]
+* e*
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`ems.autosuppress.enable`
+ a| 
+` * 事件配置 modify -suppression ｛ _on_off_ ｝ *`
+
+
+NOTE: 可在高级权限级别使用。
+
+|===
+
+
+== F-K
+
+[role="lead"]
+* 阵 *
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`fcp.enable`
+ a| 
+` * FCP start*`
+
+
+
+ a| 
+`FlexCache.access`
+ a| 
+不支持
+
+
+
+ a| 
+`flexcache.deleg.high_water`
+ a| 
+不支持
+
+
+
+ a| 
+`flexcache.deleg.low_water`
+ a| 
+不支持
+
+
+
+ a| 
+`FlexCache.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`FlexCache.per_client_stats`
+ a| 
+不支持
+
+
+
+ a| 
+`flexscale.enable`
+ a| 
+` * 系统节点 run -node _node_name_|local ｝ options flexscale.enable*`
+
+
+
+ a| 
+`flexscale.lopri_blocks`
+ a| 
+` * 系统节点 run -node _node_name_|local ｝ options flexscale.lopri_blocks *`
+
+
+
+ a| 
+`flexscale.normal_data_blocks`
+ a| 
+` * 系统节点 run -node _node_name_llocal ｝ options flexscale.normal_data_blocks*`
+
+
+
+ a| 
+`flexscale.pcs_high_res`
+ a| 
+` * 系统节点 run -node _node_name_|local ｝ options flexscale.pcs_high_res*`
+
+
+
+ a| 
+`flexscale.pcs_size`
+ a| 
+` * 系统节点 run -node _node_name__llocal ｝ options flexscale.pcs_size*`
+
+
+
+ a| 
+`flexscale.rewarm`
+ a| 
+` * 系统节点 run -node _node_name___llocal ｝ options flexscale.rewarm*`
+
+
+
+ a| 
+`fpolicy.enable`
+ a| 
+` * vserver fpolicy enable*`
+
+
+
+ a| 
+`fpolicy.i2p_EMS_interval`
+ a| 
+不支持
+
+
+
+ a| 
+`fpolicy.Multiple 管道`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpp.3way.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpd 。 anonymous 。 enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpp.anonymous ， home_dir`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpd.anonymous.name`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpd.auth_style`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpp.bypass_traverse` 检查
+ a| 
+不支持
+
+
+
+ a| 
+`ftpd .dir.override`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpd ， dir.restriction`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpd 。 enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpp.explicit.allow_secure data_conn`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpp.explicit.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpd 。 idle_timeout`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpd 。 implica.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpp.ipv6.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpd 锁定`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpd 。 log.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpp.log.filesize`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpd 。 log.nfiles`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpp.max_connections`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpp.max_connections_threshold`
+ a| 
+不支持
+
+
+
+ a| 
+`ftpp.tcp_window_size`
+ a| 
+不支持
+
+|===
+[role="lead"]
+* 高 *
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`httpd.access`
+ a| 
+`不支持`
+
+
+
+ a| 
+`httpd.admin.access`
+ a| 
+不支持
+
+
+
+ a| 
+`httpd.admin.enable`
+ a| 
+` * vserver services web modify -enabled ｛ true|false ｝ *`
+
+
+
+ a| 
+`httpd.admin.hostsequiv.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`httpd.admin.max_connections`
+ a| 
+不支持
+
+
+
+ a| 
+`httpd.admin.ssl.enable`
+ a| 
+` * 安全 SSL*`
+
+
+
+ a| 
+`httpd.admin.top-page.authentication`
+ a| 
+不支持
+
+
+
+ a| 
+`httpd.bypass_traverse 检查`
+ a| 
+不支持
+
+
+
+ a| 
+`httpd.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`httpd.ipv6.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`httpd.log.format`
+ a| 
+不支持
+
+
+
+ a| 
+`httpd.method ： trace.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`httpd.rootdir`
+ a| 
+不支持
+
+
+
+ a| 
+`httpd.timeout`
+ a| 
+不支持
+
+
+
+ a| 
+`httpd.timewaIT.enable`
+ a| 
+不支持
+
+|===
+[role="lead"]
+* 一 *
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`ifgrp.failover.link_degraded`
+ a| 
+不支持
+
+
+
+ a| 
+`interface.blocked.cifs`
+ a| 
+` * 网络接口 create -data-protocol*`
+
+
+
+ a| 
+`interface.blocked.iscsi`
+ a| 
+` * 网络接口 create -data-protocol*`
+
+
+
+ a| 
+`interface.blocked.mgmt_data_traffic`
+ a| 
+` * 网络接口 create -role*`
+
+
+
+ a| 
+`interface.blocked.ndmp`
+ a| 
+` * 系统服务防火墙策略 modify -policy _policy_name_ -service NDMP*`
+
+
+
+ a| 
+`interface.blocked.nfs`
+ a| 
+` * 网络接口 create -data-protocol*`
+
+
+
+ a| 
+`interface.blocked.snapmirror`
+ a| 
+` * 网络接口 create -role*`
+
+
+
+ a| 
+`ip.fastpath.enable`
+ a| 
+` * 系统节点 run -node _node_name_|local ｝ options ip.fastpath.enable*`
+
+
+NOTE: 从 ONTAP 9.2 开始，不再支持快速路径。
+
+
+
+ a| 
+`ip.ipsec.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ip.match_any_ifaddr`
+ a| 
+不支持
+
+
+
+ a| 
+`ip.path_mtu discovery.enable`
+ a| 
+` * 系统节点运行 -node_node_name______| 本地 ｝ 选项 ip.path_mtu _discovery.enable*`
+
+
+
+ a| 
+`ip.ping_throttle.alarm_interval`
+ a| 
+` * 系统节点运行 -node_node_name_ __"local" 选项 ip.ping_throttle.alarm___node_name__interval*`
+
+
+
+ a| 
+`ip.ping_throttle.drop_level`
+ a| 
+` * 系统节点 run -node_local ｝ options ip.ping_throttle.level*`
+
+
+
+ a| 
+`ip.tcp.abc.enable`
+ a| 
+` * 系统节点运行 -node_node_name______| 本地 ｝ 选项 ip.tcp.abc.enable*`
+
+
+
+ a| 
+`ip.tcp.abc.l_limit`
+ a| 
+` * 系统节点运行 -node_node_name______| 本地 ｝ 选项 ip.tcp.abc.l_limit*`
+
+
+
+ a| 
+`ip.tcp.batching.enable`
+ a| 
+` * 系统节点运行 -node_node_name______| 本地 ｝ 选项 ip.tcp.batching.enable*`
+
+
+
+ a| 
+`ip.tcp.newreno.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ip.tcp.rfc3390.enable`
+ a| 
+` * 系统节点运行 -node_node_name_______| 本地 ｝ 选项 ip.tcp.rfc3390.enable*`
+
+
+
+ a| 
+`ip.tcp.sack.enable`
+ a| 
+` * 系统节点运行 -node_node_name______| 本地 ｝ 选项 ip.tcp.sack.enable*`
+
+
+
+ a| 
+`ip.v6.enable`
+ a| 
+` * 网络选项 ipv6 modify*`
+
+
+
+ a| 
+`ip.v6.ra_enable`
+ a| 
+不支持
+
+
+
+ a| 
+`iscsi.auth.radius.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`iscsi.enable`
+ a| 
+` * iSCSI start*`
+
+
+
+ a| 
+`iscsi.max_connections_per_session`
+ a| 
+` * iscsi modify -max -conn-per-session*`
+
+
+
+ a| 
+`iscsi.max_error_recovery_level`
+ a| 
+` * iscsi modify -max-error-recovery-level*`
+
+|===
+[role="lead"]
+* 千 *
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`kerberos.file_keytab.principal`
+ a| 
+不支持
+
+
+
+ a| 
+`kerberos.file_keytab.realmal`
+ a| 
+不支持
+
+|===
+
+
+== OQ
+
+[role="lead"]
+* 升 *
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`ldap.ADdomain`
+ a| 
+` * vserver services name-service ldap client modify -ad-domain*`
+
+
+
+ a| 
+`ldap.base`
+ a| 
+` * vserver services name-service ldap client modify -base-dn*`
+
+
+
+ a| 
+`ldap.base.group`
+ a| 
+` * LDAP 客户端 modify -group-dn ldap dn-group-scope*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.base.netgroup`
+ a| 
+` * LDAP 客户端 modify -netgroup-dn ldap dn-netgroup-scope*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.base.passwd`
+ a| 
+` * vserver services ldap client modify -user-dn*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.enable`
+ a| 
+` * vserver services name-service ldap modify*`
+
+
+
+ a| 
+`ldap.minimum_bind_level`
+ a| 
+` * vserver services name-service ldap client modify -min-bind-level*`
+
+
+
+ a| 
+`ldap.name`
+ a| 
+` * vserver services name-service ldap client modify -bind-dn*`
+
+
+
+ a| 
+`ldap.nssmap.attribute.gecos`
+ a| 
+` * LDAP 客户端模式 modify -gecos-attribute*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.attribute.gidNumber`
+ a| 
+` * LDAP 客户端模式 modify -gid-number-attribute*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.attribute.groupname`
+ a| 
+` * LDAP 客户端模式 modify -cn-group-attribute*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.attribute.homeDirectory`
+ a| 
+` * LDAP 客户端模式 modify -home-directory-attribute*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.attribute.loginShell`
+ a| 
+` * LDAP 客户端模式 modify -login-shell-attribute*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.attribute.memberNisNetgroup`
+ a| 
+` * LDAP 客户端模式 modify -member-nis-netgroup-attribute*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.attribute.memberUid`
+ a| 
+` * LDAP 客户端模式 modify -member-uid-attribute*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.attribute.netgroupname`
+ a| 
+` * LDAP 客户端模式 modify -cn-netgroup-attribute*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.attribute.nisNetgroupTriple`
+ a| 
+LDAP 客户端模式 modify -nis-netgroup-triple-attribute
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.attribute.uid`
+ a| 
+` * LDAP 客户端模式 modify -uid-attribute*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.attribute.uidNumber`
+ a| 
+` * LDAP 客户端模式 modify -uid-number-attribute*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.attribute.userPassword`
+ a| 
+` * LDAP 客户端模式 modify -user-password-attribute*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.objectClass.nisNetgroup`
+ a| 
+` * LDAP 客户端模式 modify -nis-netgroup-object-class*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.objectClass.posixAccount`
+ a| 
+` * LDAP 客户端模式 modify -POSIX-account-object-class*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.nssmap.objectClass.posixGroup`
+ a| 
+` * LDAP 客户端模式 modify -POSIX-group-object-class*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.passwd`
+ a| 
+` * vserver services name-service ldap client modify-bind-password*`
+
+
+
+ a| 
+`ldap.port`
+ a| 
+` * vserver services name-service ldap client modify -port*`
+
+
+
+ a| 
+`ldap.servers`
+ a| 
+` * vserver services name-service ldap client modify -servers*`
+
+
+
+ a| 
+`ldap.servers.preferred`
+ a| 
+` * vserver services name-service ldap client modify -preferred-ad-servers*`
+
+
+
+ a| 
+`ldap.ssl.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ldap.timeout`
+ a| 
+` * vserver services name-service ldap client modify -query-timeout*`
+
+
+
+ a| 
+`ldap.usermap.attribute.windowsaccount`
+ a| 
+` * LDAP 客户端模式 modify -windows-account-attribute*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.usermap.base`
+ a| 
+` * ldap client modify -user-dnldap DN-user-scope*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ldap.usermap.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`licensed_feature.fcp.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`licensed_feature.flex_clone.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`licensed_feature.FlexCache_nfs.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`licensed_feature.iscsi.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`licensed_feature.MultiStore.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`licensed_feature.nearstore_option.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`licensed_feature.vLD.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`locking.grace_lease_seconds`
+ a| 
+` * vserver nfs modify -v4-grace-seconds*`
+
+
+
+ a| 
+`lun.clone_restore`
+ a| 
+不支持
+
+
+
+ a| 
+`lun.partner_reachable.linux.asc`
+ a| 
+不支持
+
+
+
+ a| 
+`lun.partner_reachable.linux.asq`
+ a| 
+不支持
+
+
+
+ a| 
+`lun.partner_unreachable.linux.behavior`
+ a| 
+不支持
+
+
+
+ a| 
+`lun.partner_reachable.linux.hold 时间`
+ a| 
+不支持
+
+
+
+ a| 
+`lun.partner_reachable.linux.scsi_status`
+ a| 
+不支持
+
+
+
+ a| 
+`lun.partner_reachable.linux.skey`
+ a| 
+不支持
+
+
+
+ a| 
+`lun.partner_unreachable.vmware.behavior`
+ a| 
+不支持
+
+
+
+ a| 
+`lun.partner_reachable.vmware.hold _time`
+ a| 
+不支持
+
+|===
+[role="lead"]
+* 不 *
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`ndmpd.abort_on_disk_error`
+ a| 
+` * options ndmpd.abort_on_disk_error*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`ndmpd.access`
+ a| 
+` * 系统服务防火墙策略 modify -policy * -service ndmp -allow-list*`
+
+
+
+ a| 
+`ndmpd.authtype`
+ a| 
+` * 系统服务 ndmpd modify -clear-text*`
+
+
+
+ a| 
+`ndmpd.connectlog.enabled`
+ a| 
+不支持
+
+
+
+ a| 
+`ndmpd.data_port_range`
+ a| 
+`不支持`
+
+
+
+ a| 
+`ndmpd.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ndmpd.ignore_ctime.enabled`
+ a| 
+不支持
+
+
+
+ a| 
+`ndmpd.maxversion`
+ a| 
+不支持
+
+
+
+ a| 
+`ndmpd.offset_map.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ndmpd.password_length`
+ a| 
+不支持
+
+
+
+ a| 
+`ndmpd.preferred_interface`
+ a| 
+不支持
+
+
+
+ a| 
+`ndmpd.tcpnodelay.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ndmpd.tcpwinsize`
+ a| 
+不支持
+
+
+
+ a| 
+`nfs.assist.queue.limit`
+ a| 
+不支持
+
+
+
+ a| 
+`nfs.authsys.extended_groups_ns.enable`
+ a| 
+` _vserver nfs modify -auth-sys-extended-groups_`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`nfs.export.allow_provisal_access`
+ a| 
+不支持
+
+
+
+ a| 
+`nfs.export.auto-update`
+ a| 
+不支持
+
+
+
+ a| 
+`nfs.export.exportfs_comtion_on_delete`
+ a| 
+不支持
+
+
+
+ a| 
+`nfs.export.harvest.timeout`
+ a| 
+不支持
+
+
+
+ a| 
+`nfs.export.neg.timeout`
+ a| 
+不支持
+
+
+
+ a| 
+`nfs.kerberos.enable`
+ a| 
+` * vserver nfs kerberos realm cree*`
+
+
+
+ a| 
+`nfs.kerberos.file_keytab.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`nfs.kerberos.file_keytab.principal`
+ a| 
+` * vserver nfs kerberos realm cree*`
+
+
+
+ a| 
+`nfs.kerberos.file_keytab.realm`
+ a| 
+` * vserver nfs kerberos realm cree*`
+
+
+
+ a| 
+`nfs.max_num_aux_groups`
+ a| 
+` * Vserver nffs \ ｛ show | modify \ ｝ -extended-groups-limit*`
+
+
+
+ a| 
+`nfs.mount_rootonly`
+ a| 
+` * vserver nfs modify -mount-rootonly*`
+
+
+
+ a| 
+`nfs.netgroup.strict`
+ a| 
+不支持
+
+
+
+ a| 
+`nfs.nfs_rootonly`
+ a| 
+` * vserver nfs modify -nfs-rootonly*`
+
+
+
+ a| 
+`nfs.per_client_stats.enable`
+ a| 
+` * 统计信息设置 modify -client stats *`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`nfs.require_valid_mapped_uid`
+ a| 
+` * vserver name-mapping cre*`
+
+
+
+ a| 
+`nfs.response.trace`
+ a| 
+` * vserver nfs modify -trace-enabled*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`nfs.response.trigger`
+ a| 
+` * vserver nfs modify -trigger*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`nfs.rpcsec.ctx.high`
+ a| 
+` * nfs modify -rpcsec-ctx-high*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`nfs.rpcsec.ctx.idle`
+ a| 
+` * nfs modify -rpcsec-ctx-idl*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`nfs.tcp.enable`
+ a| 
+` * vserver nfs modify -tcp*`
+
+
+
+ a| 
+`nfs.thin_prov.ejuke`
+ a| 
+` * vserver nfs modify -enable-ejukebox *`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`nfs.udp.enable`
+ a| 
+` * vserver nfs modify -udp*`
+
+
+
+ a| 
+`nfs.udp.xfersize`
+ a| 
+` * vserver nfs modify -udp-max-xfer-size*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`nfs.v2.df_2g_lim`
+ a| 
+不支持 `
+
+
+
+ a| 
+`nfs.v2.enable`
+ a| 
+不支持 `
+
+
+
+ a| 
+`nfs.v3.enable`
+ a| 
+` * vserver nfs modify -v3 *`
+
+
+
+ a| 
+`nfs.v4.acl.enable`
+ a| 
+` * vserver nfs modify -v4.0-ac* l`
+
+
+
+ a| 
+`nfs.v4.enable`
+ a| 
+` * vserver nfs modify -v4.0*`
+
+
+
+ a| 
+`nfs.v4.id.allow_numerics`
+ a| 
+` * vserver nfs modify -v4-numeric-ids*`
+
+
+
+ a| 
+`nfs.v4.id.domain`
+ a| 
+` * vserver nfs modify -v4-id-domain*`
+
+
+
+ a| 
+`nfs.v4.read_delegation`
+ a| 
+` * vserver nfs modify -v4.0-read-delegation *`
+
+
+
+ a| 
+`nfs.v4.write_delegation`
+ a| 
+` * vserver nfs modify -v4.0-write-delegation *`
+
+
+
+ a| 
+`nfs.vStorage.enable`
+ a| 
+` * vserver nfs modify -vStorage*`
+
+
+
+ a| 
+`nfs.webnfs.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`nfs.webnfs.rootdir`
+ a| 
+不支持
+
+
+
+ a| 
+`nfs.webnfs.rootdir.set`
+ a| 
+不支持
+
+
+
+ a| 
+`nis.domainname`
+ a| 
+` * vserver services name-service nis-domain modify -domain*`
+
+
+
+ a| 
+`nis.enable`
+ a| 
+` * vserver services name-service nis-domain modify -active*`
+
+
+
+ a| 
+`nis.group_update.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`nis.group_update_schedule`
+ a| 
+不支持
+
+
+
+ a| 
+`nis.netgroup.domain_search.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`nis.servers`
+ a| 
+` * vserver services name-service nis-domain modify -servers*`
+
+
+
+ a| 
+`nis.slave.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`NLM.cleanup.timeout`
+ a| 
+不支持
+
+|===
+[role="lead"]
+* P*
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`PCNFSD.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`PCNFSD.umask`
+ a| 
+不支持
+
+|===
+[role="lead"]
+* 问 *
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`qos.leasy.count_all_matches`
+ a| 
+不支持
+
+|===
+[role="lead"]
+* R*
+
+
+NOTE: 所有 RAID 选项都具有与 7- 模式兼容的 nodeshell 快捷方式，其形式为 `options _option_name_` 。
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`RAID`
+ a| 
+` * 存储 raid-options \ ｛ modify | show\ ｝ *`
+
+
+
+ a| 
+`raid.background_disk_fw_update.enable`
+ a| 
+` * 存储磁盘选项 modify -bkg-firmware-update*`
+
+
+
+ a| 
+`raid.disk.copy.auto.enable`
+ a| 
+` * storage raid-options modify -raid.disk.copy.auto.enable*`
+
+
+
+ a| 
+`raid.disk.timeout.enable`
+ a| 
+` * 系统节点 run -node ｛ _node_name_|local ｝ options raid.disk.timeout.enable*`
+
+
+
+ a| 
+`raid.disktype.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`raid.disktype.enable`
+ a| 
+` * raid-options modify raid.lost_write.enable*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`raid.lost_write.enable`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.media_scrub.enable*`
+
+
+
+ a| 
+`raid.media_scrub.rate`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.media_scrub.rate*`
+
+
+
+ a| 
+`raid.min_spare_count`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.min_spare_count*`
+
+
+
+ a| 
+`raid.mix.hdd.disktype.capacity`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.mix.hdd.disktype.capacity*`
+
+
+
+ a| 
+`raid.mix.hdd.disktype.performance`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.mix.hdd.disktype.performation*`
+
+
+
+ a| 
+`raid.mix.hdd.rpm.capacity`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.mix.hdd.rpm.capacity*`
+
+
+
+ a| 
+`raid.mix.hdd.rpm.performance`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.mix.hdd.rpm.performage*`
+
+
+
+ a| 
+`raid.mirror_read_plex_pref`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.mirror_read_plex_pref*`
+
+
+
+ a| 
+`raid.reconstruct.perf_impact`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.reconstruct.perf_impact *`
+
+
+
+ a| 
+`raid.resync.perf_impact`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.resync.perf_impact *`
+
+
+
+ a| 
+`raid.rpm.ata.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`raid.rpm.fca.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`raid.scrub.duration`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.scrub.duration *`
+
+
+
+ a| 
+`raid.scrub.perf_impact`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.scrub.perf_impact *`
+
+
+
+ a| 
+`raid.scrub.schedule`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.scrub.schedule*`
+
+
+
+ a| 
+`raid.timeout`
+ a| 
+` * 存储 raid-options \ ｛ modify | show \ ｝ -name raid.timeout*`
+
+
+
+ a| 
+`raid.verify.perf_impact`
+ a| 
+` * 存储 raid-options\ ｛ modify | show \ ｝ -name raid.verify.perf_impact *`
+
+
+
+ a| 
+`replation.logic.reserved_transfers`
+ a| 
+` * snapmirror set-options -xdp-source-xfer-reserve-pct*`
+
+
+
+ a| 
+`replication throttle.enable`
+ a| 
+` * snapmirror modify -throttle*`
+
+
+
+ a| 
+`replication 。 volume.reserved_transfers`
+ a| 
+` * snapmirror set-options -dp-source-xfer-reserve-pct*`
+
+
+
+ a| 
+`replication.volume.use_auto_resync`
+ a| 
+不支持
+
+
+
+ a| 
+`rpc.mount.tcp.port`
+ a| 
+` * vserver nfs modify -mountd 端口 *`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`rpc.mount.udp.port`
+ a| 
+` * vserver nfs modify -mountd 端口 *`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`rpc.nlm.tcp.port`
+ a| 
+` * vserver nfs modify -nl-port*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`rpc.nlm.udp.port`
+ a| 
+` * vserver nfs modify -nl-port*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`rpc.Nsm.tcp.port`
+ a| 
+` * vserver nfs modify -nsm-port*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`rpc.Nsm.udp.port`
+ a| 
+` * vserver nfs modify -nsm-port*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`rpc.PCNFSD.tcp.port`
+ a| 
+不支持
+
+
+
+ a| 
+`rpc.PCNFSD.udp.port`
+ a| 
+不支持
+
+
+
+ a| 
+`rpc.rquotad.udp.port`
+ a| 
+` * vserver nfs modify -rquotad-port*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`rquotad.enable`
+ a| 
+` * vserver nfs modify -rquot*`
+
+
+
+ a| 
+`rsh.access`
+ a| 
+` * 系统服务防火墙策略 create -policy mgmt -service rsh -allow-list*`
+
+
+
+ a| 
+`rsh.enable`
+ a| 
+` * 系统服务防火墙策略 create -policy mgmt -service rsh -allow-list*`
+
+|===
+
+
+== S-Z
+
+[role="lead"]
+* S*
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`security.admin.authentication`
+ a| 
+` * 安全登录修改 *`
+
+
+
+ a| 
+`ssecurity.admin.nsswitchgroup`
+ a| 
+` * vserver modify*`
+
+
+
+ a| 
+`ssecurity.passwd.firstlogin.enable`
+ a| 
+` * 安全登录角色配置 modify*`
+
+
+
+ a| 
+`ssecurity.passwd.lockout.numbess`
+ a| 
+` * 安全登录角色配置 modify*`
+
+
+
+ a| 
+`ssecurity.passwd.rootaccess.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`security.passwd.rules.enable`
+ a| 
+` * 安全登录角色配置 modify*`
+
+
+
+ a| 
+`security.passwd.rules.everyone`
+ a| 
+` * 安全登录角色配置 modify*`
+
+
+
+ a| 
+`security.passwd.rules.history`
+ a| 
+` * 安全登录角色配置 modify*`
+
+
+
+ a| 
+`security.passwd.rules.maximum`
+ a| 
+` * 安全登录角色配置 modify*`
+
+
+
+ a| 
+`security.passwd.rules.minimum`
+ a| 
+` * 安全登录角色配置 modify*`
+
+
+
+ a| 
+`security.passwd.rules.minimum.alphabetic`
+ a| 
+不支持
+
+
+
+ a| 
+`security.passwd.rules.minimum.digit`
+ a| 
+` * 安全登录角色配置 modify*`
+
+
+
+ a| 
+`security.passwd.rules.minimum.symbol`
+ a| 
+不支持
+
+
+
+ a| 
+`sftp.auth_style`
+ a| 
+不支持
+
+
+
+ a| 
+`sftp.dir_override`
+ a| 
+不支持
+
+
+
+ a| 
+`sftp.dir_restriction`
+ a| 
+不支持
+
+
+
+ a| 
+`sftp.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`sftp.idle_timeout`
+ a| 
+不支持
+
+
+
+ a| 
+`sftp.locking`
+ a| 
+不支持
+
+
+
+ a| 
+`sftp.log_enable`
+ a| 
+不支持
+
+
+
+ a| 
+`sftp.log_filesize`
+ a| 
+不支持
+
+
+
+ a| 
+`sftp.log_nfiles`
+ a| 
+不支持
+
+
+
+ a| 
+`sftp.max_connections`
+ a| 
+不支持
+
+
+
+ a| 
+`sftp.max_connections_threshold`
+ a| 
+不支持
+
+
+
+ a| 
+`sftp.override_client_permissions`
+ a| 
+不支持
+
+
+
+ a| 
+`sis_max_vfiler_active_ops`
+ a| 
+不支持
+
+
+
+ a| 
+`snaplock.autocommit_period`
+ a| 
+不支持
+
+
+
+ a| 
+`snaplock.compliance.write_verify`
+ a| 
+不支持
+
+
+
+ a| 
+`snaplock.log.default_retention`
+ a| 
+不支持
+
+
+
+ a| 
+`snaplock.log.max_size`
+ a| 
+不支持
+
+
+
+ a| 
+`snapmirror.access`
+ a| 
+` * SnapMirror cre*`
+
+
+
+ a| 
+`snapmirror.checkip.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`snapmirror.cmode.suspend`
+ a| 
+` * SnapMirror 暂停 *`
+
+
+
+ a| 
+`snapmirror.delayed_acks.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`snapmirror.vsm.volread.smtape_enable`
+ a| 
+不支持
+
+
+
+ a| 
+`snapvalidator.version`
+ a| 
+不支持
+
+
+
+ a| 
+`snapvault.access`
+ a| 
+` * Vserver peer*`
+
+
+
+ a| 
+`snapvault.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`snapvault.Lockvault_log_volume`
+ a| 
+不支持
+
+
+
+ a| 
+`snapvault.preservesnap`
+ a| 
+`snapmirror policy`
+
+
+
+ a| 
+`snapvault.snapshot_for_dr_backup`
+ a| 
+不支持
+
+
+
+ a| 
+`snmp.access`
+ a| 
+` * 系统服务防火墙策略 modify -policy _policy_name__-service snmp -allow-list*`
+
+
+
+ a| 
+`snmp.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ssh.access`
+ a| 
+` * 系统服务防火墙策略 modify -policy _policy_name_-service ssh -allow-list*`
+
+
+
+ a| 
+`ssh.enable`
+ a| 
+` * 系统服务防火墙策略 modify -policy _policy_name__-service ssh -allow-list*`
+
+
+
+ a| 
+`ssh.idl.timeout`
+ a| 
+不支持
+
+
+
+ a| 
+`ssh.passwd_auth.enable`
+ a| 
+` * 安全登录 \ ｛ show | create | delete \ ｝ -user-or-group-name _user_name_ -application ssh -authmethod publickey -role _role_name_ -vserver _vserver_name_*`
+
+
+
+ a| 
+`ssh.pubkey_auth.enable`
+ a| 
+` * security login modify -authmethod publickey *`
+
+
+
+ a| 
+`sSH1.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`sSH2.enable`
+ a| 
+不支持
+
+
+
+ a| 
+ssl.enable
+ a| 
+` * security ssl modify -server -enabled*`
+
+
+
+ a| 
+`sSL.v2.enable`
+ a| 
+` * 系统服务 Web 修改 -sslv2-enabled*`
+
+
+
+ a| 
+`sSL.v3.enable`
+ a| 
+` * 系统服务 Web 修改 -sslv3-enabled*`
+
+
+
+ a| 
+`stats.archive.frequency_config`
+ a| 
+不支持
+
+|===
+[role="lead"]
+* T*
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`tape.reservations`
+ a| 
+` * 选项 tape.reservations*`
+
+
+
+ a| 
+`telnet.access`
+ a| 
+` * 系统服务防火墙策略 create -policy mgmt -service telnet -allow-list*`
+
+
+
+ a| 
+`telnet.istinct.enable`
+ a| 
+不支持
+
+
+
+ a| 
+`telnet.enable`
+ a| 
+` * 系统服务防火墙策略 create -policy mgmt -service telnet -allow-list*`
+
+
+
+ a| 
+`ttpd 。 enable`
+ a| 
+不支持
+
+
+
+ a| 
+`ttpd 。 logging`
+ a| 
+不支持
+
+
+
+ a| 
+`ttpd 。 max_connections`
+ a| 
+不支持
+
+
+
+ a| 
+`ttpd 。 rootdir`
+ a| 
+不支持
+
+
+
+ a| 
+`timed.enable`
+ a| 
+` * 系统服务 ntp config modify -enabled*`
+
+
+
+ a| 
+`timed.log`
+ a| 
+不支持
+
+
+
+ a| 
+`timed.max_skew`
+ a| 
+不支持
+
+
+
+ a| 
+`timed.min_skew`
+ a| 
+不支持
+
+
+
+ a| 
+`timed.proto`
+ a| 
+不支持
+
+
+
+ a| 
+`timed.sched`
+ a| 
+不支持
+
+
+
+ a| 
+`timed.servers`
+ a| 
+` 集群时间服务 NTP 服务器 _`
+
+
+
+ a| 
+`timed.window`
+ a| 
+不支持
+
+
+
+ a| 
+`trusted.hosts`
+ a| 
+不支持
+
+|===
+[role="lead"]
+* 五 *
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`vol.move.cutover.cpu.busy.limit`
+ a| 
+不支持
+
+
+
+ a| 
+`vol.move.cutover.disk.busy.limit`
+ a| 
+不支持
+
+
+
+ a| 
+`vsm.smtape.concurrent.cascade.support`
+ a| 
+不支持
+
+
+
+ a| 
+ a| 
+
+|===
+[role="lead"]
+* 宽 *
+
+|===
+| 7- 模式选项 | 集群模式 Data ONTAP 命令 
+
+
+ a| 
+`wafl.default_nt_user`
+ a| 
+` * vserver nfs modify -default-win-user*`
+
+
+
+ a| 
+`wafl.default_unix_user`
+ a| 
+` * vserver cifs options modify -default-unix-user*`
+
+
+
+ a| 
+`wafl.inconsistent.asup_frequency.blks`
+ a| 
+` * 系统节点 run -node ｛ _node_name__llocal ｝ options wafl.inconsistent.asup_frequency.blks*`
+
+
+
+ a| 
+`wafl.inconsistent.asup_frequency.time`
+ a| 
+` * 系统节点 run -node ｛ _node_name__llocal ｝ options wafl.inconsistent.asup_frequency.time*`
+
+
+
+ a| 
+`wafl.inconsistent.ems_suppress`
+ a| 
+` * 系统节点 run -node ｛ _node_name__llocal ｝ options wafl.inconsistent.ems_suppress*`
+
+
+
+ a| 
+`wafl.maxdirsize`
+ a| 
+` * vol create -maxdir-size*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`WAFL.NT_admin_priv_map_to_root`
+ a| 
+` * vserver name-mapping cre*`
+
+
+
+ a| 
+`WAFL.root_only_chown`
+ a| 
+` * vserver nfs modify -chown-mode*`
+
+
+NOTE: 可在高级权限级别使用。
+
+
+
+ a| 
+`WAFL.WCC_minutes_valid`
+ a| 
+不支持
+
+
+
+ a| 
+`webvds.enable`
+ a| 
+不支持
+
+|===

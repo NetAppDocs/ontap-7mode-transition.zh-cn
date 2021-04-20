@@ -1,0 +1,34 @@
+---
+permalink: san-host/task_preparing_to_transition_aix_data_host_luns_with_file_systems.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, transition, aix, host, data, lun, file, system 
+summary: 将具有文件系统的 AIX 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 之前，必须收集过渡过程所需的信息。 
+---
+= 准备过渡具有文件系统的 AIX 主机数据 LUN
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将具有文件系统的 AIX 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 之前，必须收集过渡过程所需的信息。
+
+. 在 7- 模式控制器上，确定要过渡的 LUN 的名称：
++
+` * LUN 显示 *`
+
+. 在主机上，找到 LUN 的 SCSI 设备名称：
++
+` * sanlun lun show*`
+
++
+SCSI 设备名称位于 device filename 列中。
+
+. 列出并记录要过渡的数据 LUN 中配置的卷组使用的物理卷：
++
+` * lsvg -p _vg_name_*`
+
+. 列出并记录卷组使用的逻辑卷：
++
+` * lsvg -l _vg_name_*`
+
+

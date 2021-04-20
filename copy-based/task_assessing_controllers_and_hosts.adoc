@@ -1,0 +1,25 @@
+---
+permalink: copy-based/task_assessing_controllers_and_hosts.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, assess, controller, host 
+summary: 您可以使用 7- 模式过渡工具或清单收集工具收集和评估有关控制器和主机的信息，具体取决于您环境中的安全法规。 
+---
+= 评估控制器和主机
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 7- 模式过渡工具或清单收集工具收集和评估有关控制器和主机的信息，具体取决于您环境中的安全法规。
+
+* 7- 模式过渡工具通过添加系统或使用清单收集工具生成的清单报告来收集有关控制器和主机的清单信息。
++
+然后， 7- 模式过渡工具会评估清单信息并创建过渡评估报告。
+
+* 执行过渡评估时，必须注意以下注意事项：
++
+** 您不应在控制器上同时执行评估和迁移操作。
+** 您应避免在高峰时段对活动存储控制器执行评估操作。
+
+
+

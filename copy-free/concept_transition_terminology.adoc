@@ -1,0 +1,31 @@
+---
+permalink: copy-free/concept_transition_terminology.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, terminology 
+summary: 了解与 7- 模式过渡工具相关的过渡术语有助于您了解过渡过程。 
+---
+= 过渡术语
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+了解与 7- 模式过渡工具相关的过渡术语有助于您了解过渡过程。
+
+* * 收集和评估 *
++
+在将数据和配置过渡到 ONTAP 之前，您必须收集有关存储环境的信息，其中包括存储系统，主机和应用程序。然后，您必须评估这些系统的特性和功能，并确定这些特性和功能在选择进行过渡的 ONTAP 版本中的工作方式。
+
+* * 迁移 *
++
+指将数据和配置从 7- 模式卷过渡到 ONTAP 。应在评估 7- 模式控制器后执行迁移。
+
+* * 项目 *
++
+在 7- 模式过渡工具中，可以通过一个项目配置和管理一组卷的过渡。
+
+* * 项目组 *
++
+在 7- 模式过渡工具中，项目组是一个逻辑容器，可用于存放相关的迁移项目。系统中始终存在一个名为 Default_Group 的默认组。
+
+

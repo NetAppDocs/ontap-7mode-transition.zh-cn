@@ -1,0 +1,15 @@
+---
+permalink: copy-free/task_copy_free_transition_workflow.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, workflow 
+summary: 无副本过渡工作流包括为过渡做准备，执行过渡以及完成过渡。其中某些任务必须在 7- 模式系统和集群上手动完成。 
+---
+= 无副本过渡工作流
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+无副本过渡工作流包括为过渡做准备，执行过渡以及完成过渡。其中某些任务必须在 7- 模式系统和集群上手动完成。
+
+image::../media/cft_highlevel_workflow.gif[CFT 高级工作流]

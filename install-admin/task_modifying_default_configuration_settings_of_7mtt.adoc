@@ -1,0 +1,47 @@
+---
+permalink: install-admin/task_modifying_default_configuration_settings_of_7mtt.html 
+sidebar: sidebar 
+keywords: ontap, 7, mode, install, modify, configuration, options, transition, tool 
+summary: 您可以编辑 $INSTALL_DIR\etc\... 文件以修改 7- 模式过渡工具使用的任何配置选项。此文件包含该工具运行所需的所有可配置选项的相关信息。 
+---
+= 修改 7- 模式过渡工具的配置选项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以编辑 ` $INSTALL_DIR\etc\...` 文件以修改 7- 模式过渡工具使用的任何配置选项。此文件包含该工具运行所需的所有可配置选项的相关信息。
+
+该文件包含多个选项；例如，您可以指定启动工具服务的端口，以及该工具用于与 7- 模式系统或集群通信的端口。
+
+.步骤
+. 在安装了 7- 模式过渡工具的系统中，从安装目录中打开 ` $INSTALL_DIR\etc\conf\transition-tool.conf` 文件，然后对其进行修改。
++
+7- 模式过渡工具必须具有端口 8443 或 8088 ，才能与 7- 模式系统和集群进行通信。如果端口 8443 或 8088 不可用，或者您要使用其他端口，则必须更改 `transition-tool.conf` 文件中的 `tool.https.port` 选项指定的端口。如果端口 8088 不可用或您要使用其他端口，则必须更改 `transition-tool.conf` 文件中的 `tool.http.port` 选项指定的端口。
+
+. 重新启动 7- 模式过渡工具服务，以使新值生效：
++
+|===
+| 系统类型 | 执行以下操作 ... 
+
+
+ a| 
+Windows
+ a| 
+.. 单击 * 开始 * > * 控制面板 * > * 系统和安全 * > * 管理工具 * > * 服务 * 。
+.. 右键单击 * NetApp 7- 模式过渡工具 * 服务，然后单击 * 停止 * 。
+.. 再次右键单击 * NetApp 7- 模式过渡工具 * 服务，然后单击 * 启动 * 。
+
+
+
+
+ a| 
+Linux
+ a| 
+运行以下命令：
+
+` * service transition-service restart*`
+
+|===
+. 重新启动 7- 模式过渡工具服务后，请重新添加 7- 模式系统和集群凭据。
+

@@ -1,0 +1,80 @@
+---
+permalink: san-host/task_testing_transitioned_luns_and_esxi_host_applications_before_cutover.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, lun, esxi, applications, cutover, phase, copy, based 
+summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 ESXi 主机，则可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以使主机和应用程序联机。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。 
+---
+= 在转换之前测试已过渡的 LUN 和 ESXi 主机应用程序 基于副本的过渡阶段
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果使用 7- 模式过渡工具（ 7MTT ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 ESXi 主机，则可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以使主机和应用程序联机。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。
+
+* 必须在新的测试环境中配置新的测试主机。
++
+为了避免 IP/MAC 或 UUID 复制或冲突，必须在专用网络中配置测试主机。
+
+* 如果要过渡从本地硬盘启动的主机，测试主机必须与源主机具有相同的 ESXi 版本和驱动程序。
+* FC 或 FCoE 主机与新的集群模式 Data ONTAP 节点之间的分区必须完整。
+* 源主机和新的集群模式 Data ONTAP 主机之间不能存在分区。
++
+如果在测试模式下源主机可以看到过渡后的集群模式 Data ONTAP LUN ，则源主机可能会发生意外服务中断。
+
+* 如果要过渡 SAN 启动的主机，则必须禁用网络适配器。
+
+
+您必须保持测试主机和源主机之间的硬件奇偶校验，并且必须在测试主机上执行以下步骤：
+
+测试期间，集群模式 Data ONTAP LUN 处于读 / 写模式。测试完成后，它们将转换为只读模式，而您正在为转换阶段做准备。
+
+.步骤
+. 基线数据复制完成后，在 7MTT 用户界面（ UI ）中选择 * 测试模式 * 。
+. 在 7MTT UI 中，单击 * 应用配置 * 。
+. 对测试主机上的集群模式 Data ONTAP 节点进行分区。
+. 登录到集群模式 Data ONTAP 节点，然后将新的测试主机启动程序添加到 7MTT 在测试阶段创建的 igroup 中。
+. 导航到 `C ： \Program Files\NetApp\operating in 7-Mode Transition Tool\` 。
+. 从安装了 7MTT 的 Linux 主机生成 7- 模式到集群模式 Data ONTAP LUN 的映射文件：
++
+` * 过渡 CBT 导出 lunmap -p _project-name_ -o _file_path_*`
+
++
+例如：
+
++
+` * 过渡 CBT 导出 lunmap -p SanWorkLoad -o c ： /Libraires/Documents/7-C-LUN-mapping-csv*`
+
+. 使测试主机联机。
++
+** xref:concept_reconfiguration_of_vmware_software_iscsi_initiator.adoc[过渡后重新配置 VMware 软件 iSCSI 启动程序]
+** xref:task_setting_up_esxi_hosts_configured_for_san_boot_after_transition.adoc[设置为 SAN 启动配置的 ESXi 主机 过渡]
+
+
+. 验证是否已发现所有已过渡的集群模式 Data ONTAP LUN 。
+. 如果要过渡非 SAN 启动的主机，请重新注册 VM 。
++
+xref:task_reregistering_vms_after_transition_on_non_san_boot_esxi_host_using_vsphere_client.adoc[过渡 ESXi 主机后重新注册 VM 。]
+
+. 为 ESXi 主机完成必要的过渡后步骤。
++
+xref:concept_post_transition_requirements_for_esxi_hosts.adoc[ESXi 主机的过渡后要求]
+
+. 使主机和应用程序联机。
+. 根据需要执行测试。
+. 关闭测试主机。
+. 在 7MTT UI 中，单击 * 完成测试 * 。
++
+新的集群模式 Data ONTAP LUN 现在为只读 LUN ，源 7- 模式 LUN 中的数据将重新同步。
+
+. 如果您计划在完成过渡后使用同一个源，请在集群模式 Data ONTAP 节点上编辑 igroup 以添加相应的启动程序。
++
+如果您计划将测试主机提升为生产主机，则无需编辑 igroup 。
+
+
+
+完成测试后，请安排时间关闭连接到运行 7- 模式 Data ONTAP 的控制器的源主机。单击 * 完成过渡 * 后，源 7- 模式卷和 LUN 将脱机，过渡后的集群模式 Data ONTAP LUN 将变为读 / 写。
+
+* 相关信息 *
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基于副本的过渡"]

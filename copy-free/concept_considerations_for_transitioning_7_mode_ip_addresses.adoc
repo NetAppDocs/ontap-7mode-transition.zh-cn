@@ -1,0 +1,23 @@
+---
+permalink: copy-free/concept_considerations_for_transitioning_7_mode_ip_addresses.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, 7, mode, ip, addresses 
+summary: 在 ONTAP 中将 7- 模式 IP 地址过渡到 Storage Virtual Machine \ （ SVM\ ）时，您必须了解某些注意事项。 
+---
+= 过渡 7- 模式 IP 地址的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 ONTAP 中将 7- 模式 IP 地址过渡到 Storage Virtual Machine （ SVM ）时，您必须了解某些注意事项。
+
+* 您可以使用 7- 模式过渡工具过渡现有的 7- 模式 IP 地址或指定要在 SVM 上配置的新 IP 地址。
++
+** 在应用配置（预转换）阶段的管理 `d自有` 状态下，在 SVM 上创建现有的 7- 模式 IP 地址。
+** 在应用配置（预转换）阶段的管理 `up` 状态下，在 SVM 上创建新的 IP 地址。
+
+
+* IPv6 地址无法过渡，必须在过渡后手动配置。
+* iSCSI 和 FC LIF 不会过渡，必须在过渡后手动配置。
+

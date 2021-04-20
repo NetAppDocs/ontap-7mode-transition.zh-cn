@@ -1,0 +1,23 @@
+---
+permalink: copy-free/task_transitioning_a_snapmirror_relationship.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, snapmirror, relationship 
+summary: 您可以先过渡二级 HA 对，在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间设置交错的 SnapMirror 关系，然后再过渡主 HA 对。在某些情况下，您必须并行过渡 7- 模式 SnapMirror 关系的二级和主 HA 对。 
+---
+= 过渡 SnapMirror 关系
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以先过渡二级 HA 对，在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间设置交错的 SnapMirror 关系，然后再过渡主 HA 对。在某些情况下，您必须并行过渡 7- 模式 SnapMirror 关系的二级和主 HA 对。
+
+如果所有主卷都属于一个 HA 对，而所有二级卷都属于另一个 HA 对，则可以使用交错方法进行过渡。
+
+如果任一 HA 对同时包含主卷和二级卷，则必须使用并行方法进行过渡。
+
+过渡主和二级 HA 对后，必须在过渡后在集群模式 Data ONTAP 中手动设置卷 SnapMirror 关系。要成功重新同步， SnapMirror 关系的主卷和二级卷之间必须至少存在一个在 Data ONTAP 8.1 或更高版本中创建的通用 Snapshot 副本。
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["使用 System Manager 进行集群管理"]

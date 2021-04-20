@@ -1,0 +1,17 @@
+---
+permalink: copy-based/concept_storage_host_fc_switches_version_requirements.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, storage, host, fc, switches, version, requirements, assessment 
+summary: 您必须了解过渡评估支持的 7- 模式 Data ONTAP 版本，主机和 FC 交换机。 
+---
+= 用于过渡评估的存储，主机和 FC 交换机版本要求
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须了解过渡评估支持的 7- 模式 Data ONTAP 版本，主机和 FC 交换机。
+
+有关支持由 7- 模式过渡工具评估的 7- 模式版本，主机和 FC 交换机的列表，请参见 NetApp 互操作性表工具。
+
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]

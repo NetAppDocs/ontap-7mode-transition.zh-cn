@@ -1,0 +1,64 @@
+---
+permalink: san-host/task_booting_from_san_boot_lun_on_aix_hosts_with_fc_fcoe_configurations_after_transition.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, booting, san, lun, aix, host, fc, fcoe, configuration 
+summary: 过渡具有 FC 或 FCoE 配置的 AIX 主机上的 SAN 启动 LUN 后，必须执行某些步骤才能从 SAN 启动 LUN 启动主机。 
+---
+= 使用 FC/FCoE 从 AIX 主机上的 SAN 启动 LUN 启动 过渡后的配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡具有 FC 或 FCoE 配置的 AIX 主机上的 SAN 启动 LUN 后，必须执行某些步骤才能从 SAN 启动 LUN 启动主机。
+
+对于基于副本的过渡，必须在 7- 模式过渡工具中完成存储转换操作后执行以下步骤。AIX 主机不支持无副本过渡。
+
+. 登录到硬件管理控制台（ HMC ），然后在 SMS 菜单中启动主机。
+. 选择主机。
+. 选择 * 操作 * > * 激活 * > * 配置文件 * 。
+. 单击高级选项卡。
+. 选择 * SMS* ，然后单击 * 确定 * 。
+. 在 SMS 主菜单中，输入 ` * 5 *` 以选择 * 。选择启动选项 * 。
+. 输入 ` * 1 *` 选择 * 。选择安装 / 启动设备 * 。
+. 输入 ` * 5 *` 选择 * 。列出所有设备 * 。
+. 输入要使用其启动的 ONTAP SAN 启动 LUN 的设备编号。
++
+在以下示例中，所需的 LUN 为选项 5 ：
+
++
+[listing]
+----
+Select Device
+Device 	Current 	Device
+Number		Position	Name
+1.   -   PCIe2 4-port 1GbE Adapter
+     ( loc=U78CB.001.WZS062Y-P1-C12-T1 )
+2.   -   PCIe2 4-port 1GbE Adapter
+     ( loc=U78CB.001.WZS062Y-P1-C12-T2 )
+3.   -   PCIe2 4-port 1GbE Adapter
+     ( loc=U78CB.001.WZS062Y-P1-C12-T3 )
+4.   -   PCIe2 4-port 1GbE Adapter
+     ( loc=U78CB.001.WZS062Y-P1-C12-T4 )
+5.   -   107 GB		FC Harddisk, part=2 (AIX 7.1.0)
+     ( loc=U78CB.001.WZS062Y-P1-C7-T1-W232200a09830ca3a-L0000000000000000 )
+6.   -   107 GB		FC Harddisk, part=2 (AIX 7.1.0)
+     ( loc=U78CB.001.WZS062Y-P1-C7-T2-W232200a09830ca3a-L0000000000000000 )
+---------------------------------------------------------------
+Navigation keys:
+M = return to Main Menu  N = Next page of list
+ESC key = return to previous screen   X = eXit System Management Services
+---------------------------------------------------------------
+Type menu item number and press Enter or select Navigation keys: 5
+----
+. 输入 ` * 2 *` 选择 * 。正常模式启动 * 。
+. 输入 ` * 1*` 退出 SMS 菜单。
+. 等待操作系统启动。
+. 显示 LUN 路径名称：
++
+` * sanlun lun show*`
+
++
+mode 列中的输出应已从 `7` 更改为 `C` 。
+
+

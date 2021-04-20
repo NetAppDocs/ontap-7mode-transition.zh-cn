@@ -1,0 +1,278 @@
+---
+permalink: copy-based/concept_how_you_transition_volumes_in_a_snapmirror_relationship.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snapmirror, transition, volumes, relationship 
+summary: 如果要过渡 SnapMirror 关系中的 7- 模式卷，则必须先过渡二级卷。然后，在 7- 模式主卷和 ONTAP 二级卷之间建立卷 SnapMirror 关系。 
+---
+= 如何过渡 SnapMirror 关系中的卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要过渡 SnapMirror 关系中的 7- 模式卷，则必须先过渡二级卷。然后，在 7- 模式主卷和 ONTAP 二级卷之间建立卷 SnapMirror 关系。
+
+过渡主卷后， 7- 模式过渡工具会在 ONTAP 主卷和二级卷之间建立卷 SnapMirror 关系。
+
+
+NOTE: 7- 模式过渡工具不会自动过渡 SnapMirror 关系中的 SnapLock 合规性卷。SnapMirror 关系中的所有 SnapLock Compliance 卷都必须过渡为独立卷。将主 SnapLock Compliance 卷和二级 SnapMirror Compliance 卷过渡到 ONTAP 后，您必须在这些卷之间手动执行 SnapMirror 重新同步操作。
+
+您可以同时对二级和主项目执行预检，基线复制，增量传输以及应用配置（预转换）；但是，必须先对二级项目执行存储转换。
+
+
+
+== 准备阶段
+
+在此阶段，将选择 7- 模式系统，集群，卷和 IP 地址。7- 模式过渡工具在此阶段执行以下任务：
+
+. 添加 7- 模式存储系统和卷信息
+. 收集有关 7- 模式源卷和 SnapMirror 关系的信息：
++
+** 要过渡二级卷，请收集有关 7- 模式主系统的信息
+** 要过渡主卷，请收集有关 7- 模式二级系统的信息
+
+
+. 运行过渡预检
+. 添加集群， SVM 和聚合信息
+. 收集必须在 SVM 上配置的 IP 地址：
++
+** 选择 7- 模式系统上的 IP 地址
+** 指定必须在上配置的新 IP 地址 SVM
++
+
+NOTE: 此工具不支持过渡 iSCSI 和 FC LIF （ SAN ）。过渡前，必须在 SVM 上手动配置 SAN LIF 。
+
+
+
+. 为基线传输和增量传输创建数据复制计划。
+. 如果项目包含 SnapLock 卷，则收集有关需要进行监管链验证的读写 SnapLock 卷的信息，以及有关存储监管链验证操作期间生成的指纹数据的 ONTAP 卷的详细信息。
++
+
+NOTE: 只有读 / 写 7- 模式 SnapLock 卷才支持 SnapLock 监管链验证。只读卷不支持此功能。对于名称包含非 ASCII 字符的文件的 SnapLock 卷，不支持 SnapLock 监管链验证。
+
+. 通过选择必须过渡到目标 SVM 和目标卷的 7- 模式配置来规划配置过渡。
+
+
+修复预检报告的错误和警告后，不得修改控制器上的对象（卷， IP 地址，系统信息等）。
+
+
+
+== 数据复制阶段
+
+在此阶段， 7- 模式卷中的数据将复制到 ONTAP 卷。7- 模式过渡工具在此阶段执行以下任务：
+
+. 创建具有只读访问权限的 ONTAP 卷
+. 在 7- 模式系统之间设置过渡对等关系 和 SVM
+. 在 7- 模式卷和 ONTAP 之间建立 SnapMirror 关系 卷
+. 根据计划输入完成基线数据传输
+. 对 ONTAP 卷执行计划的 SnapMirror 数据复制更新
+
+
+
+
+== 应用配置（预转换）阶段
+
+最佳做法是在计划转换窗口之前几天或几周运行 * 应用配置 * 。通过此预检，您可以有足够的时间来验证所有配置是否均已正确应用以及是否需要进行任何更改。
+
+在此阶段， 7- 模式卷中的配置将复制到 ONTAP 卷。
+
+应用配置（预转换）阶段有两种模式：预转换只读和预转换读 / 写。
+
+如果项目包含以下内容，则不支持预转换读 / 写模式：
+
+* SAN 卷和目标集群正在运行 Data ONTAP 8.3.1 或更早版本
++
+在这种情况下，以下配置不会在应用配置（预转换）阶段应用，而是会在转换阶段应用：
+
++
+** SAN 配置
+** Snapshot 计划配置
+
+
+* SnapLock 合规性卷
++
+如果项目包含 SnapLock Compliance 卷，则不会在应用配置（预转换）阶段应用 Snapshot 计划配置。而是在转换阶段应用这些配置。
+
++
+xref:concept_considerations_for_transitioning_of_snaplock_compliance_volumes.adoc[过渡 SnapLock Compliance 卷的注意事项]。
+
+
+
+如果目标集群运行的是 Data ONTAP 8.3.1 或更早版本，并且您希望在读 / 写模式下对 NAS 卷运行应用配置（预转换）操作，则必须为 NAS 卷和 SAN 卷创建单独的项目。需要执行此操作，因为如果项目中包含 SAN 卷，则不支持应用配置（预转换）读 / 写模式。
+
+如果项目包含 SnapLock Compliance 卷，并且您希望对非 SnapLock Compliance 卷以读 / 写模式运行应用配置（预转换）操作，则必须为 SnapLock Compliance 卷和非 SnapLock Compliance 卷创建单独的项目。需要执行此操作，因为如果项目中包含 SnapLock Compliance 卷，则不支持应用配置（预转换）读 / 写模式。
+
+该工具在 * 预转换只读模式 * 下执行以下步骤：
+
+. 执行从 7- 模式卷到 ONTAP 卷的增量更新
+. 中断 7- 模式卷和 ONTAP 卷之间的 SnapMirror 关系
++
+
+NOTE: 对于 SnapLock Compliance 卷， 7- 模式卷与 ONTAP 卷之间的 SnapMirror 关系不会中断。这是因为 SnapLock Compliance 卷不支持在 7- 模式卷和 ONTAP 卷之间执行 SnapMirror 重新同步操作。
+
+. 从 7- 模式卷收集配置并将这些配置应用于 ONTAP 卷和 SVM
+. 在 SVM 上配置数据 LIF ：
++
+** 现有的 7- 模式 IP 地址会在管理关闭状态下在 SVM 上创建。
+** 在管理状态为 up 的情况下，在 SVM 上创建新的 IP 地址。
+
+
+. 重新同步 7- 模式卷和 ONTAP 卷之间的 SnapMirror 关系
+
+
+在 * 预转换读 / 写模式 * 下执行以下步骤：
+
+. 执行从 7- 模式卷到 ONTAP 卷的增量更新
+. 中断 7- 模式卷和 ONTAP 卷之间的 SnapMirror 关系
+. 从 7- 模式卷收集配置并将这些配置应用于 ONTAP 卷和 SVM
+. 在 SVM 上配置数据 LIF ：
++
+** 现有的 7- 模式 IP 地址会在管理关闭状态下在 SVM 上创建。
+** 在管理状态为 up 的情况下，在 SVM 上创建新的 IP 地址。
+
+
+. 测试期间对 ONTAP 卷的读 / 写数据访问 应用配置（预转换）测试
++
+应用此配置后，这些 ONTAP 卷将可进行读 / 写访问。应用配置后， ONTAP 卷可进行读 / 写访问，以便在应用配置（预转换）测试期间在这些卷上测试读 / 写数据访问。
+
+. 手动：验证 ONTAP 中的配置和数据访问
+. 手动：完成测试
++
+ONTAP 卷已重新同步。
+
+
+
+
+
+== 存储转换（二级卷）阶段
+
+下图显示了二级卷的过渡：
+
+image::../media/transition_secondary.gif[过渡二级系统]
+
+|===
+| 阶段 | 步骤 
+
+
+ a| 
+存储转换（二级卷）
+ a| 
+. 过渡二级卷
+. 断开并删除二级卷之间的 SnapMirror 关系
+. 在 7- 模式主系统和 ONTAP 之间建立灾难恢复关系 二级卷
+
+
+|===
+7- 模式过渡工具在此阶段执行以下任务：
+
+. 可选：对 ONTAP 二级卷执行按需 SnapMirror 更新
+. 手动：根据需要断开客户端访问
+. 从 7- 模式二级卷执行最终 SnapMirror 更新 到 ONTAP 二级卷
+. 中断并删除 7- 模式二级卷与 ONTAP 二级卷之间的 SnapMirror 关系，并使目标卷变为读 / 写卷
+. 如果目标集群运行的是 Data ONTAP 8.3.0 或 8.3.1 且项目包含 SAN 卷，则应用 Snapshot 计划配置
+. 如果目标集群运行的是 Data ONTAP 8.3.1 或更早版本，则应用 SAN 配置
++
+
+NOTE: 在此操作期间，系统将创建所有必需的 igroup 。对于二级卷，转换操作期间不支持将 LUN 映射到 igroup 。在完成主卷的存储转换操作后，您必须手动映射二级 LUN 。但是，对于二级项目中包含的独立卷， LUN 会在此操作期间映射到 igroup 。
+
+. 应用配额配置（如果有）
+. 在 7- 模式上的卷之间建立 SnapMirror 关系 主系统和 ONTAP 二级卷
++
+用于更新 7- 模式主卷和 7- 模式二级卷之间的 SnapMirror 关系的 SnapMirror 计划将应用于 7- 模式主卷和 ONTAP 二级卷之间的 SnapMirror 关系。
+
+. 删除选择用于过渡的现有 7- 模式 IP 地址 7- 模式系统并在上引入数据 LIF SVM 处于管理启动状态
++
+
+NOTE: 7- 模式过渡工具不会过渡 SAN LIF 。
+
+. 可选：使 7- 模式卷脱机
+
+
+
+
+== 存储转换（主卷）阶段
+
+下图说明了主卷的过渡：
+
+image::../media/transition_primary.gif[过渡主卷]
+
+|===
+| 阶段 | 步骤 
+
+
+ a| 
+存储转换（主卷）
+ a| 
+. 过渡主卷
+. 断开客户端与 7- 模式系统的连接（存储转换）
+. 断开并删除 7- 模式主系统之间的 DR 关系 和 ONTAP 二级卷
+. 断开并删除主卷之间的 SnapMirror 关系
+. 在 ONTAP 主系统之间设置 SVM 对等关系 和二级卷
+. 重新同步 ONTAP 卷之间的 SnapMirror 关系
+. 启用客户端对 ONTAP 卷的访问
+
+
+|===
+7- 模式过渡工具在此阶段执行以下任务：
+
+. 可选：对 ONTAP 二级卷执行按需 SnapMirror 更新
+. 手动：断开客户端访问与 7- 模式系统的连接
+. 从 7- 模式主卷执行最终增量更新 和 ONTAP 主卷
+. 中断并删除 7- 模式主卷与 ONTAP 主卷之间的 SnapMirror 关系，并使目标卷变为读 / 写卷
+. 如果目标集群为，则应用 Snapshot 计划配置 运行 Data ONTAP 8.3.0 或 8.3.1 ，并且项目包含 SAN 卷
+. 如果目标集群运行的是 Data ONTAP 8.3.1 或更早版本，则应用 SAN 配置
+. 应用配额配置（如果有）
+. 中断并删除 7- 模式主系统之间的 SnapMirror 关系 卷和 ONTAP 二级卷
+. 在之间设置集群对等和 SVM 对等关系 主集群和二级集群
+. 在主卷和二级卷之间设置 SnapMirror 关系 ONTAP 卷
+. 重新同步 ONTAP 卷之间的 SnapMirror 关系
+. 删除选择用于过渡的现有 7- 模式 IP 地址 7- 模式系统并在上引入数据 LIF 主 SVM 处于管理启动状态
++
+
+NOTE: 7- 模式过渡工具不会过渡 SAN LIF 。
+
+. 可选：使 7- 模式卷脱机
+
+
+
+
+== SnapLock 卷的监管链验证过程
+
+执行监管链验证操作。
+
+. 枚举 7- 模式卷中的所有 WORM 文件
+. 计算 7- 模式卷上每个 WORM 文件的指纹（在上一步中进行了枚举），并计算过渡后的 ONTAP 卷上相应 WORM 文件的指纹。
+. 生成一个报告，其中详细介绍指纹匹配和不匹配的文件数以及不匹配的原因
+
+
+[NOTE]
+====
+* 只有文件名仅包含 ASCII 字符的读写 SnapLock 卷才支持监管链验证操作。
+* 根据 7- 模式 SnapLock 卷上的文件数量，此操作可能需要大量时间。
+
+
+====
+
+
+== 过渡后步骤
+
+成功完成转换阶段并完成过渡后，您必须执行以下过渡后任务：
+
+. 执行任何手动步骤以过渡 7- 模式系统上可用但未通过该工具自动过渡到 SVM 的功能。
+. 如果目标集群运行的是 Data ONTAP 8.3.1 或更早版本，则必须手动映射二级 LUN 。
+. 对于 SAN 过渡，请手动重新配置主机。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 主机过渡和修复"]
+
+. 通过验证以下内容，确保 SVM 已准备好向客户端提供数据：
++
+** SVM 上的卷处于联机状态并为读 / 写状态。
+** SVM 上的已过渡 IP 地址已启动且可访问。
+
+
+. 将客户端访问重定向到 ONTAP 卷。
+
+
+* 相关信息 *
+
+xref:task_transitioning_volumes_using_7mtt.adoc[从 7- 模式卷迁移数据和配置]

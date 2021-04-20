@@ -1,0 +1,167 @@
+---
+permalink: copy-based/concept_how_nfs_exports_are_transitioned.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, nfs, exports 
+summary: 您必须了解过渡后如何在 SVM 上配置 NFS 导出。如果 ONTAP 不支持 7- 模式导出配置，则可能需要执行一些手动步骤。 
+---
+= NFS 导出的过渡方式
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须了解过渡后如何在 SVM 上配置 NFS 导出。如果 ONTAP 不支持 7- 模式导出配置，则可能需要执行一些手动步骤。
+
+您必须了解有关 NFS 导出过渡的以下注意事项：
+
+* 如果未导出 SVM 根卷以允许对所有 NFS 客户端进行只读访问，则 7- 模式过渡工具会创建一个新的导出策略，允许所有 NFS 客户端进行只读访问，并使用新的导出策略导出 SVM 的根卷。
++
+要确保所有过渡后的卷或 qtree 均可挂载，必须允许所有 NFS 客户端对 SVM 的根卷进行只读访问。
+
+* 过渡具有 ONTAP 不支持的导出配置的 7- 模式卷时，系统会导出这些卷，以便为 SVM 上的所有 NFS 客户端提供只读权限。
++
+过渡后，必须手动配置这些卷的导出策略，以提供所需的访问权限。
+
+* 过渡具有 ONTAP 不支持的导出配置的 7- 模式 qtree 时，它们将继承父卷的导出策略。
++
+过渡后，必须手动配置这些 qtree 的导出策略，以提供所需的访问权限。
+
+* 在 ONTAP 中，要使 NFS 客户端能够挂载 qtree ， NFS 客户端必须在所有父接合路径上具有只读权限，直到 SVM 的根卷接合路径（即 / ）为止。
++
+要使 NFS 客户端能够挂载 qtree ， qtree 必须属于具有只读权限的卷。如果在卷级别没有只读权限， NFS 客户端将无法挂载 qtree 。
+
+* 如果在只读，读写和 root 访问权限列表的组合中指定了同一主机，则必须在过渡后评估过渡后的导出规则，以确定这些主机的适当访问权限。
+
+
+http://www.netapp.com/us/media/tr-4067.pdf["NetApp 技术报告 4067 ：《 NFS 最佳实践和实施指南》"]
+
+
+
+== 示例：修改卷的导出策略以允许访问 qtree
+
+请考虑在 7- 模式存储系统（ 192.168.26.18 ）中配置的以下导出规则，该规则允许 NFS 客户端 192.168.10.10 对卷 volstd10 和 qtree qtree1 进行读 / 写访问：
+
+[listing]
+----
+/vol/volstd10/qtree1 -sec=sys,rw=192.168.10.10,nosuid
+/vol/volstd10 -sec=sys,rw=192.168.11.11,nosuid
+----
+过渡后， ONTAP 中卷 volsdt10 的导出策略如下所示：
+
+[listing]
+----
+cluster-01::> export-policy rule show -vserver std_22 -policyname std_2226 -instance
+ (vserver export-policy rule show)
+
+                                               Vserver: std_22
+                                           Policy Name: std_2226
+                                            Rule Index: 1
+                                       Access Protocol: any
+Client Match Hostname, IP Address, Netgroup, or Domain: 192.168.11.11
+                                        RO Access Rule: sys
+                                        RW Access Rule: sys
+           User ID To Which Anonymous Users Are Mapped:65534
+                              Superuser Security Types: none
+                          Honor SetUID Bits in SETATTR: false
+                             Allow Creation of Devices: true
+cluster-01::>
+----
+过渡后， ONTAP 中 qtree qtree1 的导出策略如下所示：
+
+[listing]
+----
+ cluster-01::> export-policy rule show -vserver std_22 -policyname std_2225 -instance
+  (vserver export-policy rule show)
+
+                                    Vserver: std_22
+                                Policy Name: std_2225
+                                 Rule Index: 1
+                            Access Protocol: any
+Client Match Hostname, IP Address, Netgroup, or Domain: 192.168.10.10
+                             RO Access Rule: sys
+                             RW Access Rule: sys
+User ID To Which Anonymous Users Are Mapped: 65534
+                   Superuser Security Types: none
+               Honor SetUID Bits in SETATTR: false
+                  Allow Creation of Devices: true
+cluster-01::>
+----
+要使 NFS 客户端 192.168.10.10 能够访问 qtree ， NFS 客户端 192.168.10.10 必须对 qtree 的父卷具有只读访问权限。
+
+以下输出显示 NFS 客户端在挂载 qtree 时被拒绝访问：
+
+[listing]
+----
+ [root@192.168.10.10 ]# mount 192.168.35.223:/vol/volstd10/qtree1
+transition_volume_qtreemount:192.168.35.223:/vol/volstd10/qtree1 failed, reason
+given by server: Permission denied [root@192.168.10.10 ]#
+----
+您必须手动修改卷的导出策略，以便为 NFS 客户端 192.168.10.10 提供只读访问权限。
+
+[listing]
+----
+cluster-01::> export-policy rule create -vserver std_22 -policyname std_2226 -clientmatch
+192.168.10.10 -rorule sys -rwrule never -allow-suid false -allow-dev true -superuser none -protocol nfs
+  (vserver export-policy rule create)
+
+cluster-01::> export-policy rule show -vserver std_22 -policyname std_2226 -instance
+  (vserver export-policy rule show)
+
+                                    Vserver: std_22
+                                Policy Name: std_2226
+                                 Rule Index: 1
+                            Access Protocol: any
+Client Match Hostname, IP Address, Netgroup, or Domain: 192.168.11.11
+                             RO Access Rule: sys
+                             RW Access Rule: sys
+User ID To Which Anonymous Users Are Mapped: 65534
+                   Superuser Security Types: none
+               Honor SetUID Bits in SETATTR: false
+                  Allow Creation of Devices: true
+
+**                                    Vserver: std_22
+                                Policy Name: std_2226
+                                 Rule Index: 2
+                            Access Protocol: nfs
+Client Match Hostname, IP Address, Netgroup, or Domain: 192.168.10.10
+                             RO Access Rule: sys
+                             RW Access Rule: never
+User ID To Which Anonymous Users Are Mapped: 65534
+                   Superuser Security Types: none
+               Honor SetUID Bits in SETATTR: false
+                  Allow Creation of Devices: true**
+
+cluster-01::>
+----
+
+
+== 示例： qtree 导出规则在 7- 模式和 ONTAP 中有何不同
+
+在 7- 模式存储系统中，当 NFS 客户端通过 qtree 的父卷的挂载点访问 qtree 时， qtree 导出规则将被忽略，其父卷的导出规则将生效。但是，在 ONTAP 中，无论 NFS 客户端是直接挂载到 qtree ，还是通过 qtree 的父卷的挂载点访问 qtree ， qtree 导出规则始终会强制执行。此示例专门适用于 NFSv4 。
+
+以下是 7- 模式存储系统（ 192.168.26.18 ）上的导出规则示例：
+
+[listing]
+----
+/vol/volstd10/qtree1 -sec=sys,ro=192.168.10.10,nosuid
+/vol/volstd10   -sec=sys,rw=192.168.10.10,nosuid
+----
+在 7- 模式存储系统上， NFS 客户端 192.168.10.10 仅对 qtree 具有只读访问权限。但是，当客户端通过其父卷的挂载点访问 qtree 时，客户端可以向 qtree 写入数据，因为客户端对卷具有读 / 写访问权限。
+
+[listing]
+----
+[root@192.168.10.10]# mount 192.168.26.18:/vol/volstd10 transition_volume
+[root@192.168.10.10]# cd transition_volume/qtree1
+[root@192.168.10.10]# ls transition_volume/qtree1
+[root@192.168.10.10]# mkdir new_folder
+[root@192.168.10.10]# ls
+new_folder
+[root@192.168.10.10]#
+----
+在 ONTAP 中，当 NFS 客户端 192.168.10.10 直接访问 qtree qtree1 或通过 qtree 父卷的挂载点访问 qtree 时，该客户端仅对该 qtree 具有只读访问权限。
+
+过渡后，您必须评估强制实施 NFS 导出策略的影响，如果需要，请将这些过程修改为在 ONTAP 中强制实施 NFS 导出策略的新方式。
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]

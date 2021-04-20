@@ -1,0 +1,58 @@
+---
+permalink: copy-based/concept_considerations_for_using_snapmirror_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, snapmirror 
+summary: 您可以为过渡操作创建数据复制计划并自定义 SnapMirror 数据传输，而不会影响现有的 7- 模式到 7- 模式 SnapMirror 或 SnapVault 操作。 
+---
+= 使用 SnapMirror 进行过渡的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以为过渡操作创建数据复制计划并自定义 SnapMirror 数据传输，而不会影响现有的 7- 模式到 7- 模式 SnapMirror 或 SnapVault 操作。
+
+
+
+== 并发 SnapMirror 传输的最大数量
+
+过渡期间， 7- 模式和 ONTAP 系统支持的并发 SnapMirror 传输的最大数量取决于特定存储系统型号允许的卷 SnapMirror 复制操作的数量。
+
+有关您的系统型号的并发卷 SnapMirror 传输的最大数量的信息，请参见 link:https://library.netapp.com/ecm/ecm_get_file/ECMP1635994["《 Data ONTAP 数据保护联机备份和恢复指南》 7- 模式"]。
+
+
+
+== 数据复制计划
+
+* 该工具用于运行 SnapMirror 操作（基线，更新或重新同步）的并发 SnapMirror 传输数取决于您在创建项目时配置的计划。
+* 如果不同的项目正在从同一个 7- 模式控制器过渡卷，则必须确保数据复制计划不会在不同的项目之间重叠。
+* 您可以通过以下方式确保现有备份和灾难恢复（ DR ）操作不受 7- 模式过渡工具过渡操作的影响：
++
+** 您应为项目创建 SnapMirror 数据复制计划，使其不会与现有的 7- 模式 SnapMirror 或 SnapVault 计划重叠。
+** 您应将并发 SnapMirror 传输的数量配置为在运行时不会使现有的 7- 模式 SnapMirror 或 SnapVault 计划失败。
++
+您还可以通过编辑活动计划并将并发卷 SnapMirror 传输的最大数量修改为零来释放某些传输。
+
+
+
+* 您必须确保在整个操作期间， 7- 模式存储系统上都有并发 SnapMirror 传输的数量以及为操作（预转换，转换和按需更新）配置的限制。
++
+即使项目中的某个卷的最终增量更新操作失败，转换操作也会失败。
+
+* 对于二级项目，在转换后， 7- 模式主卷与 ONTAP 二级卷之间的 SnapMirror 关系的增量 SnapMirror 更新基于 7- 模式到 7- 模式 SnapMirror 关系计划。
++
+您必须确保 7- 模式主控制器上有足够的并发 SnapMirror 传输，才能进行这些更新。
+
+
+
+
+
+== 使用多个路径进行过渡
+
+您可以使用数据复制 IP 地址和多路径 IP 地址指定两个过渡路径。但是，这两个路径只能用于负载平衡，而不能用于故障转移。
+
+* 相关信息 *
+
+xref:concept_guidelines_for_creating_a_data_copy_schedule.adoc[创建数据复制计划的注意事项]
+
+xref:task_creating_schedule_for_snapmirror_transfers.adoc[为 SnapMirror 传输创建数据复制计划]

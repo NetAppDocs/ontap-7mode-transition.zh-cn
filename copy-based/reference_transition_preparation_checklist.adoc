@@ -1,0 +1,404 @@
+---
+permalink: copy-based/reference_transition_preparation_checklist.html 
+sidebar: sidebar 
+keywords: ontap, copy, based, transition, preparation, checklist 
+summary: 在开始过渡之前，您应确认已满足过渡的所有前提条件。 
+---
+= 过渡准备检查清单
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在开始过渡之前，您应确认已满足过渡的所有前提条件。
+
+
+
+== ONTAP 版本要求
+
+|===
+| 项目 | 是的。 
+
+
+ a| 
+支持的 7- 模式版本 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+ a| 
+
+
+
+ a| 
+您的集群必须运行以下 Data ONTAP 版本之一：
+
+* Data ONTAP 8.2.x
+* Data ONTAP 8.3.x
+
+ a| 
+
+
+
+ a| 
+您必须过渡到以下 ONTAP 版本之一：
+
+* 使用 7- 模式过渡工具 3.3.3 ：
++
+** ONTAP 9.8 或更早版本支持
+
+
+* 使用 7- 模式过渡工具 3.3.2 ：
++
+** ONTAP 9.7P2 或更高版本 9.7 P 版本 （不支持 9.7 之前的版本）
+** ONTAP 9.6P7 或更高版本 9.6 P 版本 （不支持早期 9.6 版）
+** ONTAP 9.5 或更早版本的 ONTAP 9 版本
+** 集群模式 Data ONTAP 8.1.4P4 或更高版本 8.x
+
+
+* 使用 7- 模式过渡工具 3.3.1 ：
++
+** ONTAP 9.5 或更早版本的 ONTAP 9 版本
+** 集群模式 Data ONTAP 8.1.4P4 或更高版本 8.x
+
+
+
+ a| 
+
+|===
+
+
+== 许可要求
+
+|===
+| 项目 | 是的。 
+
+
+ a| 
+已在 7- 模式系统上启用 SnapMirror 许可证
+ a| 
+
+
+
+ a| 
+在主集群和二级集群上启用 SnapMirror 许可证 用于过渡卷 SnapMirror 关系
+ a| 
+
+
+
+ a| 
+如果在 7- 模式系统上启用了 CIFS 许可证，则会在集群上启用该许可证
+ a| 
+
+
+
+ a| 
+如果在 7- 模式系统上启用了 NFS 许可证，则会在集群上启用该许可证
+ a| 
+
+
+
+ a| 
+如果在 7- 模式系统上启用了 iSCSI 许可证，则会在集群上启用该许可证
+ a| 
+
+
+
+ a| 
+如果在 7- 模式系统上启用了 FC 许可证，则会在集群上启用该许可证
+ a| 
+
+
+
+ a| 
+其他功能许可证（如果在 7- 模式系统上可用）将添加到集群中
+ a| 
+
+|===
+
+
+== 7- 模式系统上的 SnapMirror 要求
+
+|===
+| 项目 | 是的。 
+
+
+ a| 
+SnapMirror 许可证
+ a| 
+
+
+
+ a| 
+`options snapmirror.enable on`
+ a| 
+
+
+
+ a| 
+`options interface.snapmirror.blocked ""`
+ a| 
+
+
+
+ a| 
+验证是否满足以下条件之一：
+
+* `snapmirror.access` 选项设置为 all
+* `snapmirror.access` 选项设置为的 IP 地址 集群上的所有集群间 LIF
+* 如果 `snapmirror.access` 选项设置为 `legacy` ，并且 `snapmirror.checkip.enable` 选项为 `off` ，则 SVM 名称将添加到 ` /etc/snapmirror.allow` 文件中
+* 如果 `snapmirror.access` 选项设置为 legacy ，并且 `snapmirror.checkip.enable` 选项为 `on` ，则集群间 LIF 的 IP 地址将添加到 ` /etc/snapmirror.allow` 文件中
+
+ a| 
+
+|===
+
+
+== 7- 模式系统上的卷设置
+
+|===
+| 项目 | 是的。 
+
+
+ a| 
+卷已联机
+ a| 
+
+
+
+ a| 
+卷不受限制
+ a| 
+
+
+
+ a| 
+已禁用以下卷选项：
+
+* `no_i2p`
+* `reAD_realloc`
+* `nvfail`
+
+ a| 
+
+|===
+
+
+== 管理对集群的访问
+
+|===
+| 项目 | 是的。 
+
+
+ a| 
+SSL 已启用
+
+`s系统服务 Web show`
+ a| 
+
+
+
+ a| 
+集群管理 LIF 允许使用 HTTPS
+
+`s系统服务防火墙策略显示`
+ a| 
+
+|===
+
+
+== 管理对 7- 模式系统的访问
+
+|===
+| 项目 | 是的。 
+
+
+ a| 
+HTTPS 已启用
+
+`选项 httpd.admin.ssl.enable on`
+ a| 
+
+
+
+ a| 
+SSL 已启用
+
+`secureadmin setup ssl`
+
+`options ssl.enable on`
+ a| 
+
+
+
+ a| 
+SSLv2 和 SSLv3 已禁用
+
+`options ssl.v2.enable off`
+
+`options ssl.v3.enable off`
+ a| 
+
+|===
+
+
+== 网络要求
+
+|===
+| 项目 | 是的。 
+
+
+ a| 
+可以使用集群管理 LIF 访问集群
+ a| 
+
+
+
+ a| 
+在集群的每个节点上设置一个或多个集群间 LIF 以实现多路径，每个节点上需要两个集群间 LIF
+ a| 
+
+
+
+ a| 
+系统会为集群间 LIF 创建静态路由
+ a| 
+
+
+
+ a| 
+可以从 Windows 系统访问 7- 模式系统和集群 安装了 7- 模式过渡工具的位置
+ a| 
+
+
+
+ a| 
+已配置 NTP 服务器， 7- 模式系统时间为 与集群时间同步
+ a| 
+
+|===
+
+
+== 端口要求
+
+|===
+| 项目 | 是的。 
+
+
+ a| 
+7- 模式系统
+
+* 1055/TCP
+* 1056/TCP
+* 10567TCP
+* 10568/TCP
+* 10569/TCP
+* 10670/TCP
+* 80/TCP
+* 443/TCP
+
+ a| 
+
+
+
+ a| 
+集群
+
+* 1055/TCP
+* 1056/TCP
+* 10567TCP
+* 10568/TCP
+* 10569/TCP
+* 10670/TCP
+* 11105/TCP
+* 80/TCP
+* 443/TCP
+
+ a| 
+
+|===
+
+
+== NFS 要求
+
+|===
+| 项目 | 是的。 
+
+
+ a| 
+NFS 许可证已添加到集群中
+ a| 
+
+
+
+ a| 
+必须在上为 AD 域配置 DNS 条目 SVM
+ a| 
+
+
+
+ a| 
+NFS 将添加到允许的协议列表中 SVM
+ a| 
+
+
+
+ a| 
+KDC 和集群之间的时钟偏差小于 或等于 5 分钟
+ a| 
+
+|===
+
+
+== CIFS 要求
+
+|===
+| 项目 | 是的。 
+
+
+ a| 
+CIFS 许可证已添加到集群中
+ a| 
+
+
+
+ a| 
+如果启用了 MultiStore 许可证，则必须将 CIFS 添加到拥有过渡卷的 vFiler 单元的允许协议列表中
+ a| 
+
+
+
+ a| 
+CIFS 已在 7- 模式系统上设置并运行
+ a| 
+
+
+
+ a| 
+在 7- 模式中， CIFS 的身份验证类型为 Active Directory （ AD ） 或工作组
+ a| 
+
+
+
+ a| 
+CIFS 将添加到允许的协议列表中 SVM
+ a| 
+
+
+
+ a| 
+已为 SVM 配置 DNS
+ a| 
+
+
+
+ a| 
+已为 SVM 配置 CIFS 服务器
+ a| 
+
+
+
+ a| 
+CIFS 正在 SVM 上运行
+ a| 
+
+|===
+* 相关信息 *
+
+xref:concept_preparing_for_copy_based_transition.adoc[为基于副本的过渡做准备]

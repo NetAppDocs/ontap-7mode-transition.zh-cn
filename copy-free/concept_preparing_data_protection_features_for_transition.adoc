@@ -1,0 +1,13 @@
+---
+permalink: copy-free/concept_preparing_data_protection_features_for_transition.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, data, protection, features 
+summary: 过渡 7- 模式 SnapMirror 关系时，必须执行一些手动步骤。此外，您还必须了解支持和不支持过渡的数据保护关系。 
+---
+= 准备数据保护功能以进行过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡 7- 模式 SnapMirror 关系时，必须执行一些手动步骤。此外，您还必须了解支持和不支持过渡的数据保护关系。

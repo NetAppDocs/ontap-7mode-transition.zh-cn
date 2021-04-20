@@ -1,0 +1,23 @@
+---
+permalink: san-host/index.html 
+sidebar: sidebar 
+keywords: ontap, san, host, transition, index 
+summary: 介绍使用 7- 模式过渡工具将数据和配置过渡到 ONTAP 时 VMware ESXi ， Red Hat Linux 和 Windows 主机的过渡前和过渡后过程。 
+---
+= 《 SAN 主机过渡和修复指南》
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要使用 7- 模式过渡工具（ 7MTT ） 2.2 或更高版本将数据和配置从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 8.3 或更高版本，则必须在过渡之前和过渡之后对 SAN 主机执行修复步骤。
+
+《 _7- 模式过渡工具 SAN 主机过渡和修复指南》为 VMware ESXi ， Windows ， Red Hat Enterprise Linux （ RHEL ）， HP-UX 和 AIX 主机提供了必要的过渡前和过渡后步骤。
+
+* 相关信息 *
+
+xref:../copy-based/index.html[基于副本的过渡]
+
+xref:../copy-free/index.html[无副本过渡]
+
+xref:../install-admin/index.html[7- 模式过渡工具安装和管理]

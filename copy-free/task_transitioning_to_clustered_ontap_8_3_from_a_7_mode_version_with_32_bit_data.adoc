@@ -1,0 +1,32 @@
+---
+permalink: copy-free/task_transitioning_to_clustered_ontap_8_3_from_a_7_mode_version_with_32_bit_data.html 
+sidebar: sidebar 
+keywords: ontap, transition, copy, free, prepare, 32, aggregates 
+summary: ONTAP 8.3 及更高版本不支持 32 位聚合，卷和 Snapshot 副本。因此，必须将 32 位聚合扩展到 64 位，然后在过渡之前查找并删除 7- 模式系统中的任何 32 位卷和 Snapshot 副本。 
+---
+= 准备过渡具有 32 位聚合的 7- 模式系统
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 8.3 及更高版本不支持 32 位聚合，卷和 Snapshot 副本。因此，必须将 32 位聚合扩展到 64 位，然后在过渡之前查找并删除 7- 模式系统中的任何 32 位卷和 Snapshot 副本。
+
+* * 32 位聚合 *
++
+.. xref:task_expanding_an_aggregate_to_64_bit_format_without_adding_storage.adoc[将聚合扩展为 64 位格式]
+.. xref:task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.adoc[查找和删除 32 位卷和 Snapshot 副本]
+
+
+* * 32 位卷或 Snapshot 副本 *
++
+即使只有 64 位聚合和卷，也可能会保留某些 32 位或混合格式的 FlexVol 卷或 Snapshot 副本。过渡前，必须删除这些卷和 Snapshot 副本。
+
++
+xref:task_finding_and_removing_32_bit_data_from_source_volumes_and_snapshot_copies.adoc[查找和删除 32 位卷和 Snapshot 副本]
+
+
+
+* 相关信息 *
+
+http://www.netapp.com/us/media/tr-3978.pdf["NetApp 技术报告 3978 ：《 32 位聚合原位扩展到 64 位概述和最佳实践》"]
