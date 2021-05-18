@@ -3947,7 +3947,6 @@
   <block id="418abd2a3d0ce38a1d0d1629b08fb50d" category="list-text">提交主项目的过渡。</block>
   <block id="86653abda78d59fd2d83c995c1057bfa" category="inline-link">使用 SnapMirror 进行 7- 模式数据过渡</block>
   <block id="b6a79238efceeac12b84f79a5615d122" category="paragraph"><block ref="b6a79238efceeac12b84f79a5615d122" category="inline-link-rx"></block></block>
-  <block id="5f54e30b3c4cef4f57fd2b62c85ab591" category="summary">7- 模式过渡文档提供的信息可帮助您安装和设置 7- 模式过渡工具，使用 SnapMirror 命令过渡数据，执行基于副本或无副本的过渡，收集过渡信息以及完成 SAN 主机的过渡前 / 后过程。</block>
   <block id="c8d1df851ddb91c52b45b9c36da52872" category="doc">7- 模式过渡文档</block>
   <block id="d0fbe67f2f760cdfc7dca7d4ae42c132" category="summary">要成功生成清单报告，您必须确保 7- 模式系统和主机满足特定的网络和协议要求。</block>
   <block id="b20e671b3b9c076970eedcf020eca57a" category="doc">准备 7- 模式系统和主机以进行清单收集</block>
@@ -7373,4 +7372,5 @@
   <block id="80a4be74705a612be3887e601f338c11" category="sidebar">了解 Red Hat Enterprise 的过渡前和过渡后要求 Linux 主机</block>
   <block id="624868dc01678d5268f2ce0a2b5e6de8" category="sidebar">了解 Microsoft Windows 主机的过渡前和过渡后步骤</block>
   <block id="84a6933c212881ac1351cccc03b06c5a" category="sidebar">适用于 7- 模式管理员的命令映射</block>
+  <block id="89f95df2cc05eb9610c67960b12ffda2" category="summary">7- 模式过渡文档提供的信息可帮助您安装和设置 7- 模式过渡工具，使用 SnapMirror 命令过渡数据，执行基于副本或无副本的过渡，收集过渡信息以及完成 SAN 主机的过渡前 / 后过程。</block>
 </blocks>
