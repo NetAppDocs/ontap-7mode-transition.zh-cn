@@ -14,4 +14,4 @@ summary: 过渡 ESXi 主机时，您必须在应用配置（预转换）阶段�
 
 完成 ESXi 主机过渡的前提条件后，您可以使用 7- 模式过渡工具（ 7MTT ）将 LUN 从 7- 模式 Data ONTAP 过渡到 ONTAP 。在 7MTT 过渡的应用配置（预转换）阶段之前， ESXi 主机， VM 和应用程序可以处于联机状态。但是，在应用配置（预转换）阶段，必须关闭所有应用程序和子操作系统的电源。如果 ESXi 主机通过 SAN 启动，或者如果过渡期间使用了 SAN 启动的 LUN ，则 ESXi 主机也必须在应用配置（预转换）阶段关闭。
 
-如果主机未通过 SAN 启动，并且您需要将服务保持在非过渡 LUN 或非 NetApp 创建的阵列 LUN 上运行，则可以选择不将其关闭。但是，如果不将其关闭，则可能会出现 all-paths-down （ APD ）情况。为了避免 APD 状况，您可以屏蔽在 7- 模式 LUN 中运行的 Data ONTAP 。有关详细信息，请参见 VMware 知识库 ID 1009449 。
+如果主机未通过 SAN 启动，并且您需要将服务保持在非过渡 LUN 或非 NetApp 创建的阵列 LUN 上运行，则可以选择不将其关闭。但是，如果不将其关闭，则可能会出现 all-paths-down （ APD ）情况。为了避免 APD 状况，您可以屏蔽在 7- 模式 LUN 中运行的 Data ONTAP 。请参见 link:https://kb.vmware.com/s/article/1009449["VMware 知识库 ID 1009449"] 有关详细信息 ...

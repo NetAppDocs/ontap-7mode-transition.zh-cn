@@ -14,7 +14,7 @@ summary: 过渡到集群模式 ONTAP 涉及确定当前环境，定义过渡范�
 
 请务必查阅当前的 7- 模式过渡工具 _Release Notes_ ，了解有关受支持的目标版本和已知问题的最新信息。
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["《 7- 模式过渡工具发行说明》"]
+link:releasenotes.html["《 7- 模式过渡工具发行说明》"]
 
 您必须首先收集有关当前环境的信息，包括当前存储环境以及主机和应用程序。收集存储清单后，您可以评估当前使用的特性和功能，并确定所选 ONTAP 版本中的任何差异。您可以使用 7- 模式过渡工具执行这些任务。
 

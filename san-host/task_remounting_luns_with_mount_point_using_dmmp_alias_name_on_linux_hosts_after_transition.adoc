@@ -14,7 +14,7 @@ summary: 从 7- 模式 ONTAP 过渡到集群模式 Data ONTAP 后，必须使用
 
 如果要执行无副本过渡（ CFT ），则必须完成 `vol rehost` 的过程。
 
-请参见 link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-free/index.html["《 7- 模式过渡工具无副本过渡指南》"] 了解详细信息。
+请参见 link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["《 7- 模式过渡工具无副本过渡指南》"] 了解详细信息。
 
 * 对于基于副本的过渡（ CBT ），请在 7MTT 中完成存储转换操作后执行以下步骤。
 * 对于 CFT ，请在 7MTT 中执行导入数据和配置操作后执行以下步骤。

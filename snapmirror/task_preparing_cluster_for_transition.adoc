@@ -70,7 +70,7 @@ system7mode is alive
 
 对于多路径，每个节点上必须有两个集群间 LIF 。
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]
+https://docs.netapp.com/us-en/ontap/networking/index.html["网络和 LIF 管理"]
 
 * 相关信息 *
 

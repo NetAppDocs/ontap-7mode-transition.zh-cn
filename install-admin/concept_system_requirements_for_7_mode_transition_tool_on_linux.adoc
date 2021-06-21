@@ -12,7 +12,7 @@ summary: 您必须确保 Linux 主机具有安装和运行 7- 模式过渡工具
 [role="lead"]
 您必须确保 Linux 主机具有安装和运行 7- 模式过渡工具所需的配置。
 
-请务必参考当前的 7- 模式过渡工具 link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["发行说明"] 有关受支持主机和已知问题的最新信息。
+请务必参考当前的 7- 模式过渡工具 link:http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["发行说明"] 有关受支持主机和已知问题的最新信息。
 
 
 

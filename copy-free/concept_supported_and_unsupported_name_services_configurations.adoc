@@ -65,4 +65,4 @@ xref:task_customizing_configurations_for_transition.adoc[自定义 7- 模式配�
 
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]
+https://docs.netapp.com/us-en/ontap/networking/index.html["网络和 LIF 管理"]

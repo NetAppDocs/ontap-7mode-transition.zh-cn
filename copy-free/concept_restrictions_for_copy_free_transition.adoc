@@ -27,7 +27,7 @@ http://www.netapp.com/us/media/tr-4052.pdf["NetApp 技术报告 4052 ：《成�
 
 * SnapLock 卷
 +
-支持将 SnapLock 卷过渡到 ONTAP 9.0 至 9.5 版。
+所有最新的 ONTAP 版本均支持过渡 SnapLock 卷。
 
 * FlexCache 卷
 

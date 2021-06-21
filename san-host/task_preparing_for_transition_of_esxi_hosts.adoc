@@ -13,7 +13,7 @@ summary: 在使用 7- 模式过渡工具（ 7MTT\ ）将 ESXi 主机从 7- 模�
 在使用 7- 模式过渡工具（ 7MTT ）将 ESXi 主机从 7- 模式 Data ONTAP 过渡到 ONTAP 之前，您必须完成几项前提条件任务。
 
 .步骤
-. 按照中所述配置集群模式 Data ONTAP link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-based/index.html["《 7- 模式过渡工具基于副本的过渡指南》"] 或 link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-free/index.html["《 7- 模式过渡工具无副本过渡指南》"] 根据要执行的过渡类型。
+. 按照中所述配置集群模式 Data ONTAP link:http://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["《 7- 模式过渡工具基于副本的过渡指南》"] 或 link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["《 7- 模式过渡工具无副本过渡指南》"] 根据要执行的过渡类型。
 . 收集要过渡的 ESXi 主机的以下信息：
 +
 ** IP 地址

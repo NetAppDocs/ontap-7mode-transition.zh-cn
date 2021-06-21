@@ -14,7 +14,7 @@ summary: 您可以使用集群模式 Data ONTAP SnapMirror 命令将 NAS 和 SAN
 
 * 建议： * 您应使用 7- 模式过渡工具从基于副本的过渡到过渡 7- 模式卷，因为该工具提供了预检查功能，可在迁移过程的每个步骤中验证 7- 模式和集群，从而有助于避免许多潜在问题。该工具可显著简化所有协议，网络和服务配置的迁移以及数据迁移。
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["《 7- 模式过渡工具发行说明》"]
+http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["《 7- 模式过渡工具发行说明》"]
 
 此操作步骤提供了使用 SnapMirror 进行过渡时必须执行的高级任务。
 
@@ -29,11 +29,11 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["《 7-
 
 * 可选：在 SVM 上创建数据 LIF 以启用客户端访问。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]。
+https://docs.netapp.com/us-en/ontap/networking/index.html["网络和 LIF 管理"]。
 
 * 在 SVM 上配置协议，网络和服务。
 +
-** https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]。
+** https://docs.netapp.com/us-en/ontap/networking/index.html["网络和 LIF 管理"]。
 ** http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-cifs/home.html["SMB/CIFS 管理"]
 ** https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]
 

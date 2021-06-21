@@ -88,4 +88,6 @@ ONTAP 中不支持的配置如下：
 
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理 /ONTAP 9.7 及更早版本"]
+
+https://docs.netapp.com/us-en/ontap/networking/index.html["网络和 LIF 管理 /ONTAP 9.8 及更高版本"]

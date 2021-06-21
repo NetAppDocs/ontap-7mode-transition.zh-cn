@@ -46,6 +46,6 @@ NOTE: 您必须对每个 Storage Virtual Machine （ SVM ）运行此命令。
 . 验证分区是否适用于新的集群模式 Data ONTAP 目标。
 . 如果要执行无副本过渡（ CFT ），请运行 `vol rehost` 。
 +
-请参见 link:https://review.docs.netapp.com/us-en/ontap-7mode-transition_catalyst-adoc/copy-free/index.html["《 7- 模式过渡工具无副本过渡指南》"] 用于 `vol rehost` 过程。
+请参见 link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-free/index.html["《 7- 模式过渡工具无副本过渡指南》"] 用于 `vol rehost` 过程。
 
 

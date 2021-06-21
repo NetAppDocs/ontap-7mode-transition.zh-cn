@@ -23,4 +23,4 @@ NOTE: 最佳实践是在存储系统上启用 TLS 并禁用 SSLv3 ，以避免�
 
 清单收集工具是一个独立实用程序，不需要任何安装。
 
-请务必参考当前的 7- 模式过渡工具 link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["发行说明"] 有关受支持的目标版本和已知问题的最新信息。
+请务必参考当前的 7- 模式过渡工具 link:http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["发行说明"] 有关受支持的目标版本和已知问题的最新信息。

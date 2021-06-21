@@ -14,4 +14,4 @@ summary: 通过 7- 模式过渡工具，您可以收集 7- 模式控制器，主
 
 请务必查阅当前的 7- 模式过渡工具 _Release Notes_ ，了解有关受支持的目标版本和已知问题的最新信息。
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["《 7- 模式过渡工具发行说明》"]
+http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["《 7- 模式过渡工具发行说明》"]
