@@ -6192,7 +6192,6 @@
   <block id="20e0acd5d4c6ea95aaabbe318f40a3e6" category="paragraph"><block ref="20e0acd5d4c6ea95aaabbe318f40a3e6" category="inline-xref-macro-rx"></block></block>
   <block id="1f0d9b0e110b96a95838a0de463a7ac7" category="inline-xref-macro">过渡后发现 SAN 启动 LUN</block>
   <block id="fed7c2ae61ec98c2ab43484e8de41d4b" category="paragraph"><block ref="fed7c2ae61ec98c2ab43484e8de41d4b" category="inline-xref-macro-rx"></block></block>
-  <block id="78b807db0b73ed177eae3ee764356f21" category="summary">在使用 7- 模式过渡工具（ 7MTT\ ）将 ESXi 主机从 7- 模式 Data ONTAP 过渡到 ONTAP 之前，您必须完成几项前提条件任务。</block>
   <block id="702359f63f994542931dfee4a57bf827" category="doc">为过渡 ESXi 主机做准备</block>
   <block id="015b9e4c1c992f2767f306b95538d1f3" category="paragraph">在使用 7- 模式过渡工具（ 7MTT ）将 ESXi 主机从 7- 模式 Data ONTAP 过渡到 ONTAP 之前，您必须完成几项前提条件任务。</block>
   <block id="20a76da6972a3da215553fb9873d983c" category="inline-link">《 7- 模式过渡工具无副本过渡指南》</block>
@@ -7387,4 +7386,5 @@
   <block id="a031cd3bd86e12f6882a99800966f868" category="paragraph">请参见 <block ref="5051bd660a94246ffa01cc538d6199bf" category="inline-link-rx"></block> 了解详细信息。</block>
   <block id="2d8e41f878e57743dd9b520731d9b484" category="inline-link">VMware 知识库 ID 1009449</block>
   <block id="1d9b853d8e36f14453c11e0aabdbf782" category="paragraph">如果主机未通过 SAN 启动，并且您需要将服务保持在非过渡 LUN 或非 NetApp 创建的阵列 LUN 上运行，则可以选择不将其关闭。但是，如果不将其关闭，则可能会出现 all-paths-down （ APD ）情况。为了避免 APD 状况，您可以屏蔽在 7- 模式 LUN 中运行的 Data ONTAP 。请参见 <block ref="a4625f2f06156f5339340d176a230c78" category="inline-link-rx"></block> 有关详细信息 ...</block>
+  <block id="d16f495e3cbebda9b6c4cecd0dc6b6e4" category="summary">从 Data ONTAP 过渡 ESXi 主机之前要完成的任务</block>
 </blocks>
