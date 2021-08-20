@@ -75,9 +75,7 @@ AD
  a| 
 将 CIFS 服务器标识传输或保留到目标 SVM
  a| 
-....
-You have the following two options to create the CIFS server:
-....
+ You have the following two options to create the CIFS server:
 .. 适用于所有版本的 ONTAP ：
 +
 *** 在 SVM 配置阶段之前，您必须使用临时 CIFS 标识在 7- 模式系统上重新配置 CIFS 服务器。

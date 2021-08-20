@@ -7370,7 +7370,6 @@
   <block id="294ed429f3ed2548ab75f1b87845ce8b" category="paragraph"><block ref="294ed429f3ed2548ab75f1b87845ce8b" category="inline-link-rx"></block></block>
   <block id="1d0fe3d6b69b0ad2a9f89a1a2dffe662" category="inline-link">光纤连接的 MetroCluster 安装和配置， ONTAP 9.9.1</block>
   <block id="b1de632dd945f69691092a6e7d859caa" category="paragraph"><block ref="b1de632dd945f69691092a6e7d859caa" category="inline-link-rx"></block></block>
-  <block id="9c833a4f788c919f99c219406430dfe2" category="paragraph"><block ref="9c833a4f788c919f99c219406430dfe2" category="inline-link-macro-rx"></block></block>
   <block id="344245ffd5e989ae89c20e32c008fa81" category="inline-link">网络和 LIF 管理 /ONTAP 9.7 及更早版本</block>
   <block id="deacabb337a4e4593417f763b7ee9cdd" category="paragraph"><block ref="deacabb337a4e4593417f763b7ee9cdd" category="inline-link-rx"></block></block>
   <block id="1d3cfe94d22cd88aa57d3292be16ce6a" category="inline-link">网络和 LIF 管理 /ONTAP 9.8 及更高版本</block>
@@ -7387,4 +7386,5 @@
   <block id="2d8e41f878e57743dd9b520731d9b484" category="inline-link">VMware 知识库 ID 1009449</block>
   <block id="1d9b853d8e36f14453c11e0aabdbf782" category="paragraph">如果主机未通过 SAN 启动，并且您需要将服务保持在非过渡 LUN 或非 NetApp 创建的阵列 LUN 上运行，则可以选择不将其关闭。但是，如果不将其关闭，则可能会出现 all-paths-down （ APD ）情况。为了避免 APD 状况，您可以屏蔽在 7- 模式 LUN 中运行的 Data ONTAP 。请参见 <block ref="a4625f2f06156f5339340d176a230c78" category="inline-link-rx"></block> 有关详细信息 ...</block>
   <block id="d16f495e3cbebda9b6c4cecd0dc6b6e4" category="summary">从 Data ONTAP 过渡 ESXi 主机之前要完成的任务</block>
+  <block id="b87629f8bc070d14a339f1c969e63368" category="paragraph"><block ref="b87629f8bc070d14a339f1c969e63368" category="inline-link-macro-rx"></block></block>
 </blocks>
