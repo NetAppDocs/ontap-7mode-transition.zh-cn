@@ -16,20 +16,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/>
-  
-  <meta name="description" content="您可以在项目中添加，编辑或删除 7- 模式 IP 地址。">
-  <meta name="keywords" content=" ontap, copy, based, transition, manage, logical, interfaces">
-  
-  
-
-  <!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="您可以在项目中添加，编辑或删除 7- 模式 IP 地址。">
+  <meta name="keywords" content=" ontap, copy, based, transition, manage, logical, interfaces"><!-- Icons -->
   <link rel="icon" href="/zh-cn/ontap-7mode-transition/images/favicon.ico" type="image/x-icon">
 
-  <!-- RSS Feed -->
-  
-
-  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
 
   <!-- Elastic Search -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
@@ -54,52 +45,65 @@
   <link rel="stylesheet" href='/zh-cn/ontap-7mode-transition/css/na-utility.css' type='text/css'>
   <link rel="stylesheet" href='/zh-cn/ontap-7mode-transition/css/na-sidebar.css' type='text/css'>
   <link rel='stylesheet' href='/zh-cn/ontap-7mode-transition/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-cn/ontap-7mode-transition/css/custom-dropdown.css' type='text/css'>
   <link rel='stylesheet' href='/zh-cn/ontap-7mode-transition/css/na-pagenav.css' type='text/css'>
 
   
   <link rel="stylesheet" href="/zh-cn/ontap-7mode-transition/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/zh-cn/ontap-7mode-transition/css/tabbed-blocks.css" type="text/css">
-  <link rel="stylesheet" href='/zh-cn/ontap-7mode-transition/css/product-family.css' type="text/css">
-  
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/zh-cn/ontap-7mode-transition/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    if (document.location.hostname === "docs.netapp.com") {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
 
-  
-  <link rel='stylesheet' href='/zh-cn/ontap-7mode-transition/css/na-feature.css' type='text/css'>
-  
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = "72570c5c-fe30-465f-b0e0-b77f7fb4ae34";
+      head.appendChild(onetrustScript);
+    }
 
+    function OptanonWrapper() { }
 
+    if (document.location.hostname === "docs.netapp.com") {
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+      head.appendChild(adobe);
+
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id=UA-81697994-3";
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81697994-3');
+    }
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-  <!-- Used to import Promise for IE. Required for SearchKit -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
-  
-    <script src='/zh-cn/ontap-7mode-transition/js/na-search.js'></script>
-  
 
-  
-  <script src='/zh-cn/ontap-7mode-transition/js/na-pagenav.js'></script>
-  
-
-  <link rel='stylesheet' href='/zh-cn/ontap-7mode-transition/css/prism.css' type='text/css'>
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/zh-cn/ontap-7mode-transition/js/na-search.js'></script><script src='/zh-cn/ontap-7mode-transition/js/na-pagenav.js'></script><link rel='stylesheet' href='/zh-cn/ontap-7mode-transition/css/prism.css' type='text/css'>
   <link rel='stylesheet' href='/zh-cn/ontap-7mode-transition/css/prism-netapp.css' type='text/css'>
 
 
   <script src='/zh-cn/ontap-7mode-transition/js/na-utility.js'></script>
   <script src='/zh-cn/ontap-7mode-transition/js/clouddocs.js'></script>
-  <script>
-  if (document.location.hostname === "docs.netapp.com") {
-    var head = document.getElementsByTagName('head')[0];
-    var adobe = document.createElement("script");
-    adobe.type = "text/javascript";
-    adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
-    head.appendChild(adobe);
-  }
-  </script>
   <script src='/zh-cn/ontap-7mode-transition/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src='/zh-cn/ontap-7mode-transition/js/toc.js'></script>
-  <script src='/zh-cn/ontap-7mode-transition/js/customscripts.js'></script>
-
-  <script>
+  <script src='/zh-cn/ontap-7mode-transition/js/customscripts.js'></script><script>
       $(document).ready(function() {
           
           var collapseOnInit = true;
@@ -148,17 +152,8 @@
               $("#tg-sb-icon").toggleClass('fa-toggle-off');
           });
       });
-  </script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
-  <script>
-  if (document.location.hostname === "docs.netapp.com") {
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-81697994-3');
-  }
   </script>
-  <script src='/zh-cn/ontap-7mode-transition/js/version-dropdown.js'></script>
-  <script src='/zh-cn/ontap-7mode-transition/js/product-family.js'></script>
+  <script src='/zh-cn/ontap-7mode-transition/js/custom-dropdown.js'></script>
   <script src='/zh-cn/ontap-7mode-transition/js/FileSaver.min.js'></script>
   <script src='/zh-cn/ontap-7mode-transition/js/jszip-utils.min.js'></script>
   <script src='/zh-cn/ontap-7mode-transition/js/jszip.min.js'></script>
@@ -166,11 +161,26 @@
 </head>
 
 
-  <body class role="document">
+  <body class role="document" data-flavor="">
     <div id="page" class="n-off-canvas-menu">
       <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
       <div class="n-off-canvas-menu__content-wrap">
         <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/ontap-7mode-transition/issues/new?body=Page%3A%20[管理逻辑接口](https://docs.netapp.com/zh-cn/ontap-7mode-transition/copy-based/task_managing_logical_interfaces.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-7mode-transition/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/ontap-7mode-transition/blob/main/copy-based/task_managing_logical_interfaces.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-7mode-transition/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/ontap-7mode-transition/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">在此页面上</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
   <!-- Start top_hat -->
   <div class="n-top-hat">
     <div class="n-container">
@@ -253,7 +263,8 @@
           data-did-you-mean="搜索 {suggestion}。" 
           data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?" 
           data-results-found="找到 {hitCount} 个结果"  
-          data-sk-es-pf-indexes=""></div>
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
           <button class="n-property-bar__search-toggle-button" type="button">
             <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
               <title>search</title>
@@ -342,6 +353,9 @@
 </div>
 <div class="n-pdf-body-container">
   <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
         <a target="_blank" href="/zh-cn/ontap-7mode-transition/pdfs/fullsite-sidebar/7__模式过渡文档.pdf" >
           <img src="/zh-cn/ontap-7mode-transition/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
 
@@ -352,6 +366,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/适用于_7__模式管理员的命令映射.pdf" 
@@ -382,6 +399,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/7__模式过渡工具安装和管理.pdf" 
@@ -395,6 +415,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/使用_7__模式过渡工具过渡到集群模式_ONTAP.pdf" 
@@ -423,6 +446,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/在_Windows_上安装或卸载_7__模式过渡工具_系统.pdf" 
@@ -455,6 +481,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/在_Linux_上安装或卸载_7__模式过渡工具__仅限基于副本的过渡_.pdf" 
@@ -485,6 +514,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/对问题进行故障排除.pdf" 
@@ -524,6 +556,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/基于副本的过渡.pdf" 
@@ -537,6 +572,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡概述.pdf" 
@@ -565,6 +603,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/收集和评估清单信息.pdf" 
@@ -582,6 +623,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/评估控制器和主机.pdf" 
@@ -608,6 +652,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/生成_FC_分区计划.pdf" 
@@ -645,6 +692,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/数据和配置迁移过程.pdf" 
@@ -671,6 +721,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/为基于副本的过渡做准备.pdf" 
@@ -692,6 +745,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/准备网络以进行过渡.pdf" 
@@ -718,6 +774,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/准备_7__模式聚合和卷以进行过渡.pdf" 
@@ -733,6 +792,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/准备过渡到_ONTAP_8_3_及更高版本支持的版本.pdf" 
@@ -774,6 +836,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/支持过渡_SnapLock_卷.pdf" 
@@ -806,6 +871,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/正在准备过渡名称服务.pdf" 
@@ -834,6 +902,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/为_NFS_过渡做准备.pdf" 
@@ -862,6 +933,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/为_SMB_CIFS_过渡做准备.pdf" 
@@ -892,6 +966,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/为_SAN_过渡做准备.pdf" 
@@ -924,6 +1001,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/准备数据保护功能以进行过渡.pdf" 
@@ -963,6 +1043,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/从_7__模式卷迁移数据和配置.pdf" 
@@ -984,6 +1067,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/正在运行预检.pdf" 
@@ -1029,6 +1115,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/使用_7__模式过渡工具命令行界面过渡卷.pdf" 
@@ -1044,6 +1133,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/使用_7__模式过渡工具命令行界面过渡卷.pdf" 
@@ -1059,6 +1151,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/使用命令行界面自定义_7__模式配置的过渡.pdf" 
@@ -1113,6 +1208,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/执行手动过渡后任务.pdf" 
@@ -1149,6 +1247,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/管理过渡项目.pdf" 
@@ -1164,6 +1265,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/管理_SnapMirror_传输和计划.pdf" 
@@ -1220,6 +1324,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/对问题进行故障排除.pdf" 
@@ -1237,6 +1344,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/如果发生可忽略的错误_则继续过渡.pdf" 
@@ -1289,6 +1399,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/无副本过渡.pdf" 
@@ -1302,6 +1415,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡概述.pdf" 
@@ -1328,6 +1444,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/收集和评估清单信息.pdf" 
@@ -1345,6 +1464,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/评估控制器和主机.pdf" 
@@ -1371,6 +1493,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/生成_FC_分区计划.pdf" 
@@ -1406,6 +1531,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/无副本过渡工作流.pdf" 
@@ -1430,6 +1558,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/准备无副本过渡.pdf" 
@@ -1453,6 +1584,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/准备网络以进行过渡.pdf" 
@@ -1479,6 +1613,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/收集用于过渡的布线信息.pdf" 
@@ -1503,6 +1640,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/准备_7__模式聚合和卷以进行过渡.pdf" 
@@ -1518,6 +1658,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/准备过渡具有_32_位聚合的_7__模式系统.pdf" 
@@ -1555,6 +1698,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/正在准备过渡名称服务.pdf" 
@@ -1583,6 +1729,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/为_NFS_过渡做准备.pdf" 
@@ -1611,6 +1760,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/为_SMB_CIFS_过渡做准备.pdf" 
@@ -1639,6 +1791,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/为_SAN_过渡做准备.pdf" 
@@ -1671,6 +1826,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/准备数据保护功能以进行过渡.pdf" 
@@ -1706,6 +1864,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/使用无副本过渡过渡过渡过渡过渡_7__模式聚合.pdf" 
@@ -1719,6 +1880,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/规划无副本过渡项目.pdf" 
@@ -1744,6 +1908,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/自定义_7__模式配置的过渡.pdf" 
@@ -1768,6 +1935,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/正在运行预检.pdf" 
@@ -1820,6 +1990,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/完成过渡.pdf" 
@@ -1854,6 +2027,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡_SnapMirror_关系.pdf" 
@@ -1880,6 +2056,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/对过渡问题进行故障排除.pdf" 
@@ -1893,6 +2072,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/如果发生可忽略的错误_则继续过渡.pdf" 
@@ -1934,6 +2116,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/执行过渡回滚到_7__模式.pdf" 
@@ -1949,6 +2134,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/回滚无副本过渡项目.pdf" 
@@ -1991,6 +2179,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/_主机和存储信息收集指南_.pdf" 
@@ -2004,6 +2195,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/收集存储和主机清单信息.pdf" 
@@ -2055,6 +2249,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/使用_SnapMirror_进行_7__模式数据过渡.pdf" 
@@ -2068,6 +2265,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/使用_SnapMirror_过渡_7__模式卷.pdf" 
@@ -2081,6 +2281,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/规划过渡.pdf" 
@@ -2094,6 +2297,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/不支持过渡的功能和卷.pdf" 
@@ -2135,6 +2341,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/为过渡做准备.pdf" 
@@ -2167,6 +2376,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/正在过渡卷.pdf" 
@@ -2182,6 +2394,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/在交错配置中过渡卷_SnapMirror_关系.pdf" 
@@ -2230,6 +2445,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡期间从_7__模式站点的灾难中恢复.pdf" 
@@ -2258,6 +2476,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/对使用_SnapMirror_时的过渡问题进行故障排除.pdf" 
@@ -2293,6 +2514,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/SAN_主机过渡和修复.pdf" 
@@ -2310,6 +2534,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/VMware_ESXi_主机修复.pdf" 
@@ -2325,6 +2552,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/为过渡_ESXi_主机做准备.pdf" 
@@ -2344,6 +2574,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/如何确定必须先删除的_VM_快照_过渡.pdf" 
@@ -2383,6 +2616,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/ESXi_主机的过渡后修复要求.pdf" 
@@ -2404,6 +2640,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/确定过渡后是否需要重新挂载_VMFS_卷.pdf" 
@@ -2430,6 +2669,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/将_RDM_LUN_重新连接到_VM.pdf" 
@@ -2482,6 +2724,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/RHEL_主机修复.pdf" 
@@ -2495,6 +2740,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/从清单评估工作簿收集过渡前信息.pdf" 
@@ -2519,6 +2767,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡不具有文件系统的_RHEL_DMMP_设备.pdf" 
@@ -2553,6 +2804,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡挂载点使用_DMMP_设备名称的_LUN.pdf" 
@@ -2585,6 +2839,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡挂载点使用_DMMP_别名的_LUN.pdf" 
@@ -2615,6 +2872,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡_LVM_设备上的_Linux_主机文件系统.pdf" 
@@ -2643,6 +2903,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡_SAN_启动_LUN.pdf" 
@@ -2686,6 +2949,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/Windows_主机修复.pdf" 
@@ -2699,6 +2965,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/准备_Windows_主机以进行过渡.pdf" 
@@ -2740,6 +3009,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/HP_UX_主机修复.pdf" 
@@ -2753,6 +3025,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡具有文件系统的_HP_UX_主机_LUN.pdf" 
@@ -2783,6 +3058,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡具有_FC_FCoE_配置的_HP_UX_主机_SAN_启动_LUN.pdf" 
@@ -2824,6 +3102,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/AIX_主机修复.pdf" 
@@ -2837,6 +3118,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡具有_FC_FCoE_的_AIX_主机上的_SAN_启动_LUN_配置.pdf" 
@@ -2867,6 +3151,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡具有文件系统的_AIX_主机数据_LUN.pdf" 
@@ -2906,6 +3193,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/Solaris_主机修复.pdf" 
@@ -2919,6 +3209,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡具有_ZFS_文件系统的_Solaris_主机数据_LUN.pdf" 
@@ -2949,6 +3242,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/使用_Sun_Volume_Manager_过渡_Solaris_主机数据_LUN.pdf" 
@@ -2988,6 +3284,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-7mode-transition/pdfs/sidebar/过渡后将_LUN_回滚到_7__模式.pdf" 
@@ -3933,30 +4232,27 @@
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
 
+
   </div>
   
 
   <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
-    <!-- Begin of page container -->
-    <article class="page-content">
+    <!-- Begin of page container --><article class="page-content">
       <div class="ie-utility">
   <div class="ie-menu">
     <div class="n-breadcrumb">
       <ul class="n-breadcrumb__list">
         <li class="n-breadcrumb__list-item">
-          <a href="https://www.netapp.com">主页</a>
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          <a href="https://docs.netapp.com">文档</a>
-        </li>
+        
+
         
 
         <li class="n-breadcrumb__list-item">
           <a href="/zh-cn/ontap-7mode-transition/">ONTAP&nbsp;7-Mode&nbsp;Transition</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          管理逻辑接口
-        </li>
+
       </ul>
     </div>
     <div style="clear: both"></div><!-- Main needs to have height -->
@@ -3985,24 +4281,12 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-31 17:42:30 +0000">01/31/2022</time>
+    <time datetime="2022-04-20 21:31:56 +0000">04/20/2022</time>
     
   
 
-<span>提供者
-  <a target="_blank" href="https://github.com/netapp-ivanad">
-    <img  class="avatar avatar-small"
-          alt="netapp-ivanad"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/76115643?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
-</span>
-
 
 </p>
-
 
 <div class="paragraph lead">
 <p>您可以在项目中添加，编辑或删除 7- 模式 IP 地址。</p>
@@ -4149,27 +4433,7 @@
     <!-- Page Container -->
   </div>
 
-  
-  <!-- Start Page Toolbar -->
-  <div class="page-nav-toolbar">
-    <div id="version-dropdown"></div>
-    <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/ontap-7mode-transition/issues/new?body=Page%3A%20[管理逻辑接口](https://docs.netapp.com/zh-cn/ontap-7mode-transition/copy-based/task_managing_logical_interfaces.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-7mode-transition/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
-      <a target="_blank" href="https://github.com/NetAppDocs/ontap-7mode-transition/blob/main/copy-based/task_managing_logical_interfaces.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-7mode-transition/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
-      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/ontap-7mode-transition/images/article-sm.svg" class="github-icon" />提供者指南</a>
-    </div>
-    <div class="page-nav-container">
-      <nav class="page-nav-fixed">
-        <div class="page-nav-title">在此页面上</div>
-        <div class="page-nav-links">
-          <ul class="page-nav-inner" id="page-menu"></ul>
-        </div>
-      </nav>
-    </div>
-  </div>
-  
-  <div style="clear: both"></div><!-- Main needs to have height -->
-</div>
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
 
         </main>
 
@@ -4177,103 +4441,125 @@
   <div class="n-footer__bottom">
     <div class="n-container">
       <div class="n-footer__bottom-left">
-
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
             </li>
-
-</ul>
-</div>
-<div class="n-footer__social-links">
-<ul class="n-footer__social-link-list">
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com" target="_blank" title="blog" alt="blog">
-<span class="n-footer__social-link-text">blog</span>
-<svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
-  <title>blog@</title>
-  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#blog"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/" target="_blank" title="community" alt="community">
-<span class="n-footer__social-link-text">community</span>
-<svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
-<title>community@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#comments"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp" target="_blank" title="twitter" alt="twitter">
-<span class="n-footer__social-link-text">twitter</span>
-<svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
-<title>twitter@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#twitter"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp" target="_blank" title="facebook" alt="facebook">
-<span class="n-footer__social-link-text">facebook</span>
-<svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
-<title>facebook@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#facebook"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-linkedin" href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
-<span class="n-footer__social-link-text">linkedin</span>
-<svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
-<title>linkedin@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#linkedin"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
-<span class="n-footer__social-link-text">youtube</span>
-<svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
-<title>youtube@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#youtube"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-slideshare" href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
-<span class="n-footer__social-link-text">slideshare</span>
-<svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
-<title>slideshare@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#slideshare"></use>
-</svg>
-
-</a>
-</li>
-</ul>
-</div>
-
-</div>
-<div class="n-footer__bottom-right">
-  <p class="n-footer__fine-print">想就我们的网站提供反馈?<a target="_self" href="javascript:netapp_mailto()" class="n-footer__copyright">请告诉我们</a>
-  <a href="https://docs.netapp.com/zh-cn/announcements/" class="n-footer__copyright">通知</a>
-  </p>
-</div>
-</div>
-</div>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">条款和条件</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">隐私政策</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Cookie 政策</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Cookie 设置</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <span class="n-footer__fine-print">想就我们的网站提供反馈?</span>
+              <a target="_self" href="javascript:netapp_mailto()">请告诉我们</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://docs.netapp.com/zh-cn/announcements/">通知</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-7mode-transition/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
-      </div>
-
-      <!-- Elasticsearch JS -->
+      </div><!-- Elasticsearch JS -->
       <script type="text/javascript" src='/zh-cn/ontap-7mode-transition/js/bundle.js'></script>
 
       <!-- Syntax Highlighting -->
@@ -4288,7 +4574,4 @@
     </script>
     <script src='/zh-cn/ontap-7mode-transition/js/www-ntap.js'></script>
     <script src='/zh-cn/ontap-7mode-transition/js/tabbed-blocks.js'></script>
-  </body>
-
-  
-</html>
+  </body></html>
