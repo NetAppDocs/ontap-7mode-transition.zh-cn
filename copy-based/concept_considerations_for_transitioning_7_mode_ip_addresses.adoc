@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, 7, mode, ip, address
 summary: 在 ONTAP 中将 7- 模式 IP 地址过渡到 Storage Virtual Machine \ （ SVM\ ）时，您必须了解某些注意事项。 
 ---
 = 过渡 7- 模式 IP 地址的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, support, snaplock, volumes
 summary: 7- 模式过渡工具支持将 SnapLock 卷过渡到运行除 9.6 以外的任何 ONTAP 9.0 版本的目标集群。 
 ---
 = 支持过渡 SnapLock 卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

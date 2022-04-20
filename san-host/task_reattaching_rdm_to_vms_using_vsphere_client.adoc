@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rdm, vm, vshpere, client
 summary: 使用 7- 模式过渡工具（ 7MTT\ ）过渡 ESXi 主机后，必须将 RDM 重新连接到虚拟机（ VM\ ）。 
 ---
 = 使用 vSphere Client 将 RDM 重新连接到 VM
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

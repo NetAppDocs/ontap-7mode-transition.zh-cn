@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, severity, levels, precheck, messsages
 summary: 您可以通过运行过渡预检操作来验证是否可以过渡 7- 模式卷。过渡预检可报告所有过渡问题。根据问题描述对过渡过程的影响，过渡问题的严重性级别会有所不同。 
 ---
 = 预检消息的严重性级别
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

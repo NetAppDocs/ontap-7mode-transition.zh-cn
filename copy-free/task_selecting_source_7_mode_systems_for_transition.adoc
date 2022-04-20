@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, create, project
 summary: 规划过渡项目的第一步是，选择要从中过渡磁盘架，聚合，卷和配置的源 7- 模式 HA 对，然后创建过渡项目。 
 ---
 = 创建无副本过渡项目
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

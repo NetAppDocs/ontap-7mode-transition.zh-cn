@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, vmfs, volumes, remounted
 summary: 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，您可能需要重新挂载 VMFS 卷，以便将 VMFS 数据存储库和 VM 置于过渡前状态。 
 ---
 = 确定过渡后是否需要重新挂载 VMFS 卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

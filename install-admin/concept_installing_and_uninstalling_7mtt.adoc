@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, uninstall, transition, windows
 summary: 您可以使用基于向导的标准安装程序在 Windows 系统上下载并安装 7- 模式过渡工具。但是，如果您先前安装了 7- 模式过渡工具版本，则在执行此操作之前，您需要了解某些前提条件。 
 ---
 = 在 Windows 上安装或卸载 7- 模式过渡工具 系统
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, generate, fc, zone, plan
 summary: 对于 FC 交换机，您必须在过渡评估报告中生成 FC 分区计划，以配置分区，以便在迁移后对启动程序主机和目标进行分组。 
 ---
 = 生成 FC 分区计划
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

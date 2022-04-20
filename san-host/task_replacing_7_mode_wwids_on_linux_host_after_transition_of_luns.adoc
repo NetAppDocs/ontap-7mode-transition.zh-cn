@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, 7, mode, wwids, linux, lun
 summary: LUN 过渡后， 7- 模式 LUN WWID 将发生更改。您必须先将其替换为相应的 ONTAP LUN WWID ，然后才能开始提供数据。 
 ---
 = 过渡后在 Linux 主机上替换 7- 模式 LUN WWID LUN
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

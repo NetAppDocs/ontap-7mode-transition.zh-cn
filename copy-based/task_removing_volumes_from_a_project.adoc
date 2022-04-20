@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, remove, volumes, project
 summary: 您可以在过渡过程中从项目中删除故障卷并中止卷 SnapMirror 关系。 
 ---
 = 从项目中删除卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

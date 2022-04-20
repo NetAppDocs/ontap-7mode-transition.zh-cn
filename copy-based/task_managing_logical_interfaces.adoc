@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, manage, logical, interfaces
 summary: 您可以在项目中添加，编辑或删除 7- 模式 IP 地址。 
 ---
 = 管理逻辑接口
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

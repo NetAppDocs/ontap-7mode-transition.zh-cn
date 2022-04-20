@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, windows, guest, operating, systems
 summary: 如果 Windows VM 使用物理兼容 RDM （ PTRDM\ ）设备，则必须在过渡之前使 Windows VM 上的磁盘脱机。您可以使用磁盘管理器使磁盘脱机。 
 ---
 = 准备要过渡的 Windows 子操作系统
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

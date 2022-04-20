@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, nfs, exports
 summary: 您必须了解过渡后如何在 SVM 上配置 NFS 导出。如果 ONTAP 不支持 7- 模式导出配置，则可能需要执行一些手动步骤。 
 ---
 = NFS 导出的过渡方式
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

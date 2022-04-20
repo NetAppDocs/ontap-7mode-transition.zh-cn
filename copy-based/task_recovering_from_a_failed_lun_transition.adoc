@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, recover, failed, lun
 summary: 如果具有 LUN 的卷过渡失败，您可以使用 lun transition 7-mode show 命令检查哪些 LUN 未过渡到 ONTAP ，然后确定更正操作。 
 ---
 = 从失败的 LUN 过渡中恢复
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

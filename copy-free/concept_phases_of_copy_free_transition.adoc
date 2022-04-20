@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, phases
 summary: 使用 7- 模式过渡工具进行无副本过渡包括以下阶段：规划， SVM 配置，导出和暂停，布线，导入， 预生产测试，开始生产和提交。您应了解有效管理过渡的各个阶段。 
 ---
 = 无副本过渡的阶段
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

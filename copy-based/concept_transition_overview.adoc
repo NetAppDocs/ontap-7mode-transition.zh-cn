@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, overview
 summary: 过渡到集群模式 ONTAP 涉及确定当前环境，定义过渡范围，设计目标系统的最佳配置，规划如何迁移数据和配置以及进行必要的环境更新。 
 ---
 = 过渡概述
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

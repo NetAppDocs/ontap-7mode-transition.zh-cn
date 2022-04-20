@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, redirect, clients, disaster, c
 summary: 如果在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间建立了 SnapMirror 灾难恢复 \ （ DR\ ）关系，并且 7- 模式主站点发生灾难，则必须将客户端访问重定向到集群模式 Data ONTAP 二级卷。 
 ---
 = 将客户端重定向到集群模式 Data ONTAP 二级卷 灾难
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

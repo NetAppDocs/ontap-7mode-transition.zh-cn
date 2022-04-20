@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, commands, options
 summary: 在以 7- 模式运行的 Data ONTAP 中，您可以执行 options 命令来设置可配置的存储系统软件选项。在 ONTAP 中，您可以使用命令参数设置这些选项。您可以使用提供的表来查看 7- 模式命令与 ONTAP 命令的映射关系。 
 ---
 = 7- 模式选项与 ONTAP 命令的映射关系
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, vm, esxi, vsphere, client
 summary: 过渡非 SAN 启动的主机后，必须重新注册虚拟机（ VM\ ）。 
 ---
 = 过渡后使用在非 SAN 启动 ESXi 主机上重新注册 VM vSphere 客户端
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

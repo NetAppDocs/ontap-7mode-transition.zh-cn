@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, ignorable, errors
 summary: 过渡期间，您可能会遇到一些错误，从而阻止过渡。您可以通过 7- 模式过渡工具命令行界面确认问题，从而选择忽略其中某些错误。忽略错误后，您应重新运行失败的操作，以继续过渡。 
 ---
 = 如果发生可忽略的错误，则继续过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

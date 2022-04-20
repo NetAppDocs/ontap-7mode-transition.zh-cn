@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, san, clustered, data
 summary: 您应了解集群模式 Data ONTAP 不支持的 7- 模式 SAN 功能，以便在过渡之前采取任何必要的措施。 
 ---
 = SAN 过渡不支持的功能
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

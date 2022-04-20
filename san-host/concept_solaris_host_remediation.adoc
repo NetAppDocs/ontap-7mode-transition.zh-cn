@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, solaris, host, remediation
 summary: 如果要在 SAN 环境中使用 7- 模式过渡工具 \ （ 7MTT\ ）从 7- 模式 ONTAP 迁移到集群模式 ONTAP ，则必须在过渡前后在 Solaris 主机上执行一系列步骤，以避免过渡复杂化。 
 ---
 = Solaris 主机修复
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

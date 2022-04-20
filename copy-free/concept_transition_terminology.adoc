@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, terminology
 summary: 了解与 7- 模式过渡工具相关的过渡术语有助于您了解过渡过程。 
 ---
 = 过渡术语
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

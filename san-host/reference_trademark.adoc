@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, trademark
 summary: 《 SAN 主机过渡和修复指南》的商标信息。 
 ---
 = 商标
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

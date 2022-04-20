@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, volume, secondary
 summary: 过渡二级卷涉及创建 SnapMirror 关系，执行基线传输，执行增量更新以及在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间设置 SnapMirror 关系。 
 ---
 = 过渡二级卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

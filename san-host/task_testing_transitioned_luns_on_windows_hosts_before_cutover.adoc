@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, test, lun, windows, cutover, phase
 summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 Windows 主机 LUN ， 您可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以使磁盘联机以及应用程序操作是否按预期工作。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。 
 ---
 = 在转换阶段之前测试 Windows 主机上已过渡的 LUN
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

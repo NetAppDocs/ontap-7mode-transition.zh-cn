@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, ignorable, errors
 summary: 过渡期间，您可能会遇到一些可忽略的错误。在无副本过渡项目的预检，布线，导入或提交操作期间，可能会发生这些错误。在继续过渡之前，您必须确认这些错误。 
 ---
 = 过渡期间发生可忽略的错误
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

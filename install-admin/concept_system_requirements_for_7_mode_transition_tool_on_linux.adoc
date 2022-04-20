@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, system, requirements, transition, tool, linux
 summary: 您必须确保 Linux 主机具有安装和运行 7- 模式过渡工具所需的配置。 
 ---
 = 在 Linux 上安装 7- 模式过渡工具的系统要求
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

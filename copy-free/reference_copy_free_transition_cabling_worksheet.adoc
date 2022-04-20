@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, cabling, worksheet
 summary: 您可以使用无副本过渡布线工作表规划布线。您必须记录有关连接到 7- 模式控制器和目标集群节点的端口和磁盘架的信息。此外，还应记录用于将 7- 模式磁盘架连接到目标集群节点的端口。 
 ---
 = 无副本过渡布线工作表
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

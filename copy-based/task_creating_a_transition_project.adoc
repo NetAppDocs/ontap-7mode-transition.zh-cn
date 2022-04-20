@@ -5,6 +5,7 @@ keywords: create, transition, project, ontap, copy, based, transition
 summary: 创建过渡项目包括选择 7- 模式卷并将其映射到 Storage Virtual Machine （ SVM\ ），映射接口以及为 SnapMirror 关系创建数据复制计划。 
 ---
 = 创建过渡项目
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, manage, project
 summary: 您可以使用 7- 模式过渡工具（ Web 界面）管理过渡项目。您可以编辑，暂停，恢复，中止，删除， 并对项目运行预检。 
 ---
 = 管理过渡项目
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

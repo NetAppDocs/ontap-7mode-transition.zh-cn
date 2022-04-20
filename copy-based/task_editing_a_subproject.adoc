@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, edit, project
 summary: 您可以编辑项目以添加或删除卷以及修改过渡配置。 
 ---
 = 编辑项目
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

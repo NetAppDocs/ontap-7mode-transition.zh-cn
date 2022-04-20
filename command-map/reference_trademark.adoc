@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, trademark
 summary: 《 7- 模式命令映射管理员指南》的商标信息。 
 ---
 = 商标
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

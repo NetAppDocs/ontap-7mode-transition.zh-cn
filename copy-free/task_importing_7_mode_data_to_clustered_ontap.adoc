@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, import, data
 summary: 验证布线并解决任何问题后，您可以运行导入操作。在此阶段，磁盘所有权将分配给映射的集群节点，并将 7- 模式聚合，卷和 LUN 转换为 ONTAP 格式。此外，还会应用所有卷级别和 LUN 级别配置。 
 ---
 = 将 7- 模式数据导入 ONTAP
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

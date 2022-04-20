@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, compression, data, enable, error
 summary: 如果将运行 Data ONTAP 7.3.x 的系统上的 32 位卷过渡到 64 位聚合中的 ONTAP 卷，则过渡后 ONTAP 卷不会启用数据压缩。在将卷从 32 位升级到 64 位之前，无法启用数据压缩。 
 ---
 = 从 Data ONTAP 7.3.x 过渡后未启用数据压缩
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, trademark
 summary: 使用 SnapMirror 技术进行 7- 模式数据过渡的商标信息。 
 ---
 = 商标
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

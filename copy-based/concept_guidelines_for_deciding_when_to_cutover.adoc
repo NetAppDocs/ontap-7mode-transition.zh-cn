@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, decide, perform, cutover
 summary: 由于过渡转换会对客户端造成中断，因此您必须对活动进行规划，以最大限度地减少停机时间。您必须在活动较少的时段计划转换。在断开客户端连接并启动存储转换之前，您应更新 ONTAP 卷并等待传输完成，以减少停机时间。 
 ---
 = 确定何时执行转换的准则
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

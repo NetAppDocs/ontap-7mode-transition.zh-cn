@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, run, prechecks
 summary: 创建过渡会话后，您可以使用 transition precheck 命令验证此会话，以验证是否可以过渡 7- 模式环境。您可以验证 7- 模式存储系统与 SVM 之间在功能和安全设置等因素方面的兼容性。 
 ---
 = 正在运行预检
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

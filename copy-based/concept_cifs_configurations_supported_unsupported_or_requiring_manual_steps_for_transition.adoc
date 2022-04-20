@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, supported, unsupported, cifs, configur
 summary: 某些 CIFS 配置不会过渡到 ONTAP ，因为它们在 ONTAP 中不受支持或必须手动过渡。您应验证所有预检错误和警告消息，以评估此类配置对过渡的影响。 
 ---
 = 过渡到 ONTAP 时支持和不支持的 CIFS 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

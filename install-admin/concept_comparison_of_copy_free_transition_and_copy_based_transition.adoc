@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, copy, free, transition, based
 summary: 您可以使用 7- 模式过渡工具通过使用基于副本的过渡或无副本过渡将数据和配置从 7- 模式迁移到 ONTAP 。过渡前，请务必了解这两种方法之间的差异。 
 ---
 = 无副本过渡与基于副本的过渡的比较
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

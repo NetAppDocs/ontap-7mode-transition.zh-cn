@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, requirements
 summary: 您应了解无副本过渡对 7- 模式系统，集群， ONTAP 版本和磁盘架的要求。 
 ---
 = 无副本过渡的要求
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

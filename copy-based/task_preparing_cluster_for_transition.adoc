@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, cluster
 summary: 过渡之前，您必须确保集群满足各种要求，例如允许 HTTPS ，设置集群间 LIF 以及验证过渡所需的网络连接。 
 ---
 = 准备集群以进行过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, create, data, copy, schedule, snapmirr
 summary: 您可以创建数据复制计划来有效管理项目中卷的过渡数据复制操作。您还可以指定在该计划期间运行的并发 SnapMirror 传输数，以确保任何复制操作不会因并发 SnapMirror 传输达到最大限制而失败。 
 ---
 = 为 SnapMirror 传输创建数据复制计划
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

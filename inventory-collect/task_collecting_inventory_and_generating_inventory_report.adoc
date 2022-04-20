@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, collect, inventory, generating, inventory, report, tra
 summary: 您可以收集有关 Data ONTAP 系统（集群中的 7- 模式系统和节点），交换机，主机和主机应用程序的信息。通过使用此信息，您可以生成清单报告，其中包含用于过渡评估的 7- 模式系统，主机和主机应用程序的详细信息。 
 ---
 = 收集清单并生成清单报告
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, run, prechecks
 summary: 您可以在开始过渡之前运行预检以确定任何问题。预检可验证 7- 模式源， ONTAP 目标和配置是否适用于您的过渡。您可以多次运行预检。 
 ---
 = 正在运行预检
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

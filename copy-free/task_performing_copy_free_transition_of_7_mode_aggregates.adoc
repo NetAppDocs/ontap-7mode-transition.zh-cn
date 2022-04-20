@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, aggregates, transition
 summary: 无副本过渡工作流包括规划项目，将 7- 模式配置应用于 SVM ，导出 7- 模式系统信息并暂停 7- 模式系统，手动将磁盘架连接到集群节点以及导入 7- 模式数据和配置。 
 ---
 = 使用无副本过渡过渡过渡过渡过渡 7- 模式聚合
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, commit, project
 summary: 过渡的最后一步是提交无副本过渡项目。提交聚合后，您将无法回滚到 7- 模式。 
 ---
 = 提交无副本过渡项目
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

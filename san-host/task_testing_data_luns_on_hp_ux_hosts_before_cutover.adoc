@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, data, lun, hp, ux, citover, phase, copy,
 summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本对 HP-UX 主机数据 LUN 执行基于副本的过渡， 您可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以挂载 MPIO 设备。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。 
 ---
 = 在转换阶段之前测试 HP-UX 主机上的数据 LUN 基于副本的过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

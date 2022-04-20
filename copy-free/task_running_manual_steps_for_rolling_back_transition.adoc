@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, manual, roll, back
 summary: 如果决定回滚过渡，则必须在集群和 7- 模式系统上执行一些手动步骤。7- 模式过渡工具会生成手动回滚步骤列表。 
 ---
 = 手动回滚过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

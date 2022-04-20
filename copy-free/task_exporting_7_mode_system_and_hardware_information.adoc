@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, exporte, storage, configurations, halt
 summary: 过渡的转换窗口从导出阶段开始。在此阶段，该工具会从 7- 模式系统收集系统信息，磁盘架详细信息和存储配置，然后暂停 7- 模式存储系统。 
 ---
 = 导出存储配置并暂停 7- 模式系统
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

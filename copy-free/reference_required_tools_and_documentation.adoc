@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, tools, documentation, required
 summary: Config Advisor 是无副本过渡所需的工具。您应使用 Config Advisor 验证磁盘架的布线。此外，还提供了有关 SAN 主机修复的其他文档。 
 ---
 = 无副本过渡所需的工具和文档
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

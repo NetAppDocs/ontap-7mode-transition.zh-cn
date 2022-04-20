@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, stand, alone, volume, snapmirror
 summary: 过渡独立卷涉及创建 SnapMirror 关系，执行基线传输，执行增量更新，监控数据复制操作，中断 SnapMirror 关系以及将客户端访问从 7- 模式卷移动到集群模式 Data ONTAP 卷。 
 ---
 = 过渡独立卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

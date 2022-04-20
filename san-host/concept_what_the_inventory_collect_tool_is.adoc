@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, inventory, collect, tool
 summary: 清单收集工具 \ （ ICT\ ）是一个独立的实用程序，用于收集有关 7- 模式存储控制器，连接到控制器的主机以及这些主机上运行的应用程序的配置和清单信息，以评估这些系统的过渡准备情况。您可以使用 ICT 生成有关 LUN 以及过渡所需配置的信息。 
 ---
 = 什么是清单收集工具
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

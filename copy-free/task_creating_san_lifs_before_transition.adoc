@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, san, lifs, create
 summary: 由于 7- 模式过渡工具不会过渡 FC 和 iSCSI LIF ，因此过渡前必须在 SVM 上创建这些 LIF 。您必须在拥有 LUN 的节点和节点的 HA 配对节点上配置 SAN LIF 。 
 ---
 = 过渡前创建 SAN LIF
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, volumes, snapmirror, ontap, clustered, dat
 summary: 您可以使用集群模式 Data ONTAP SnapMirror 命令将 NAS 和 SAN 环境中的 7- 模式卷过渡到集群模式 Data ONTAP 卷。过渡完成后，您必须在集群上设置协议，服务和其他配置 
 ---
 = 使用 SnapMirror 过渡 7- 模式卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

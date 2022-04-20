@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, solaris, host, data, lun, zfs
 summary: 在将具有 ZFS 文件系统的 Solaris 主机 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 之前，您必须收集过渡过程所需的信息。 
 ---
 = 准备过渡具有 ZFS 文件的 Solaris 主机数据 LUN 系统
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

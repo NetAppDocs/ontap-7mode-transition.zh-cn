@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, uninstall, linux, transition, copy, based
 summary: 您可以使用命令行界面在 Linux 系统上下载并安装 7- 模式过渡工具。如果需要，您可以卸载 7- 模式过渡工具。 
 ---
 = 在 Linux 上安装或卸载 7- 模式过渡工具 （仅限基于副本的过渡）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

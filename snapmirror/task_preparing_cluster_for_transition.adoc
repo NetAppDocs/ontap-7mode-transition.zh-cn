@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, prepare, transition, cluster, requirements
 summary: 过渡 7- 模式系统之前，您必须设置集群，并确保集群满足设置 LIF 和验证过渡所需的网络连接等要求。 
 ---
 = 准备集群以进行过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

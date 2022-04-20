@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, machine, translation, transition
 summary: 有关本地化内容的重要信息，请参见 netapp.com 。 
 ---
 = 机器翻译
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, system, requirements, inventory, collect, 
 summary: 您可以在 Windows 系统上下载并运行清单收集工具。Windows 系统必须具有运行清单收集工具所需的配置。 
 ---
 = 运行清单收集工具的系统要求
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

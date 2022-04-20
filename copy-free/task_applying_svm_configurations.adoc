@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, apply, svm, configurations
 summary: 您必须在 SVM 配置阶段之前手动应用某些配置。然后，您可以使用工具将在 7- 模式控制器（ /etc 目录中的文件）或 vFiler 单元级别定义的所有配置应用于映射的 SVM 。 
 ---
 = 正在应用 SVM 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, interfaces, transition, capabilities, windows
 summary: 您可以在 Windows 或 Linux 上安装 7- 模式过渡工具。在安装 7- 模式过渡工具之前，您必须了解支持的功能和用户界面。 
 ---
 = Windows 和 Linux 上提供的接口和过渡功能
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

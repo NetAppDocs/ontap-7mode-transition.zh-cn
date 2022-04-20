@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, trademark
 summary: 《 7- 模式过渡工具安装和设置指南》的商标信息。 
 ---
 = 商标
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

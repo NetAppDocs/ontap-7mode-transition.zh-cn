@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, san, boot, lun, primary, hp, ux, emulex,
 summary: 如果在 7- 模式下运行的 Data ONTAP HP-UX 主机是通过 SAN 启动的，则在过渡到集群模式 Data ONTAP 后，必须将 SAN 启动 LUN 设置为主启动 LUN 。 
 ---
 = 使 SAN 启动 LUN 成为的主启动 LUN 过渡后的 HP-UX Emulex HBA
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

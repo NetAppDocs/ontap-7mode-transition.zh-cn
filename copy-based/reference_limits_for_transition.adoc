@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, limits
 summary: 使用 7- 模式过渡工具过渡卷时，应考虑评估的某些限制，例如可以同时评估的控制器和主机的数量。对于迁移，您应查看项目中的卷数以及可以同时运行的项目数。 
 ---
 = 过渡限制
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

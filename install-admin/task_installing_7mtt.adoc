@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, transition, tool, windows
 summary: 您可以使用基于向导的安装程序在 Windows 系统上安装 7- 模式过渡工具。 
 ---
 = 在 Windows 系统上安装 7- 模式过渡工具
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

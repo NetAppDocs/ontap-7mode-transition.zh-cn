@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, expand, aggregate, 64, bit, format
 summary: 如果您的系统包含 32 位聚合，则在过渡到 Data ONTAP 8.3 或更高版本之前，必须在 7- 模式系统上将其扩展到 64 位格式，因为这些版本的 Data ONTAP 不支持 32 位格式。 
 ---
 = 将聚合扩展为 64 位格式
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

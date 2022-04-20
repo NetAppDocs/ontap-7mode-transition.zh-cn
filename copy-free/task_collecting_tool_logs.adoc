@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, download, log, files
 summary: 7- 模式过渡工具可创建日志文件，这些文件提供在系统上运行的过渡评估和迁移操作的处理详细信息。 
 ---
 = 下载过渡日志文件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

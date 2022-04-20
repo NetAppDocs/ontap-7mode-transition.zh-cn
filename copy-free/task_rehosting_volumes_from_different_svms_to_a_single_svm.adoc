@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, rehost, volumes, svm
 summary: 通过卷重新托管，您可以将过渡后的卷从一个 SVM 迁移到另一个 SVM ，而无需复制数据。通过重新托管操作，您可以将具有 FC LUN 的所有卷整合到一个 SVM 中，从而保留 7- 模式单系统映像（ SSI ）语义。您还可以重新托管过渡后的 NAS 卷。 
 ---
 = 将过渡后的卷重新托管到其他 SVM
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

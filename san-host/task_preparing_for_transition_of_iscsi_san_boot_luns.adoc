@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, iscsi, san, boot, lun
 summary: 过渡 iSCSI SAN 启动 LUN 之前，必须在主机上执行特定步骤。不支持过渡 Red Hat Enterprise Linux\（ RHER\ ） 5.x 。支持过渡 RHEL 6 。 
 ---
 = 为过渡 iSCSI SAN 启动 LUN 做准备
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

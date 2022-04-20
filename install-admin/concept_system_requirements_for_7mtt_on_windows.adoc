@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, system, requirements, windows, transition, to
 summary: 要安装和运行 7- 模式过渡工具，您必须确保 Windows 主机满足所需的配置。 
 ---
 = 在 Windows 上安装 7- 模式过渡工具的系统要求 系统
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

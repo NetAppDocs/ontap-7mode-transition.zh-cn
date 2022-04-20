@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, view, san, configurations
 summary: 过渡后， SAN 卷的 LUN 序列号和 LUN ID 会发生变化。要查看过渡后的 SAN 配置，您可以使用 7- 模式过渡工具命令行界面生成旧 LUN 到新过渡后的 LUN 的映射，并将 LUN 映射信息导出到 .csv 文件。 
 ---
 = 查看过渡后的 SAN 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

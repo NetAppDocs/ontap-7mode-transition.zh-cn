@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, dmmp, file, systems, rhel, cutover, copy
 summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 Red Hat Enterprise Linux \ （ RHEL\ ） 5 主机， 您可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以使主机和应用程序联机。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。 
 ---
 = 之前在 RHEL 主机上测试不具有文件系统的 DMMP 设备 基于副本的过渡的转换阶段
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

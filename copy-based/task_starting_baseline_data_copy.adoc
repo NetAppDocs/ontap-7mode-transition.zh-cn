@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, start, baseline, copy
 summary: 创建项目并完成预检操作后，必须启动从 7- 模式卷到 ONTAP 的数据复制。您可以为单个项目启动基线数据复制操作。在数据复制期间，您应停止不必要的系统进程和网络活动。 
 ---
 = 正在启动基线数据复制
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

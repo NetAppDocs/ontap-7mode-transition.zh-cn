@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare
 summary: 在从 7- 模式启动到 ONTAP 的数据复制操作之前，您必须了解迁移的要求和限制，并完成 7- 模式系统和集群上的某些任务。 
 ---
 = 为基于副本的过渡做准备
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

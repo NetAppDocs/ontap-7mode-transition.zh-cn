@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, index
 summary: 介绍使用 7- 模式过渡工具将数据和配置过渡到 ONTAP 时 VMware ESXi ， Red Hat Linux 和 Windows 主机的过渡前和过渡后过程。 
 ---
 = 《 SAN 主机过渡和修复指南》
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

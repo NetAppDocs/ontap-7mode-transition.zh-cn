@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, downtime, apply, configurations, precuto
 summary: 过渡 ESXi 主机时，您必须在应用配置（预转换）阶段规划停机时间。 
 ---
 = ESXi 主机过渡的应用配置（预转换）阶段停机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

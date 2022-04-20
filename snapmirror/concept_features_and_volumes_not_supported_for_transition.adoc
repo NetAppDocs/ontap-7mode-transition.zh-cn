@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, feature, volumes, supported, snapmirror
 summary: 您不能过渡某些 7- 模式卷（例如传统卷）和某些 7- 模式功能（例如同步 SnapMirror 关系），因为某些功能可能在集群模式 Data ONTAP 中不可用。 
 ---
 = 不支持过渡的功能和卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

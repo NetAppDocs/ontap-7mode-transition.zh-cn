@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, windows, assistant, notification, compatibili
 summary: 有时，在安装此工具时，您会收到 Windows 程序兼容性助手通知，指出此程序可能安装不正确。此通知不一定表示程序安装不正确。 
 ---
 = 安装工具时显示 Windows 程序兼容性助手通知
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

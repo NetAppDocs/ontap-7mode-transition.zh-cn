@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, customize, 7, mode, configurations
 summary: 在规划将配置从 7- 模式过渡到 ONTAP 时，您可以通过两种方式自定义配置过渡。您可以忽略或跳过一个或多个配置的过渡。您可以整合 7- 模式 NFS 导出规则，然后在目标 SVM 上重复使用现有 NFS 导出策略和 Snapshot 策略。 
 ---
 = 自定义 7- 模式配置的过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, copyright
 summary: 《 7- 模式过渡工具安装和设置指南》的版权信息。 
 ---
 = 版权
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

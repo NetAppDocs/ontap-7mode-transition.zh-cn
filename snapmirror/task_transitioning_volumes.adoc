@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, snapmirror, transition, volume, data, protection, rela
 summary: 您可以使用 SnapMirror 技术过渡独立卷或处于数据保护关系中的卷（在卷 SnapMirror 关系中）。 
 ---
 = 正在过渡卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

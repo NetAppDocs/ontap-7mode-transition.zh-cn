@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, cbt, command, manage
 summary: 您可以使用 transition CBT 命令管理功能，例如创建，修改，删除和显示过渡项目。 
 ---
 = 用于管理过渡的命令
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

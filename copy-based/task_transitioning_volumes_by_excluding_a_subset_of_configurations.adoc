@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, customize, cli
 summary: 默认情况下，所有 7- 模式配置都会过渡到 ONTAP 。您可以使用 7- 模式过渡工具命令行界面选择从过渡中排除部分或全部卷， NFS ， CIFS ， SAN 和名称服务配置。您还可以选择整合 7- 模式 NFS 导出规则和 Snapshot 计划，并重复使用目标 SVM 上的现有 NFS 导出策略和 Snapshot 策略。 
 ---
 = 使用命令行界面自定义 7- 模式配置的过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

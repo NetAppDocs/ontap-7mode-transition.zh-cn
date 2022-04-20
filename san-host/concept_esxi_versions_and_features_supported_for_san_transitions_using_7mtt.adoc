@@ -5,6 +5,7 @@ keywords: esxi, ontap, san, host, transition, versions, san, 7mtt, features
 summary: 使用 7- 模式过渡工具（ 7MTT\ ）的 SAN 过渡仅支持 ESXi 的某些版本和功能。 
 ---
 = 使用 7MTT 的 SAN 过渡支持的 ESXi 版本和功能
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

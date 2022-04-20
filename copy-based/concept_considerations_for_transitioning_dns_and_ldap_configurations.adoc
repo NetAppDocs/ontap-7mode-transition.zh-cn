@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, dns, nis, loap, configurations
 summary: 您应了解如何过渡在 7- 模式下运行的 Data ONTAP 中的 DNS ， NIS 和 LDAP 配置并将其应用到 ONTAP 中。 
 ---
 = 过渡 DNS ， NIS 和 LDAP 配置的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

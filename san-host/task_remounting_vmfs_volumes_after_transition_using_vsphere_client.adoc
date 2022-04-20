@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, remount, vmfs, volumes, vshpere, client
 summary: 过渡后，您必须重新挂载 VMFS 卷，以使数据存储库和虚拟机 \ （ VM\ ）达到过渡前状态。如果您不熟悉 ESXi 命令行界面，或者在您的环境中更方便，则可以使用 vSphere Client 重新挂载卷。 
 ---
 = 过渡后使用 vSphere Client 重新挂载 VMFS 卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, migrate, data, configuration, volumes
 summary: 要使用 7- 模式过渡工具迁移卷或卷 SnapMirror 关系，必须先配置项目，启动基线副本并完成项目。 
 ---
 = 从 7- 模式卷迁移数据和配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

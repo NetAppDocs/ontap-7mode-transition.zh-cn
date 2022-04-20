@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, find, remove, 32, volume, snapshot, co
 summary: 即使您已将所有聚合扩展为 64 位格式，也可以保留某些 32 位或混合格式的 FlexVol 卷或 Snapshot 副本。必须先删除这些卷和 Snapshot 副本，然后运行 Data ONTAP 8.3 或更高版本的集群才能访问您的数据。 
 ---
 = 查找和删除 32 位卷和 Snapshot 副本
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

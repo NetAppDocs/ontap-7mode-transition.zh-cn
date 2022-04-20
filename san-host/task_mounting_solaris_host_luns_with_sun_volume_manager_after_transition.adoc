@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, mount, solaris, host, lun, volume, manag
 summary: 使用 Solaris 卷管理器将 Solaris 主机 LUN 从 7- 模式 ONTAP 过渡到集群模式 ONTAP 后，必须挂载 LUN 。 
 ---
 = 过渡后使用 Solaris Volume Manager 挂载 Solaris 主机 LUN
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

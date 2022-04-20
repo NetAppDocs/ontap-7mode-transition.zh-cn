@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, flexclone, volume
 summary: 将 FlexClone 卷过渡到 SVM 时，克隆将从父卷拆分，并作为 FlexVol 卷过渡到目标集群。因此，克隆层次结构和存储效率在过渡过程中会丢失。 
 ---
 = FlexClone 卷的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

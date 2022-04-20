@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rhel, ddmp, devices, cli
 summary: 过渡 Red Hat Enterprise Linux （ RHEL\ ） 6 DMMP 设备之前，您必须确认它不属于逻辑卷管理器（ LVM ），并且它不具有文件系统。 
 ---
 = 验证 RHEL 6 DDMP 设备是否已做好过渡准备 使用 CLI
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

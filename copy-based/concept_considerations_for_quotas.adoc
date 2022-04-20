@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, quotas
 summary: '您必须了解在只读和读写模式下运行 " 应用配置 " \ （预转换 \ ）时如何过渡配额。' 
 ---
 = 配额注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

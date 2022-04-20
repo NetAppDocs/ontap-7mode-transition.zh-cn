@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rhel, dmmp, device, file, system
 summary: 在过渡不具有文件系统的 Red Hat Enterprise Linux \ （ RHER\ ） DMMP 设备之前，您必须验证 DMMP 设备是否没有文件系统。您还必须执行特定步骤为转换阶段做准备，过渡后必须替换 WWID 。 
 ---
 = 过渡不具有文件系统的 RHEL DMMP 设备
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

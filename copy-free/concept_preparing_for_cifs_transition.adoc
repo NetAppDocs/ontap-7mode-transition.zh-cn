@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, smb, transition
 summary: 如果 SMB/CIFS 已获得许可，而 SMB/CIFS 服务正在 7- 模式系统上运行，则必须在目标集群和 SVM 上手动执行一些任务，例如添加 SMB/CIFS 许可证和创建 SMB/CIFS 服务器，以便过渡 SMB/CIFS 配置。 
 ---
 = 为 SMB/CIFS 过渡做准备
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

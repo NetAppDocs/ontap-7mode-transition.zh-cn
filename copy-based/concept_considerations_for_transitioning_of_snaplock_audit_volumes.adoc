@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snaplock, audit, volumes
 summary: 7- 模式过渡工具支持过渡 SnapLock 审核卷。过渡 SnapLock 审核卷的工作流与过渡 SnapLock Compliance 卷相同。 
 ---
 = 过渡 SnapLock 审核卷的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

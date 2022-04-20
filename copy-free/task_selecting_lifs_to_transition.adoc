@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, select, lif
 summary: 您可以选择指定过渡后要在 SVM 上配置的 LIF 。这些 LIF 可以是 7- 模式系统上的现有 IP 地址，也可以是新的 LIF 。仅过渡 NAS LIF 。必须在 SVM 配置阶段之前手动配置 FC 和 iSCSI LIF 。 
 ---
 = 选择要过渡的 LIF
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

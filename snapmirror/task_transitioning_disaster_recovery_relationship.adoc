@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, disaster, recovery, relationship, vfiler, 
 summary: 您可以将 7- 模式系统上主 vFiler 单元和二级 vFiler 单元之间的灾难恢复 \ （ DR\ ）关系过渡到集群中源 SVM 和目标 SVM 之间的灾难恢复关系。 
 ---
 = 过渡 vFiler 单元之间的灾难恢复关系
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

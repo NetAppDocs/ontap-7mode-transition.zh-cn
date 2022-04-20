@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, add, controller, clusters
 summary: 开始过渡之前，必须添加过渡所需的 7- 模式控制器和集群。评估所包含的 7- 模式控制器会自动添加以进行迁移。 
 ---
 = 添加控制器和集群
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, enable, login, user, administrator, group
 summary: 默认情况下，用户必须是安装了 7- 模式过渡工具的 Windows 系统上管理员组的成员。您可以随时为非管理员组成员用户启用登录，这些用户无法安装此工具，但已通过身份验证，无法使用安装此工具的 Windows 系统。 
 ---
 = 为不属于管理员组的用户启用登录
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

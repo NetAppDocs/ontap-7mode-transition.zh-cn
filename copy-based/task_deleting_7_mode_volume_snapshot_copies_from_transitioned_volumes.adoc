@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, delete, volume, snapshot, copy
 summary: 由于 7- 模式卷 Snapshot 副本不会自动从过渡后的卷中删除，因此必须在过渡操作完成后手动删除这些 Snapshot 副本。 
 ---
 = 从过渡后的卷中删除 7- 模式卷 Snapshot 副本
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

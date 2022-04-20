@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, stand, alone, volume
 summary: 过渡独立卷包括不同的阶段：准备，数据复制，应用配置（预转换）和存储转换。完成过渡后，您必须先执行一些过渡后步骤，然后才能恢复客户端访问。了解每个阶段发生的情况有助于您高效地管理过渡。 
 ---
 = 如何过渡独立卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

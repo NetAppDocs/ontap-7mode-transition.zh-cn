@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, clustered, commands, options, configu
 summary: 如果要从 7- 模式下运行的 Data ONTAP 迁移到集群模式 Data ONTAP ，您可能会发现参考命令映射非常方便，其中显示了与 7- 模式命令，选项和配置文件等效的集群模式 Data ONTAP 。 
 ---
 = 如何为 7- 模式管理员解释集群模式 Data ONTAP 命令，选项和配置文件映射
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

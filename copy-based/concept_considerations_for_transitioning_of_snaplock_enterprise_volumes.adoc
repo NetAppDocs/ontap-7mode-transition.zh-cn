@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snaplock, enterprise, volumes
 summary: 7- 模式过渡工具支持过渡 SnapMirror 关系中的独立 SnapLock 企业卷和 SnapLock 企业卷。 
 ---
 = 过渡 SnapLock 企业卷的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, generate, assessment, report, add, sys
 summary: 您可以通过将系统添加到 7- 模式过渡工具来收集控制器，主机和 FC 交换机的清单信息。然后，您可以创建评估报告来评估这些系统的特性和功能，并确定它们在选择进行过渡的 ONTAP 版本中的工作方式。 
 ---
 = 通过向 7- 模式添加系统来生成评估报告 过渡工具
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

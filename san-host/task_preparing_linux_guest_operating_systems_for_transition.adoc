@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, linux, operating, system
 summary: 如果将 7- 模式 LUN 作为物理兼容 RDM （ PTRDM\ ）映射到启动设备的 Linux 虚拟机，则必须执行以下步骤来准备要过渡的 Linux VM 。 
 ---
 = 准备 Linux 子操作系统以进行过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

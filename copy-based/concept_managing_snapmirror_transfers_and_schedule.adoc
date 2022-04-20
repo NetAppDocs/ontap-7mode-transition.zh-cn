@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, manage, snapmirror, transfer, schedule
 summary: 在数据复制阶段，集群模式 Data ONTAP 卷会根据数据复制计划使用 7- 模式卷中的数据定期更新。您可以创建，编辑和删除用于 SnapMirror 基线复制，更新和重新同步操作的数据复制计划。 
 ---
 = 管理 SnapMirror 传输和计划
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

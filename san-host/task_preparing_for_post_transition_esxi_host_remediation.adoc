@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, post, esxi, host, remediation
 summary: 完成 7- 模式过渡工具（ 7MTT\ ）过渡后，您必须执行各种 ESXi 主机修复任务。要执行这些任务，您必须完成几个步骤。 
 ---
 = 为过渡后 ESXi 主机修复做准备
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

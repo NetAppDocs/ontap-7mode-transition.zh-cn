@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, prepare, ha, pair
 summary: 开始过渡之前，您必须在 7- 模式系统上完成某些任务，例如，启用 7- 模式系统与目标集群通信以及启用 HTTPS 和 TLS 。 
 ---
 = 准备 7- 模式 HA 对以进行过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

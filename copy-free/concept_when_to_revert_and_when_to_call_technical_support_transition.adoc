@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, roll, back, transition, technical, supp
 summary: 在对测试或实验室集群执行回滚时，您可以在不提供帮助的情况下进行回滚，但是，如果在过渡期间或过渡之后遇到问题，或者您要回滚在生产集群上执行的过渡，则必须联系技术支持。 
 ---
 = 何时回滚过渡以及何时调用 技术支持
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

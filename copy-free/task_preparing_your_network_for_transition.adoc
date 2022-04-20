@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, prepare, network
 summary: 您必须通过创建逻辑端口（ VLAN 和接口组）为集群的数据网络做好过渡准备。 
 ---
 = 准备网络以进行过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

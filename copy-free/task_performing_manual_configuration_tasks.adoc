@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, performing, manual, configuration
 summary: 您必须手动执行访问过渡后的卷的工作负载和应用程序所需的一些配置任务。您可以从预检结果中获取手动任务列表。 
 ---
 = 过渡后执行手动配置任务
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

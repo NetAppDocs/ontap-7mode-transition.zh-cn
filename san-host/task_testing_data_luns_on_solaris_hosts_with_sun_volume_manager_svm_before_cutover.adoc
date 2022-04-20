@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, testing, data, solaris, sun, volume, man
 summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 Solaris 主机 ZFS 数据 LUN ，则可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证是否可以挂载 MPIO 设备。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。 
 ---
 = 使用 Sun Volume Manager 测试 Solaris 主机上的数据 LUN 在基于副本的过渡的转换阶段之前
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

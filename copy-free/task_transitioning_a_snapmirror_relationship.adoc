@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, snapmirror, relationship
 summary: 您可以先过渡二级 HA 对，在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间设置交错的 SnapMirror 关系，然后再过渡主 HA 对。在某些情况下，您必须并行过渡 7- 模式 SnapMirror 关系的二级和主 HA 对。 
 ---
 = 过渡 SnapMirror 关系
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

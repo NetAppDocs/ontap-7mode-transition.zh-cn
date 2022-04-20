@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, abort, project
 summary: 例如，当控制器或集群的性能受到影响时，您可能需要中止正在运行的项目。您可以从信息板中止正在运行的项目。 
 ---
 = 中止项目
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

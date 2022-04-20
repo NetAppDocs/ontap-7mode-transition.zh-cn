@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, staggered, configuration, volu
 summary: 您可以过渡 7- 模式卷 SnapMirror 关系，并通过将二级卷过渡到主卷来保留数据保护关系。在此方法中，您可以在 7- 模式主卷和集群模式 Data ONTAP 二级卷之间设置交错的 SnapMirror 灾难恢复关系。 
 ---
 = 在交错配置中过渡卷 SnapMirror 关系
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, remediation, linux, windows, guest, oper
 summary: 在将 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后， Linux 和 Windows 子操作系统可能需要进行额外的修复。 
 ---
 = Linux 和 Windows 子操作系统的过渡后修复
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

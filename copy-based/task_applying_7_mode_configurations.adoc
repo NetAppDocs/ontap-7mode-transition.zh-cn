@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, apply, 7, mode, configuration
 summary: 基线数据复制完成后，您可以将 7- 模式系统中的所有配置（包括协议和服务配置）复制并应用到 ONTAP 卷。如果目标集群运行的是 ONTAP 8.3.2 及更高版本支持的任何版本，则此阶段将过渡 SAN 配置。 
 ---
 = 应用 7- 模式配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

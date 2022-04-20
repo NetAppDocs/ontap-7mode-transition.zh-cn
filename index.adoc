@@ -7,6 +7,7 @@ summary: 7- 模式过渡文档提供的信息可帮助您安装和设置 7- 模�
 ---
 = 7- 模式过渡文档
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

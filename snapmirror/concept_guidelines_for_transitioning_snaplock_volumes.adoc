@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, guidelines, snaplock, volumes, requirement
 summary: 您可以将 7- 模式 SnapLock 卷过渡到在 ONTAP 9.5 或更早版本中创建的 SnapLock 卷。您必须了解过渡 SnapLock 卷的要求和准则。 
 ---
 = 过渡 SnapLock 卷的准则
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, remove, vm, snapshots, esxi, cli
 summary: 如果您使用的是主机修复工具（ HRT\ ），或者您希望可以灵活地使用命令行界面，则可以选择使用 ESXi 命令行界面删除快照。 
 ---
 = 使用 ESXi 命令行界面删除 VM 快照
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

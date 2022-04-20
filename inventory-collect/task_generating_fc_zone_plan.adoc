@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, generate, fc, zone, plan, transition
 summary: 收集有关 Data ONTAP 系统，主机和 FC 交换机的信息后，您可以生成 FC 分区计划，用于在迁移后配置集群中的交换机。 
 ---
 = 正在生成 FC 分区计划
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

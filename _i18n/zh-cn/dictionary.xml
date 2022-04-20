@@ -383,8 +383,6 @@
   <block id="acd084e701650a06feecd55f2315ff07" category="paragraph"><block ref="acd084e701650a06feecd55f2315ff07" category="inline-link-rx"></block></block>
   <block id="00a950d464aec22c6491bca0924155b9" category="summary">在发生灾难后， 7- 模式主卷恢复联机后，您必须过渡 7- 模式主卷。由于在此阶段会断开并删除与 7- 模式主卷的所有 SnapMirror 关系，因此您可以在此类过渡中过渡独立卷。</block>
   <block id="e3d926aa185047f6ebca8c9278bfbcc6" category="doc">将 7- 模式主卷过渡为独立卷</block>
-  <block id="eccbc87e4b5ce2fe28308fd9f2a7baf3" category="inline-link-macro">3.</block>
-  <block id="28acec5f339fb46ca1474cb88ccf309c" category="list-text">转至 <block ref="48ce72b476c65036e53bbf45851aa391" category="inline-link-macro-rx"></block>。</block>
   <block id="bcb45d696aa60f6adba0263648537e61" category="summary">使用 SnapMirror 技术进行 7- 模式数据过渡的版权信息。</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="doc">版权</block>
   <block id="e10b5b38785c3a24ec75723ab75b4360" category="paragraph">版权所有 © 2021 NetApp ， Inc. 。保留所有权利。美国印刷</block>
@@ -7388,4 +7386,6 @@
   <block id="d16f495e3cbebda9b6c4cecd0dc6b6e4" category="summary">从 Data ONTAP 过渡 ESXi 主机之前要完成的任务</block>
   <block id="b87629f8bc070d14a339f1c969e63368" category="paragraph"><block ref="b87629f8bc070d14a339f1c969e63368" category="inline-link-macro-rx"></block></block>
   <block id="9b362042e3261f213cb36240632cabd5" category="paragraph"><block ref="9b362042e3261f213cb36240632cabd5" category="inline-link-rx"></block></block>
+  <block id="fb434b026a4b3aa9c5aeb3ee21af0d81" category="inline-link-macro">第 3 步</block>
+  <block id="6aa5dee008838df0194def910f0b3065" category="list-text">转至 <block ref="012d273ac06ba0defaa828e3a44b011b" category="inline-link-macro-rx"></block>。</block>
 </blocks>

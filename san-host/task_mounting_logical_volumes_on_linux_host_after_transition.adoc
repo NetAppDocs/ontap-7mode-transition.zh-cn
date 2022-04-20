@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, mount, logical, volumes, linux, hosts
 summary: 从 7- 模式 ONTAP 过渡到集群模式 Data ONTAP 后，逻辑卷将脱机。您必须挂载这些逻辑卷，以便主机可以访问 LUN 。 
 ---
 = 过渡后在 Linux 主机上挂载逻辑卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

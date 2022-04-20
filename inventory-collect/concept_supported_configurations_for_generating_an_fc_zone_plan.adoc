@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, supported, configuration, fc, zone, plan
 summary: 要生成 FC 分区计划，您必须了解支持的 7- 模式系统，主机， FC 交换机和集群配置。迁移后，应使用该计划为集群配置分区。 
 ---
 = 支持用于生成 FC 分区计划的配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

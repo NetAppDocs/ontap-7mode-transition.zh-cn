@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, boot, lun, aix, hosts, cutover, phase, c
 summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本过渡 7- 模式 Windows 主机 LUN ，则可以在转换阶段之前测试已过渡的集群模式 Data ONTAP LUN ，以验证它们是否按需要运行。 
 ---
 = 在之前测试 AIX 主机上已过渡的 SAN 启动 LUN 基于副本的过渡的转换阶段
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

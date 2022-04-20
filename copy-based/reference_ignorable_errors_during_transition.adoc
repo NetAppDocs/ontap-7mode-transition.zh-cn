@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, ignorable, errors
 summary: 过渡期间，您可能会遇到一些可忽略的错误。在继续过渡之前，您必须确认这些错误。 
 ---
 = 过渡期间发生可忽略的错误
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

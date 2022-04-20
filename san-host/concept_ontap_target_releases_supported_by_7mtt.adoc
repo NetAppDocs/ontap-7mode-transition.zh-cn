@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, target, supported, 7, mode, tool
 summary: ONTAP 过渡目标集群的版本支持取决于您要使用的过渡方法，基于副本或无副本以及 7- 模式过渡工具的版本。 
 ---
 = 7- 模式过渡工具支持的 ONTAP 目标版本
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, trademark, host, storage, information
 summary: 《主机和存储信息收集指南》中的商标信息 
 ---
 = 商标
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

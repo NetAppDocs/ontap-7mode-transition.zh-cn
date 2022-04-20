@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, restrictions
 summary: 您必须了解过渡某些 7- 模式卷和配置时的某些限制。 
 ---
 = 过渡限制
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

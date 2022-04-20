@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snaplock, compliance, volumes
 summary: 7- 模式过渡工具支持过渡 SnapMirror 关系中的独立 SnapLock Compliance 卷和 SnapLock Compliance 卷。 
 ---
 = 过渡 SnapLock Compliance 卷的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

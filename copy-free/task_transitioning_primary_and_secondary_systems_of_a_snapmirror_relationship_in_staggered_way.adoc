@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, ha, pairs, snapmirror, relationship, st
 summary: 您可以先过渡二级 HA 对，在 7- 模式主卷和 ONTAP 二级卷之间设置交错的 SnapMirror 关系，然后再过渡主 HA 对。 
 ---
 = 交错过渡 SnapMirror 关系中的 HA 对 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

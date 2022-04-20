@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rhel, host, remediation
 summary: 如果在 SAN 环境中使用 7- 模式过渡工具 \ （ 7MTT\ ）从 7- 模式 Data ONTAP 迁移到集群模式 Data ONTAP ， 过渡前后，您必须根据 LUN 类型在 Red Hat Enterprise Linux \ （ RHEL\ ）主机上执行一系列步骤，以避免过渡复杂化。 
 ---
 = RHEL 主机修复
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, 7, mode
 summary: 开始过渡之前，您必须在 7- 模式系统上完成某些任务，例如添加 SnapMirror 许可证，启用 7- 模式系统与目标集群通信以及启用 TLS 。 
 ---
 = 准备 7- 模式系统以进行过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, san, host
 summary: 过渡 SAN 环境之前，您必须执行一些手动步骤来准备要过渡的 SAN 主机。 
 ---
 = 准备 SAN 主机以进行过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

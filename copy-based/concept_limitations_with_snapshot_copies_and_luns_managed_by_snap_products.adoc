@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, limitations, snapshot, lun, snapdrive,
 summary: 过渡到集群模式 Data ONTAP 8.3 时，过渡后的 7- 模式 Snapshot 副本上的 SnapDrive 和 SnapManager 备份验证和还原操作将失败。过渡到集群模式 Data ONTAP 8.3.1 时，对过渡后的 7- 模式 Snapshot 副本执行 SnapManager for Microsoft Exchange Server \ （ SME ）备份验证和 SnapManager for Hyper-V \ （ SMHV\ ）文件还原操作失败。 
 ---
 = 由 SnapDrive 管理的 LUN 的 7- 模式 Snapshot 副本的限制 和 SnapManager
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

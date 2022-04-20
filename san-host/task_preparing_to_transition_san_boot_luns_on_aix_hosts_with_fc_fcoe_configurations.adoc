@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, san, boot, lun, aix, host, fc, fcoe
 summary: 过渡具有 FC/FCoE 配置的 AIX 主机上的 SAN 启动 LUN 之前，必须记录安装了 AIX 的 7- 模式 LUN 的名称以及该 LUN 的 SCSI 设备名称。 
 ---
 = 准备过渡 AIX 主机上的 SAN 启动 LUN FC/FCoE 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, delete, project
 summary: 如果您不需要某个项目，可以从信息板中将其删除。 
 ---
 = 删除项目
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

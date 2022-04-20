@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, failed, boot, controller, maintenance, 
 summary: 导出并暂停操作失败，并显示错误消息： Failed to boot the 7-Mode controller in maintenance mode.您必须在维护模式下手动暂停并启动控制器，然后重新运行此操作。 
 ---
 = 无法在维护模式下启动 7- 模式控制器
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

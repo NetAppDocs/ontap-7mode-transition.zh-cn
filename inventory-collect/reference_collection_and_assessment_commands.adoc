@@ -5,6 +5,7 @@ keywords: collection, assessment, commands, transition, 7, mode, inventory, coll
 summary: 清单收集工具（ ICT\ ）通过使用命令列表生成清单 XML 报告，从控制器，主机和 FC 交换机收集清单信息；评估这些系统的特性和功能； 和确定了这些特性和功能在选择进行过渡的集群模式 Data ONTAP 版本中的工作原理。 
 ---
 = 收集和评估命令
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

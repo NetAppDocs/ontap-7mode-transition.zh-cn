@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, copyright
 summary: 《无副本过渡指南》的版权信息。 
 ---
 = 版权
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

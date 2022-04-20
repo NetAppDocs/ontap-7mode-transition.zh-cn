@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, windows, host
 summary: 在将 Windows 主机从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 之前，必须执行一些步骤。 
 ---
 = 准备 Windows 主机以进行过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

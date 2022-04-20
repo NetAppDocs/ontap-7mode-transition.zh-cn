@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snapmirror, transition, volumes, relat
 summary: 如果要过渡 SnapMirror 关系中的 7- 模式卷，则必须先过渡二级卷。然后，在 7- 模式主卷和 ONTAP 二级卷之间建立卷 SnapMirror 关系。 
 ---
 = 如何过渡 SnapMirror 关系中的卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

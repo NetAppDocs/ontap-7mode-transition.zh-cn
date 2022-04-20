@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, plan, project
 summary: 规划无副本过渡项目包括选择源 7- 模式控制器和目标集群节点，将 7- 模式卷映射到 Storage Virtual Machine \ （ SVM\ ），选择要过渡的 LIF 以及运行预检。 
 ---
 = 规划无副本过渡项目
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

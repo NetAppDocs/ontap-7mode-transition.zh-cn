@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, disconnect, disk, shelves, connect, clu
 summary: 使用缆线将 7- 模式磁盘架连接到目标集群节点是一个手动过程。为磁盘架布线后，最佳做法是使用 Config Advisor 验证布线情况。然后，您可以使用 7- 模式过渡工具验证布线。该工具仅执行 Config Advisor 执行的部分检查。 
 ---
 = 断开磁盘架与 7- 模式系统的连接并连接到 集群节点
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

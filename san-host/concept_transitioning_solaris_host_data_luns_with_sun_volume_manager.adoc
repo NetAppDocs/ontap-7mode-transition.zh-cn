@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, solarist, host, data, lun, sun, volume, 
 summary: 如果使用 7- 模式过渡工具将使用 Solaris 卷管理器的 Solaris 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP \ （ 7MTT\ ），则必须在过渡之前和过渡之后执行特定步骤以修复主机上的过渡问题。 
 ---
 = 使用 Sun Volume Manager 过渡 Solaris 主机数据 LUN
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

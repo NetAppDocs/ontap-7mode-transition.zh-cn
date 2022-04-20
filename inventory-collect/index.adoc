@@ -5,6 +5,7 @@ keywords: 7, mode, ontap, host, storage, information, collection, transition, as
 summary: 介绍如何收集有关 ONTAP 和 7- 模式系统，交换机，主机和主机应用程序的信息，并生成清单报告，以便与 7- 模式过渡工具结合使用来评估系统是否已做好过渡准备。 
 ---
 = 《主机和存储信息收集指南》
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

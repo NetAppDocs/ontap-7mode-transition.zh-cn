@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, complete, project
 summary: 您可以通过完成各个项目来完成过渡。由于此操作会造成中断，因此您应评估何时运行它。过渡 SnapMirror 关系中的卷时，必须先完成二级项目，然后再完成主项目的过渡。 
 ---
 = 完成过渡项目
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

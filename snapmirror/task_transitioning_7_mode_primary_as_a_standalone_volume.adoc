@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, primary, stand, alone, volume
 summary: 在发生灾难后， 7- 模式主卷恢复联机后，您必须过渡 7- 模式主卷。由于在此阶段会断开并删除与 7- 模式主卷的所有 SnapMirror 关系，因此您可以在此类过渡中过渡独立卷。 
 ---
 = 将 7- 模式主卷过渡为独立卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
@@ -140,7 +141,7 @@ cluster1::> snapmirror show -destination-path vs1:dst_vol
                    Total Transfer Bytes: 278528
          Total Transfer Time in Seconds: 11
 ----
-... 转至 link:task_transitioning_a_stand_alone_volume.md#STEP_33254BEE7D2648F0A9C08FF48CF8E0F3["3."]。
+... 转至 link:task_transitioning_a_stand_alone_volume.html["第 3 步"]。
 
 
 

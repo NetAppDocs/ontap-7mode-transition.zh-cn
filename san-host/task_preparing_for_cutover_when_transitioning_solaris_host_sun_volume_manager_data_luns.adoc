@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, phase, solaris, host, sun, volu
 summary: 如果要将使用 Sun 卷管理器的 Solaris 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP ，则必须在进入转换阶段之前执行特定步骤。 
 ---
 = 过渡 Solaris 主机 Sun 卷时为转换阶段做准备 管理器数据 LUN
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, windows, host, online
 summary: 使用 Windows 主机的 7- 模式过渡工具（ 7MTT\ ）过渡 LUN 后，必须完成几个步骤才能使主机联机并重新开始提供数据。 
 ---
 = 过渡后使 Windows 主机联机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

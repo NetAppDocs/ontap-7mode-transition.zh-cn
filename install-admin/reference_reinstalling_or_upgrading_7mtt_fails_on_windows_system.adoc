@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, reinstall, upgrade, transition, tool, fail, w
 summary: 本节提供了有关在 Windows 系统上重新安装或升级 7- 模式过渡工具时出现的错误的信息。此外，它还提供了错误的原因以及解决错误的步骤。 
 ---
 = 在 Windows 上重新安装或升级 7- 模式过渡工具失败 系统
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

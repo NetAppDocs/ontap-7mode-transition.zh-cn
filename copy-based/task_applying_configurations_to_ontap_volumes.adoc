@@ -5,6 +5,7 @@ keywords: apply, configuration, ontap, copy, based, transition
 summary: 基线数据复制完成后，您可以将 7- 模式系统中的所有 NAS 配置（包括协议和服务配置）复制并应用到 ONTAP 卷。如果目标集群运行的是 Data ONTAP 8.3.2 或更高版本，则此阶段将过渡 SAN 配置。 
 ---
 = 将配置应用于 ONTAP 卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

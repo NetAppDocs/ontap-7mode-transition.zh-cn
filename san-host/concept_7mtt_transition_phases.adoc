@@ -5,6 +5,7 @@ keywords: ontap, san, host, 7, mode, transition, phase
 summary: 您可以使用 7- 模式过渡工具（ 7MTT\ ）执行从 7- 模式 Data ONTAP 到集群模式 Data ONTAP 的无副本过渡（ CFT\ ）或基于副本的过渡（ CBT\ ）。您必须了解每个过渡方法的各个阶段，以便了解何时对主机执行所需的特定修复步骤。 
 ---
 = 7- 模式过渡工具过渡阶段
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

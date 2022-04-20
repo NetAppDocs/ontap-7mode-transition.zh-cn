@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prerequisites, cifs, configurations
 summary: 只有在 7- 模式系统和集群满足特定前提条件时， 7- 模式过渡工具才会过渡 CIFS 配置。如果不满足任何条件，该工具将不会过渡配置。 
 ---
 = 过渡 CIFS 配置的前提条件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

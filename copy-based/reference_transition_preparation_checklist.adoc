@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, preparation, checklist
 summary: 在开始过渡之前，您应确认已满足过渡的所有前提条件。 
 ---
 = 过渡准备检查清单
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

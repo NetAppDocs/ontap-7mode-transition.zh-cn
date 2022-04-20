@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, recommended, settings, esxi, hosts
 summary: 在完成 ESXi 主机的过渡后修复步骤后，您应在主机上为集群模式 Data ONTAP 应用建议的 ESXi 主机设置。 
 ---
 = 过渡修复后建议的 ESXi 主机设置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, name, services, prepare
 summary: 名称服务配置，包括 DNS ， LDAP ， NIS ，主机，名称服务开关， 7- 模式过渡工具可过渡 UNIX 用户和组以及网络组配置。过渡名称服务配置之前，您必须了解一些注意事项。 
 ---
 = 正在准备过渡名称服务
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

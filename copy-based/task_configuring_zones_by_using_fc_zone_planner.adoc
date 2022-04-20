@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, configure, zone, fc, plan
 summary: 完成过渡后，您必须使用 FC 分区计划配置分区，以便对启动程序主机和目标进行分组，以便从集群提供数据访问。 
 ---
 = 使用 FC 分区计划配置分区
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

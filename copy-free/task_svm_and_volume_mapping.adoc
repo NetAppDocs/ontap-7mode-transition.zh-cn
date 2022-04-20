@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, map, svm, volumes
 summary: 您应将 HA 对中的每个 7- 模式控制器映射到目标 SVM 。如果您有 vFiler 单元，则应为每个 vFiler 单元选择一个目标 SVM 。7- 模式控制器或 vFiler 单元中的卷将过渡到映射的 SVM 。 
 ---
 = 映射 SVM 和卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

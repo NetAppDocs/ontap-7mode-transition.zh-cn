@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, uninstall, transition, tool, linux
 summary: 您可以使用命令行界面在 Linux 上卸载 7- 模式过渡工具。 
 ---
 = 在 Linux 上卸载 7- 模式过渡工具
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

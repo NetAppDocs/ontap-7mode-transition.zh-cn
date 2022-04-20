@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, select, target, cluster, nodes
 summary: 您可以选择目标集群 HA 对，并将 HA 对中的每个 7- 模式控制器映射到相应的目标集群节点。映射的节点用于指定必须将相应 7- 模式控制器中的磁盘架连接到的集群节点。 
 ---
 = 选择要过渡的目标集群节点
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

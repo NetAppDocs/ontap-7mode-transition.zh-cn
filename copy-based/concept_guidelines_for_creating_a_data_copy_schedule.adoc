@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, create, data, copy, schedule
 summary: 7- 模式过渡工具会运行一个计划程序，该计划程序每 5 分钟检查一次活动计划。您必须了解激活数据复制计划的要求。在配置数据复制计划的不同参数时，您可以遵循一些最佳实践来有效地管理 SnapMirror 传输。 
 ---
 = 创建数据复制计划的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

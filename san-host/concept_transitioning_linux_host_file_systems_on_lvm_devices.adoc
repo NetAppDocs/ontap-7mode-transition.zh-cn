@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, linux, host, file, systems, lvm, devices
 summary: 在逻辑卷管理器（ LVM ）上过渡 Linux 主机文件系统时，必须执行特定步骤为转换阶段做准备，并且必须在过渡后挂载逻辑卷。 
 ---
 = 过渡 LVM 设备上的 Linux 主机文件系统
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

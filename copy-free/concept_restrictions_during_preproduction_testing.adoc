@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, preproduction, testing, restrictions
 summary: 在预生产测试期间，某些操作会被阻止，某些操作不建议执行。如果您不想提交过渡，则可以将这些限制回滚到 7- 模式。 
 ---
 = 预生产测试期间的限制
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

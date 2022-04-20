@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, transition, host, aix, data, lun
 summary: 如果使用 7- 模式过渡工具将具有文件系统的 AIX 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP \ （ 7MTT\ ），则必须在过渡之前和过渡之后执行特定步骤以修复主机上的过渡问题。 
 ---
 = 过渡具有文件系统的 AIX 主机数据 LUN
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

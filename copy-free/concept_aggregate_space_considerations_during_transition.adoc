@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, aggregate, space, requirements
 summary: 过渡之前，必须确保 7- 模式聚合具有足够的可用空间。7- 模式过渡工具会根据物理空间，逻辑空间， Snapshot 副本占用的空间以及空间保证设置对聚合执行各种空间检查。此外，您还必须了解 Flash Pool 聚合的空间注意事项。 
 ---
 = 过渡时的聚合空间要求
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

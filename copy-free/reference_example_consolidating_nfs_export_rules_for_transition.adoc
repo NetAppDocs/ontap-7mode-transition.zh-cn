@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, examples, nfs, export, rules, snapshot,
 summary: 您可能需要查看有关如何将相似的 7- 模式导出规则和 7- 模式 Snapshot 计划整合到 ONTAP 中的单个 NFS 导出策略和单个 Snapshot 策略的示例。您可能还希望了解如何将整合的策略分配给过渡后的卷或 qtree ，无论是否重复使用目标 SVM 上匹配的现有策略。 
 ---
 = 整合 NFS 导出规则和 Snapshot 计划的示例 过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

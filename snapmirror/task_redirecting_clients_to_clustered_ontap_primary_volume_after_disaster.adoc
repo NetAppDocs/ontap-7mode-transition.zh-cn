@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, redirect, clients, clustered, data, primary, volume, s
 summary: 在 7- 模式主卷恢复联机后，您可以过渡 7- 模式主卷，与集群模式 Data ONTAP 二级卷建立 SnapMirror 关系，以及将客户端访问重定向到集群模式 Data ONTAP 主卷。 
 ---
 = 将客户端重定向到集群模式 Data ONTAP 主卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, san, boot, lun, supported
 summary: 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 时，仅支持特定类型的 SAN 启动 LUN 。 
 ---
 = 支持过渡的 SAN 启动 LUN 的类型
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

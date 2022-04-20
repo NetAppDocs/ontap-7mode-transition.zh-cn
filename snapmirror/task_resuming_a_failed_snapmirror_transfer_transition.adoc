@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, resume, failed, snapmirror, baseline, transfer, transi
 summary: 过渡期间， SnapMirror 基线传输可能会因多种原因而失败，例如网络连接断开，传输中止或控制器故障转移。更正发生原因故障后，如果重新启动检查点可用，您可以恢复 SnapMirror 传输。 
 ---
 = 恢复失败的 SnapMirror 基线传输
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

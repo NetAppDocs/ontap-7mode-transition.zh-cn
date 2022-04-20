@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, complete, chain, custody, verification
 summary: 如果为监管链验证选择了一个或多个 SnapLock 卷，则必须执行监管链操作以生成监管链报告。 
 ---
 = 完成监管链验证
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, scenarios, selecting, volumes, project
 summary: 规划项目构成并确定要在单个过渡操作中过渡的 7- 模式卷有助于减少应用程序的停机时间。了解一些示例方案有助于您在环境中创建项目。 
 ---
 = 选择项目中的卷的方案
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

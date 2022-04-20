@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, reconfiguration, vmware, software, iscsi
 summary: 如果 ESXi 主机使用 VMware 软件 iSCSI 启动程序访问在 7- 模式系统中运行的 Data ONTAP ，则在从 7- 模式过渡到集群模式 Data ONTAP 之后，必须在 ESXi 主机上重新配置 VMware 软件 iSCSI 启动程序，并使其能够发现新的集群模式 Data ONTAP 目标。 
 ---
 = 过渡后重新配置 VMware 软件 iSCSI 启动程序
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

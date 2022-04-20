@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, remount, dmmp, devices, linux, hosts
 summary: 从 7- 模式 ONTAP 过渡到集群模式 Data ONTAP 后，必须重新挂载 RHEL 5 和 RHEL 6 的 DMMP 设备。在挂载 DMMP 设备之前，主机无法访问 7- 模式 LUN 。 
 ---
 = 过渡后重新挂载 Linux 主机上的 DMMP 设备
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

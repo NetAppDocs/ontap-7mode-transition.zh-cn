@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, edit, delete, data, copy, snapmirror, 
 summary: 如果您配置或修改了其他灾难恢复计划，而这些计划要求修改过渡数据复制计划，则可以编辑或删除用于 SnapMirror 基线复制，更新和重新同步操作的数据复制计划。 
 ---
 = 编辑或删除 SnapMirror 传输的数据复制计划
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

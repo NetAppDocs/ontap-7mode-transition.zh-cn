@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, host, assessment
 summary: 要成功生成评估报告，您必须确保 7- 模式系统和主机满足特定的网络和协议要求。 
 ---
 = 准备 7- 模式系统和主机以进行过渡评估
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

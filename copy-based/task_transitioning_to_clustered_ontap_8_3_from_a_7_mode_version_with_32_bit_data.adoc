@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, supported, released, 8.3
 summary: ONTAP 8.3 及更高版本不支持 32 位聚合，卷和 Snapshot 副本。因此，必须将 32 位聚合扩展到 64 位，然后在过渡之前查找并删除 7- 模式系统中的任何 32 位卷和 Snapshot 副本。由于所有 7- 模式版本都不支持扩展 32 位聚合以及删除 32 位卷和 Snapshot 副本的功能，因此您可能需要在过渡之前升级 7- 模式系统。 
 ---
 = 准备过渡到 ONTAP 8.3 及更高版本支持的版本
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

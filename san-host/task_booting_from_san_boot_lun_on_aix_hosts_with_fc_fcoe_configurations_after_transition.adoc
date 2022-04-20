@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, booting, san, lun, aix, host, fc, fcoe, 
 summary: 过渡具有 FC 或 FCoE 配置的 AIX 主机上的 SAN 启动 LUN 后，必须执行某些步骤才能从 SAN 启动 LUN 启动主机。 
 ---
 = 使用 FC/FCoE 从 AIX 主机上的 SAN 启动 LUN 启动 过渡后的配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, project, planning, worksheet
 summary: 您可以使用无副本过渡规划工作表记录有关节点映射， SVM 映射，卷映射和要过渡的 LIF 的信息。使用 7- 模式过渡工具创建过渡项目时，这些工作表非常有用。您应了解完成工作表的准则。 
 ---
 = 无副本过渡项目规划工作表
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

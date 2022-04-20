@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, phel, lun, mount, points, dmmp, alias, n
 summary: 过渡使用 DMMP 设备名称的挂载点之前，必须将 DMMP 设备名称替换为相应的文件系统 UUID 编号。 
 ---
 = 使用 DMMP 别名准备挂载点的 RHEL LUN 用于使用 CLI 进行过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

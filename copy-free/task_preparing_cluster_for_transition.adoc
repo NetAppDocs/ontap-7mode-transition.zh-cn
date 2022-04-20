@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, cluster, prepare
 summary: 过渡之前，您必须准备好集群以与 7- 模式过渡工具通信，并准备要过渡的 SVM 。您可以过渡到具有数据聚合的目标 HA 对。 
 ---
 = 准备集群以进行过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

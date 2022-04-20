@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, windows, host, remediation
 summary: 如果使用 7- 模式过渡工具（ 7MTT\ ）从 7- 模式 Data ONTAP 迁移到集群模式 Data ONTAP ，则必须执行特定步骤为过渡 Windows 主机做好准备。您还必须执行特定步骤为转换阶段做准备，过渡后，必须使 Windows 主机联机。 
 ---
 = Windows 主机修复
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

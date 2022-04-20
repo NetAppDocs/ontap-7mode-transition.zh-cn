@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, primary, volume, snapmirror
 summary: 过渡主卷包括将数据从 7- 模式主卷复制到集群模式 Data ONTAP 主卷，删除 7- 模式主卷与集群模式 Data ONTAP 二级卷之间的灾难恢复关系，以及在集群模式 Data ONTAP 主卷和二级卷之间建立 SnapMirror 关系。 
 ---
 = 过渡主卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, pause, resume, project
 summary: 您可以暂停和恢复已启动数据复制的项目。 
 ---
 = 暂停和恢复项目
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

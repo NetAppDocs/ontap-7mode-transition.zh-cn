@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, transition, solaris, host, lun, sun, vol
 summary: 在将使用 Sun Volume Manager 的 Solaris 主机数据 LUN 从 7- 模式 ONTAP 过渡到集群模式 ONTAP 之前，您必须收集过渡过程所需的信息。 
 ---
 = 准备使用 Sun Volume Manager 过渡 Solaris 主机 LUN
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

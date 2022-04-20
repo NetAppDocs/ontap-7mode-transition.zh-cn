@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, aggregates, volumes, restrictions
 summary: 您必须了解过渡 7- 模式聚合和卷的某些限制。某些限制是由于 ONTAP 不支持的功能造成的。对于某些限制，您可以执行更正操作以继续过渡。 
 ---
 = 过渡 7- 模式聚合和卷的限制
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

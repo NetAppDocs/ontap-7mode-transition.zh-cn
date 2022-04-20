@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, port, requirements, communicating, too
 summary: 7- 模式过渡工具通过特定端口与 7- 模式系统和集群进行通信。您必须确保 7- 模式系统和集群上的这些端口处于打开状态，以允许与 7- 模式过渡工具进行通信。 
 ---
 = 与 7- 模式过渡工具通信的端口要求
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

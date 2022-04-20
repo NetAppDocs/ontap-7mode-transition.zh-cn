@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, remount, lun, points, dmmp, alias, names
 summary: 从 7- 模式 ONTAP 过渡到集群模式 Data ONTAP 后，必须使用挂载点重新挂载 LUN 。7- 模式卷已脱机，并且主机无法访问 7- 模式 LUN 。 
 ---
 = 重新挂载挂载点使用了 DMMP 别名的 LUN 过渡后的 Linux 主机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

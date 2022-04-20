@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snapmirror
 summary: 您可以为过渡操作创建数据复制计划并自定义 SnapMirror 数据传输，而不会影响现有的 7- 模式到 7- 模式 SnapMirror 或 SnapVault 操作。 
 ---
 = 使用 SnapMirror 进行过渡的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

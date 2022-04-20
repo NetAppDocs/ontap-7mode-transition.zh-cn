@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, volume, relationship, parallel
 summary: 您可以在同一转换窗口中并行过渡 7- 模式 SnapMirror 关系中的主卷和二级卷。过渡后，必须在 ONTAP 集群中手动设置卷 SnapMirror 关系。您必须使用此方法过渡 SnapLock Compliance 卷。 
 ---
 = 并行过渡卷 SnapMirror 关系
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, remove, stal, rdm, vsphere, client
 summary: 在从 7- 模式 ONTAP 过渡到集群模式 Data ONTAP 期间，所有 RDM LUN 都会过时。过渡后，必须删除并重新连接 RDM ， LUN 才能开始提供数据。 
 ---
 = 使用 vSphere Client 删除陈旧的 RDM
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

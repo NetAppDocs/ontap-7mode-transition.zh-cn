@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, syntax, option, ict, inventory, collection
 summary: 清单收集工具 \ （ ICT\ ）命令可从命令行界面 \ （ cli\ ）或包含系统详细信息的文本文件中指定的控制器和主机收集配置和清单信息。可以将语法和选项与 ICT 命令结合使用。 
 ---
 = 语法和选项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, snaplock, options, 7, mode
 summary: 7- 模式过渡工具支持过渡一些与 SnapLock 卷相关的 7- 模式选项。 
 ---
 = 过渡 7- 模式 SnapLock 选项的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

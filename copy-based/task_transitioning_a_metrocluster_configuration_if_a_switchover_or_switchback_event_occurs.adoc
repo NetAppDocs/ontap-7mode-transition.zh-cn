@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, metrocluster, configuration, failed, s
 summary: 过渡操作，例如过渡准备，启动，暂停，恢复或完成， 在 MetroCluster 切换期间或 MetroCluster 切回之后失败。然后，您必须手动重新建立 SnapMirror 关系才能恢复过渡。 
 ---
 = 过渡因切换或而失败的 MetroCluster 配置 切回
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

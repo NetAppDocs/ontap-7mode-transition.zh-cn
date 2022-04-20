@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, select, secondary, volume, pan, select
 summary: 如果二级卷未联机或 SnapMirror 关系已中断，则无法从卷选择窗格中选择二级卷并将其作为卷 SnapMirror 关系进行过渡。 
 ---
 = 无法从卷选择窗格中选择二级卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

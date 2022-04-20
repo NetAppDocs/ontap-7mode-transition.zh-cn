@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, plan, clustered, volumes, snapmirror
 summary: 在将数据从 7- 模式卷复制到集群模式 ONTAP 卷之前，您必须了解何时使用 SnapMirror 执行过渡，并查看有关支持的 7- 模式版本和支持的过渡卷的信息。您还必须了解某些过渡注意事项。 
 ---
 = 规划过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

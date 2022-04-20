@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, san, supported, unsupported, configura
 summary: 您必须了解 7- 模式过渡工具过渡的 SAN 配置。此外，您还应了解 ONTAP 不支持的 7- 模式 SAN 功能，以便在过渡之前采取任何必要的措施。 
 ---
 = SAN 过渡：支持和不支持的配置以及所需的手动步骤
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

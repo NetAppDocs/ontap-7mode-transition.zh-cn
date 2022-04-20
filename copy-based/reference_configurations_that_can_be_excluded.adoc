@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, configurations, excluded
 summary: 您可以通过使用 7- 模式过渡工具命令行界面的 transition CBT property-set 命令指定属性名称来从过渡中排除 NFS ， CIFS ， SAN 和名称服务配置的某些卷级或 SVM 级配置，从而自定义配置过渡。 
 ---
 = 可从过渡中排除的配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

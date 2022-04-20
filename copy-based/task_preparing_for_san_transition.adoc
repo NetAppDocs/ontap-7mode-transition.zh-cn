@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, san, prepare
 summary: 过渡 SAN 环境之前，您必须了解 SAN 过渡支持哪些配置，在 SVM 上创建 SAN LIF 并为 SAN 主机做好过渡准备。 
 ---
 = 为 SAN 过渡做准备
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

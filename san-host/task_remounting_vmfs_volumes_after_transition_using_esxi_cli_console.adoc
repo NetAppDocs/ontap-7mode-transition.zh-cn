@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, esxi, cli, vmfs, volumes
 summary: 过渡后，您可以使用 ESXi 命令行界面重新挂载卷，并将数据存储库和 VM 置于过渡前状态。 
 ---
 = 过渡后使用 ESXi 命令行界面重新挂载 VMFS 卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

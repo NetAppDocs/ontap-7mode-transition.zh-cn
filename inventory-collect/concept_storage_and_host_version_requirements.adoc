@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, storage, host, fc, switches, version, requ
 summary: 您必须了解可从中收集清单信息的 7- 模式 Data ONTAP ，主机和 FC 交换机的版本。 
 ---
 = 收集清单时的存储，主机和 FC 交换机版本要求
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

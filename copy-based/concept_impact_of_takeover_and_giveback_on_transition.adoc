@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, impact, takeover, giveback
 summary: 过渡操作，例如过渡准备，启动，暂停，恢复或完成， 在控制器接管或交还期间失败。 
 ---
 = 接管和交还对过渡的影响
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

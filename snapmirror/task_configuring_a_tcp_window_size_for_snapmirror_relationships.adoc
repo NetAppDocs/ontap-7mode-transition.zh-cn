@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, configure, tcp, window, size, snapmirror, relationship
 summary: 您可以为 7- 模式卷和 ONTAP 卷之间的 SnapMirror 关系配置 TCP 窗口大小，以提高 SnapMirror 传输吞吐量，从而加快复制操作的完成速度。 
 ---
 = 为 SnapMirror 关系配置 TCP 窗口大小
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

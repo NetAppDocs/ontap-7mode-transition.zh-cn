@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, cifs, local, users, group
 summary: 迁移 CIFS 本地用户和组时，您必须了解运行过渡操作的注意事项。 
 ---
 = 过渡 CIFS 本地用户和组的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

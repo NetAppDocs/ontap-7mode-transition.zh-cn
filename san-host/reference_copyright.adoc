@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, copyright
 summary: 《 SAN 主机过渡和修复指南》的版权信息。 
 ---
 = 版权
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

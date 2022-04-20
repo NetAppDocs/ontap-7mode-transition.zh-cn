@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, primary, secondary, system, snapmirror,
 summary: 您可以并行过渡包含 7- 模式 SnapMirror 关系中的卷的主 HA 对和二级 HA 对。过渡后，必须在集群模式 Data ONTAP 中手动设置卷 SnapMirror 关系。过渡后， SnapMirror 关系会保留下来，而无需重新建立基线。 
 ---
 = 过渡中 SnapMirror 关系中的主系统和二级系统 并行
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

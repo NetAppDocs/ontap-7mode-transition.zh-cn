@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, workflow
 summary: 无副本过渡工作流包括为过渡做准备，执行过渡以及完成过渡。其中某些任务必须在 7- 模式系统和集群上手动完成。 
 ---
 = 无副本过渡工作流
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

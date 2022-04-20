@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, complete
 summary: 完成过渡需要手动验证过渡后的卷和配置，测试工作负载，开始生产，然后提交无副本过渡项目。由于在提交操作后不允许回滚，因此您应验证所有工作负载并在短时间内开始生产，以评估是否需要回滚。 
 ---
 = 完成过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

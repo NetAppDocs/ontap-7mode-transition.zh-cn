@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, delete, vm, snapshots, copy, vsphere, cl
 summary: 如果您不熟悉 ESXi 命令行界面，或者对您的环境更方便，则可以使用 vSphere Client 删除虚拟机 \ （ VM\ ）快照。 
 ---
 = 使用 vSphere Client 删除 VM Snapshot 副本
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

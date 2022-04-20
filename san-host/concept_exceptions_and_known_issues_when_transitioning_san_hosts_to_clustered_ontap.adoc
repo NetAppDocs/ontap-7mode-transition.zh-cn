@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, exceptions, issues, san, host
 summary: 在将 SAN 主机从 7- 模式 Data ONTAP 过渡到更高版本的 ONTAP 时，您应了解某些例外情况和已知问题。 
 ---
 = 将 SAN 主机过渡到 ONTAP 时出现的异常和已知问题
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

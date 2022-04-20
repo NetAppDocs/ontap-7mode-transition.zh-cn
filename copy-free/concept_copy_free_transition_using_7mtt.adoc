@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, 7, mode, tool
 summary: 通过 7- 模式过渡工具，您可以收集清单并评估要过渡的 7- 模式控制器，主机，交换机和应用程序。评估后，您可以使用无副本过渡将数据和配置迁移到 ONTAP 。在无副本过渡中，您可以断开所有磁盘架与 7- 模式 HA 对的连接，并将其连接到目标集群中的 HA 对。 
 ---
 = 使用 7- 模式过渡工具实现无副本过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

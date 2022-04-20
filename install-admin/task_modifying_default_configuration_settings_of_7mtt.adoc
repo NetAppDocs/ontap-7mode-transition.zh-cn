@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, modify, configuration, options, transition, t
 summary: 您可以编辑 $INSTALL_DIR\etc\... 文件以修改 7- 模式过渡工具使用的任何配置选项。此文件包含该工具运行所需的所有可配置选项的相关信息。 
 ---
 = 修改 7- 模式过渡工具的配置选项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

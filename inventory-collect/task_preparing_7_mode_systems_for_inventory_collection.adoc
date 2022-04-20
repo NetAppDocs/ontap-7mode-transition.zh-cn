@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, prepare, system, host, inventory, collecti
 summary: 要成功生成清单报告，您必须确保 7- 模式系统和主机满足特定的网络和协议要求。 
 ---
 = 准备 7- 模式系统和主机以进行清单收集
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

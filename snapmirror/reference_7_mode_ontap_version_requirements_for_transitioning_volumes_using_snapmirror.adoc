@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, version, transition, requirements, data, clustered
 summary: 您应了解支持过渡到集群模式 Data ONTAP 8.3 或更高版本的 7- 模式 Data ONTAP 版本。 
 ---
 = 过渡时的 7- 模式版本要求
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

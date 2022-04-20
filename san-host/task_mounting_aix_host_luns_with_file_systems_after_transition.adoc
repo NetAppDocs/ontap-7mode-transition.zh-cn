@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, mount, aix, host, lun, file, system
 summary: 将具有文件系统的 AIX 主机数据 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，必须挂载 LUN 。 
 ---
 = 过渡后挂载具有文件系统的 AIX 主机数据 LUN
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

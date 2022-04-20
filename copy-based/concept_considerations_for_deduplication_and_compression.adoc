@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, deduplication, compression
 summary: 使用数据压缩时，源卷和目标卷必须属于 64 位聚合。在过渡期间，源卷上的所有数据压缩和重复数据删除节省的空间都会通过网络保留下来。过渡后，目标卷将从源卷继承所有数据压缩和重复数据删除属性以及存储节省。 
 ---
 = 重复数据删除和数据压缩注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

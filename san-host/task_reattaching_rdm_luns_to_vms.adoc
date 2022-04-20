@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rdm, lun, vm
 summary: 要使连接到原始设备映射 \ （ RDM\ ） LUN 的 VM 在过渡后正常运行，必须从 VM 中删除托管 LUN 的 RDM 磁盘。然后，您必须根据 7- 模式过渡工具提供的 LUN 序列号将 RDM 磁盘重新连接到虚拟机。 
 ---
 = 将 RDM LUN 重新连接到 VM
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

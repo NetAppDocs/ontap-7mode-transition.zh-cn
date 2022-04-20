@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rdm, esxi, cli, console
 summary: 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，必须重新连接原始设备映射（ RDM ）。 
 ---
 = 使用 ESXi 的命令行界面 / 控制台重新连接 RDM
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

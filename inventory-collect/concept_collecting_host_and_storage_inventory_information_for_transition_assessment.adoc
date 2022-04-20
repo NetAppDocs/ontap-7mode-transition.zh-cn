@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, collect, storage, host, inventory, informa
 summary: 通过清单收集工具，您可以收集有关集群模式 Data ONTAP 和 7- 模式系统，交换机，主机以及这些主机上运行的应用程序的信息，并创建清单报告。然后，您可以将清单报告导入到 7- 模式过渡工具中以进行过渡评估。 
 ---
 = 收集存储和主机清单信息
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, phase, lun, point, dmmp, device
 summary: 如果要过渡 Linux 主机上挂载点使用别名的 LUN ，则必须在进入转换阶段之前执行几个步骤。 
 ---
 = 过渡具有挂载的 LUN 时为转换阶段做准备 在 Linux 主机上使用 DMMP 设备名称的点
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

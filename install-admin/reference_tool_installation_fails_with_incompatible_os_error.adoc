@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, tool, fail, incompatible, os, error
 summary: 7- 模式过渡工具安装失败，并显示错误消息 7- 模式过渡工具与此版本的 Windows 不兼容。 
 ---
 = 工具安装失败，并显示操作系统不兼容错误
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

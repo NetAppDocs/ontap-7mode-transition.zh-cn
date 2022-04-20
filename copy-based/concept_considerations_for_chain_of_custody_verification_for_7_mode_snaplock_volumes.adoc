@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, chain, custody, verification, snaplock
 summary: 您应了解对 7- 模式 SnapLock 卷使用监管链验证的注意事项。 
 ---
 = 对 7- 模式 SnapLock 使用监管链验证的注意事项 卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

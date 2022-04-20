@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, lun, mount, points, dmmp, alias, names
 summary: 过渡挂载点使用别名的 LUN 时，必须执行特定步骤为转换阶段做准备，并且必须在过渡后重新挂载 LUN 。 
 ---
 = 过渡挂载点使用 DMMP 别名的 LUN
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

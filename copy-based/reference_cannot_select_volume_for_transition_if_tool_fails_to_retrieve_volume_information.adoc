@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, tool, fails, volume, information
 summary: 尝试选择卷时，卷选择窗格会显示 Failed to retr检 索卷信息错误消息。如果控制器繁忙，通常会发生此错误。 
 ---
 = 如果工具失败，则无法选择要过渡的卷 以检索卷信息
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

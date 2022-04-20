@@ -5,6 +5,7 @@ keywords: ontap, 7, transition, mode, snapmirror, operations, snapvault, conside
 summary: 在 7- 模式系统中同时运行 SnapMirror 或 SnapVault 操作时，您必须了解某些注意事项，例如并发 SnapMirror 传输的最大数量，数据复制计划以及使用多个路径进行过渡。 
 ---
 = 使用 SnapMirror 进行过渡的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

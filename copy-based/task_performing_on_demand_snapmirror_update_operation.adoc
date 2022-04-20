@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, perform, demand, snapmirror, updates
 summary: 您可以在转换操作之前对所有卷执行 SnapMirror 增量更新，以缩短转换时间。 
 ---
 = 执行按需 SnapMirror 更新
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

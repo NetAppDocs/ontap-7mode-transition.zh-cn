@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, generate, assessment, report, inventor
 summary: 您可以导入清单收集工具生成的清单 XML 报告，以评估主机和控制器的特性和功能。然后，您可以通过创建评估报告来确定这些主机和控制器在选择进行过渡的 ONTAP 版本中的工作方式。 
 ---
 = 通过导入清单报告 XML 生成评估报告
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

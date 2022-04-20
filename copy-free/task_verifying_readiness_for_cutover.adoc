@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, verify, cutover, ready, systems
 summary: 在断开客户端访问之前，您可以验证 7- 模式系统是否已做好存储转换准备，例如验证是否已在 7- 模式系统上配置 SP 或 RLM ，以及磁盘架，聚合和卷是否已做好过渡准备。您可以在导出操作之前手动修复任何问题，从而减少停机时间。 
 ---
 = 验证 7- 模式系统是否已做好转换准备
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

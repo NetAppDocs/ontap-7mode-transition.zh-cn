@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, esxi, host, remediation
 summary: 如果在 SAN 环境中使用 7- 模式过渡工具 \ （ 7MTT\ ）从 7- 模式 Data ONTAP 迁移到集群模式 Data ONTAP ，则必须在 Data ONTAP 过渡之前在 VMware ESXi 主机上执行一系列步骤。转换前必须关闭主机电源，过渡后必须执行其他一系列步骤，然后才能开始提供数据。 
 ---
 = VMware ESXi 主机修复
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

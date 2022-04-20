@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, phase, host, lvm, device
 summary: 如果要过渡逻辑卷管理器（ LVM ）设备上的 Linux 主机文件系统，则必须在转换阶段之前执行一些步骤。 
 ---
 = 过渡 Linux 主机文件系统时为转换阶段做准备 在 LVM 设备上
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

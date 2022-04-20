@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, start, data, copy, project
 summary: 您可以启动从 7- 模式卷到 ONTAP 卷的数据复制，以进行基线传输。当项目中配置的数据复制计划变为活动状态时，基线传输将开始。基线传输完成后， ONTAP 卷将根据数据复制计划定期更新。 
 ---
 = 为过渡项目启动数据复制
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

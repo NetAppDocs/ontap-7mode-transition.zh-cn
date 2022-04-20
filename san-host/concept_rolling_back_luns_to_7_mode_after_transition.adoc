@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, rolling, lun, 7, mode
 summary: 如果您对集群模式 Data ONTAP LUN 的性能不满意，则可以从集群模式 Data ONTAP 回滚到 7- 模式 Data ONTAP ，以实现无副本过渡 \ （ CFT\ ）。基于副本的过渡不支持回滚（ CBT\ ）。只有某些主机才支持回滚。 
 ---
 = 过渡后将 LUN 回滚到 7- 模式
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

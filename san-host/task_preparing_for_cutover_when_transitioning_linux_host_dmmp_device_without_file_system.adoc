@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, linux, dmmp, device, host
 summary: 如果要从 Linux 主机过渡不具有文件系统的 DMMP 设备，则必须在进入转换阶段之前执行几个步骤。 
 ---
 = 过渡 Linux 主机 DMMP 设备时为转换做准备 不使用文件系统
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

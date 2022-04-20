@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, post, remediation, esxi, host
 summary: 使用 7- 模式过渡工具（ 7MTT\ ）将 ESXi 主机的 LUN 从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 后，您必须执行一系列修复任务以使 LUN 联机并开始提供数据。 
 ---
 = ESXi 主机的过渡后修复要求
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

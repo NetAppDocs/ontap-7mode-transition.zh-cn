@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, san, boot, lun
 summary: 在使用 7- 模式过渡工具（ 7MTT\ ）从 7- 模式 Data ONTAP 过渡到集群模式 Data ONTAP 之前，必须重新启动 SAN 启动 LUN 。您必须执行特定步骤为转换阶段做准备，过渡后必须发现 LUN 。 
 ---
 = 过渡 SAN 启动 LUN
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, copyright
 summary: 《 7- 模式命令映射管理员指南》的版权信息。 
 ---
 = 版权
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

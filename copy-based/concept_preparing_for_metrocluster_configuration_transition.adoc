@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, prepare, metrocluster, configuration
 summary: 过渡到 MetroCluster 配置之前，您必须了解在 ONTAP 中将 7- 模式卷过渡到 MetroCluster 配置的要求和注意事项。 
 ---
 = 为 MetroCluster 配置过渡做准备
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

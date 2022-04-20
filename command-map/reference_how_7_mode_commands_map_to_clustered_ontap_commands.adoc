@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, commands, map, commands
 summary: 您可以使用提供的表查找与 7- 模式命令等效的 ONTAP ，但 options 命令除外。 
 ---
 = 7- 模式命令与 ONTAP 命令的映射关系
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

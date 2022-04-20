@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, configure, zone, fc, zone, plan
 summary: 过渡 SAN FC 环境之前，您必须使用 FC 分区规划器对启动程序主机和目标进行分组来配置分区。 
 ---
 = 使用 FC 分区计划配置分区
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

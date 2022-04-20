@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, data, configuration, migration, proces
 summary: 使用 7- 模式过渡工具的数据和配置迁移过程包括以下阶段：准备，基线数据复制，应用配置 \ （预转换 \ ）和存储转换。如果您有用于监管链验证的 SnapLock 卷，则监管链验证是转换后的额外阶段。 
 ---
 = 数据和配置迁移过程
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

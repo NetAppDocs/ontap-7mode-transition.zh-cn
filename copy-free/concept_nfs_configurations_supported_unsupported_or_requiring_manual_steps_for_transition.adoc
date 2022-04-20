@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, nfs, transition, supported, unsupported
 summary: 某些 NFS 配置不会过渡到 ONTAP ，因为它们在 ONTAP 中不受支持，与 7- 模式存在功能差异，或者必须手动过渡。您应验证所有预检错误和警告消息，以评估此类配置对过渡的影响。 
 ---
 = NFS 过渡：支持和不支持的配置以及所需的手动步骤
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

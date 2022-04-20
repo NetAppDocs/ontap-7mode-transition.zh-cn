@@ -5,6 +5,7 @@ keywords: esxi, configured, boot, ontap, san, host, transition
 summary: 如果在从 7- 模式 Data ONTAP 过渡之前为 ESXi 主机配置了 SAN 启动，则在过渡之后使用该主机之前，必须执行几个步骤。 
 ---
 = 设置过渡后为 SAN 启动配置的 ESXi 主机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

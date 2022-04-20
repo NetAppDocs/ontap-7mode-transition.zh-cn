@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, verify, configurations
 summary: 成功导入 7- 模式卷和配置后，您必须手动验证过渡后的聚合，卷， LUN 和配置。 
 ---
 = 验证过渡后的配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

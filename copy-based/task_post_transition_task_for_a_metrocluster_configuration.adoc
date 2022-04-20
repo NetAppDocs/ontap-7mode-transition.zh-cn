@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, cron, job, schedules, metrocluster, re
 summary: 过渡期间创建的 cron 作业计划不会复制到远程站点，因此过渡后协商切换将失败。过渡后，您必须在远程站点上手动创建 cron 作业计划。 
 ---
 = 过渡后在远程站点上配置 cron 作业计划 MetroCluster 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

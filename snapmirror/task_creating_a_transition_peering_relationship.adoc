@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, create, peer, relationship, snapmirror
 summary: 您必须先创建过渡对等关系，然后才能设置 SnapMirror 关系，以便在 7- 模式系统和集群之间进行过渡。作为集群管理员，您可以使用 vserver peer transition create 命令在 anSVM 和 7- 模式系统之间创建过渡对等关系。 
 ---
 = 创建过渡对等关系
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

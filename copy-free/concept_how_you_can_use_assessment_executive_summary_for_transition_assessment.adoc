@@ -5,6 +5,7 @@ keywords: assessment, ontap, transition, copy, free, executive, summary
 summary: 过渡内容提要总结了环境中的 7- 模式控制器，主机和 FC 交换机。它提供了当前使用的特性和功能的评估报告，并为存储环境中的每个卷建议了过渡方法。您可以使用摘要来规划过渡。 
 ---
 = 如何使用评估内容提要进行过渡 评估
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

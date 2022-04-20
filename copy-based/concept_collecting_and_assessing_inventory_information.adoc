@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, collect, assess, inventory, informatio
 summary: 您可以从控制器，主机和 FC 交换机收集清单信息。然后，您可以评估这些系统的特性和功能，并确定这些特性和功能在选择进行过渡的 ONTAP 版本中的工作方式。 
 ---
 = 收集和评估清单信息
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, 7, mode, tool
 summary: 通过 7- 模式过渡工具，您可以通过收集信息并评估要过渡的 7- 模式控制器，主机，交换机和应用程序来执行基于副本的过渡。然后，您可以将数据和配置从 7- 模式迁移到 ONTAP 。 
 ---
 = 使用 7- 模式过渡工具进行基于副本的过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

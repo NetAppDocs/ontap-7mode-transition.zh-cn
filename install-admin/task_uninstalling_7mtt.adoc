@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, uninstall, transition, tool, windows
 summary: 您可以使用 Windows 卸载程序实用程序卸载 7- 模式过渡工具。 
 ---
 = 在 Windows 系统上卸载 7- 模式过渡工具
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

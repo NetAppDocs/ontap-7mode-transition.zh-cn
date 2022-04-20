@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, transition, fc, fcoe, san, boot, lun, rh
 summary: 过渡 FC 或 FCoE SAN 启动 LUN 之前，必须在 Red Hat Enterprise Linux \ （ RHEL\ ）主机上执行特定步骤。 
 ---
 = 为过渡 FC 或 FCoE SAN 启动 LUN 做准备 在 RHEL 主机上
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

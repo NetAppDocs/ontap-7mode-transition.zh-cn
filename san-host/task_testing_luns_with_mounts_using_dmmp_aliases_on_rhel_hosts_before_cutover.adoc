@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, mount, pints, dmmp, alias, name, rhel
 summary: 如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本对 Red Hat Enterprise Linux \ （ RHEL\ ）主机执行基于副本的过渡，则可以在转换阶段之前测试挂载点使用别名的已过渡集群模式 Data ONTAP LUN 。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。 
 ---
 = 测试挂载点使用了 DMMP 别名的 LUN 在基于副本的过渡的转换阶段之前， RHEL 主机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

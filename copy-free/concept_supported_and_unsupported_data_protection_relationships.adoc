@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, data, protection, supported, unsupporte
 summary: 您可以过渡属于 SnapMirror 关系的卷。但是，某些数据保护和灾难恢复配置不支持过渡，因此您必须执行一些手动步骤来过渡这些配置。 
 ---
 = 数据保护过渡：支持和不支持的配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

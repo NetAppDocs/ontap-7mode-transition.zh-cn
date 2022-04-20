@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, pretransition, information, inventory, a
 summary: 清单评估工作簿中包含过渡各个阶段所需的信息。您应在开始过渡之前收集并记录此信息，以便在整个过渡过程中根据需要进行引用。 
 ---
 = 从清单评估工作簿收集过渡前信息
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

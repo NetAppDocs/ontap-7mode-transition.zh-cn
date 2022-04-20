@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, space, considerations, san, volumes
 summary: 过渡期间，您必须确保卷中有足够的可用空间。除了存储数据和 Snapshot 副本所需的空间之外，过渡过程还需要每个 LUN 1 MB 的空间来更新某些文件系统元数据。 
 ---
 = 过渡 SAN 卷时的空间注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

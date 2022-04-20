@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, log, files, tool
 summary: 7- 模式过渡工具可创建日志文件，这些文件提供系统上发生的过渡操作的处理详细信息。日志文件位于安装 7- 模式过渡工具的路径的 logs 目录中。 
 ---
 = 7- 模式过渡工具的日志文件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

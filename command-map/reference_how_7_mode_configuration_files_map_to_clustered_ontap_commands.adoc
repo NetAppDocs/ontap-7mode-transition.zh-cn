@@ -5,6 +5,7 @@ keywords: ontap, command, map, transition, configuration, files, clustered, data
 summary: 在以 7- 模式运行的 Data ONTAP 中，您通常使用平面文件来配置存储系统。在集群模式 Data ONTAP 中，您可以使用配置命令。您需要了解 7- 模式配置文件如何映射到集群模式 Data ONTAP 配置命令。 
 ---
 = 7- 模式配置文件如何映射到集群模式 Data ONTAP 命令
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

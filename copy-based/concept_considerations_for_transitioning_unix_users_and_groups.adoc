@@ -5,6 +5,7 @@ keywords: ontap, copy, based, transition, netgroups, unix, user, groups
 summary: 只有当 7- 模式 /etc/netgroup 文件小于 5 MB 时，才会过渡网络组配置。只有当 SVM 上的 UNIX 用户和组总数不超过 ONTAP 中用户和组的限制时，才会过渡 UNIX 用户和组。 
 ---
 = 过渡网络组以及 UNIX 用户和组的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

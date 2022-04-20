@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, index
 summary: 介绍如何安装和设置 7- 模式过渡工具以实现无副本过渡或基于副本的过渡。 
 ---
 = 《安装和设置指南》
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

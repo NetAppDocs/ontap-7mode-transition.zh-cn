@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, sp, rlm, system, set, up
 summary: 如果尚未在 7- 模式存储系统上配置服务处理器 \ （ SP\ ）或远程 LAN 模块 \ （ RLM\ ），或者您已为 SP 或 RLM 配置 IPv6 地址，则必须为 SP 或 RLM 配置 IPv4 地址。 
 ---
 = 在 7- 模式系统上设置 SP 或 RLM 用于无副本过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

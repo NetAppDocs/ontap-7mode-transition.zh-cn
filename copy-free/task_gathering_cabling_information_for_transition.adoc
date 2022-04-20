@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, gather, cabling, information
 summary: 在开始无副本过渡之前，您必须收集有关 7- 模式控制器的适配器，端口，磁盘架和存储连接的信息，然后规划如何将 7- 模式磁盘架连接到目标集群节点。 
 ---
 = 收集用于过渡的布线信息
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

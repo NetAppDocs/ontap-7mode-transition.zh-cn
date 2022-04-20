@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, transition, snapmirror, copyright
 summary: 使用 SnapMirror 技术进行 7- 模式数据过渡的版权信息。 
 ---
 = 版权
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

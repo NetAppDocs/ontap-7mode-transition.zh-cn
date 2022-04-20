@@ -5,6 +5,7 @@ keywords: ontap, 7, mode, install, uninstall, transition, tool, blocked
 summary: 在使用 7- 模式过渡工具安装程序或卸载程序执行任何操作（例如安装，修复，重新安装，升级，卸载）时， 此时将显示以下错误消息：另一个 NetApp 7- 模式过渡工具安装或卸载实例正在运行。一次只能运行一个实例。 
 ---
 = 阻止安装或卸载 7- 模式过渡工具
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

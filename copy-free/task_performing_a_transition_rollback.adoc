@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, roll, back, project
 summary: 如果要在提交过渡后的聚合之前无副本过渡的任何阶段还原到 7- 模式，则可以回滚过渡。回滚是一项手动操作。您可以使用 7- 模式过渡工具生成回滚时必须执行的手动步骤。 
 ---
 = 回滚无副本过渡项目
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

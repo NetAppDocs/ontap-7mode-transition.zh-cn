@@ -5,6 +5,7 @@ keywords: ontap, san, host, transition, cutover, phase, aix, host, fc, fcoe, con
 summary: 在进入具有 FC 或 FCoE 配置的 AIX 主机的转换阶段之前，必须执行特定步骤。 
 ---
 = 过渡具有 FC/FCoE 配置的 AIX 主机时为转换阶段做准备。
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

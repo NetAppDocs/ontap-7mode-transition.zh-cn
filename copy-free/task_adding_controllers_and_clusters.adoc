@@ -5,6 +5,7 @@ keywords: ontap, transition, copy, free, add, controllers, clusters
 summary: 开始过渡之前，必须添加 7- 模式控制器，包括 7- 模式 HA 对的两个节点以及过渡所需的集群。您应使用集群管理界面添加集群。 
 ---
 = 添加控制器和集群
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
