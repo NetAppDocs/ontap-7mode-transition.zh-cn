@@ -20,6 +20,14 @@ xref:task_preparing_for_transition.adoc[为过渡做准备]
 
 
 
+NetApp建议您配置目标ONTAP 卷以匹配7-模式源卷的属性。要匹配的某些属性包括：
+
+* Volume Size：ONTAP 卷必须至少为7-模式卷的大小。
+* Language：ONTAP 卷设置应与7-模式卷的设置匹配。
+
+
+7-模式过渡工具会自动为ONTAP 卷配置与7-模式卷匹配的属性。
+
 .步骤
 . 将数据从 7- 模式卷复制到集群模式 Data ONTAP 卷：
 +

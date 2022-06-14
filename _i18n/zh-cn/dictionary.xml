@@ -1799,7 +1799,6 @@
   <block id="902c0c6711149dc80ee1ec798672da2a" category="list-text">如果根卷基于属于默认 vFiler 单元的 qtree ，则 7- 模式过渡工具不会过渡 vFiler 单元的根卷。</block>
   <block id="aec68d7de9088eaf3f88f305dc20a67f" category="list-text">如果卷和 qtree 属于不同的 vFiler 单元，则 7- 模式过渡工具不会过渡具有 qtree 的卷。</block>
   <block id="d8b6ec5a952cdc2d6a3524903a90fa21" category="paragraph">过渡此类卷会导致无法访问 qtree 。</block>
-  <block id="04d39dfeb5faffda762cf1acdae0cc20" category="list-text">过渡后的卷无法转换为 FlexGroup 卷。</block>
   <block id="ec95dc299bb96af52039f89734b543eb" category="paragraph">预检操作将显示有关其中某些限制的信息。</block>
   <block id="4f7096702540ecebfa36742113464b45" category="summary">只有在 7- 模式系统和集群满足特定前提条件时， 7- 模式过渡工具才会过渡 NFS 配置。如果不满足任何条件，该工具将不会过渡配置。</block>
   <block id="4f2fc9886dac8cfd7dd67a63a3505b77" category="doc">过渡 NFS 配置的前提条件</block>
@@ -7388,4 +7387,8 @@
   <block id="9b362042e3261f213cb36240632cabd5" category="paragraph"><block ref="9b362042e3261f213cb36240632cabd5" category="inline-link-rx"></block></block>
   <block id="fb434b026a4b3aa9c5aeb3ee21af0d81" category="inline-link-macro">第 3 步</block>
   <block id="6aa5dee008838df0194def910f0b3065" category="list-text">转至 <block ref="012d273ac06ba0defaa828e3a44b011b" category="inline-link-macro-rx"></block>。</block>
+  <block id="182051b066ceb3730c91bc37bf2ef32d" category="paragraph">NetApp建议您配置目标ONTAP 卷以匹配7-模式源卷的属性。要匹配的某些属性包括：</block>
+  <block id="6a76182840bc8cb17fc284d39d33bc7b" category="list-text">Volume Size：ONTAP 卷必须至少为7-模式卷的大小。</block>
+  <block id="9d4d145a5064a246d799bd034370a277" category="list-text">Language：ONTAP 卷设置应与7-模式卷的设置匹配。</block>
+  <block id="a3ffa67a8aa91c98ab4a9e9dc74a21a3" category="paragraph">7-模式过渡工具会自动为ONTAP 卷配置与7-模式卷匹配的属性。</block>
 </blocks>
