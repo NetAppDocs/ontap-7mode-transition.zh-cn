@@ -44,7 +44,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["软�
 +
 [listing]
 ----
-cluster1::> network interface create -vserver cluster1-01 -lif intercluster_lif -role intercluster -home-node cluster1-01 -home-port e0c -address 192.0.2.130 -netmask 255.255.255.0
+cluster1::> network interface create -vserver cluster1 -lif intercluster_lif -role intercluster -home-node cluster1-01 -home-port e0c -address 192.0.2.130 -netmask 255.255.255.0
 ----
 .. 为集群间 LIF 创建静态路由：
 +
@@ -72,8 +72,6 @@ system7mode is alive
 对于多路径，每个节点上必须有两个集群间 LIF 。
 
 https://docs.netapp.com/us-en/ontap/networking/index.html["网络和 LIF 管理"]
-
-* 相关信息 *
 
 xref:task_creating_a_transition_peering_relationship.adoc[创建过渡对等关系]
 
