@@ -51,8 +51,8 @@ xref:task_performing_copy_free_transition_of_7_mode_aggregates.adoc[使用无副
 +
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
 
-.. 使用 `snapmirror delete` 命令删除 TDP SnapMirror 7- 模式主卷与 ONTAP 二级卷之间的关系 在步骤中创建的卷 <<SUBSTEP_D528769DF8EC49058D1958565914CF47,#substed_d528769DF8EC49058D1958565914CF47>>。
-.. 删除在步骤中创建的 cron 作业计划 <<SUBSTEP_EB470706425C45759EAAE8F0A87BA547,#substed_EB470706425C45759EAAE8F0A87BA547>>： + ` * 作业计划 cron delete*`
+.. 使用 `snapmirror delete` 命令删除 TDP SnapMirror 7- 模式主卷与 ONTAP 二级卷之间的关系 在步骤中创建的卷 ,#substed_d528769DF8EC49058D1958565914CF47。
+.. 删除在步骤中创建的 cron 作业计划 ,#substed_EB470706425C45759EAAE8F0A87BA547： + ` * 作业计划 cron delete*`
 .. 在过渡后的主卷和二级卷之间创建卷 SnapMirror 关系。
 +
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-cg/home.html["卷灾难恢复快速准备"]

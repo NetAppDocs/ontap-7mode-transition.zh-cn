@@ -98,7 +98,6 @@
   <block id="6f6cb4af2eb1b076999ea1532d35d8e3" category="paragraph">您可以使用集群模式 Data ONTAP SnapMirror 命令将 NAS 和 SAN 环境中的 7- 模式卷过渡到集群模式 Data ONTAP 卷。过渡完成后，您必须在集群上设置协议，服务和其他配置。</block>
   <block id="fb3ffdd10cec6d7e61d4b3dd65641115" category="paragraph">* 建议： * 您应使用 7- 模式过渡工具从基于副本的过渡到过渡 7- 模式卷，因为该工具提供了预检查功能，可在迁移过程的每个步骤中验证 7- 模式和集群，从而有助于避免许多潜在问题。该工具可显著简化所有协议，网络和服务配置的迁移以及数据迁移。</block>
   <block id="d9cb34065793d4c41d4eed4cf48b349d" category="inline-link">《 7- 模式过渡工具发行说明》</block>
-  <block id="b39e432a1f354787452d348ec8ccfc4d" category="paragraph"><block ref="b39e432a1f354787452d348ec8ccfc4d" category="inline-link-rx"></block></block>
   <block id="52057f98c26897911c78305e0b84e401" category="paragraph">此操作步骤提供了使用 SnapMirror 进行过渡时必须执行的高级任务。</block>
   <block id="e04ed1f16192e374fd421e70ec48fbe3" category="inline-xref-macro">验证您计划过渡的卷是否受支持 用于过渡</block>
   <block id="63ddd50d1496030e4efc6bb65ca26cbc" category="list-text"><block ref="3044790f1c6b78fa6505d6c6cac71684" category="inline-xref-macro-rx"></block>。</block>
@@ -469,10 +468,7 @@
   <block id="d54a88e6102488b4686f328a0f54c5a8" category="list-text">对于 7- 模式过渡工具版本 3.3.3 ，您还可以使用以下操作系统版本之一：</block>
   <block id="85114c48e2a0154779b7fda0b396bfb0" category="list-text">Windows 10 专业版</block>
   <block id="b65ad8a600c099620c7449bd7ce9f7ac" category="admonition">您可以使用满足所需软件要求和硬件要求的 Windows 虚拟机来安装 7- 模式过渡工具。</block>
-  <block id="c230fdb80b8da757746cad17d0846f23" category="list-text">64 位 Oracle Java Runtime Environment （ JRE ） 1.8 update 144</block>
-  <block id="6f4734ae41213296dedbb453ce6b4fc8" category="admonition">如果 Windows 主机未安装 JRE 或安装了 32 位 JRE ，则 7- 模式过渡工具安装程序会自动安装 64 位 JRE 1.8 update 144 。如果安装了早期版本的 64 位 JRE ，则安装程序会自动将 JRE 更新到 JRE 1.8 update 144 。</block>
   <block id="9db8379d081443245f4a410ecbcac0cb" category="paragraph">自动更新 JRE 后，需要早期版本 JRE 的其他应用程序可能会受到影响。</block>
-  <block id="5a61241aaacfbb3eb5c7b5535936e03f" category="admonition">对于 JRE 1.8 update 46 或更高版本（包括 JRE 1.8 update 144 ），要使 7- 模式过渡工具与 7- 模式系统和 ONTAP 系统中的 Data ONTAP 进行通信，在 7- 模式系统和 ONTAP 系统中运行的 Data ONTAP 上的 SSL 密钥长度必须至少为 1024 。</block>
   <block id="0e093531365c0bba31e2b45abf2bc1c3" category="inline-link">7MTT ：如何解析 TLS 或 SSL 通信问题描述</block>
   <block id="91615dc67083d816145f87b6060ace0b" category="paragraph"><block ref="91615dc67083d816145f87b6060ace0b" category="inline-link-rx"></block></block>
   <block id="ad5a4b432b50a54689ad10768c2c0b54" category="section-title">服务器配置要求</block>
@@ -614,9 +610,7 @@
   <block id="2405fa724dc26f70b0baa8ad831062bb" category="paragraph">您可以通过单击 * 此程序已正确安装 * 来忽略此通知。</block>
   <block id="fd00b11ac62d48083e1c4fad16747fc0" category="summary">您可以使用基于向导的标准安装程序在 Windows 系统上下载并安装 7- 模式过渡工具。但是，如果您先前安装了 7- 模式过渡工具版本，则在执行此操作之前，您需要了解某些前提条件。</block>
   <block id="0dde23a3f51b9430f58ea2e62f0d1056" category="doc">在 Windows 上安装或卸载 7- 模式过渡工具 系统</block>
-  <block id="9ea0f21dd3ae9719b3998e259c4c948a" category="list-text">如果系统中安装的 7- 模式过渡工具版本早于 3.0 ，则需要先卸载该 7- 模式过渡工具，然后再安装 7- 模式过渡工具 3.3 。</block>
   <block id="c9c4393484646c8d4d10a30fc46c0024" category="paragraph">如果您选择在卸载期间保留日志文件，则必须为日志文件创建备份。7- 模式过渡工具安装程序会将该工具安装到同一文件夹中，并在下次运行时覆盖日志文件。</block>
-  <block id="af8fd495d2564f954308446d06867289" category="list-text">如果您的系统中安装了 7- 模式过渡工具 3.0 或更高版本，则在安装 7- 模式过渡工具 3.3 之前，必须满足以下条件：</block>
   <block id="ea3c03fc1e8cc41bfa7761c8673cf886" category="list-text">所有现有的基于副本的过渡项目都必须完成或中止。</block>
   <block id="c289e5fe5901e5b311647e928a94d2fb" category="list-text">所有现有的无副本过渡项目都必须完成或回滚完成。</block>
   <block id="d13e4f51bd76e26ac934f2756979824e" category="summary">在使用 7- 模式过渡工具安装程序或卸载程序执行任何操作（例如安装，修复，重新安装，升级，卸载）时， 此时将显示以下错误消息：另一个 NetApp 7- 模式过渡工具安装或卸载实例正在运行。一次只能运行一个实例。</block>
@@ -643,7 +637,6 @@
   <block id="bef0ecaff88f9e1fe834c31db5e173a0" category="list-text">Red Hat Enterprise Linux 7.0 （ 7- 模式过渡工具 3.3.2 及更高版本）</block>
   <block id="275d22b5a45e39f77f0883aa64f3a396" category="list-text">CentOS 6.4 版</block>
   <block id="e175ac66c6d8ee1c08565e54a926608d" category="admonition">您可以使用满足所需软件和硬件要求的 Linux 虚拟机来安装 7- 模式过渡工具。</block>
-  <block id="cd1e0efe07681923a24b966e9a1b6626" category="list-text">64 位 Oracle JRE 1.8 update 45</block>
   <block id="7dcffacdfc39b07e76761b6019697a9b" category="list-text">7-zip 实用程序（`rpmforge-release-0.3.6-1.el5.rf.x86_64.rpm` ）</block>
   <block id="3f372cd6b37fbd4ee876989cc8704622" category="admonition">在配置 7- 模式过渡工具之前，必须在 Linux 系统上安装 JRE 1.8 和 7-zip 实用程序。</block>
   <block id="bbb7c0494f9a88c1d2325b9de8e9b68e" category="summary">7- 模式过渡工具安装失败，并显示错误消息 7- 模式过渡工具与此版本的 Windows 不兼容。</block>
@@ -3651,7 +3644,6 @@
   <block id="b622dd1af4c52ef21896dc007311bbd3" category="list-text">指定要配置的 IP 地址，目标 SVM 和其他网络参数。</block>
   <block id="8ab50307360eab81623636bb1a4fb4fd" category="admonition">目标端口必须与目标 SVM 位于同一 IP 空间中。</block>
   <block id="a06a523614f6a8189e463ac909fc646d" category="paragraph">此时将显示 Plan Configuration 选项卡。</block>
-  <block id="f478f948e7ee04a9bd3244ae1fdefb7f" category="admonition">要评估用于无副本过渡的主机和控制器，必须使用清单收集工具 3.3 收集清单。</block>
   <block id="3d8681c4860ac3a57d1d2f7bc8baa5bb" category="summary">您应将 HA 对中的每个 7- 模式控制器映射到目标 SVM 。如果您有 vFiler 单元，则应为每个 vFiler 单元选择一个目标 SVM 。7- 模式控制器或 vFiler 单元中的卷将过渡到映射的 SVM 。</block>
   <block id="e355b11e2eaa9d7eea05fa53b25548c5" category="doc">映射 SVM 和卷</block>
   <block id="e864ae7abd9c7cc9f36d51906c0d8eda" category="paragraph">您必须已在目标集群上创建 SVM 。</block>
@@ -7362,7 +7354,6 @@
   <block id="1c9152f368de31db41831aa06ca3ff7f" category="paragraph">请务必参考当前的 7- 模式过渡工具 <block ref="83cc5c8d91a883b7386631a4791b799c" category="inline-link-rx"></block> 有关受支持的目标版本和已知问题的最新信息。</block>
   <block id="29318b07dba1364571e56550c6f089bf" category="paragraph">ONTAP 9.9.1 或更早版本支持</block>
   <block id="1321b4a11e7642a0f35bd828b82c3a59" category="paragraph">3.4.0</block>
-  <block id="0b5140d2bd87babd5325d2c620f67458" category="paragraph">。 <block ref="e11c70138711c8e98b53b976fc9ee495" category="inline-link-rx"></block> 描述新功能，升级说明，已修复的问题，已知限制和已知问题。</block>
   <block id="ec1d5ad5ad898c81b5f00a9f147fad45" category="inline-link">光纤连接 MetroCluster 安装和配置， ONTAP 9.8 或更早版本</block>
   <block id="294ed429f3ed2548ab75f1b87845ce8b" category="paragraph"><block ref="294ed429f3ed2548ab75f1b87845ce8b" category="inline-link-rx"></block></block>
   <block id="1d0fe3d6b69b0ad2a9f89a1a2dffe662" category="inline-link">光纤连接的 MetroCluster 安装和配置， ONTAP 9.9.1</block>
@@ -7391,4 +7382,17 @@
   <block id="6a76182840bc8cb17fc284d39d33bc7b" category="list-text">Volume Size：ONTAP 卷必须至少为7-模式卷的大小。</block>
   <block id="9d4d145a5064a246d799bd034370a277" category="list-text">Language：ONTAP 卷设置应与7-模式卷的设置匹配。</block>
   <block id="a3ffa67a8aa91c98ab4a9e9dc74a21a3" category="paragraph">7-模式过渡工具会自动为ONTAP 卷配置与7-模式卷匹配的属性。</block>
+  <block id="49640ebd1f7f02a38a79638aca90ba3f" category="paragraph">ONTAP 9.10.1、ONTAP 9.11.1或更早版本支持</block>
+  <block id="c45454a225fb911ddb8f9c192a897fdd" category="paragraph">3.5.0</block>
+  <block id="9e5847802a04b3aeaaf3d2904bc221ba" category="paragraph">。 <block ref="f69448c82034041cb590913655249707" category="inline-link-macro-rx"></block> 描述新功能，升级说明，已修复的问题，已知限制和已知问题。</block>
+  <block id="8d8bb27db49aa4f6be45f0dc1c08177f" category="list-text">64位Oracle Java Runtime Environment (JRE) 1.8 update 331</block>
+  <block id="f36838ca59d078d785b9d63c0606a383" category="admonition">如果Windows主机未安装JRE或安装了32位JRE、则7-模式过渡工具安装程序会自动安装64位JRE 1.8 update 331。如果安装了早期版本的64位JRE、则安装程序会自动将JRE更新到JRE 1.8 update 331。</block>
+  <block id="d6bf1e6c9be2cb497bd73e626210075f" category="admonition">对于JRE 1.8 update 46或更高版本(包括JRE 1.8 update 331)、要使7-模式过渡工具与7-模式系统和ONTAP 系统中的Data ONTAP 进行通信、在7-模式系统和ONTAP 系统中运行的Data ONTAP 上的SSL密钥长度必须至少为1024。</block>
+  <block id="e10a550ac8477468a5588480882bda67" category="list-text">64位Oracle JRE 1.8 update 331</block>
+  <block id="ea31ac5ad2e06c3fe9cb8195db5adf51" category="list-text">如果系统中安装的7-模式过渡工具版本早于3.0、则需要先卸载该版本、然后再安装最新版本。</block>
+  <block id="29e1a4e919eb5c025fe148e0b575ffaa" category="list-text">如果您的系统中安装了7-模式过渡工具3.0或更高版本、则在安装最新版本的7-模式过渡工具之前、必须满足以下条件：</block>
+  <block id="6f6819dd21dbd8a646ea9df4c166c414" category="admonition">要评估用于无副本过渡的主机和控制器、您必须使用最新版本的清单收集工具来收集清单。</block>
+  <block id="c56554efd1f85bba5b98f6ca401f2fda" category="paragraph"><block ref="c56554efd1f85bba5b98f6ca401f2fda" category="inline-link-macro-rx"></block></block>
+  <block id="2926f2591b66c0122ef9f741a49d26aa" category="paragraph">在这两种情况下、您都必须使用最新版本的清单收集工具来收集清单。</block>
+  <block id="d1b92a4930d50c6ed1038655db0d2684" category="sidebar">所有ONTAP 产品文档</block>
 </blocks>

@@ -15,7 +15,7 @@ summary: 您应了解无副本过渡对 7- 模式系统，集群， ONTAP 版本
 
 请务必查阅当前的 7- 模式过渡工具 _Release Notes_ ，了解有关受支持的目标版本和已知问题的最新信息。
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-72c-rn/home.html["《 7- 模式过渡工具发行说明》"]
+link:https://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["《 7- 模式过渡工具发行说明》"]
 
 * * 平台型号 *
 +

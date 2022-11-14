@@ -40,7 +40,7 @@ NOTE: 您可以使用满足所需软件和硬件要求的 Linux 虚拟机来安�
 
 
 
-* 64 位 Oracle JRE 1.8 update 45
+* 64位Oracle JRE 1.8 update 331
 * 7-zip 实用程序（`rpmforge-release-0.3.6-1.el5.rf.x86_64.rpm` ）
 
 

@@ -59,17 +59,17 @@ NOTE: 您可以使用满足所需软件要求和硬件要求的 Windows 虚拟�
 
 
 
-* 64 位 Oracle Java Runtime Environment （ JRE ） 1.8 update 144
+* 64位Oracle Java Runtime Environment (JRE) 1.8 update 331
 +
 
-NOTE: 如果 Windows 主机未安装 JRE 或安装了 32 位 JRE ，则 7- 模式过渡工具安装程序会自动安装 64 位 JRE 1.8 update 144 。如果安装了早期版本的 64 位 JRE ，则安装程序会自动将 JRE 更新到 JRE 1.8 update 144 。
+NOTE: 如果Windows主机未安装JRE或安装了32位JRE、则7-模式过渡工具安装程序会自动安装64位JRE 1.8 update 331。如果安装了早期版本的64位JRE、则安装程序会自动将JRE更新到JRE 1.8 update 331。
 
 +
 自动更新 JRE 后，需要早期版本 JRE 的其他应用程序可能会受到影响。
 
 +
 
-NOTE: 对于 JRE 1.8 update 46 或更高版本（包括 JRE 1.8 update 144 ），要使 7- 模式过渡工具与 7- 模式系统和 ONTAP 系统中的 Data ONTAP 进行通信，在 7- 模式系统和 ONTAP 系统中运行的 Data ONTAP 上的 SSL 密钥长度必须至少为 1024 。
+NOTE: 对于JRE 1.8 update 46或更高版本(包括JRE 1.8 update 331)、要使7-模式过渡工具与7-模式系统和ONTAP 系统中的Data ONTAP 进行通信、在7-模式系统和ONTAP 系统中运行的Data ONTAP 上的SSL密钥长度必须至少为1024。
 
 +
 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT%3A_How_to_resolve_TLS_or_SSL_communication_issue["7MTT ：如何解析 TLS 或 SSL 通信问题描述"]

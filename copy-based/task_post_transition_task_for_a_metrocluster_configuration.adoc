@@ -20,5 +20,5 @@ summary: 过渡期间创建的 cron 作业计划不会复制到远程站点，�
 +
 image::../media/mcc_cron_jobs.gif[MCC cron 作业]
 
-. 从远程站点的集群 CLI 中，运行中记录的 `job schedule cron create` 命令 <<STEP_F72D5FA759564336A365328A3414D57A,第 1 步>>。
+. 从远程站点的集群 CLI 中，运行中记录的 `job schedule cron create` 命令 ,第 1 步。
 
