@@ -95,8 +95,6 @@
   <block id="c62447732363f2bf226adb136db0e080" category="paragraph">` * options interface.blocked.mgmt_data_traffic off*`</block>
   <block id="65284087916121cb594421ecdfda6fc6" category="summary">您可以使用集群模式 Data ONTAP SnapMirror 命令将 NAS 和 SAN 环境中的 7- 模式卷过渡到集群模式 Data ONTAP 卷。过渡完成后，您必须在集群上设置协议，服务和其他配置</block>
   <block id="22321f18678f51239e376a4c83a88257" category="doc">使用 SnapMirror 过渡 7- 模式卷</block>
-  <block id="6f6cb4af2eb1b076999ea1532d35d8e3" category="paragraph">您可以使用集群模式 Data ONTAP SnapMirror 命令将 NAS 和 SAN 环境中的 7- 模式卷过渡到集群模式 Data ONTAP 卷。过渡完成后，您必须在集群上设置协议，服务和其他配置。</block>
-  <block id="fb3ffdd10cec6d7e61d4b3dd65641115" category="paragraph">* 建议： * 您应使用 7- 模式过渡工具从基于副本的过渡到过渡 7- 模式卷，因为该工具提供了预检查功能，可在迁移过程的每个步骤中验证 7- 模式和集群，从而有助于避免许多潜在问题。该工具可显著简化所有协议，网络和服务配置的迁移以及数据迁移。</block>
   <block id="d9cb34065793d4c41d4eed4cf48b349d" category="inline-link">《 7- 模式过渡工具发行说明》</block>
   <block id="52057f98c26897911c78305e0b84e401" category="paragraph">此操作步骤提供了使用 SnapMirror 进行过渡时必须执行的高级任务。</block>
   <block id="e04ed1f16192e374fd421e70ec48fbe3" category="inline-xref-macro">验证您计划过渡的卷是否受支持 用于过渡</block>
@@ -7395,4 +7393,11 @@
   <block id="c56554efd1f85bba5b98f6ca401f2fda" category="paragraph"><block ref="c56554efd1f85bba5b98f6ca401f2fda" category="inline-link-macro-rx"></block></block>
   <block id="2926f2591b66c0122ef9f741a49d26aa" category="paragraph">在这两种情况下、您都必须使用最新版本的清单收集工具来收集清单。</block>
   <block id="d1b92a4930d50c6ed1038655db0d2684" category="sidebar">所有ONTAP 产品文档</block>
+  <block id="83e14c89cceb4cee82c0bcea3943ea26" category="paragraph">从ONTAP 9.12.1开始、您无法再使用SnapMirror技术过渡7-模式卷。</block>
+  <block id="8d73bc8fd1f6fe79df1b2f9f4cb47d7a" category="paragraph">但是、对于ONTAP 9.11.1及更早版本、您可以使用集群模式Data ONTAP SnapMirror命令将NAS和SAN环境中的7-模式卷过渡到集群模式Data ONTAP 卷。过渡完成后、您必须在集群上设置协议、服务和其他配置。</block>
+  <block id="8f2de78b174393b6f012a8a48075011a" category="paragraph">*建议：*对于ONTAP 9.11.1及更早版本、您应使用7-模式过渡工具进行基于副本的过渡、以过渡7-模式卷、因为该工具提供了预检查功能、可在迁移过程的每个步骤中验证7-模式和集群、这有助于避免许多潜在问题。该工具可显著简化所有协议、网络和服务配置的迁移以及数据迁移。</block>
+  <block id="14503597a83a9a659ac01dfe5d92fc94" category="paragraph">在升级到ONTAP 9.12.1之前、您必须执行以下操作：</block>
+  <block id="4becad62808b60a7ce0cf207dc1d59a2" category="list-text">运行以下命令以使SnapMirror目标卷可写：<block ref="e1d39aa448c4c7cc75f1a16830613e32" prefix=" " category="inline-code"></block></block>
+  <block id="896a1e49f55fa67da657cb7cf7f5fc24" category="list-text">运行以下命令以删除所有TDP SnapMirror关系：<block ref="730d187801768a4d84de4567732a6c18" prefix=" " category="inline-code"></block></block>
+  <block id="30f60d67f457bb040dffde52197a54da" category="paragraph-title">相关信息</block>
 </blocks>

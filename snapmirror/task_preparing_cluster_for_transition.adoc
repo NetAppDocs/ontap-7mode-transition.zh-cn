@@ -73,6 +73,7 @@ system7mode is alive
 
 https://docs.netapp.com/us-en/ontap/networking/index.html["网络和 LIF 管理"]
 
+.相关信息
 xref:task_creating_a_transition_peering_relationship.adoc[创建过渡对等关系]
 
 https://mysupport.netapp.com/site/docs-and-kb["NetApp 文档：产品库 A-Z"]
