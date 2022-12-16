@@ -23,7 +23,11 @@ https://library.netapp.com/ecmdocs/ECMLP2492508/html/frameset.html["《 ONTAP 9 
 * ONTAP 9.7P2 及更高版本 9.7
 * ONTAP 9.6P7 及更高版本 9.6
 * ONTAP 9.0 到 ONTAP 9.5
+* ONTAP 9.9.1及更高版本
+* ONTAP 9.10.1及更高版本
 
+
+从ONTAP 9.12.1开始、您无法再使用SnapMirror技术过渡7-模式卷。
 
 在以下情况下，您可以使用 SnapMirror 过渡数据：
 
