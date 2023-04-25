@@ -369,15 +369,10 @@
   <block id="8f9b64b3e8b249530c3e7af9bb55f9a6" category="paragraph">您可以使用数据复制 IP 地址和多路径 IP 地址指定两个过渡路径。但是，这两个路径只能用于负载平衡，而不能用于故障转移。</block>
   <block id="9ab93b9801d24dd493ae9317fa868d24" category="summary">您可以将 7- 模式 SnapLock 卷过渡到在 ONTAP 9.5 或更早版本中创建的 SnapLock 卷。您必须了解过渡 SnapLock 卷的要求和准则。</block>
   <block id="9775f07e175b548ab2bd419f19070f93" category="list-text">如果 7- 模式 SnapLock 卷包含 LUN ，则不支持过渡 SnapLock 卷。</block>
-  <block id="cf4fd90637510c596991d81db7107f4e" category="list-text">在 ONTAP 9.5 或更早版本中，只能将 7- 模式 SnapLock 企业卷过渡到 SnapLock 企业卷。</block>
-  <block id="0c8ef814c009d3861680ce164fba0dec" category="list-text">在 ONTAP 9.5 或更早版本中，只能将 7- 模式 SnapLock 合规性卷过渡到 SnapLock 合规性卷。</block>
   <block id="8a7eb801e6d32d53d8569ffc29d3b3b4" category="list-text">过渡 7- 模式卷 SnapMirror 关系时，只能对 SnapLock 企业卷使用交错过渡（先过渡二级卷，然后再过渡主卷）。</block>
   <block id="f49c7c11d30827c5826315411d6e270b" category="paragraph">只有 SnapLock 企业卷支持 7- 模式主卷和 ONTAP 二级卷之间的 SnapMirror 灾难恢复（ DR ）关系，但 SnapLock 合规性卷不支持这种关系。</block>
-  <block id="1cde198e883c2df917f6d51bae4a77b1" category="paragraph"><block ref="1cde198e883c2df917f6d51bae4a77b1" category="inline-xref-macro-rx"></block></block>
   <block id="49b288fe4fe7fdfa9bacf0edfbf42dd0" category="list-text">您必须通过并行过渡主卷和二级卷来过渡 SnapLock Compliance 卷之间的 7- 模式卷 SnapMirror 关系。</block>
-  <block id="bbdb7841fc38b8d7be1d2a2b7d6c3514" category="paragraph"><block ref="bbdb7841fc38b8d7be1d2a2b7d6c3514" category="inline-xref-macro-rx"></block></block>
   <block id="0fa5978d853b9b8f9a804a9ddf7dacd7" category="inline-link">使用 SnapLock 技术实现归档和合规性</block>
-  <block id="acd084e701650a06feecd55f2315ff07" category="paragraph"><block ref="acd084e701650a06feecd55f2315ff07" category="inline-link-rx"></block></block>
   <block id="00a950d464aec22c6491bca0924155b9" category="summary">在发生灾难后， 7- 模式主卷恢复联机后，您必须过渡 7- 模式主卷。由于在此阶段会断开并删除与 7- 模式主卷的所有 SnapMirror 关系，因此您可以在此类过渡中过渡独立卷。</block>
   <block id="e3d926aa185047f6ebca8c9278bfbcc6" category="doc">将 7- 模式主卷过渡为独立卷</block>
   <block id="bcb45d696aa60f6adba0263648537e61" category="summary">使用 SnapMirror 技术进行 7- 模式数据过渡的版权信息。</block>
@@ -7402,4 +7397,15 @@
   <block id="30f60d67f457bb040dffde52197a54da" category="paragraph-title">相关信息</block>
   <block id="bcb3bf3e1c3ba469a7b1637a41c81602" category="list-text">ONTAP 9.9.1及更高版本</block>
   <block id="3b6e2da5c7b4f7bde13de4a566801528" category="list-text">ONTAP 9.10.1及更高版本</block>
+  <block id="02c0afc6dc57e30e77048bd78577f569" category="paragraph">要将7-模式SnapLock 卷过渡到ONTAP 9、您必须了解这些要求和准则。</block>
+  <block id="3c6e2b20b81b258a6d07d897dcbc8837" category="list-text">在任何ONTAP 9版本(ONTAP 9.6除外)中、您都可以将7-模式SnapLock 企业卷过渡到SnapLock 企业卷。</block>
+  <block id="608d66a1ffc83b62ff9b96b7a6066895" category="list-text">在任何ONTAP 9版本(ONTAP 9.6除外)中、您都可以将7-模式SnapLock 合规性卷过渡到SnapLock 合规性卷。</block>
+  <block id="d36c067563923a380ef9881a94cc42b6" category="inline-xref-macro">在交错配置中过渡卷SnapMirror关系^</block>
+  <block id="0cd6f41df3c2d79cbd91a1447c9355fe" category="paragraph"><block ref="0cd6f41df3c2d79cbd91a1447c9355fe" category="inline-xref-macro-rx"></block></block>
+  <block id="17fe715938ef8ba6b00ab8211c5adc65" category="inline-xref-macro">正在并行过渡卷SnapMirror关系^</block>
+  <block id="99697f507574bc1c8485cdace03a71af" category="paragraph"><block ref="99697f507574bc1c8485cdace03a71af" category="inline-xref-macro-rx"></block></block>
+  <block id="c905bec502c0652d10ba29c85c9c376b" category="list-text">从ONTAP 9.10.1开始、可以在同一聚合中创建SnapLock 卷和非SnapLock卷。</block>
+  <block id="856bd2e5c36198b1a4a96c3c36174ff1" category="paragraph">要将7-模式SnapLock 卷过渡到ONTAP 9.10.1或更高版本、必须使用手动创建ONTAP 卷<block ref="9febb3295321c7fd9a2154b2dd4fe68c" prefix=" " category="inline-code"></block> 标志。手动创建卷后、使用7-模式过渡工具管理过渡。</block>
+  <block id="a0067b25c6979c2f6c86fb81b30b1b94" category="paragraph">如果使用7-模式过渡工具在ONTAP 9.10.1或更高版本中创建卷、则不会将该卷创建为SnapLock 卷、从而导致SnapMirror基线失败。</block>
+  <block id="b5d693096cb7f86384fa4012d1d2a0cb" category="paragraph"><block ref="b5d693096cb7f86384fa4012d1d2a0cb" category="inline-link-rx"></block></block>
 </blocks>
