@@ -38,4 +38,4 @@ summary: 只有在 7- 模式系统和集群满足特定前提条件时， 7- 模
 
 * 相关信息 *
 
-http://docs.netapp.com/ontap-9/index.jsp["NetApp 文档： ONTAP 9"]
+http://["NetApp 文档： ONTAP 9"]

@@ -23,4 +23,4 @@ summary: 7- 模式过渡工具支持过渡 SnapMirror 关系中的独立 SnapLoc
 
 在转换操作期间，如果选定卷是 SnapLock Compliance 卷且它是 SnapMirror 关系的目标，则会删除 7- 模式卷与 ONTAP 卷之间的 SnapMirror 关系，而不执行 SnapMirror 中断操作。此操作可使二级 ONTAP SnapLock Compliance 卷保持只读模式。要在主 SnapLock Compliance 卷和二级 ONTAP SnapLock Compliance 卷之间成功执行重新同步操作，二级 Compliance 卷必须处于只读模式。
 
-请参见 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_transition_the_7-Mode_SnapLock_Compliance_volumes_with_SnapMirror_relationship_to_clustered_Data_ONTAP["如何使用 SnapMirror 过渡 7- 模式 SnapLock 合规性卷 与集群模式 Data ONTAP 的关系"]
+请参见 https://["如何使用 SnapMirror 过渡 7- 模式 SnapLock 合规性卷 与集群模式 Data ONTAP 的关系"]

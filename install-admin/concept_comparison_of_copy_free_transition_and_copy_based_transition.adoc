@@ -38,7 +38,7 @@ HA 对
  a| 
 平台要求
  a| 
-仅在中高端平台上支持 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+仅在中高端平台上支持 https://["NetApp 互操作性表工具"]
  a| 
 在所有平台上均受支持
 

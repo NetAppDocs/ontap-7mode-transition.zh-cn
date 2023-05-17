@@ -35,4 +35,4 @@ summary: 只有当 7- 模式 /etc/netgroup 文件小于 5 MB 时，才会过渡�
 
 * 相关信息 *
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]
+https://["NFS 管理"]

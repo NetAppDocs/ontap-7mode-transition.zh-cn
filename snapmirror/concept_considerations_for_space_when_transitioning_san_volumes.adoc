@@ -23,4 +23,4 @@ summary: 过渡期间，您必须确保卷中有足够的可用空间。除了�
 
 * 相关信息 *
 
-http://docs.netapp.com/ontap-9/index.jsp["NetApp 文档： ONTAP 9"]
+http://["NetApp 文档： ONTAP 9"]

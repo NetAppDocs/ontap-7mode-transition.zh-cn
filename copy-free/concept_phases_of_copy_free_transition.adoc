@@ -134,4 +134,4 @@ IMPORTANT: 由于测试期间执行的聚合 Snapshot 副本和写入操作，�
 
 * 相关信息 *
 
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+https://["NetApp 下载： Config Advisor"]

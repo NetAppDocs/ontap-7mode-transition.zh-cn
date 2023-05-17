@@ -23,7 +23,7 @@ xref:concept_system_requirements_for_7_mode_transition_tool_on_linux.adoc[在 Li
 .步骤
 . 从 NetApp 支持站点下载 `tar.gz` 文件。
 +
-http://mysupport.netapp.com/NOW/cgi-bin/software["NetApp 下载：软件"]
+http://["NetApp 下载：软件"]
 
 . 将 `tar.gz` 文件解压缩到 Linux 系统中的目录：
 +

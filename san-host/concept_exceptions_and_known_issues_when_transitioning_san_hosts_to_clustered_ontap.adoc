@@ -19,6 +19,6 @@ summary: 在将 SAN 主机从 7- 模式 Data ONTAP 过渡到更高版本的 ONTA
 
 * 如果在 7- 模式控制器的两个节点上使用相同的 igroup 名称，则过渡工具可能无法解决 igroup 冲突。
 +
-错误 ID https://mysupport.netapp.com/NOW/cgi-bin/bol?Type=Detail&Display=769715["769715"]。
+错误 ID https://["769715"]。
 
 

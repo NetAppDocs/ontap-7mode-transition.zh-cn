@@ -859,7 +859,7 @@ du -vserver _vservername_ -path _pathname_ -uvolume file show-disk-usage -vserve
  a| 
 不支持您必须按照磁带备份文档中所述使用 NDMP 启动备份。要使用 dump-to-null 功能，必须设置 NDMP 环境变量 dump_to_NULL 。
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ptbrg/home.html["使用磁带备份保护数据"]
+https://["使用磁带备份保护数据"]
 
 |===
 [role="lead"]
@@ -2500,7 +2500,7 @@ reboot -inhibit-takeover true -node _nodename_
 
 您必须按照磁带备份文档中所述使用 NDMP 启动还原。
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ptbrg/home.html["使用磁带备份保护数据"]
+https://["使用磁带备份保护数据"]
 
 
 
@@ -4053,7 +4053,7 @@ volume show -fields aggregate
 * 使用 SnapMirror 复制原始卷，然后中断 SnapMirror 关系以创建读写卷副本。
 
 
-http://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-5578BA46-5522-4BA6-B354-5C924B8207B1.html["《逻辑存储管理指南》"]
+http://["《逻辑存储管理指南》"]
 
 
 

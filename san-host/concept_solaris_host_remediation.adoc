@@ -20,7 +20,7 @@ summary: 如果要在 SAN 环境中使用 7- 模式过渡工具 \ （ 7MTT\ ）�
 您可以通过运行 Solaris Host Utilities 并使用 FC 协议来设置 SAN 启动 LUN ，使其能够在 Veritas 动态多路径（ DMP ）环境或 Solaris MPxIO 环境中工作。根据卷管理器和文件系统的不同，设置 SAN 启动 LUN 的方法可能会有所不同。
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2748974["《 Solaris Host Utilities 6.2 安装和设置指南》"]
+https://["《 Solaris Host Utilities 6.2 安装和设置指南》"]
 
 * Solaris 主机集群过渡
 * Veritas 配置

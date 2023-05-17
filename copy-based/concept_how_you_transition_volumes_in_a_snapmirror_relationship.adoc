@@ -263,7 +263,7 @@ NOTE: 7- 模式过渡工具不会过渡 SAN LIF 。
 . 如果目标集群运行的是 Data ONTAP 8.3.1 或更早版本，则必须手动映射二级 LUN 。
 . 对于 SAN 过渡，请手动重新配置主机。
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 主机过渡和修复"]
+http://["SAN 主机过渡和修复"]
 
 . 通过验证以下内容，确保 SVM 已准备好向客户端提供数据：
 +

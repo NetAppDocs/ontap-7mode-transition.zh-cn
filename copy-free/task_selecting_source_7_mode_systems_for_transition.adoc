@@ -15,7 +15,7 @@ summary: 规划过渡项目的第一步是，选择要从中过渡磁盘架，�
 
 * HA 对中的 7- 模式控制器必须在支持无副本过渡的平台上运行受支持的 ONTAP 版本。
 +
-https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+https://["NetApp 互操作性表工具"]
 
 * HA 配置中的两个控制器都必须运行状况良好。
 +

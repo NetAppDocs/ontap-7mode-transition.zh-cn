@@ -21,4 +21,4 @@ summary: 如果 ESXi 主机使用 VMware 软件 iSCSI 启动程序访问在 7- �
 
 * 相关信息 *
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
+https://["系统管理"]

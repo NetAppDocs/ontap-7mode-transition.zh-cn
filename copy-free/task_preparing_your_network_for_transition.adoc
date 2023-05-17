@@ -44,4 +44,4 @@ NOTE: IPv6 地址无法过渡，必须在过渡后手动配置。
 
 * 相关信息 *
 
-https://docs.netapp.com/us-en/ontap/networking/index.html["网络和 LIF 管理"]
+https://["网络和 LIF 管理"]

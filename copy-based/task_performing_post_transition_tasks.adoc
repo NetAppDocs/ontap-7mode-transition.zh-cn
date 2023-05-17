@@ -24,7 +24,7 @@ summary: 成功完成存储转换并完成过渡后，您必须先执行一些�
 
 . SAN 过渡：手动重新配置主机。
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 主机过渡和修复"]
+http://["SAN 主机过渡和修复"]
 
 . 通过验证以下内容，确保 SVM 已准备好向客户端提供数据：
 +
@@ -37,4 +37,4 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["S
 
 * 相关信息 *
 
-http://docs.netapp.com/ontap-9/index.jsp["NetApp 文档： ONTAP 9"]
+http://["NetApp 文档： ONTAP 9"]

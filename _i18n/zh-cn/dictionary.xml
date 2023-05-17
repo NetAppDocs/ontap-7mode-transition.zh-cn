@@ -330,7 +330,6 @@
   <block id="4f32fca5c7ed5622e069669fa03557ac" category="list-text">验证是否可以使用集群间 LIF 对 7- 模式系统执行 ping 操作：</block>
   <block id="5e1cf994f378f5b50410c9e28eaf92cb" category="paragraph">` * network ping -lif _intercluster_lif_ -vserver _svm_name_ -destination _remote_inetaddress_*`</block>
   <block id="c3a57af1ea428023e313ba644950b91b" category="paragraph">对于多路径，每个节点上必须有两个集群间 LIF 。</block>
-  <block id="bc3d619cb2db28a4bb6fdf98a10e1f1f" category="paragraph"><block ref="bc3d619cb2db28a4bb6fdf98a10e1f1f" category="inline-link-rx"></block></block>
   <block id="4811daeb6c91410bbc06a918bc2633a0" category="paragraph"><block ref="4811daeb6c91410bbc06a918bc2633a0" category="inline-xref-macro-rx"></block></block>
   <block id="0affad787d4ba4f0a18ffd0e143886e5" category="inline-link">NetApp 文档：产品库 A-Z</block>
   <block id="388493b6bf5607468652914f0f2f08d9" category="paragraph"><block ref="388493b6bf5607468652914f0f2f08d9" category="inline-link-rx"></block></block>
@@ -3056,8 +3055,6 @@
   <block id="3d762b48e0608981ecc94727a85c45e3" category="list-text">提交二级项目的过渡，然后提交主项目。</block>
   <block id="bdb602be382a05aa18767e8004ce53ee" category="inline-xref-macro">提交无副本过渡项目</block>
   <block id="2b3a8e5e92683e57646aca1dec3f50a8" category="paragraph"><block ref="2b3a8e5e92683e57646aca1dec3f50a8" category="inline-xref-macro-rx"></block></block>
-  <block id="c7e90c4bd08c796e50d8af0c6b346a93" category="inline-link">使用 System Manager 进行集群管理</block>
-  <block id="e68762e2e9b4dde18fd46ef04bf3d83f" category="paragraph"><block ref="e68762e2e9b4dde18fd46ef04bf3d83f" category="inline-link-rx"></block></block>
   <block id="a3673033d5bc1a9ea6f19f32f5108343" category="summary">您应了解如何对 7- 模式过渡工具的问题进行故障排除，以及如何查找日志文件。使用 7- 模式过渡工具时，您可能会看到错误消息，指出问题描述并提供解决方案。</block>
   <block id="3e63d94eb85f8be6b49610218e5b6c51" category="doc">对过渡问题进行故障排除</block>
   <block id="21c1d8dfa4939316165ddc523e7398e8" category="summary">您应在预生产环境中手动测试所有工作负载和应用程序。然后，您可以在提交项目之前，对是否需要回滚进行短暂的生产启动。</block>
@@ -3507,11 +3504,7 @@
   <block id="89e9376c64d88102a1755b2bcb5ebdc8" category="paragraph">由于卷中缺少空间，当前已禁用卷的空间保证。</block>
   <block id="37cbd8ae933eaccbe38fb27aa9624b57" category="paragraph">7- 模式系统中存在 qtree 导出规则。</block>
   <block id="0529ad04c3bacd18bc088e405c872bc9" category="paragraph">确认此错误意味着您已了解在 7- 模式下运行的 Data ONTAP 与 ONTAP 之间 qtree 导出规则的差异。在 7- 模式过渡工具应用 NFS 导出规则后，您可能需要执行一些手动步骤。</block>
-  <block id="635d884e298b628bc86c8dfa3beaa43b" category="inline-link">NetApp 知识库文章 8010371 ： 7MTT 预检 10111 - 过渡 7- 模式卷 具有 qtree 级导出的</block>
-  <block id="b7d9c1c9dc21f73a9710e128f255e3de" category="paragraph"><block ref="76cc089251289f20d272d580a0cb7fad" category="inline-link-rx"></block></block>
   <block id="5124096f4b11e70bfd162b28f23501b0" category="paragraph">要过渡的对象和配置超出特定限制。存储转换可能需要很长时间，您必须为停机做好准备。</block>
-  <block id="55aa226e76142230ea3e2e60c3300d1c" category="inline-link">NetApp 知识库文章 3014882 ：在无副本过渡期间缩短存储转换时间的注意事项</block>
-  <block id="f5620ac4f331783f990692b9f2078fe8" category="paragraph"><block ref="a86b9e1b927d9778e699c72d1d375399" category="inline-link-rx"></block></block>
   <block id="c75b197507e2d158f2e5b19e24d219f3" category="paragraph">即使 7- 模式系统的 CIFS Active Directory 域与目标 SVM 的 CIFS Active Directory 域不同， 7- 模式过渡工具仍会继续过渡 CIFS 配置。</block>
   <block id="41c2904cfced31e323718ea98cede375" category="paragraph">您必须确保 7- 模式系统的 CIFS Active Directory 域和目标 SVM 是受信任的域。否则，将 CIFS 配置过渡到目标 SVM 将失败。</block>
   <block id="32f0eae804f29186c7413dc355cd4b42" category="paragraph"><block ref="32f0eae804f29186c7413dc355cd4b42" category="inline-link-rx"></block></block>
@@ -7351,10 +7344,6 @@
   <block id="294ed429f3ed2548ab75f1b87845ce8b" category="paragraph"><block ref="294ed429f3ed2548ab75f1b87845ce8b" category="inline-link-rx"></block></block>
   <block id="1d0fe3d6b69b0ad2a9f89a1a2dffe662" category="inline-link">光纤连接的 MetroCluster 安装和配置， ONTAP 9.9.1</block>
   <block id="b1de632dd945f69691092a6e7d859caa" category="paragraph"><block ref="b1de632dd945f69691092a6e7d859caa" category="inline-link-rx"></block></block>
-  <block id="344245ffd5e989ae89c20e32c008fa81" category="inline-link">网络和 LIF 管理 /ONTAP 9.7 及更早版本</block>
-  <block id="deacabb337a4e4593417f763b7ee9cdd" category="paragraph"><block ref="deacabb337a4e4593417f763b7ee9cdd" category="inline-link-rx"></block></block>
-  <block id="1d3cfe94d22cd88aa57d3292be16ce6a" category="inline-link">网络和 LIF 管理 /ONTAP 9.8 及更高版本</block>
-  <block id="7c2408d034a81cd431503102ae3cf257" category="paragraph"><block ref="7c2408d034a81cd431503102ae3cf257" category="inline-link-rx"></block></block>
   <block id="26ed02718973e705cd69ee6e109400e0" category="inline-link">System Manager</block>
   <block id="a933edb21df2b9c42c8b8276a631be9a" category="paragraph"><block ref="a933edb21df2b9c42c8b8276a631be9a" category="inline-link-rx"></block></block>
   <block id="336452ce2a76fb646223965970cdc183" category="paragraph">所有最新的 ONTAP 版本均支持过渡 SnapLock 卷。</block>
@@ -7408,4 +7397,10 @@
   <block id="856bd2e5c36198b1a4a96c3c36174ff1" category="paragraph">要将7-模式SnapLock 卷过渡到ONTAP 9.10.1或更高版本、必须使用手动创建ONTAP 卷<block ref="9febb3295321c7fd9a2154b2dd4fe68c" prefix=" " category="inline-code"></block> 标志。手动创建卷后、使用7-模式过渡工具管理过渡。</block>
   <block id="a0067b25c6979c2f6c86fb81b30b1b94" category="paragraph">如果使用7-模式过渡工具在ONTAP 9.10.1或更高版本中创建卷、则不会将该卷创建为SnapLock 卷、从而导致SnapMirror基线失败。</block>
   <block id="b5d693096cb7f86384fa4012d1d2a0cb" category="paragraph"><block ref="b5d693096cb7f86384fa4012d1d2a0cb" category="inline-link-rx"></block></block>
+  <block id="62862e43a259c6f657835385994bd50d" category="inline-link">7MTT预检10111 -过渡具有qtree级别导出的7-模式卷</block>
+  <block id="57c8efcc3c67cc0cf40f5ccea4480938" category="paragraph"><block ref="57c8efcc3c67cc0cf40f5ccea4480938" category="inline-link-rx"></block></block>
+  <block id="fe4c4243327571d5d4dfbb7d050df34d" category="inline-link">在无副本过渡期间缩短存储转换时间的注意事项</block>
+  <block id="6705b8d93729b2ab59445f3c547fe952" category="paragraph"><block ref="6705b8d93729b2ab59445f3c547fe952" category="inline-link-rx"></block></block>
+  <block id="53b500e941f815e0da37832bbbb3f265" category="inline-link">使用 System Manager 进行集群管理</block>
+  <block id="54875b6362e405aeb3f3e1f1b65a3cc7" category="paragraph"><block ref="54875b6362e405aeb3f3e1f1b65a3cc7" category="inline-link-rx"></block></block>
 </blocks>

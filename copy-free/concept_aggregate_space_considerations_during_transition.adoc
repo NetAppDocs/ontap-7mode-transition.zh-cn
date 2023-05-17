@@ -101,4 +101,4 @@ ONTAP 不支持文件保证。
 
 xref:reference_ignorable_errors_during_transition.adoc[过渡期间发生可忽略的错误]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+https://["磁盘和聚合管理"]

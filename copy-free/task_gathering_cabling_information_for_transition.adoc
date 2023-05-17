@@ -61,7 +61,7 @@ host1> sysconfig 3
 如果目标平台和 ONTAP 版本也支持扩展卡，您可以计划将其从 7- 模式系统中移动。如果需要，您还可以规划 PAM 卡。
 
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://["NetApp Hardware Universe"]
 
 .. 规划用于磁盘架布线的目标端口。
 +
@@ -96,8 +96,8 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 * 相关信息 *
 
-https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["《适用于 DS4243 ， DS2246 ， DS4486 和 DS4246 的 SAS 磁盘架安装和服务指南》"]
+https://["《适用于 DS4243 ， DS2246 ， DS4486 和 DS4246 的 SAS 磁盘架安装和服务指南》"]
 
-https://library.netapp.com/ecm/ecm_download_file/ECMM1280273["《 DiskShelf14mk2 AT 硬件服务指南》"]
+https://["《 DiskShelf14mk2 AT 硬件服务指南》"]
 
-https://library.netapp.com/ecm/ecm_download_file/ECMP1112854["《 DS14mk2 FC 和 DS14mk4 FC 硬件服务指南》"]
+https://["《 DS14mk2 FC 和 DS14mk4 FC 硬件服务指南》"]

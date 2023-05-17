@@ -107,4 +107,4 @@ ONTAP 中支持某些 NFS 配置，但 7- 模式过渡工具不会过渡这些�
 
 * 相关信息 *
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]
+https://["NFS 管理"]

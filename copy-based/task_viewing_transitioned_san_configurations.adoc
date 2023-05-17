@@ -49,4 +49,4 @@ LUN#2,/vol/vol_SANdataset_sm_0/lun-payroll,dtY5B4tFAaAC,LnxGrp2,2,/vol/vol_SANda
 
 在还原对过渡后的 ONTAP 卷的访问之前，您必须在主机上执行所需的过渡后任务。
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 主机过渡和修复"]
+http://["SAN 主机过渡和修复"]
