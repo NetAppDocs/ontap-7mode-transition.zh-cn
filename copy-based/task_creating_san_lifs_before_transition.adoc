@@ -34,4 +34,4 @@ summary: 由于 7- 模式过渡工具不会过渡 FC 和 iSCSI LIF ，因此过�
 
 * 相关信息 *
 
-https://["SAN 管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 管理"]

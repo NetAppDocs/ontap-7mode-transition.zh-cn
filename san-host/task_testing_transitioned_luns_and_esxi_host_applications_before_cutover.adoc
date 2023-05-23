@@ -78,4 +78,4 @@ xref:concept_post_transition_requirements_for_esxi_hosts.adoc[ESXi 主机的过�
 
 * 相关信息 *
 
-http://["基于副本的过渡"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基于副本的过渡"]

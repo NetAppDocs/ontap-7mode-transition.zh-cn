@@ -64,6 +64,6 @@ ONTAP 仅支持使用文件和 DNS 进行主机查找；不支持其他数据库
 
 xref:task_customizing_configurations_for_transition.adoc[自定义 7- 模式配置的过渡]
 
-https://["NFS 管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]
 
-https://["网络和 LIF 管理"]
+https://docs.netapp.com/us-en/ontap/networking/index.html["网络和 LIF 管理"]

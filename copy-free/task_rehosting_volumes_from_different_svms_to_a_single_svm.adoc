@@ -78,7 +78,7 @@ summary: 通过卷重新托管，您可以将过渡后的卷从一个 SVM 迁移
 
 
 +
-https://["NFS 管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]
 
 * * 重新托管 CIFS 卷 *
 +
@@ -93,7 +93,7 @@ https://["NFS 管理"]
 
 
 +
-http://["SMB/CIFS 管理"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-cifs/home.html["SMB/CIFS 管理"]
 
 * * 重新托管 SnapMirror 关系中的卷 *
 +
@@ -118,7 +118,7 @@ IMPORTANT: 您不得中断 SnapMirror 关系；否则，目标卷的数据保护
 
 
 +
-http://["数据保护"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["数据保护"]
 
 
 
@@ -141,4 +141,4 @@ NOTE: 如果重新托管操作失败，您可能需要在源卷上重新配置�
 
 * 相关信息 *
 
-http://["ONTAP 9 命令"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 命令"]

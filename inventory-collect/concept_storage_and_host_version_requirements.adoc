@@ -15,4 +15,4 @@ summary: 您必须了解可从中收集清单信息的 7- 模式 Data ONTAP ，�
 
 有关支持清单收集工具评估的 7- 模式版本，主机和 FC 交换机的列表，请参见互操作性表。
 
-https://["NetApp 互操作性表工具"]
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]

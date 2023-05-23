@@ -22,7 +22,7 @@ summary: 要过渡 7- 模式卷 SnapMirror 关系，必须将 SnapMirror 许可�
 
 . 在每个集群中，创建集群对等关系。
 +
-http://["集群和 SVM 对等快速配置"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"]
 
 . 在与 7- 模式二级系统中的计划匹配的二级 SVM 上创建计划：
 +
@@ -32,4 +32,4 @@ http://["集群和 SVM 对等快速配置"]
 
 * 相关信息 *
 
-http://["ONTAP 9 命令"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 命令"]

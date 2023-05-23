@@ -37,11 +37,11 @@ xref:task_transitioning_a_stand_alone_volume.adoc[过渡独立卷]
 
 . 在包含过渡后的主卷和二级卷的 SVM 之间创建集群间 SVM 对等关系。
 +
-https://["系统管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
 
 . 在过渡后的主卷和二级卷之间创建卷 SnapMirror 关系。
 +
-https://["卷灾难恢复快速准备"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-cg/home.html["卷灾难恢复快速准备"]
 
 . 在目标卷上，重新同步 SnapMirror 关系的源卷和目标卷。
 +

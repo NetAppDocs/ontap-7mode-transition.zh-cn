@@ -41,10 +41,10 @@ summary: 迁移 CIFS 本地用户和组时，您必须了解运行过渡操作�
 如果您在预检阶段看到此错误，则必须手动删除映射到 7- 模式系统上的单个域用户或组的其他 SID 。然后，您必须重新运行预检操作，并且仅将一个 SID 映射到域用户或组。
 
 +
-https://["故障排除工作流： CIFS ：连接到系统的设备无法正常运行"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Troubleshooting_Workflow%3A_CIFS%3A_Device_attached_to_the_system_is_not_functioning["故障排除工作流： CIFS ：连接到系统的设备无法正常运行"]
 
 
 
 * 相关信息 *
 
-http://["SMB/CIFS 管理"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-cifs/home.html["SMB/CIFS 管理"]

@@ -43,4 +43,4 @@ NOTE: 要过渡 Kerberos 配置，必须在项目中至少过渡一个 LIF ，�
 
 xref:concept_how_nfs_exports_are_transitioned.adoc[NFS 导出的过渡方式]
 
-http://["NetApp 文档： ONTAP 9"]
+http://docs.netapp.com/ontap-9/index.jsp["NetApp 文档： ONTAP 9"]

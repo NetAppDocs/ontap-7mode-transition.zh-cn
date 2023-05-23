@@ -144,7 +144,7 @@ summary: 您可以使用 transition CBT 命令管理功能，例如创建，修�
  a| 
 `transition CBT add-primary-seven-mode-system ``
 
-https://["CBT ：如何为给定二级项目提供所有必需的主 7- 模式详细信息"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/CBT_%3A_How_to_provide_all_the_required_primary_7-Mode_details_for_a_given_secondary_project["CBT ：如何为给定二级项目提供所有必需的主 7- 模式详细信息"]
 
 
 
@@ -153,7 +153,7 @@ https://["CBT ：如何为给定二级项目提供所有必需的主 7- 模式�
  a| 
 `transition CBT add-secondary cluster-mode-system`
 
-https://["CBT ：如何将所需的二级集群详细信息添加到主项目中"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/CBT%3A_How_to_add_the_required_secondary_cluster_details_to_the_primary_project["CBT ：如何将所需的二级集群详细信息添加到主项目中"]
 
 
 

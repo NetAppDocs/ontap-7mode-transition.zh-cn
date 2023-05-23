@@ -15,7 +15,7 @@ summary: 过渡之前，您必须确保集群满足各种要求，例如允许 H
 
 * 必须已设置集群和 SVM 。
 +
-https://["软件设置"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["软件设置"]
 
 +
 目标 SVM 不能处于 SVM 灾难恢复关系中。
@@ -28,7 +28,7 @@ https://["软件设置"]
 要将过渡后的卷升级到 64 位格式，需要额外的空间。
 
 +
-https://["磁盘和聚合管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
 * 要在过渡卷 SnapMirror 关系时建立 SVM 对等关系，必须满足以下条件：
 +
@@ -114,7 +114,7 @@ mgmt
 
 
 +
-https://["系统管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
 
 . 在集群的每个节点上创建一个集群间 LIF ，以便在集群和 7- 模式系统之间进行通信：
 +
@@ -165,7 +165,7 @@ system7mode is alive
 对于多路径，每个节点上必须有两个集群间 LIF 。
 
 +
-https://["网络和 LIF 管理"]
+https://docs.netapp.com/us-en/ontap/networking/index.html["网络和 LIF 管理"]
 
 
 

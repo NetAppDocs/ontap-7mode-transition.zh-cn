@@ -41,4 +41,4 @@ xref:task_customizing_configurations_for_transition.adoc[自定义 7- 模式配�
 
 * 相关信息 *
 
-https://["NFS 管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]

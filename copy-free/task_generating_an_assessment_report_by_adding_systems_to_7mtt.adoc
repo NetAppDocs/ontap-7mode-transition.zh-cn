@@ -41,7 +41,7 @@ summary: 您可以通过将系统添加到 7- 模式过渡工具来收集控制�
 +
 ... 从报告菜单中，单击 * 完成每日导出 * 。
 ... 在完成每日导出对话框的搜索字段中，输入 FAS 。
-... 下载 ONTAP SAN 主机 Excel 文件，然后保存该文件。https://["NetApp 互操作性表工具"]
+... 下载 ONTAP SAN 主机 Excel 文件，然后保存该文件。https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 
 
 .. 在命令行界面中，使用 `transition IMT import` 命令导入 IMT 数据。

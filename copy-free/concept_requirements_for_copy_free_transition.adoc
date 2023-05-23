@@ -19,11 +19,11 @@ link:https://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["《
 
 * * 平台型号 *
 +
-只有中端和高端 FAS 系统以及 IBM N 系列系统才支持无副本过渡。。 https://["NetApp 互操作性表工具"] 提供了有关 7- 模式系统和目标集群节点支持的平台的最新信息。
+只有中端和高端 FAS 系统以及 IBM N 系列系统才支持无副本过渡。。 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"] 提供了有关 7- 模式系统和目标集群节点支持的平台的最新信息。
 
 * * 7- 模式源系统中的 Data ONTAP *
 +
-有关 7- 模式过渡工具支持迁移的 7- 模式版本列表，请参见 https://["NetApp 互操作性表工具"]
+有关 7- 模式过渡工具支持迁移的 7- 模式版本列表，请参见 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 
 * * ONTAP 目标系统 *
 +
@@ -65,19 +65,19 @@ NOTE: 不支持磁盘架型号 DS14mk2 FC 。
 您必须在 7- 模式系统和目标集群节点上下载并安装最新的磁盘认证包，磁盘固件以及磁盘架和 ACP 固件。
 
 +
-https://["NetApp 下载：磁盘认证包"]
+https://mysupport.netapp.com/NOW/download/tools/diskqual/["NetApp 下载：磁盘认证包"]
 
 +
-https://["NetApp 下载：磁盘驱动器固件"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"]
 
 +
-https://["NetApp 下载：磁盘架固件"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"]
 
 * * 用于验证布线的工具 *
 +
 在过渡期间将 7- 模式磁盘架连接到目标集群节点后，必须使用 Config Advisor 验证布线。
 
 +
-https://["NetApp 下载： Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
 
 

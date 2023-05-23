@@ -107,7 +107,7 @@ ignore-target-port-requirement
 
 确认此错误意味着您已了解在 7- 模式下运行的 Data ONTAP 与 ONTAP 之间 qtree 导出规则的差异。在 7- 模式过渡工具应用 NFS 导出规则后，您可能需要执行一些手动步骤。
 
-https://["7MTT预检10111 -过渡具有qtree级别导出的7-模式卷"]
+https://kb.netapp.com/onprem/ontap/da/NAS/7MTT_Precheck_10111_-_How_to_transition_7-Mode_volumes_that_have_qtree_level_exports["7MTT预检10111 -过渡具有qtree级别导出的7-模式卷"]
 
 
 
@@ -116,7 +116,7 @@ https://["7MTT预检10111 -过渡具有qtree级别导出的7-模式卷"]
  a| 
 要过渡的对象和配置超出特定限制。存储转换可能需要很长时间，您必须为停机做好准备。
 
-https://["在无副本过渡期间缩短存储转换时间的注意事项"]
+https://kb.netapp.com/onprem/ontap/os/Storage_cutover_time_considerations_for_Copy-Free_Transition["在无副本过渡期间缩短存储转换时间的注意事项"]
 
 
 
@@ -127,7 +127,7 @@ https://["在无副本过渡期间缩短存储转换时间的注意事项"]
 
 您必须确保 7- 模式系统的 CIFS Active Directory 域和目标 SVM 是受信任的域。否则，将 CIFS 配置过渡到目标 SVM 将失败。
 
-https://["如何在 Active Directory 域为时过渡 CIFS 配置 7- 模式和目标 SVM 上的 CIFS 服务器不同"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_transition_CIFS_configurations_when_Active_Directory_Domain_of_CIFS_server_on_7-Mode_and_target_SVM_are_different["如何在 Active Directory 域为时过渡 CIFS 配置 7- 模式和目标 SVM 上的 CIFS 服务器不同"]
 
 |===
 

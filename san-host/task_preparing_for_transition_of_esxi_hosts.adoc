@@ -47,6 +47,6 @@ summary: 从 Data ONTAP 过渡 ESXi 主机之前要完成的任务
 
 * 相关信息 *
 
-http://["在中禁用 VMware DRS 集群时保留资源池 vSphere Web Client"]
+http://kb.vmware.com/kb/2032893["在中禁用 VMware DRS 集群时保留资源池 vSphere Web Client"]
 
-http://["禁用 VMware 高可用性（ HA ）"]
+http://kb.vmware.com/kb/1008025["禁用 VMware 高可用性（ HA ）"]

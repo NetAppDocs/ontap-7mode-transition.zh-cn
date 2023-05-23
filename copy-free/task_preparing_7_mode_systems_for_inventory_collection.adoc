@@ -99,4 +99,4 @@ SystemName\Username
 
 * 相关信息 *
 
-http://["NetApp 支持站点上的文档： mysupport.netapp.com"]
+http://mysupport.netapp.com/["NetApp 支持站点上的文档： mysupport.netapp.com"]

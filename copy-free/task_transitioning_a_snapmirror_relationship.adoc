@@ -21,4 +21,4 @@ summary: 您可以先过渡二级 HA 对，在 7- 模式主卷和集群模式 Da
 
 * 相关信息 *
 
-https://["使用 System Manager 进行集群管理"]
+https://docs.netapp.com/us-en/ontap/concept_administration_overview.html["使用 System Manager 进行集群管理"]

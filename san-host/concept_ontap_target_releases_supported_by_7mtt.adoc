@@ -15,7 +15,7 @@ ONTAP 过渡目标集群的版本支持取决于您要使用的过渡方法，�
 
 请务必查阅当前的 7- 模式过渡工具 _Release Notes_ ，了解有关受支持的目标版本和已知问题的最新信息。
 
-https://["《 7- 模式过渡工具发行说明》"]
+https://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["《 7- 模式过渡工具发行说明》"]
 
 这些 ONTAP 目标版本支持基于副本的过渡。
 

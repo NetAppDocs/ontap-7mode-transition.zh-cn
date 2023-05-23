@@ -72,7 +72,7 @@ NOTE: 如果Windows主机未安装JRE或安装了32位JRE、则7-模式过渡工
 NOTE: 对于JRE 1.8 update 46或更高版本(包括JRE 1.8 update 331)、要使7-模式过渡工具与7-模式系统和ONTAP 系统中的Data ONTAP 进行通信、在7-模式系统和ONTAP 系统中运行的Data ONTAP 上的SSL密钥长度必须至少为1024。
 
 +
-https://["7MTT ：如何解析 TLS 或 SSL 通信问题描述"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/7MTT%3A_How_to_resolve_TLS_or_SSL_communication_issue["7MTT ：如何解析 TLS 或 SSL 通信问题描述"]
 
 
 
@@ -134,4 +134,4 @@ NOTE: 如果使用 Microsoft Internet Explorer 作为 Web 浏览器，则必须�
 
 * 相关信息 *
 
-https://["NetApp 互操作性"]
+https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性"]

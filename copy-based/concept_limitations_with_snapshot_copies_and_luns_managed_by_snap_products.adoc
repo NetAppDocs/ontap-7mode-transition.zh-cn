@@ -43,18 +43,18 @@ NOTE: 集群模式 Data ONTAP 中新创建的任何 Snapshot 副本均支持所�
 
 最佳做法是，在 7- 模式 Snapshot 副本过期之前保留 7- 模式系统。
 
-http://["NetApp 文档：适用于 Microsoft Exchange Server 的 SnapManager"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30034["NetApp 文档：适用于 Microsoft Exchange Server 的 SnapManager"]
 
-http://["NetApp 文档： SnapManager for Hyper-V"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30055["NetApp 文档： SnapManager for Hyper-V"]
 
-http://["NetApp 文档： SnapManager for SAP"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30037["NetApp 文档： SnapManager for SAP"]
 
-http://["NetApp 文档： SnapManager for Oracle"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30040["NetApp 文档： SnapManager for Oracle"]
 
-http://["NetApp 文档： SnapDrive for UNIX"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30050["NetApp 文档： SnapDrive for UNIX"]
 
-http://["NetApp 文档： SnapDrive for Windows （当前版本）"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30049["NetApp 文档： SnapDrive for Windows （当前版本）"]
 
-http://["NetApp 文档：适用于 Microsoft SQL Server 的 SnapManager"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30041["NetApp 文档：适用于 Microsoft SQL Server 的 SnapManager"]
 
-http://["NetApp 文档：适用于 Microsoft SharePoint 的 SnapManager"]
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30036["NetApp 文档：适用于 Microsoft SharePoint 的 SnapManager"]

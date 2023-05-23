@@ -55,7 +55,7 @@ NOTE: 如果您创建了新的 LIF ，则必须在完成所有项目后使用新
 
 如果您已完成在运行 ONTAP 9.3 或更高版本支持的集群之间过渡 SnapMirror 关系，则必须将 SnapMirror 关系从类型 DP 转换为类型 XDP 。
 
-http://["数据保护"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["数据保护"]
 
 * 相关信息 *
 

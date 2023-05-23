@@ -17,4 +17,4 @@ image::../media/delete_me_cft_preparation_workflow.gif[删除 ME CFT 准备工�
 
 * 相关信息 *
 
-https://["NetApp 互操作性表工具"]
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]

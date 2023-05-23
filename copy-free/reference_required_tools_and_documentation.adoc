@@ -19,7 +19,7 @@ Config Advisor 是无副本过渡所需的工具。您应使用 Config Advisor �
 
 在将 7- 模式磁盘架连接到目标集群节点后，您应使用 Config Advisor 中的 "`transition` " 执行配置文件来验证布线情况。
 
-https://["NetApp 下载： Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
 
 
 
@@ -27,4 +27,4 @@ https://["NetApp 下载： Config Advisor"]
 
 介绍使用无副本过渡进行过渡时必须在 SAN 主机上执行的过渡前和过渡后步骤。
 
-http://["SAN 主机过渡和修复"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 主机过渡和修复"]

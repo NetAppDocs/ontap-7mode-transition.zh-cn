@@ -19,4 +19,4 @@ summary: 7- 模式过渡工具支持过渡 SnapLock 审核卷。过渡 SnapLock 
 
 SnapLock 审核卷是一种 SnapLock 合规性卷。如果目标集群采用 MetroCluster 配置，则不支持过渡 SnapLock 审核卷。
 
-请参见 https://["如何在集群模式 Data ONTAP 中配置审核卷 过渡后的 SnapLock 卷"]
+请参见 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_configure_audit_volume_in_clustered_Data_ONTAP_for_the_transitioned_SnapLock_volumes["如何在集群模式 Data ONTAP 中配置审核卷 过渡后的 SnapLock 卷"]

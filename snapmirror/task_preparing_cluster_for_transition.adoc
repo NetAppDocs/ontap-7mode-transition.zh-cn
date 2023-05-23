@@ -15,7 +15,7 @@ summary: 过渡 7- 模式系统之前，您必须设置集群，并确保集群�
 
 * 必须已设置集群和 SVM 。
 +
-https://["软件设置"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["软件设置"]
 
 +
 目标 SVM 不能处于 SVM 灾难恢复关系中。
@@ -71,9 +71,9 @@ system7mode is alive
 
 对于多路径，每个节点上必须有两个集群间 LIF 。
 
-https://["网络和 LIF 管理"]
+https://docs.netapp.com/us-en/ontap/networking/index.html["网络和 LIF 管理"]
 
 .相关信息
 xref:task_creating_a_transition_peering_relationship.adoc[创建过渡对等关系]
 
-https://["NetApp 文档：产品库 A-Z"]
+https://mysupport.netapp.com/site/docs-and-kb["NetApp 文档：产品库 A-Z"]

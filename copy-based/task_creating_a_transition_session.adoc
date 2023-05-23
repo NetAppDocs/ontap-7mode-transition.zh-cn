@@ -151,7 +151,7 @@ NOTE: 7- 模式过渡工具不会过渡 FC 和 iSCSI LIF 。
  a| 
 ` * 过渡 CBT add-primary-seven-mode-system -p _project_name_ -h _source-host_ -f _management-ipaddress_ -d _data-copy-ipaddress_ [-m _multipathing-ipaddress_]*`
 
-有关详细信息，请参见 https://["CBT ：如何为给定二级项目提供所有必需的主 7- 模式详细信息"]。
+有关详细信息，请参见 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/CBT_%3A_How_to_provide_all_the_required_primary_7-Mode_details_for_a_given_secondary_project["CBT ：如何为给定二级项目提供所有必需的主 7- 模式详细信息"]。
 
 
 
@@ -160,7 +160,7 @@ NOTE: 7- 模式过渡工具不会过渡 FC 和 iSCSI LIF 。
  a| 
 ` * 过渡 CBT add-secondary cluster-mode-system -p _project_name_ -h _c-mode-host-name_ -v _vserver-name_*`
 
-有关详细信息，请参见 https://["CBT ：如何将所需的二级集群详细信息添加到主项目中"]
+有关详细信息，请参见 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/CBT%3A_How_to_add_the_required_secondary_cluster_details_to_the_primary_project["CBT ：如何将所需的二级集群详细信息添加到主项目中"]
 
 |===
 +

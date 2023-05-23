@@ -15,7 +15,7 @@ summary: 在将数据从 7- 模式卷复制到集群模式 ONTAP 卷之前，您
 
 如果存在任何过渡问题，您应查看过渡目标版本的 _Release Notes_。
 
-https://["《 ONTAP 9 发行说明》"]
+https://library.netapp.com/ecmdocs/ECMLP2492508/html/frameset.html["《 ONTAP 9 发行说明》"]
 
 以下版本支持 7- 模式卷和集群模式 ONTAP 卷之间的 SnapMirror 关系：
 

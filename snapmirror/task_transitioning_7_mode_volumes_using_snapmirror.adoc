@@ -17,7 +17,7 @@ summary: 您可以使用集群模式 Data ONTAP SnapMirror 命令将 NAS 和 SAN
 
 *建议：*对于ONTAP 9.11.1及更早版本、您应使用7-模式过渡工具进行基于副本的过渡、以过渡7-模式卷、因为该工具提供了预检查功能、可在迁移过程的每个步骤中验证7-模式和集群、这有助于避免许多潜在问题。该工具可显著简化所有协议、网络和服务配置的迁移以及数据迁移。
 
-http://["《 7- 模式过渡工具发行说明》"]
+http://docs.netapp.com/us-en/ontap-7mode-transition/releasenotes.html["《 7- 模式过渡工具发行说明》"]
 
 此操作步骤提供了使用 SnapMirror 进行过渡时必须执行的高级任务。
 
@@ -44,23 +44,23 @@ http://["《 7- 模式过渡工具发行说明》"]
 
 * 可选：在 SVM 上创建数据 LIF 以启用客户端访问。
 +
-https://["网络和 LIF 管理"]。
+https://docs.netapp.com/us-en/ontap/networking/index.html["网络和 LIF 管理"]。
 
 * 在 SVM 上配置协议，网络和服务。
 +
-** https://["网络和 LIF 管理"]。
-** http://["SMB/CIFS 管理"]
-** https://["NFS 管理"]
+** https://docs.netapp.com/us-en/ontap/networking/index.html["网络和 LIF 管理"]。
+** http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-cifs/home.html["SMB/CIFS 管理"]
+** https://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/home.html["NFS 管理"]
 
 
 * 创建 igroup 并映射 LUN
 +
-https://["SAN 管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["SAN 管理"]
 
 * 如果要过渡包含 LUN 的卷，则必须先在主机上执行所需的过渡后任务，然后才能还原对过渡后的集群模式 Data ONTAP 卷的访问。
 +
-http://["SAN 主机过渡和修复"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-sanspl/home.html["SAN 主机过渡和修复"]
 
 
 
-https://["NetApp 支持"]
+https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
