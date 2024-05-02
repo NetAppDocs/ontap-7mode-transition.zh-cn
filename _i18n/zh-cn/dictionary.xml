@@ -7311,26 +7311,14 @@
   <block id="9653cf98bd0bafa030e219a7067934ce" category="sidebar">7- 模式过渡</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">入门</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新增功能</block>
-  <block id="d176f598177def951b765d49b8a1ad4d" category="sidebar">查看最新版本的 7- 模式中的新增功能 过渡工具</block>
   <block id="35895df246ab4fab18a15ad7203002a7" category="sidebar">安装 7- 模式过渡工具</block>
-  <block id="7ea7bcc99dddaa8df76f592001954899" category="sidebar">了解如何在 Microsoft Windows 或上安装此工具 Linux</block>
   <block id="35f0393a0f809b8834f1e94cf9aeb75d" category="sidebar">收集过渡所需的数据</block>
-  <block id="f8d6780cf027291bb431321789717f05" category="sidebar">了解如何收集对过渡至关重要的信息</block>
   <block id="9715d735daefe53c846d6422d269ba9c" category="sidebar">适用于 7- 模式管理员的命令映射</block>
-  <block id="347239ff36e364d3f29f508ab66f7e5b" category="sidebar">查找与 7- 模式命令等效的 ONTAP</block>
-  <block id="2d0b993704b5291e3d8c9104cd1eb3f4" category="sidebar">了解 7- 模式选项如何映射到 ONTAP 命令参数</block>
   <block id="d1cb91eced95c7ff33565c2ab700e6eb" category="sidebar">7- 模式配置文件如何映射到 ONTAP 命令</block>
-  <block id="a04ffe42a976aa7c8eb5782495546115" category="sidebar">了解 7- 模式配置文件与 ONTAP 配置命令的映射关系</block>
   <block id="dc8134f825a7c1a45f8329a7db06ba5a" category="sidebar">过渡方式</block>
-  <block id="95f77135b69a05aefa342ac301235f29" category="sidebar">使用工具从 7- 模式执行基于副本的过渡 到 ONTAP</block>
-  <block id="a3fa8f36cd3178033ace1b35c238f00d" category="sidebar">使用工具从 7- 模式执行无副本过渡 到 ONTAP</block>
   <block id="606f512fc14158269146a632e3444e35" category="sidebar">使用 SnapMirror 过渡数据</block>
-  <block id="5d2368c109186f55545b33483e97e8d0" category="sidebar">了解如何使用将数据从 7- 模式过渡到 ONTAP snapmirror 命令</block>
   <block id="f7eea647714641318ee86fedbbed4691" category="sidebar">VMware ESXi</block>
-  <block id="689c2aa583e8cf3395af25aaa2ef63f5" category="sidebar">了解 VMware ESXi 主机的过渡前和过渡后要求</block>
   <block id="c73bbd3786350b0a8d3577d82afdf489" category="sidebar">Red Hat Enterprise Linux</block>
-  <block id="80a4be74705a612be3887e601f338c11" category="sidebar">了解 Red Hat Enterprise 的过渡前和过渡后要求 Linux 主机</block>
-  <block id="624868dc01678d5268f2ce0a2b5e6de8" category="sidebar">了解 Microsoft Windows 主机的过渡前和过渡后步骤</block>
   <block id="84a6933c212881ac1351cccc03b06c5a" category="sidebar">适用于 7- 模式管理员的命令映射</block>
   <block id="89f95df2cc05eb9610c67960b12ffda2" category="summary">7- 模式过渡文档提供的信息可帮助您安装和设置 7- 模式过渡工具，使用 SnapMirror 命令过渡数据，执行基于副本或无副本的过渡，收集过渡信息以及完成 SAN 主机的过渡前 / 后过程。</block>
   <block id="ef0aacbe84b0de1c18e96c1b40bf48ea" category="paragraph"><block ref="ef0aacbe84b0de1c18e96c1b40bf48ea" category="inline-link-rx"></block></block>
@@ -7376,7 +7364,6 @@
   <block id="6f6819dd21dbd8a646ea9df4c166c414" category="admonition">要评估用于无副本过渡的主机和控制器、您必须使用最新版本的清单收集工具来收集清单。</block>
   <block id="c56554efd1f85bba5b98f6ca401f2fda" category="paragraph"><block ref="c56554efd1f85bba5b98f6ca401f2fda" category="inline-link-macro-rx"></block></block>
   <block id="2926f2591b66c0122ef9f741a49d26aa" category="paragraph">在这两种情况下、您都必须使用最新版本的清单收集工具来收集清单。</block>
-  <block id="d1b92a4930d50c6ed1038655db0d2684" category="sidebar">所有ONTAP 产品文档</block>
   <block id="83e14c89cceb4cee82c0bcea3943ea26" category="paragraph">从ONTAP 9.12.1开始、您无法再使用SnapMirror技术过渡7-模式卷。</block>
   <block id="8d73bc8fd1f6fe79df1b2f9f4cb47d7a" category="paragraph">但是、对于ONTAP 9.11.1及更早版本、您可以使用集群模式Data ONTAP SnapMirror命令将NAS和SAN环境中的7-模式卷过渡到集群模式Data ONTAP 卷。过渡完成后、您必须在集群上设置协议、服务和其他配置。</block>
   <block id="8f2de78b174393b6f012a8a48075011a" category="paragraph">*建议：*对于ONTAP 9.11.1及更早版本、您应使用7-模式过渡工具进行基于副本的过渡、以过渡7-模式卷、因为该工具提供了预检查功能、可在迁移过程的每个步骤中验证7-模式和集群、这有助于避免许多潜在问题。该工具可显著简化所有协议、网络和服务配置的迁移以及数据迁移。</block>
@@ -7403,4 +7390,5 @@
   <block id="6705b8d93729b2ab59445f3c547fe952" category="paragraph"><block ref="6705b8d93729b2ab59445f3c547fe952" category="inline-link-rx"></block></block>
   <block id="53b500e941f815e0da37832bbbb3f265" category="inline-link">使用 System Manager 进行集群管理</block>
   <block id="54875b6362e405aeb3f3e1f1b65a3cc7" category="paragraph"><block ref="54875b6362e405aeb3f3e1f1b65a3cc7" category="inline-link-rx"></block></block>
+  <block id="e8fb469abd5e30926d4d1c7fc20519c2" category="sidebar">7-模式过渡文档提供的信息可帮助您安装和设置7-模式过渡工具、使用SnapMirror命令过渡数据、执行基于副本的过渡或无副本过渡、收集过渡信息以及完成SAN主机的过渡前和过渡后过程。</block>
 </blocks>

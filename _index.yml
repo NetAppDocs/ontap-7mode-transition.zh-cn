@@ -1,0 +1,40 @@
+---
+indexpage:
+  title: 7- 模式过渡文档
+  summary: 7- 模式过渡文档提供的信息可帮助您安装和设置 7- 模式过渡工具，使用 SnapMirror 命令过渡数据，执行基于副本或无副本的过渡，收集过渡信息以及完成
+    SAN 主机的过渡前 / 后过程。
+  keywords: transition, copy, free, 7-mode transition
+  lead: 7-模式过渡文档提供的信息可帮助您安装和设置7-模式过渡工具、使用SnapMirror命令过渡数据、执行基于副本的过渡或无副本过渡、收集过渡信息以及完成SAN主机的过渡前和过渡后过程。
+  tiles:
+  - title: 入门
+    links:
+    - title: 新增功能
+      url: releasenotes.html
+    - title: 安装 7- 模式过渡工具
+      url: "/install-admin/concept_transition_to_clustered_ontap_using_7mtt.html"
+    - title: 收集过渡所需的数据
+      url: "/inventory-collect/concept_collecting_host_and_storage_inventory_information_for_transition_assessment.html"
+  - title: 适用于 7- 模式管理员的命令映射
+    links:
+    - title: 7- 模式命令与 ONTAP 命令的映射关系
+      url: "/command-map/reference_how_7_mode_commands_map_to_clustered_ontap_commands.html"
+    - title: 7- 模式选项与 ONTAP 命令的映射关系
+      url: "/command-map/reference_how_7_mode_options_map_to_clustered_ontap_commands.html"
+    - title: 7- 模式配置文件如何映射到 ONTAP 命令
+      url: "/command-map/reference_how_7_mode_configuration_files_map_to_clustered_ontap_commands.html"
+  - title: 过渡方式
+    links:
+    - title: 基于副本的过渡
+      url: "/copy-based/concept_copy_based_transition_workflow.html"
+    - title: 无副本过渡
+      url: "/copy-free/task_copy_free_transition_workflow.html"
+    - title: 使用 SnapMirror 过渡数据
+      url: "/snapmirror/task_transitioning_7_mode_volumes_using_snapmirror.html"
+  - title: SAN 主机过渡和修复
+    links:
+    - title: VMware ESXi
+      url: "/san-host/concept_vmware_esxi_host_remediation.html"
+    - title: Red Hat Enterprise Linux
+      url: "/san-host/concept_linux_host_remediation.html"
+    - title: Windows
+      url: "/san-host/concept_windows_host_remediation.html"
