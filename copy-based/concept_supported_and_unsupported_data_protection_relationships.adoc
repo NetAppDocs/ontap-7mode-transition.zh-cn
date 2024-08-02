@@ -28,7 +28,7 @@ summary: 您可以过渡属于 SnapMirror 关系的卷。但是，某些数据�
 可以迁移作为 SnapVault 关系源的卷，但不会过渡 SnapVault 关系。作为 SnapVault 关系目标的卷只能在 SnapVault 备份停止后迁移。
 
 +
-http://www.netapp.com/us/media/tr-4052.pdf["NetApp 技术报告 4052 ：《成功过渡到集群模式 Data ONTAP 》（ Data ONTAP 8.2.x 和 8.3 ）"]
+https://www.netapp.com/pdf.html?item=/media/19510-tr-4052.pdf["NetApp 技术报告 4052 ：《成功过渡到集群模式 Data ONTAP 》（ Data ONTAP 8.2.x 和 8.3 ）"^]
 
 * qtree SnapMirror 关系
 +

@@ -794,7 +794,6 @@
   <block id="b94690f1d58e7f298c4e94a655b35110" category="paragraph">要使 NFS 客户端能够挂载 qtree ， qtree 必须属于具有只读权限的卷。如果在卷级别没有只读权限， NFS 客户端将无法挂载 qtree 。</block>
   <block id="1b4bd805f1c43c7d5c9719dce981c2f4" category="list-text">如果在只读，读写和 root 访问权限列表的组合中指定了同一主机，则必须在过渡后评估过渡后的导出规则，以确定这些主机的适当访问权限。</block>
   <block id="8fad4be94e9aa7ce4db57aef3f0d7941" category="inline-link">NetApp 技术报告 4067 ：《 NFS 最佳实践和实施指南》</block>
-  <block id="2e5e5fdaff65cd094319505704237d70" category="paragraph"><block ref="2e5e5fdaff65cd094319505704237d70" category="inline-link-rx"></block></block>
   <block id="b014fe06ce5f68b47e31838c02f8644b" category="section-title">示例：修改卷的导出策略以允许访问 qtree</block>
   <block id="c4d849bb273335cc15c5a5e062d19ca2" category="paragraph">请考虑在 7- 模式存储系统（ 192.168.26.18 ）中配置的以下导出规则，该规则允许 NFS 客户端 192.168.10.10 对卷 volstd10 和 qtree qtree1 进行读 / 写访问：</block>
   <block id="1907717ab9a8223ee3ce06ec78e360cc" category="paragraph">过渡后， ONTAP 中卷 volsdt10 的导出策略如下所示：</block>
@@ -951,7 +950,6 @@
   <block id="78d5370e8aa2de33bfb3726f9ee8f4bd" category="paragraph">不支持过渡以下类型的卷：</block>
   <block id="c430dd51b2ab30bb9d95b21ca0f8d42f" category="paragraph">您可以使用基于主机的过渡方法过渡传统卷。</block>
   <block id="664f739c9dfce166b4c021cac0d8633e" category="inline-link">NetApp 技术报告 4052 ：《成功过渡到集群模式 Data ONTAP 》（ Data ONTAP 8.2.x 和 8.3 ）</block>
-  <block id="755b3c98012d25558d664e3aae2c2528" category="paragraph"><block ref="755b3c98012d25558d664e3aae2c2528" category="inline-link-rx"></block></block>
   <block id="092b8bff355a822658e73052e9a961f2" category="list-text">SnapLock 卷</block>
   <block id="056d78c845232f9f3c919b1d5a3acbb1" category="section-title">卷状态</block>
   <block id="4c0d2f9c23003e6c2b0d15a162dfdd45" category="paragraph">如果为过渡选择的任何 7- 模式卷处于以下状态之一，则过渡将被阻止：</block>
@@ -1664,7 +1662,6 @@
   <block id="ee938c4ccb225fb1eaa8be3c480458c0" category="paragraph">您应使用以下工作流确定过渡前是否需要升级。</block>
   <block id="92cd2f5e96983a715cf5b509f4aa5a2b" category="image-alt">已更新 32 位升级路径</block>
   <block id="13434f43b15c9640896f4fc73fa54221" category="inline-link">NetApp 技术报告 3978 ：《 32 位聚合原位扩展到 64 位概述和最佳实践》</block>
-  <block id="0a2da8e756e37983a5c9c20d332cfa66" category="paragraph"><block ref="0a2da8e756e37983a5c9c20d332cfa66" category="inline-link-rx"></block></block>
   <block id="b5362a7d7654e6447bdebb87710c04a3" category="summary">过渡操作，例如过渡准备，启动，暂停，恢复或完成， 在控制器接管或交还期间失败。</block>
   <block id="4168d0ca49294a334ff53f28de6ad37e" category="paragraph">如果过渡操作因接管而失败，则必须等待交还完成，然后再次运行过渡操作。</block>
   <block id="8eb7fd09aa9dc6b05b213a0ac77500c0" category="paragraph">如果在基线传输期间发生控制器接管，则传输将失败。要从基线传输中止的位置恢复此传输，您必须等待交还完成。</block>
@@ -7391,4 +7388,7 @@
   <block id="53b500e941f815e0da37832bbbb3f265" category="inline-link">使用 System Manager 进行集群管理</block>
   <block id="54875b6362e405aeb3f3e1f1b65a3cc7" category="paragraph"><block ref="54875b6362e405aeb3f3e1f1b65a3cc7" category="inline-link-rx"></block></block>
   <block id="e8fb469abd5e30926d4d1c7fc20519c2" category="sidebar">7-模式过渡文档提供的信息可帮助您安装和设置7-模式过渡工具、使用SnapMirror命令过渡数据、执行基于副本的过渡或无副本过渡、收集过渡信息以及完成SAN主机的过渡前和过渡后过程。</block>
+  <block id="6819367dcff0e5919ebb17505dc3e140" category="paragraph"><block ref="6819367dcff0e5919ebb17505dc3e140" category="inline-link-rx"></block></block>
+  <block id="07c5daecfe0dafef7e4667a307affc19" category="paragraph"><block ref="07c5daecfe0dafef7e4667a307affc19" category="inline-link-rx"></block></block>
+  <block id="f7042196519d0be4fd9ec6a8bd4a4b28" category="paragraph"><block ref="f7042196519d0be4fd9ec6a8bd4a4b28" category="inline-link-rx"></block></block>
 </blocks>

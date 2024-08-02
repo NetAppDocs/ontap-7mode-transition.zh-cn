@@ -39,7 +39,7 @@ summary: 过渡内容提要总结了环境中的 7- 模式控制器，主机和 
 
 对于大多数配置，建议使用 7- 模式过渡工具进行过渡。但是，某些工作负载无法使用 7- 模式过渡工具进行过渡，对于这些工作负载，您应使用基于应用程序或基于主机的迁移方法。
 
-http://www.netapp.com/us/media/tr-4052.pdf["NetApp 技术报告 4052 ：《成功过渡到集群模式 Data ONTAP 》（ Data ONTAP 8.2.x 和 8.3 ）"]
+https://www.netapp.com/pdf.html?item=/media/19510-tr-4052.pdf["NetApp 技术报告 4052 ：《成功过渡到集群模式 Data ONTAP 》（ Data ONTAP 8.2.x 和 8.3 ）"^]
 
 
 
