@@ -697,16 +697,11 @@
   <block id="dbd469acdcbd52648cb242bcfda6add3" category="paragraph">您需要登录到 NetApp 支持站点才能访问发行说明。</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="summary">法律声明提供对版权声明、商标、专利等的访问。</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律声明</block>
-  <block id="de6edae22bc37b97b38a15c7f8af62e2" category="paragraph"><block ref="de6edae22bc37b97b38a15c7f8af62e2" category="inline-link-rx"></block></block>
   <block id="126a02652da6de02962cf1b654fd6376" category="section-title">商标</block>
   <block id="a93bc0a57623c2facaa010825c808507" category="paragraph"><block ref="a93bc0a57623c2facaa010825c808507" category="inline-link-rx"></block></block>
   <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">专利</block>
   <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">有关 NetApp 拥有的专利的最新列表，请访问：</block>
-  <block id="547ea2e305891e64d8e744949b0aca2c" category="paragraph"><block ref="547ea2e305891e64d8e744949b0aca2c" category="inline-link-rx"></block></block>
   <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">隐私政策</block>
-  <block id="50921fca0d376fca62102a5e608994e2" category="paragraph"><block ref="50921fca0d376fca62102a5e608994e2" category="inline-link-rx"></block></block>
-  <block id="dd3918c571093dff2b94f7cef5066d01" category="inline-link">NetApp.com</block>
-  <block id="5db028f960e19ec42098e3252e4fb1e3" category="paragraph">有关本地化内容的重要信息，请参见 <block ref="7e89bb7928e951b6f80ad1dab5c58475" category="inline-link-rx"></block></block>
   <block id="52a1ea06b08a85dd70513e8d4aed8c9a" category="summary">只有当 7- 模式 /etc/netgroup 文件小于 5 MB 时，才会过渡网络组配置。只有当 SVM 上的 UNIX 用户和组总数不超过 ONTAP 中用户和组的限制时，才会过渡 UNIX 用户和组。</block>
   <block id="a9f32bc4da8acd2dcd31b5b44ae2386b" category="doc">过渡网络组以及 UNIX 用户和组的注意事项</block>
   <block id="ab106c48087ed963b76d9e3eb879860d" category="paragraph">只有当 7- 模式 ` /etc/netgroup` 文件小于 5 MB 时，才会过渡网络组配置。只有当 SVM 上的 UNIX 用户和组总数不超过 ONTAP 中用户和组的限制时，才会过渡 UNIX 用户和组。</block>
@@ -7391,4 +7386,11 @@
   <block id="07c5daecfe0dafef7e4667a307affc19" category="paragraph"><block ref="07c5daecfe0dafef7e4667a307affc19" category="inline-link-rx"></block></block>
   <block id="f7042196519d0be4fd9ec6a8bd4a4b28" category="paragraph"><block ref="f7042196519d0be4fd9ec6a8bd4a4b28" category="inline-link-rx"></block></block>
   <block id="63e43529b7f7b24b1839eea99296dba7" category="paragraph"><block ref="63e43529b7f7b24b1839eea99296dba7" category="inline-link-rx"></block></block>
+  <block id="52009bb7ee17227f566cd26a02caee56" category="inline-link-macro"><block ref="52009bb7ee17227f566cd26a02caee56" category="inline-link-rx"></block></block>
+  <block id="a1a9afcf552a769c282769271829889a" category="paragraph"><block ref="a1a9afcf552a769c282769271829889a" category="inline-link-macro-rx"></block></block>
+  <block id="5d545fe5152641e2ebe654e336e520e5" category="paragraph"><block ref="5d545fe5152641e2ebe654e336e520e5" category="inline-link-macro-rx"></block></block>
+  <block id="88e5eabd3917048b6927c42496b98f86" category="inline-link-macro"><block ref="88e5eabd3917048b6927c42496b98f86" category="inline-link-rx"></block></block>
+  <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
+  <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
+  <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
 </blocks>

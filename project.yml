@@ -22,7 +22,7 @@ sidebar:
   - section: snapmirror
   - section: san-host
   - title: 法律声明
-    url: "/reference_legal_notices.html"
+    url: "/legal-notices.html"
 product-family:
   name: ONTAP
   repo: ontap-family
