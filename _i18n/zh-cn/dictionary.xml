@@ -1306,10 +1306,7 @@
   <block id="a002bebe861ca7d9294bfdedcc8457a4" category="paragraph">在这种情况下，您必须在目标卷上将 `filesys-size-fixed` 属性设置为 `false` ，然后为卷中的每个 LUN 添加 1 MB 的可用空间。</block>
   <block id="56d69617c95196cd7b04e9a3e367cb9f" category="summary">过渡期间创建的 cron 作业计划不会复制到远程站点，因此过渡后协商切换将失败。过渡后，您必须在远程站点上手动创建 cron 作业计划。</block>
   <block id="6924d105d965bc818204667b25c3fa35" category="paragraph">必须已成功完成 7- 模式活动站点的存储转换。</block>
-  <block id="56d67a3481fa3592848c3a5b17f8cf6e" category="list-text">记录存储转换时生成的 cron 作业消息，以确定必须复制到远程站点的作业计划。</block>
   <block id="050db1b25ac2fb706a721d2fda987027" category="image-alt">MCC cron 作业</block>
-  <block id="6f4a225b29c0975663d0e4b9e1f4547f" category="inline-xref">第 1 步</block>
-  <block id="f4e59e09a780df32b705552d921356e7" category="list-text">从远程站点的集群 CLI 中，运行中记录的 `job schedule cron create` 命令 <block ref="40bb9c2dbe924780f90535eb53c96c09" category="inline-xref-macro-rx"></block>。</block>
   <block id="32f5e0efab1033a94f0fce8758c1e159" category="summary">规划项目构成并确定要在单个过渡操作中过渡的 7- 模式卷有助于减少应用程序的停机时间。了解一些示例方案有助于您在环境中创建项目。</block>
   <block id="c6a680fa6f5571099a4d3d941263481c" category="doc">选择项目中的卷的方案</block>
   <block id="45bfcbbc5fa00ae104e09d347a6c0d82" category="section-title">双向 SnapMirror 关系</block>
@@ -3772,7 +3769,6 @@
   <block id="3f82779863573a462ce6df53c2d15037" category="paragraph">如果目标平台和 ONTAP 版本也支持扩展卡，您可以计划将其从 7- 模式系统中移动。如果需要，您还可以规划 PAM 卡。</block>
   <block id="e5e09031843479ef9ef8cbbd4c2f404c" category="inline-link">NetApp Hardware Universe</block>
   <block id="25c779b977dab5ebed0156b6fb5f864b" category="paragraph"><block ref="25c779b977dab5ebed0156b6fb5f864b" category="inline-link-rx"></block></block>
-  <block id="c99ed02206ba315f27673ed2ed2e2be5" category="list-text">规划用于磁盘架布线的目标端口。</block>
   <block id="5f4bb9f373b8b7eb14528c5e56d3a960" category="paragraph">选择目标端口取决于以下某些因素：</block>
   <block id="5af1047f6a52bed5b9e88209553db88b" category="list-text">单独或现有磁盘架堆栈</block>
   <block id="248bd84b59f326248a63f724fa4120db" category="list-text">端口可用性</block>
@@ -3781,8 +3777,6 @@
   <block id="c5f8c1694e10aa9aaa04c4103548b6ab" category="list-text">转至数据中心，在布线工作表中以物理方式记录 7- 模式控制器和目标集群节点上的端口连接：</block>
   <block id="96c77534f4e732841df47aeea522a16f" category="list-text">在布线工作表中记录 7- 模式控制器上使用的端口。</block>
   <block id="dcf45c67fdd343f6fdb2a75d03216b3d" category="list-text">在布线工作表中记录目标集群节点上的已用端口。</block>
-  <block id="61aad8d68763eeb34f087df41afe9046" category="inline-xref">#sted_D0CFE719A0384F7FA5D9E73C8EA6C2E7</block>
-  <block id="7228917a72237695cb7f8398b368a128" category="list-text">按照步骤中的计划，记录用于连接 7- 模式磁盘架的目标端口 <block ref="b1c9ff000d7eea34090da505bd97b9b2" category="inline-xref-macro-rx"></block>。</block>
   <block id="134567e13f36977937ec0fc19396c792" category="list-text">确保使用合适的缆线连接磁盘架。</block>
   <block id="38a588970794a090b165ee6dafef47de" category="paragraph">您应根据新的磁盘架堆栈位置确定布线的任何问题。</block>
   <block id="98c4e280f01898271436bce1aaf2c90f" category="list-text">根据梯形机架或数据中心的要求，规划较长的缆线长度。</block>
@@ -3887,7 +3881,6 @@
   <block id="c6800c8d25f128e205909c5fba11f1a0" category="list-text">在 7- 模式过渡工具中，对包含 7- 模式卷 SnapMirror 关系的二级卷的 HA 对执行无副本过渡。</block>
   <block id="3d2a3f9a48b14cb17e2e26b5329d8489" category="list-text">在二级 HA 对的预提交测试阶段，在 7- 模式主卷和 ONTAP 二级卷之间创建灾难恢复关系：</block>
   <block id="3de9f1ec939623ed8a35e8af4029ba7f" category="list-text">在二级目标集群中，使用 `vserver peer transition create` 命令在 7- 模式主卷和 ONTAP 二级卷之间创建 SVM 对等关系。</block>
-  <block id="abd6c29925b9da2b0e5e560fe521095b" category="list-text">使用 `snapmirror create` 命令在 7- 模式主卷和 ONTAP 二级卷之间创建 TDP 类型的 SnapMirror 关系。</block>
   <block id="bec75b390fd499703f83b3a653897f41" category="list-text">使用 `snapmirror resync` 命令重新同步 ONTAP 二级卷。</block>
   <block id="5be61d1c19b9cf63fbe95fc4faca0177" category="paragraph">要成功重新同步， 7- 模式主卷和 ONTAP 二级卷之间必须存在一个通用的 7- 模式 Snapshot 副本。</block>
   <block id="94341884edc1466591d0ffae22ca4031" category="list-text">对过渡后的聚合和卷执行所需的测试。</block>
@@ -3895,10 +3888,6 @@
   <block id="f519a6c2cb3cad67f09ef066a7622ff9" category="list-text">对包含 7- 模式卷 SnapMirror 关系中的主卷的 HA 对执行无副本过渡。</block>
   <block id="40ef940bd40cda196039f70841a82e9d" category="list-text">在主 HA 对的预提交测试阶段，在过渡后的二级卷和主卷之间创建 SnapMirror 关系。</block>
   <block id="2513e565b01e1729c76dc190b025cf15" category="list-text">从目标集群中，在包含过渡后的主卷和二级卷的 SVM 之间创建集群间 SVM 对等关系。</block>
-  <block id="94da684aab1e334dcb3f93e814253df3" category="inline-xref">#substed_d528769DF8EC49058D1958565914CF47</block>
-  <block id="248acb349bff86bdf8d05eac829addfe" category="list-text">使用 `snapmirror delete` 命令删除 TDP SnapMirror 7- 模式主卷与 ONTAP 二级卷之间的关系 在步骤中创建的卷 <block ref="d912f636a546a4e165a4ab068a1f14dd" category="inline-xref-macro-rx"></block>。</block>
-  <block id="ecd6349085d3817811e14a1fef82e45f" category="inline-xref">#substed_EB470706425C45759EAAE8F0A87BA547</block>
-  <block id="40571e14d0604020c14c41f60e9f0aef" category="list-text">删除在步骤中创建的 cron 作业计划 <block ref="819a7267eafd97b3bdee371a34d0ed73" category="inline-xref-macro-rx"></block>： + ` * 作业计划 cron delete*`</block>
   <block id="f2ddb5d013487d5bac93e7ad9ff2c424" category="list-text">在目标卷上，重新同步 SnapMirror 关系的源卷和目标卷： + ` * snapmirror resynchron*`</block>
   <block id="490af61005a8e30a4f39eaa19e3e6885" category="paragraph">* 故障排除： * 如果通用 Snapshot 副本是在 8.1 之前的 Data ONTAP 版本中创建的，则 SnapMirror 重新同步将失败。您可以在高级权限级别将 ` -fs-version` 参数与 `volume snapshot show` 命令结合使用，以查看创建 Snapshot 副本的版本。如果发生此问题描述，请中断 SnapMirror 关系，然后执行重新同步。</block>
   <block id="351f13de9ff677e9e64387882375e203" category="list-text">监控 SnapMirror 数据传输的状态： + ` * snapmirror show*`</block>
@@ -6573,7 +6562,6 @@
   <block id="12241ca62a5f466600f85579d7a5621d" category="inline-xref-macro">过渡后使用 ESXi 命令行界面重新挂载 VMFS 卷</block>
   <block id="54dbd515014f8754d06f5a73938187bd" category="paragraph"><block ref="54dbd515014f8754d06f5a73938187bd" category="inline-xref-macro-rx"></block></block>
   <block id="70cd8bfb8fd7a4082087201414ab2fe4" category="inline-link">VMware 文档</block>
-  <block id="d633cb697a85a6f1583f27ebb730aa9d" category="paragraph"><block ref="d633cb697a85a6f1583f27ebb730aa9d" category="inline-link-rx"></block></block>
   <block id="6129214abc2601ac355aa91d15585e29" category="summary">如果从 7- 模式 Data ONTAP 过渡后 ONTAP LUN 的性能未达到预期，则可以在 Windows 主机上从 ONTAP 回滚到 7- 模式 LUN 。</block>
   <block id="2c33ff4fe7c7f1772ef03271deb047f7" category="doc">将 ONTAP LUN 回滚到 Windows 主机上的 7- 模式 LUN</block>
   <block id="7a5d028296a9a5a28309664b60434fcc" category="paragraph">必须将 7- 模式 LUN 重新映射到主机。</block>
@@ -7207,8 +7195,6 @@
   <block id="32d46f0fb14bae8d2799d22572e5db2c" category="list-text">重新挂载具有相同签名的 VMFS 卷：</block>
   <block id="ad09814a717686016e78bb23521de190" category="list-text">对于常规卷： + ` * esxcfg-volume -M|-persistent-mount _VMFS UUID_label-*`</block>
   <block id="13aae5ff325c1f03aaf3a6f61085dd01" category="list-text">对于跨区卷： + ` * # esxcfg-volume -M vmfs-span-ds*`</block>
-  <block id="baac49f6b9ebfd143ed3b2c09d053dd6" category="inline-link">VMware 知识库： vSphere 处理检测为快照 LUN 的 LUN</block>
-  <block id="340ed4ab7a5f5df96c87c05ebd7bbc95" category="paragraph"><block ref="411577a5b9a67e2af78c159ae9aa1695" category="inline-link-rx"></block></block>
   <block id="dc2bd1e291030c7d2a81153e6384cc98" category="summary">如果使用 7- 模式过渡工具 \ （ 7MTT\ ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本对 Red Hat Enterprise Linux \ （ RHEL\ ）主机执行基于副本的过渡，则可以在转换阶段之前测试 LVM 设备上具有文件系统的已过渡集群模式 Data ONTAP LUN 。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。</block>
   <block id="57164a888be542b73cb15856634e261b" category="doc">在之前测试 LVM 设备上具有文件系统的 LUN 基于副本的过渡的转换阶段</block>
   <block id="70b4b5bbd85d09a60966e19f9b6d5803" category="paragraph">如果使用 7- 模式过渡工具（ 7MTT ） 2.2 或更高版本以及 Data ONTAP 8.3.2 或更高版本对 Red Hat Enterprise Linux （ RHEL ）主机执行基于副本的过渡，则可以在转换阶段之前测试 LVM 设备上具有文件系统的已过渡集群模式 Data ONTAP LUN 。在测试期间，源主机可以继续对源 7- 模式 LUN 运行 I/O 。</block>
@@ -7332,8 +7318,6 @@
   <block id="7c4c3aa83e004e19b84c149dc6a0e3ef" category="list-text">按照中所述配置集群模式 Data ONTAP <block ref="bee318f971f59c6bc1bae261561a3636" category="inline-link-rx"></block> 或 <block ref="5051bd660a94246ffa01cc538d6199bf" category="inline-link-rx"></block> 根据要执行的过渡类型。</block>
   <block id="db2e92c38bf2e4054b2bda749743ffad" category="paragraph">请参见 <block ref="5051bd660a94246ffa01cc538d6199bf" category="inline-link-rx"></block> 用于 `vol rehost` 过程。</block>
   <block id="a031cd3bd86e12f6882a99800966f868" category="paragraph">请参见 <block ref="5051bd660a94246ffa01cc538d6199bf" category="inline-link-rx"></block> 了解详细信息。</block>
-  <block id="2d8e41f878e57743dd9b520731d9b484" category="inline-link">VMware 知识库 ID 1009449</block>
-  <block id="1d9b853d8e36f14453c11e0aabdbf782" category="paragraph">如果主机未通过 SAN 启动，并且您需要将服务保持在非过渡 LUN 或非 NetApp 创建的阵列 LUN 上运行，则可以选择不将其关闭。但是，如果不将其关闭，则可能会出现 all-paths-down （ APD ）情况。为了避免 APD 状况，您可以屏蔽在 7- 模式 LUN 中运行的 Data ONTAP 。请参见 <block ref="a4625f2f06156f5339340d176a230c78" category="inline-link-rx"></block> 有关详细信息 ...</block>
   <block id="d16f495e3cbebda9b6c4cecd0dc6b6e4" category="summary">从 Data ONTAP 过渡 ESXi 主机之前要完成的任务</block>
   <block id="b87629f8bc070d14a339f1c969e63368" category="paragraph"><block ref="b87629f8bc070d14a339f1c969e63368" category="inline-link-macro-rx"></block></block>
   <block id="9b362042e3261f213cb36240632cabd5" category="paragraph"><block ref="9b362042e3261f213cb36240632cabd5" category="inline-link-rx"></block></block>
@@ -7393,4 +7377,21 @@
   <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="304480f35ac69dce73c26ea8dc212f0f" category="list-text">[[first-step]]记录在存储切换时生成的 cron 作业消息，以确定必须复制到远程站点的作业计划。</block>
+  <block id="21310f2391c675d4e048f93a144deaf3" category="inline-xref">上一步</block>
+  <block id="f43763b6645cf57e048fdc0ba168539d" category="list-text">在远程站点的集群 CLI 上，运行在<block ref="859f5842129c4a4759882f44afc53f67" prefix=" " category="inline-code"></block>中记录的<block ref="b58d8c3d54851770aeab0247567a2bfd" category="inline-xref-macro-rx"></block>命令。</block>
+  <block id="56a5fd5ee1cb1ec23c47fae6daf055ca" category="list-text">[[destination-port]]规划要用于磁盘架布线的目标端口。</block>
+  <block id="ac0ff390cca47b5ecd643e3fd2f4f0fe" category="inline-xref">上一步</block>
+  <block id="faf395b2370e501ed1c3fc593f07f501" category="list-text">按照 <block ref="f581762bc4c4f522b3bc6c91f1e40278" category="inline-xref-macro-rx"></block> 中的计划，记录要用于连接 7-Mode 磁盘架的目标端口。</block>
+  <block id="adaed49d94274d6f32b9d145b25fb9d5" category="list-text">[[_step_2b]] 使用 <block ref="859f5842129c4a4759882f44afc53f67" prefix=" " category="inline-code"></block> 命令创建与为 7-Mode SnapMirror 关系配置的计划相匹配的作业计划。</block>
+  <block id="efeb05c0b42963effc2184adf29807e8" category="list-text">[[_step_2c]] 使用 <block ref="f95e5ae9c757f4c65e42842a276ea620" prefix=" " category="inline-code"></block> 命令在 7-Mode 主卷和 ONTAP 辅助卷之间创建 TDP 类型的 SnapMirror 关系。</block>
+  <block id="81687cfef608080eeb5601927b892dea" category="inline-xref">步骤 2c</block>
+  <block id="08236598ab83463c9163b504584666fd" category="list-text">使用<block ref="730d187801768a4d84de4567732a6c18" prefix=" " category="inline-code"></block>命令删除在<block ref="8ba86d171f1e03c9d2f18243579ab2ce" category="inline-xref-macro-rx"></block>中创建的 7-Mode 主卷和 ONTAP 辅助卷之间的 TDP SnapMirror 关系。</block>
+  <block id="c1aff465fb17570aac495a6d34e63c69" category="inline-xref">步骤 2b</block>
+  <block id="e349dbccf337b7db445eb21d68140f3f" category="list-text">删除在 <block ref="9b797ed778b2e7738d0a1a15ae9a8bbf" category="inline-xref-macro-rx"></block> 中创建的 cron 作业计划：+<block ref="1ee48af57a7a72b5bd0eb26c0406af5a" prefix=" " category="inline-code"></block></block>
+  <block id="f069728630c062d046ef4f9b1557a354" category="inline-link-macro">VMware 知识库 ID 304594</block>
+  <block id="78214e7695b190ac2922d59645c9b760" category="paragraph">如果主机未启动 SAN，并且您需要将服务运行到非转换 LUN 或不是由 NetApp 制造的阵列 LUN，则可以选择不将其关闭。但是，如果不关闭它，您可能会遇到全路径关闭 (APD) 情况。为了避免 APD 情况，可以屏蔽在 7-Mode 中运行的 Data ONTAP LUN。有关详细信息，请参见 <block ref="2ad50c8f4942b132ac6e185990deeae1" category="inline-link-macro-rx"></block>。</block>
+  <block id="e6b03c8110e04dd0d860e25d49c3bbfa" category="paragraph"><block ref="e6b03c8110e04dd0d860e25d49c3bbfa" category="inline-link-rx"></block></block>
+  <block id="a980164bd4f5c39a8e28c5cfb56c041b" category="inline-link">Broadcom KB: vSphere 处理检测为快照 LUN 的 LUN</block>
+  <block id="8f89a31842b9ebe49197db5b996b35f7" category="paragraph"><block ref="8f89a31842b9ebe49197db5b996b35f7" category="inline-link-rx"></block></block>
 </blocks>
